@@ -179,6 +179,11 @@ Stand **Version 56** (27.10.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 - **Mikrofon gesperrt?** (in der Claude-App, oder als Datei auf dem Handy) → **🎤 Mikrofon freischalten** → **Im eigenen Fenster öffnen** → Erlauben; deine Loops kommen mit und mit „⤴ Zurück in die App“ wieder zurück. Oder **Aufnahme-App / Datei**.
 - Unten stehen die **Form-Loops** (gespielte Töne): aussetzen, einsetzen, verwalten.
 
+### Neu in v61: Einzelklang, stabiler Klang
+- **🎤 Einzelklang aufnehmen** (in der Loopstation): ein Geräusch, Ton, Wort oder eine Gesangszeile aufnehmen (bis 8 s, nochmal tippen = fertig). Dann wählen: **🎹 Instrument-Form** (spielbar in der Tonart), **🔁 Loop** (der Klang auf der Eins, wiederholt sich) oder **beides**. **🎹** in einer Spur macht den deutlichsten Klang des Loops zur Instrument-Form.
+- **Ruckelt der Klang?** Menü → **🔊 Klang: stabil (mehr Puffer)**, dann neu laden.
+- **Wo liegen meine Stücke?** Im Speicher dieses Browsers auf diesem Gerät – getrennt je Adresse (GitHub-Seite, Claude-Ansicht, heruntergeladene Datei). Umziehen: Meine Stücke → Sichern und Laden → Als Datei sichern / Datei öffnen.
+
 ### Neu in v60: Takt-Uhr, Wellenbild, Verschieben, Loop als Form
 - **Oben die Takt-Uhr**: die Kästchen sind die Takte des Loops (der laufende leuchtet), die Punkte die Schläge. Darunter vier Schritte: **Aufnehmen · Schließen · Läuft · Dazu** – der aktuelle leuchtet.
 - **Jede Spur ist eine Zeile**: links das große Feld sagt in Worten, was gerade passiert und was dein nächster Tipp tut (z. B. „Gleich: Aufnahme – beginnt in 2 Schlägen“, „● Nimmt auf – Takt 1 von 2“, „▶ Läuft – tippen = dazu aufnehmen“). Rechts das **Wellenbild** mit Taktstrichen; der helle Strich zeigt, wo der Loop gerade ist. „als Nächstes“ = hier landet die nächste Aufnahme.

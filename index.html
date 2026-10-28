@@ -3,6 +3,17 @@
 <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>:root{box-sizing:border-box}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  addEventListener("load", function () {
+    navigator.serviceWorker.register("sw.js").then(function (reg) {
+      reg.addEventListener("updatefound", function () { var w = reg.installing; if (!w) return; w.addEventListener("statechange", function () {
+        if (w.state === "installed" && navigator.serviceWorker.controller) { try { var t = function () { if (typeof UI !== "undefined" && UI.toastAct && typeof App !== "undefined" && App.started) UI.toastAct("Neue KLANGRAUM-Version geladen", "Neu starten", function () { try { Save.now(); } catch (e) {} setTimeout(function () { location.reload(); }, 300); }, 9000); else setTimeout(t, 1500); }; t(); } catch (e) {} }
+      }); });
+    }).catch(function () {});
+  });
+}
+</script>
 
 <title>KLANGRAUM</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -1635,6 +1646,16 @@ body.kland .tabs { grid-template-rows: repeat(6, minmax(0, 1fr)); }
 .lxctl input[type=range] { flex: 1 1 60px; width: auto; min-width: 50px; accent-color: var(--c); }
 .lxadd { min-height: 56px; }
 .lxhint { font-size: 13px !important; }
+
+/* ---------- v61: Einzelklang ---------- */
+.lxonebtn { position: relative; overflow: hidden; display: grid; gap: 2px; justify-items: start; text-align: left; width: 100%; min-height: 58px; padding: 10px 14px; border-radius: 16px; border: 1px solid color-mix(in srgb, var(--spore) 55%, var(--reed)); background: color-mix(in srgb, var(--spore) 12%, var(--kelp)); color: var(--foam); }
+.lxonebtn b { font-size: 15px; } .lxonebtn small { font-size: 12px; color: var(--lichen); }
+.lxonebtn.on { border-color: #EE8A7A; background: #6a1f1a; animation: lsblink 1s ease-in-out infinite alternate; }
+.lxonelv { position: absolute; left: 0; bottom: 0; height: 4px; width: 0; background: var(--spore); }
+.lxone { display: grid; gap: 10px; }
+.lxob { display: grid !important; justify-items: start; text-align: left; gap: 2px; padding: 10px 14px; min-height: 64px; }
+.lxob small { font-weight: 400; font-size: 12px; opacity: .85; }
+.lxctl { gap: 4px; } .lxctl button { min-width: 36px; padding: 0 6px; } .lxctl button.lxpl { min-width: 66px; font-size: 13px; } .lxctl input[type=range] { min-width: 40px; }
 </style>
 
 <canvas id="c" aria-label="Klangraum: dreidimensionale Klangformen" role="img"></canvas>
@@ -1693,7 +1714,7 @@ body.kland .tabs { grid-template-rows: repeat(6, minmax(0, 1fr)); }
 
 <div class="start" id="start">
   <div class="start-inner">
-    <div class="meta">Version 60 · Loopstation mit Takt-Uhr und Wellenbild · Loops verschieben · jeder Loop wird eine Form</div>
+    <div class="meta">Version 61 · Einzelklang → Instrument oder Loop · stabilerer Klang · Loopstation mit Takt-Uhr</div>
     <h1 class="klogoH"><span class="sr">KLANGRAUM</span><span id="klogoStart" aria-hidden="true"></span></h1>
     <p>Formen, die klingen – wie echte Instrumente oder als Synthesizer. Tippe sie an, um zu spielen. Schalte <b>Kneten</b> ein, und du formst sie: rund klingt weich, spitz klingt hell. Setz sie in Bewegung, male sie an, leg deine eigenen Aufnahmen darauf. Wische zur Seite für die nächste Form, mit zwei und drei Fingern regelst du Lautstärke, Tempo, Höhen und Tiefen.</p>
     <button class="enter" id="enter">Eintauchen</button>
@@ -2909,11 +2930,12 @@ class KlangEngine extends AudioWorkletProcessor {
       else if (m.t === "del") { for (const v of this.voices) if (v.fid === m.fid) v.done = true; this.fp.delete(m.fid); this.smp.delete(m.fid); for (const k of [...this.tabs.keys()]) if (k === m.fid || k.indexOf(m.fid + ":") === 0) this.tabs.delete(k); }
       else if (m.t === "delTab") this.tabs.delete(m.id);
       else if (m.t === "stats") { this.late = 0; this.maxV = 0; }
+      else if (m.t === "vmax") { this.vmax = m.v | 0; }
     };
   }
   start(m, off) {
     if (m.cancel) return;
-    if (this.voices.length >= 36) { let i = this.voices.findIndex(v => v.rel); if (i < 0) i = 0; this.voices.splice(i, 1); }
+    let live = 0; for (const v of this.voices) if (!v.steal) live++; if (live >= (this.vmax || 36)) { const v = this.voices.find(v => v.rel && !v.steal) || this.voices.find(v => !v.steal); if (v) v.steal = true; }
     this.voices.push(new Voice(m, off, this));
   }
   process(inputs, outputs) {
@@ -2932,7 +2954,8 @@ class KlangEngine extends AudioWorkletProcessor {
     for (let vi = this.voices.length - 1; vi >= 0; vi--) {
       const v = this.voices[vi], out = outputs[v.bus & 7] || outputs[0];
       let j0 = 0; if (v.off > 0) { j0 = Math.min(n, v.off); v.off -= j0; }
-      if (j0 < n) v.block(out[0], out[1] || out[0], j0, n, this);
+      if (v.steal) { if (!this.tL || this.tL.length < n) { this.tL = new Float32Array(n); this.tR = new Float32Array(n); } const L = this.tL, R = this.tR; L.fill(0); R.fill(0); if (j0 < n) v.block(L, R, j0, n, this); const oL = out[0], oR = out[1] || out[0]; for (let j = 0; j < n; j++) { const g = 1 - j / n; oL[j] += L[j] * g; if (oR !== oL) oR[j] += R[j] * g; } v.done = true; }
+      else if (j0 < n) v.block(out[0], out[1] || out[0], j0, n, this);
       if (v.done) this.voices.splice(vi, 1);
     }
     // Schutz: ein fehlerhafter Wert (NaN/∞) darf nie die Effekte dahinter vergiften – Kanal für diesen Block stumm
@@ -3001,7 +3024,7 @@ const Engine = {
     else if (IS_IOS) { this.silentLoop(); mode = "Stummschalter-Umgehung"; }
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) throw new Error("Dieser Browser kann keinen Klang erzeugen (Web Audio fehlt).");
-    this.ctx = new AC({ latencyHint: "interactive" });
+    this.ctx = new AC({ latencyHint: Stab.hint() });
     // Audio-Thread laden: erst als Blob, dann als data-URL; verbietet die Ansicht beides (Dateivorschau, strenge Einbettung),
     // läuft derselbe Klangcode im Notbetrieb – etwas mehr Verzögerung, aber alles klingt.
     let ok = false;
@@ -3023,7 +3046,7 @@ const Engine = {
     class P { constructor() { const ch = new MessageChannel(); this.port = ch.port1; this.outer = ch.port2; } }
     KLANG_WORKLET(P, (n, k) => { procs[n] = k; }, c.sampleRate, clock);
     this.procs = procs; this.shimmed = true;
-    const eng = new procs["klang-engine"](), B = 2048, sp = c.createScriptProcessor(B, 1, 16);
+    const eng = new procs["klang-engine"](), B = Stab.mobile ? 4096 : 2048, sp = c.createScriptProcessor(B, 1, 16);
     sp.onaudioprocess = e => {
       const ob = e.outputBuffer, ch = []; for (let i = 0; i < 16; i++) { const d = ob.getChannelData(i); d.fill(0); ch.push(d); }
       const t0 = e.playbackTime || c.currentTime;
@@ -3415,14 +3438,14 @@ const Transport = {
     if (this.running || !Engine.ctx) return;
     if (Engine.ctx.state !== "running") Engine.ctx.resume();
     this.running = true; this.t0 = Engine.now() + 0.1; this.step = 0; this.nextT = this.t0; this.stopT = null;
-    this.timer = setInterval(() => this.tick(), 25);
+    this.timer = Ticker.start(() => this.tick());
     TempoRamp.finish();
     for (const f of Forms.list) { Motion.finishGlides(f); f.motPrevH = 0; if (f.ph) f.ph.lk = null; }
     if (typeof UI !== "undefined" && UI.transport) UI.transport();
   },
   // Stopp: alles, was von selbst klingt, verstummt (Schleifen, Bewegung, Eigenspiel, Stück, Vorhören)
   stop() {
-    if (this.timer) clearInterval(this.timer); this.timer = null;
+    if (this.timer) Ticker.stop(this.timer); this.timer = null;
     const was = this.running; this.running = false; this.stopT = Engine.now();
     Engine.post({ t: "allOff" }); Visual.q.length = 0;
     if (typeof Song !== "undefined") Song.stop(true);
@@ -3442,7 +3465,7 @@ const Transport = {
   },
   chordAtStep(step) { const b = Math.floor(step / 16); if (this.userChord != null && b <= this.userChordUntil) return this.userChord; const P = Music.mood.prog; return P[mod(b, P.length)]; },
   tick() {
-    const horizon = Engine.now() + 0.12;
+    const horizon = Engine.now() + this.ahead();
     while (this.nextT < horizon) {
       this.onStep(this.step, this.nextT);
       this.step++; this.nextT += this.spb;
@@ -5906,7 +5929,7 @@ const Sheets = {
   },
   menu() {
     const txt = Sheets.helpText(Music.help);
-    const s = this.open("Menü", this.head("KLANGRAUM · Version 60") + `
+    const s = this.open("Menü", this.head("KLANGRAUM · Version 61") + `
       <div class="field"><label for="rHelp">Wie viel hilft die App? <b id="helpV">${txt[0]}</b></label><input type="range" id="rHelp" min="0" max="100" step="1" value="${Music.help}"><p class="helptext" id="helpT">${txt[1]}</p></div>
       ${TempoUI.html()}
       <div class="row"><button class="btn" id="mGlide">Übergänge: Drehung ${Glide.rot ? "fließend" : "sofort"} · Tempo ${Glide.tempo ? "fließend" : "sofort"}</button></div>
@@ -15414,6 +15437,121 @@ Object.assign(LoopSt, {
 // Feld tippen: gestoppt oder Form steht → läuft weiter (statt Overdub)
 { const tp = LoopSt.tap.bind(LoopSt); LoopSt.tap = async function (i) { const t = this.slots[i]; if (!this.R && t && !(t.on && Transport.running && this.par(t).run)) return this.toggle(i, true); return tp(i); }; }
 
+/* ============================================================
+   v61: Einzelklang (Geräusch, Ton, Wort, Gesang) aufnehmen → Instrument-Form und/oder Loop · Loop → Instrument
+        Klang stabiler: vorausschauender Takt (wächst bei Rucklern), Takt-Uhr im eigenen Faden, weiches Stimmen-Ablösen,
+        Klang-Puffer wählbar · Stücke dauerhaft speichern (Browser-Speicher schützen)
+   ============================================================ */
+
+// ---------- 1) Takt stabil: eigener Zeitgeber + mitwachsender Vorlauf ----------
+const Ticker = {
+  w: null, cbs: new Map(), seq: 0, ok: null,
+  start(fn) {
+    const id = ++this.seq; this.cbs.set(id, fn);
+    if (this.ok !== false && !this.w) { try { const src = "let t=null;onmessage=e=>{if(e.data==='go'){if(!t)t=setInterval(()=>postMessage(0),20);}else{clearInterval(t);t=null;}};"; this.w = new Worker(URL.createObjectURL(new Blob([src], { type: "text/javascript" }))); this.w.onmessage = () => this.fire(); this.ok = true; } catch (e) { this.ok = false; } }
+    if (this.w) { this.w.postMessage("go"); return id; }
+    const t = setInterval(fn, 25); this.cbs.set(id, { t }); return id;
+  },
+  stop(id) { const c = this.cbs.get(id); if (c && c.t) clearInterval(c.t); this.cbs.delete(id); if (this.w && ![...this.cbs.values()].some(v => typeof v === "function")) this.w.postMessage("stop"); },
+  fire() { for (const fn of this.cbs.values()) if (typeof fn === "function") { try { fn(); } catch (e) { console.warn(e); } } }
+};
+Object.assign(Transport, {
+  _ah: 0.12, _lt: 0, gapMax: 0,
+  // Vorlauf: normal 0,12 s; hakt der Hauptfaden (Bild, Kneten, Speichern), wächst er bis 0,4 s und sinkt langsam zurück
+  ahead() {
+    const now = performance.now(), g = this._lt ? (now - this._lt) / 1000 : 0; this._lt = now;
+    if (g > 0.05) { this._ah = Math.max(this._ah, Math.min(0.4, g * 1.5 + 0.06)); this.gapMax = Math.max(this.gapMax, g); }
+    else this._ah = Math.max(Stab.base(), this._ah - 0.0006);
+    return this._ah;
+  }
+});
+// Klang-Puffer: auto (Handy etwas größer), kurz (schnellste Reaktion), stabil (größter Puffer)
+const Stab = {
+  mobile: /Android|iPhone|iPad|iPod/i.test(navigator.userAgent),
+  mode() { const v = Cfg.get("klPuffer"); return v === "kurz" || v === "stabil" ? v : "auto"; },
+  hint() { const m = this.mode(); return m === "kurz" ? "interactive" : m === "stabil" ? "playback" : this.mobile ? "balanced" : "interactive"; },
+  base() { const m = this.mode(); return m === "stabil" ? 0.25 : m === "kurz" ? 0.1 : this.mobile ? 0.16 : 0.12; },
+  vmax() { return this.mode() === "stabil" || this.mobile ? 28 : 36; },
+  NAMES: { auto: "automatisch", kurz: "schnell (wenig Puffer)", stabil: "stabil (mehr Puffer)" },
+  cycle() { const o = ["auto", "stabil", "kurz"], nx = o[(o.indexOf(this.mode()) + 1) % o.length]; Cfg.set("klPuffer", nx); UI.toastAct(`Klang: ${this.NAMES[nx]} – wirkt nach dem Neuladen`, "Neu laden", () => { Save.now && Save.now(); setTimeout(() => location.reload(), 300); }, 6000); return nx; }
+};
+Object.assign(Cfg.DEF, { klPuffer: "auto" });
+// Stimmen-Höchstzahl an den Klangfaden (Handy: weniger, damit nichts knackt)
+{ const iv = setInterval(() => { if (!App.started || !Engine.node) return; clearInterval(iv); try { Engine.post({ t: "vmax", v: Stab.vmax() }); } catch (_) {} }, 400); }
+// Menü: Klang-Puffer umschalten
+{ const op = Sheets.open.bind(Sheets); Sheets.open = function (name, html, ...r) { const s = op(name, html, ...r);
+  try { if (name === "Menü" && s && !s.querySelector("[data-mkl]")) { const a = s.querySelector(".mkp") || s.querySelector(".mmic") || s.querySelector(".mjam"); if (a) { a.insertAdjacentHTML("afterend", `<div class="row mkl"><button class="btn" data-mkl="1">🔊 Klang: <b>${Stab.NAMES[Stab.mode()]}</b></button></div>`); s.querySelector("[data-mkl]").onclick = ev => { Hap(); const v = Stab.cycle(); ev.currentTarget.querySelector("b").textContent = Stab.NAMES[v]; }; } } } catch (e) { console.warn(e); }
+  return s; }; }
+
+// ---------- 2) Stücke dauerhaft speichern ----------
+{ const iv = setInterval(async () => { if (!App.started) return; clearInterval(iv); try { if (navigator.storage && navigator.storage.persist && !(await navigator.storage.persisted())) { const ok = await navigator.storage.persist(); store.set("persist", !!ok); } } catch (_) {} }, 1500); }
+
+// ---------- 3) Einzelklang: kurz aufnehmen → Instrument-Form und/oder Loop ----------
+Object.assign(LoopSt, {
+  one: null,
+  async oneShot() {
+    if (this.one) return this.oneStop(); if (this.R) { UI.toast("Erst die laufende Aufnahme beenden", 1400); return; }
+    if (this.micBlocked(this.free())) return; if (!(await this.micOpen())) return;
+    const N = await this.node("mic"); const O = this.one = Object.assign(N, { src: "mic", ch: 1, chunks: [], rt0: null, lv: 0, sr: Engine.ctx.sampleRate, at: Engine.now() });
+    O.n.port.onmessage = e => { const d = e.data; if (d.t === "t0") O.rt0 = d.v; else if (d.t === "chunk") O.chunks.push(d.d); else if (d.t === "lvl") O.lv = d.v; else if (d.t === "end" && O.done) O.done(); };
+    O.n.port.postMessage({ on: true, ch: 1 }); O.tm = setTimeout(() => this.oneStop(), 8000); Hap(12);
+    MicLog.add("Loopstation: Einzelklang aufnehmen"); this.render(); this.onePill();
+  },
+  onePill() { clearInterval(this.opt); if (UI.tab === "loop") { this.pillEl(null); return; } this.opt = setInterval(() => { const O = this.one; if (!O) { clearInterval(this.opt); this.pillEl(null); return; } const s = Engine.now() - O.at; this.pillEl(`<b>🎤 Einzelklang · ${s.toFixed(1)} s</b><small>tippen = fertig (höchstens 8 s)</small><i style="--lv:${Math.min(1, O.lv * 2.2).toFixed(2)}"></i>`); }, 120); },
+  async oneStop() {
+    const O = this.one; if (!O) return; this.one = null; clearTimeout(O.tm); clearInterval(this.opt); this.pillEl(null);
+    const x = (await this.collect(O))[0], sr = O.sr; if (UI.tab !== "loop") this.micIdle();
+    const y = this.trimSound(x, sr, 6); if (!y) { UI.toastAct("In der Aufnahme war es still – ist das richtige Mikrofon gewählt?", "Prüfen", () => MicFix.sheet(), 4200); this.render(); return; }
+    this.oneChoice(y, sr); this.render();
+  },
+  // Klang ausschneiden: ab dem ersten deutlichen Einsatz bis zum Ausklingen (höchstens max s), Ränder weich
+  trimSound(x, sr, max) {
+    let pk = 0; for (let i = 0; i < x.length; i++) { const a = Math.abs(x[i]); if (a > pk) pk = a; } if (pk < 0.004) return null;
+    let a = 0; while (a < x.length && Math.abs(x[a]) < pk * 0.08) a++; a = Math.max(0, a - Math.round(sr * 0.012));
+    let e = x.length - 1; while (e > a && Math.abs(x[e]) < pk * 0.02) e--; e = Math.min(x.length, e + Math.round(sr * 0.12), a + Math.round(sr * max));
+    if (e - a < sr * 0.05) return null; const y = x.slice(a, e), fd = Math.min(Math.round(sr * 0.03), y.length >> 3);
+    for (let i = 0; i < Math.min(64, y.length); i++) y[i] *= i / 64; for (let i = 0; i < fd; i++) y[y.length - 1 - i] *= i / fd;
+    const g = 0.9 / pk; for (let i = 0; i < y.length; i++) y[i] *= g; return y;
+  },
+  oneChoice(y, sr) {
+    const dur = y.length / sr, s = Sheets.open("Einzelklang", Sheets.head("🎤 Dein Klang") + `<div class="lxone">
+      <p class="kch">Aufgenommen: <b>${dur.toFixed(1)} s</b>. Was soll daraus werden?</p>
+      <button class="btn" data-o1="hear">▶ Anhören</button>
+      <button class="btn primary lxob" data-o1="form"><b>🎹 Instrument-Form</b><small>spielbar in der Tonart: tippen = Töne, drehen = Melodie, kneten = Klang</small></button>
+      <button class="btn lxob" data-o1="loop"><b>🔁 Loop</b><small>${this.L ? this.L / 16 + " Takt" + (this.L > 16 ? "e" : "") : "1 Takt"}, der Klang auf der Eins – wiederholt sich im Takt (auch als Form)</small></button>
+      <button class="btn lxob" data-o1="both"><b>Beides</b><small>Instrument-Form und Loop</small></button></div>`);
+    s.addEventListener("click", e => { const b = e.target.closest("[data-o1]"); if (!b) return; Hap(8); const k = b.dataset.o1;
+      if (k === "hear") { try { const c = Engine.ctx, buf = c.createBuffer(1, y.length, sr); buf.copyToChannel(y, 0); const src = c.createBufferSource(); src.buffer = buf; src.connect(Engine.out); src.start(); } catch (_) {} return; }
+      UI.hideSheets(); if (k === "form" || k === "both") { const f = MicFix.toForm(y.slice(), sr); if (f) f.name = `Klang ${Forms.list.filter(x => /^Klang \d/.test(x.name)).length + 1}`; if (f && k === "form") { UI.setTab("klang"); Forms.setActive(f); } }
+      if (k === "loop" || k === "both") this.oneLoop(y, sr); });
+  },
+  async oneLoop(y, sr) {
+    const i = this.slots.findIndex(t => !t); if (i < 0) { UI.toast("Alle Spuren belegt – in der Loopstation eine leeren oder „＋ Spur“", 2200); return; }
+    const L = this.L || 16, bpm = Music.tempo(), n = Math.round(L * 15 / bpm * sr), z = new Float32Array(n); z.set(y.subarray(0, Math.min(y.length, n)));
+    const fd = Math.min(160, n >> 4); for (let k = 0; k < fd; k++) z[n - 1 - k] *= k / fd;
+    await this.put(i, [z], sr, bpm, L, "mic", 0); UI.toast(`🔁 Spur ${i + 1}: dein Klang auf der Eins, ${L / 16} Takt${L > 16 ? "e" : ""} im Loop`, 2400);
+  },
+  // Loop → Instrument: den lautesten Klang der Spur als spielbare Form
+  toInst(i) {
+    const t = this.slots[i], b = t && this.bufs.get(t.rec); if (!b) return; const d = b.getChannelData(0), sr = b.sampleRate;
+    let mi = 0, mv = 0; for (let k = 0; k < d.length; k += 16) { const a = Math.abs(d[k]); if (a > mv) { mv = a; mi = k; } }
+    let a = mi; const thr = mv * 0.06; while (a > 0 && mi - a < sr * 0.4 && Math.abs(d[a]) > thr) a -= 32;
+    const y = this.trimSound(d.slice(Math.max(0, a), Math.min(d.length, a + sr * 2.5)), sr, 2.5); if (!y) { UI.toast("In dieser Spur ist kein deutlicher Klang", 1600); return; }
+    const f = MicFix.toForm(y, sr); if (f) { f.name = `Klang ${i + 1}`; UI.toastAct(`🎹 „${f.name}“: der Klang aus Spur ${i + 1} als Instrument – tippen spielt ihn in der Tonart`, "Zeigen", () => { UI.setTab("klang"); Forms.setActive(f); }, 4800); }
+  }
+});
+// Ansicht: Knopf „Einzelklang“ und je Spur „🎹“
+{ const r0 = LoopSt.render.bind(LoopSt); LoopSt.render = function () { r0(); try { const el = this.el(); if (!el || UI.tab !== "loop") return; const opt = el.querySelector(".lqopt"); const O = this.one;
+    if (opt && !el.querySelector("[data-ls=one]")) opt.insertAdjacentHTML("afterend", `<button class="lxonebtn${O ? " on" : ""}" data-ls="one"><b>${O ? "■ Fertig" : "🎤 Einzelklang aufnehmen"}</b><small>${O ? "nimmt auf … (höchstens 8 s)" : "ein Geräusch, Ton, Wort oder eine Gesangszeile → Instrument-Form und/oder Loop"}</small><i class="lxonelv"></i></button>`);
+    el.querySelectorAll(".lxctl").forEach(c => { const del = c.querySelector('[data-ls="del"]'); if (del && !c.querySelector('[data-ls="inst"]')) del.insertAdjacentHTML("beforebegin", `<button data-ls="inst" data-i="${del.dataset.i}" aria-label="Klang dieser Spur als Instrument-Form">🎹</button>`); }); } catch (e) { console.warn(e); } }; }
+{ const c0 = LoopSt.click.bind(LoopSt); LoopSt.click = function (e) { const b = e.target.closest("[data-ls]"); if (b && b.dataset.ls === "one") { Hap(10); this.oneShot(); return; } if (b && b.dataset.ls === "inst") { Hap(8); this.toInst(+b.dataset.i); return; } return c0(e); }; }
+{ const s0 = LoopSt.sig.bind(LoopSt); LoopSt.sig = function () { return s0() + (this.one ? "O" : ""); }; }
+{ const a0 = LoopSt.anim.bind(LoopSt); LoopSt.anim = function () { a0(); clearInterval(this.oat); this.oat = setInterval(() => { if (UI.tab !== "loop") { clearInterval(this.oat); return; } const l = document.querySelector(".lxonelv"); if (l) l.style.width = (this.one ? Math.min(1, this.one.lv * 2.2) * 100 : 0).toFixed(0) + "%"; }, 80); }; }
+{ const pp = LoopSt.pillEl.bind(LoopSt); LoopSt.pillEl = function (h) { const p = pp(h); if (p && !p._one) { p._one = 1; p.addEventListener("click", () => { if (LoopSt.one) LoopSt.oneStop(); }, true); } return p; }; }
+// Hilfe
+{ const h = Help.T.find(x => x.id === "loopst"); if (h) h.h = h.h.replace("</ul>", `<li><b>🎤 Einzelklang aufnehmen</b> (in der Loopstation): ein Geräusch, einen Ton, ein Wort oder eine Gesangszeile aufnehmen (höchstens 8 s, nochmal tippen = fertig). Danach wählen: <b>🎹 Instrument-Form</b> (spielbar in der Tonart – tippen spielt Töne, drehen spielt eine Melodie, kneten verändert den Klang), <b>🔁 Loop</b> (der Klang auf der Eins, wiederholt sich im Takt und ist auch eine Form) oder <b>beides</b>. Mit <b>🎹</b> in einer Spur wird der deutlichste Klang eines Loops zur Instrument-Form.</li><li><b>Ruckelt der Klang?</b> Menü → 🔊 Klang: „stabil (mehr Puffer)“ und neu laden. KLANGRAUM plant Töne vorausschauend und vergrößert den Vorlauf selbst, wenn das Handy kurz hakt.</li></ul>`); }
+{ const p = Help.T.find(x => x.id === "proj"); if (p) p.h = p.h.replace(/<\/ul>\s*$/, `<li><b>Wo liegen meine Stücke?</b> Im Speicher <b>dieses Browsers auf diesem Gerät</b>, getrennt je Adresse (die GitHub-Seite, die Claude-Ansicht und eine heruntergeladene Datei haben jeweils ihren eigenen Speicher). Nichts davon wird ins Internet hochgeladen. KLANGRAUM bittet den Browser, den Speicher dauerhaft zu behalten. Zum Sichern oder Umziehen: Meine Stücke → <b>Sichern und Laden → Als Datei sichern</b>, auf dem anderen Gerät bzw. der anderen Adresse <b>Datei öffnen</b>. Browserdaten löschen löscht auch die Stücke.</li></ul>`); }
+
 // Verlässt man das Stück, verstummt auch die Schnitt-Schleife
 { const st = UI.setTab.bind(UI); UI.setTab = t => { if (t !== "stueck") WaveEd.stopAll(); st(t); }; }
 /* ============================================================
@@ -16207,6 +16345,13 @@ const Tests = {
         try { f.still = true; const h1 = Bew.held().includes(f); Bew.sel = new Set([f.id]); Bew.all("sgo"); const ok1 = !f.still; f.still = true; Bew.all("go"); const ok2 = !f.still;
           ok("BV", h1 && ok1 && ok2 && /data-bwa="go"/.test(Bew.html()), `Angehaltene Formen wieder anschubsen: einzeln, Auswahl (${ok1 ? "ok" : "fehlt"}) und alle (${ok2 ? "ok" : "fehlt"}) · im Raum hält Antippen eine drehende Form an`); }
         finally { f.still = s0; Transport.start = ts; UI.toast = tp; } } } catch (e) { ok("BV", false, String(e)); }
+    // v61: Einzelklang, Takt-Vorlauf, Klang-Puffer
+    try { const sr = 48000, x = new Float32Array(sr * 3); for (let i = sr; i < sr * 1.5; i++) x[i] = Math.sin(i / sr * 2 * Math.PI * 330) * 0.5 * Math.exp(-(i - sr) / sr * 4);
+      const y = LoopSt.trimSound(x, sr, 6), st = y ? y.length / sr : 0, pk = y ? Math.max(...Array.from(y.subarray(0, 4000)).map(Math.abs)) : 0;
+      ok("EK", !!y && st > 0.3 && st < 0.75 && pk > 0.5, `Einzelklang ausgeschnitten: ${st.toFixed(2)} s aus 3 s Aufnahme (Stille davor/danach entfernt), Pegel angeglichen · Wahl Instrument-Form / Loop / beides`); } catch (e) { ok("EK", false, String(e)); }
+    try { const keep = { ah: Transport._ah, lt: Transport._lt }; Transport._lt = performance.now() - 200; const a1 = Transport.ahead(); Transport._lt = performance.now() - 20; let a2 = a1; for (let k = 0; k < 400; k++) { Transport._lt = performance.now() - 20; a2 = Transport.ahead(); } Object.assign(Transport, { _ah: keep.ah, _lt: keep.lt });
+      ok("TV", a1 >= 0.3 && a1 <= 0.4 && Math.abs(a2 - Stab.base()) < 0.02 && typeof Ticker.start === "function", `Takt-Vorlauf: nach 200 ms Hänger ${Math.round(a1 * 1000)} ms, danach zurück auf ${Math.round(a2 * 1000)} ms · Zeitgeber ${Ticker.ok ? "im eigenen Faden" : "im Hauptfaden"} · Klang-Puffer ${Stab.mode()} (${Stab.hint()}), höchstens ${Stab.vmax()} Stimmen`); } catch (e) { ok("TV", false, String(e)); }
+
     // v60: Versatz, Loop-Form, Takt-Uhr
     try { const k = { s: LoopSt.slots, L: LoopSt.L, st: LoopSt.startT, sp: LoopSt.stopT, R: LoopSt.R }, hits = [];
       LoopSt.R = null; LoopSt.slots = [{ id: "x", rec: "rX", on: true, bpm: 120, vol: 1, ch: 1, pend: false, shift: 4 }, null, null, null]; LoopSt.L = 32; LoopSt.bufs.set("rX", { duration: 4, length: 192000 });

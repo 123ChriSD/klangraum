@@ -1,0 +1,10 @@
+
+/* ---------- v61: Einzelklang ---------- */
+.lxonebtn { position: relative; overflow: hidden; display: grid; gap: 2px; justify-items: start; text-align: left; width: 100%; min-height: 58px; padding: 10px 14px; border-radius: 16px; border: 1px solid color-mix(in srgb, var(--spore) 55%, var(--reed)); background: color-mix(in srgb, var(--spore) 12%, var(--kelp)); color: var(--foam); }
+.lxonebtn b { font-size: 15px; } .lxonebtn small { font-size: 12px; color: var(--lichen); }
+.lxonebtn.on { border-color: #EE8A7A; background: #6a1f1a; animation: lsblink 1s ease-in-out infinite alternate; }
+.lxonelv { position: absolute; left: 0; bottom: 0; height: 4px; width: 0; background: var(--spore); }
+.lxone { display: grid; gap: 10px; }
+.lxob { display: grid !important; justify-items: start; text-align: left; gap: 2px; padding: 10px 14px; min-height: 64px; }
+.lxob small { font-weight: 400; font-size: 12px; opacity: .85; }
+.lxctl { gap: 4px; } .lxctl button { min-width: 36px; padding: 0 6px; } .lxctl button.lxpl { min-width: 66px; font-size: 13px; } .lxctl input[type=range] { min-width: 40px; }
