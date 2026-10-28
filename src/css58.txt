@@ -1,0 +1,9 @@
+
+/* ---------- v58: versteckte Elemente bleiben versteckt (auch ohne Artifact-Rahmen) · Erklärkarten passen immer auf den Schirm ---------- */
+[hidden]:not([hidden=until-found i]) { display: none !important; }
+.coach { z-index: 76; overflow-y: auto; overscroll-behavior: contain; place-items: start center; align-content: start; touch-action: pan-y; padding-top: max(12px, env(safe-area-inset-top, 0px)); padding-bottom: max(12px, env(safe-area-inset-bottom, 0px)); }
+.coach-card { margin: auto 0; max-height: none; }
+.coach-art { max-height: 26vh; }
+@media (max-height: 640px) { .coach-art { max-height: 18vh; } .coach-card { gap: 8px; padding: 12px 14px 14px; } .coach-card p { font-size: 13.5px; } }
+.coach-card .row { position: sticky; bottom: 0; background: var(--silt); padding-top: 6px; }
+.coach .cskip { background: none; border: 0; color: var(--lichen); text-decoration: underline; font-size: 13px; min-height: 40px; justify-self: center; }

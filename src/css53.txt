@@ -1,0 +1,7 @@
+/* ===== v53: Kneten → Tonhöhe ===== */
+.kpbadge { position: fixed; z-index: 22; left: 50%; transform: translateX(-50%) translateY(6px); top: calc(232px + env(safe-area-inset-top, 0px)); padding: 6px 14px; border-radius: 16px; background: rgba(12, 20, 22, 0.88); border: 1px solid var(--reed); color: var(--foam); font-size: 14px; font-weight: 700; pointer-events: none; opacity: 0; transition: opacity .25s, transform .25s; white-space: nowrap; }
+.kpbadge.on { opacity: 1; transform: translateX(-50%) translateY(0); }
+.kpbadge[data-d="up"] { border-color: var(--glow); color: var(--glow); }
+.kpbadge[data-d="down"] { border-color: var(--spore); color: var(--spore); }
+body.kland .kpbadge, body.kside .kpbadge { top: calc(92px + env(safe-area-inset-top, 0px)); }
+.mkp .btn b { color: var(--glow); }

@@ -1,0 +1,53 @@
+
+/* ---------- v55: Loopstation · Drehtempo-Regler · sechs Bereiche ---------- */
+.tabs { grid-template-columns: repeat(6, 1fr); }
+body.kland .tabs { grid-template-rows: repeat(6, minmax(0, 1fr)); }
+.tabs button { min-width: 0; }
+.tabs #tLoop.live svg { stroke: #E07A68; }
+.lqv { gap: 12px; padding-bottom: 24px; }
+.lqinfo { color: var(--lichen); font-size: 13px; font-weight: 600; }
+.lqbar { height: 6px; border-radius: 3px; background: var(--kelp); overflow: hidden; }
+.lqbar i { display: block; height: 100%; width: 0; background: var(--glow); border-radius: 3px; }
+.lqtip { font-size: 14px !important; }
+.lqwarn { border: 1px solid #8a5a12; background: #2a1f0e; border-radius: 14px; padding: 10px 12px; display: grid; gap: 8px; }
+.lqwarn p { color: #f3d9a8 !important; font-size: 13.5px !important; }
+.lqopt { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.lqlen { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.lqlen .npc[aria-pressed="true"] { background: var(--silt); border-color: var(--glow); color: var(--glow); }
+.lql { color: var(--lichen); font-size: 13.5px; } .lql b { color: var(--foam); }
+.lqpads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (min-width: 700px) { .lqpads { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.lqpad { display: grid; gap: 6px; padding: 8px; border-radius: 18px; background: var(--silt); border: 1px solid var(--reed); min-width: 0; }
+.lqbig { position: relative; overflow: hidden; display: grid; align-content: center; justify-items: center; gap: 3px; min-height: 112px; padding: 10px 6px 14px; border-radius: 14px; border: 2px solid color-mix(in srgb, var(--c) 55%, transparent); background: color-mix(in srgb, var(--c) 14%, var(--kelp)); color: var(--foam); touch-action: manipulation; text-align: center; }
+.lqbig b { font-size: 16px; } .lqbig small { font-size: 11.5px; color: var(--lichen); line-height: 1.3; }
+.lqno { position: absolute; left: 9px; top: 6px; font-size: 12px; font-weight: 700; color: var(--c); }
+.lqprog { position: absolute; left: 0; bottom: 0; height: 5px; width: calc(var(--p, 0) * 100%); background: var(--c); opacity: .9; }
+.lqlv { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(to top, var(--c) calc(var(--lv, 0) * 100%), transparent 0); }
+.lqpad.st-leer .lqbig { border-style: dashed; background: var(--kelp); }
+.lqpad.st-play .lqbig { background: color-mix(in srgb, var(--c) 26%, var(--kelp)); border-color: var(--c); }
+.lqpad.st-stop .lqbig { opacity: .72; }
+.lqpad.st-rec .lqbig, .lqpad.st-dub .lqbig { background: #6a1f1a; border-color: #EE8A7A; animation: lsblink 1s ease-in-out infinite alternate; }
+.lqpad.st-arm .lqbig { background: #5a3d0e; border-color: var(--warn); }
+@keyframes lsblink { to { background: #8e2a22; } }
+.lqpad.st-fehlt .lqbig { opacity: .5; }
+.lsrow { display: flex; gap: 4px; align-items: center; min-height: 38px; }
+.lsrow button { min-width: 38px; height: 38px; border-radius: 11px; border: none; background: var(--kelp); color: var(--foam); font-size: 15px; }
+.lsrow button:disabled { opacity: .35; }
+.lsrow button.del { margin-left: auto; color: var(--bad); }
+.lsrow input[type=range] { flex: 1 1 60px; width: auto; min-width: 48px; accent-color: var(--c); }
+.lqemp span { color: var(--lichen); font-size: 12px; padding-left: 6px; }
+.lqadd { min-height: 112px; border-radius: 18px; border: 1px dashed var(--reed); background: none; color: var(--lichen); font-weight: 600; }
+.lqall { flex-wrap: wrap; }
+.lqph { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--lichen); line-height: 1.4; }
+.lqfl { display: grid; gap: 8px; border-top: 1px solid var(--reed); padding-top: 12px; }
+.lqfr { display: flex; align-items: center; gap: 8px; min-height: 40px; }
+.lqfr i { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.lqfr b { font-size: 14px; } .lqfr small { color: var(--lichen); font-size: 12px; margin-right: auto; }
+.lqpill { background: #C9433A; }
+.fbspd { min-width: 170px; }
+.fbspd b { min-width: 74px; font-size: 11.5px; }
+.lqpad > * { min-width: 0; }
+.lqbig { width: 100%; box-sizing: border-box; white-space: normal; }
+.lqbig small { overflow-wrap: anywhere; }
+.lsrow { gap: 3px; } .lsrow button { min-width: 34px; width: 34px; padding: 0; flex: none; }
+.lqtip .btn { min-height: 32px; padding: 0 10px; font-size: 13px; }

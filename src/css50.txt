@@ -1,0 +1,17 @@
+/* ===== v50: Gesangsspuren ===== */
+.singpill { position: fixed; z-index: 80; top: calc(118px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 210px; padding: 8px 18px 10px; border-radius: 22px; border: 0; background: #C9433A; color: #fff; font: inherit; box-shadow: 0 8px 26px #000a; touch-action: manipulation; overflow: hidden; }
+.singpill.cnt { background: #8a5a12; }
+.singpill b { font-size: 15px; } .singpill small { font-size: 11px; opacity: .85; }
+.singpill i { position: absolute; left: 0; bottom: 0; height: 4px; width: calc(var(--lv, 0) * 100%); background: #fff; opacity: .8; transition: width .1s; }
+.sgwarn { background: color-mix(in srgb, var(--warn, #e0a050) 18%, transparent); border-radius: 12px; padding: 8px 10px; font-size: 13px; }
+.sgrec { gap: 8px; } .sgopt { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 12px; font-size: 13px; color: var(--lichen); } .sgopt input { margin-right: 6px; accent-color: var(--glow); }
+.sgl { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+.sgr { border: 1px solid var(--reed); border-radius: 14px; padding: 8px 10px; background: var(--kelp); }
+.sgr.pl { border-color: var(--glow); } .sgr.mute { opacity: .6; }
+.sgh { display: flex; flex-direction: column; } .sgh small { color: var(--lichen); font-size: 12px; }
+.sgc { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 6px; }
+.sgc button { min-height: 34px; min-width: 34px; padding: 0 9px; border-radius: 17px; border: 1px solid var(--reed); background: transparent; color: var(--foam); font: inherit; font-size: 12.5px; }
+.sgc button.del { margin-left: auto; color: #F28B82; }
+.sgc input[type=range] { flex: 1 1 90px; min-width: 80px; accent-color: var(--glow); }
+body.krecguard .kfab { box-shadow: 0 0 0 3px #C9433A88; }
+body.kland .singpill, body.kside .singpill { top: calc(62px + env(safe-area-inset-top, 0px)); }

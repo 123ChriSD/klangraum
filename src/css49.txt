@@ -1,0 +1,8 @@
+/* ===== v49: Mikrofon prüfen ===== */
+.mfx .mfrow { display: flex; justify-content: space-between; gap: 10px; padding: 7px 2px; border-bottom: 1px solid color-mix(in srgb, var(--reed) 60%, transparent); font-size: 14px; }
+.mfx .mfrow span { color: var(--lichen); }
+.mfx .mfrow b { font-weight: 600; text-align: right; }
+.mfx .mfrow b.ok { color: #8EE0A8; } .mfx .mfrow b.no { color: #F28B82; }
+.mfx .mfmeter { margin: 12px 0 4px; }
+.mfx .mfhow { padding-left: 18px; line-height: 1.45; font-size: 14px; } .mfx .mfhow li { margin: 6px 0; }
+.mmic { flex-wrap: wrap; gap: 8px; }

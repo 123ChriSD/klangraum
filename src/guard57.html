@@ -1,0 +1,28 @@
+<script>
+/* Startwächter (v57): läuft vor allem anderen. Merkt sich Fehler beim Laden und zeigt sie an, wenn „Eintauchen“ nicht weiterkommt. */
+(function () {
+  var errs = [];
+  window.__krErrs = errs;
+  addEventListener("error", function (e) { try { errs.push((e.message || "Fehler") + (e.lineno ? " (Zeile " + e.lineno + ")" : "")); } catch (_) {} });
+  addEventListener("unhandledrejection", function (e) { try { var r = e.reason; errs.push("Promise: " + (r && r.message || r)); } catch (_) {} });
+  function show() {
+    var A = typeof App !== "undefined" ? App : null, G = typeof StartGuard !== "undefined" ? StartGuard : null; if (A && A.started) return;
+    var st = document.getElementById("start"); if (!st || st.hidden) return;
+    var box = document.getElementById("krGuard"); if (!box) { box = document.createElement("div"); box.id = "krGuard";
+      box.style.cssText = "margin:14px auto 0;max-width:520px;padding:12px 14px;border-radius:14px;border:1px solid #8a5a12;background:#2a1f0e;color:#f3d9a8;font:13.5px/1.45 Verdana,sans-serif;text-align:left;user-select:text;-webkit-user-select:text";
+      var inner = st.querySelector(".start-inner") || st; inner.appendChild(box); }
+    var stage = G && G.stage ? G.stage : (A ? "Start" : "Laden der App (Skript lief nicht)");
+    var e2 = errs.concat(G && G.errs ? G.errs : []);
+    box.innerHTML = "<b>KLANGRAUM startet nicht.</b><br>Hängt bei: " + stage + "<br>" + (e2.length ? "Fehler: " + e2.slice(-4).join(" · ").replace(/</g, "&lt;") : "Kein Fehler gemeldet.") +
+      "<br><small>" + navigator.userAgent.replace(/</g, "&lt;") + " · " + location.protocol + (window.isSecureContext ? " · sicher" : " · nicht sicher") + "</small>" +
+      "<div style='display:flex;gap:8px;flex-wrap:wrap;margin-top:10px'><button id='krGR' style='min-height:44px;padding:0 14px;border-radius:12px;border:1px solid #EDB46A;background:#EDB46A;color:#241708;font-weight:700'>Neu laden</button>" +
+      "<button id='krGS' style='min-height:44px;padding:0 14px;border-radius:12px;border:1px solid #2C4340;background:#1C2E2C;color:#E4EDE6;font-weight:700'>Ohne Audio-Thread neu laden</button>" +
+      "<button id='krGC' style='min-height:44px;padding:0 14px;border-radius:12px;border:1px solid #2C4340;background:#1C2E2C;color:#E4EDE6;font-weight:700'>Text kopieren</button></div>";
+    document.getElementById("krGR").onclick = function () { location.reload(); };
+    document.getElementById("krGS").onclick = function () { try { localStorage.setItem("klangraum2.forceShim", "true"); } catch (_) {} location.reload(); };
+    document.getElementById("krGC").onclick = function () { try { navigator.clipboard.writeText(box.innerText); } catch (_) {} };
+  }
+  document.addEventListener("click", function (e) { var t = e.target; if (t && t.id === "enter") { clearTimeout(window.__krGT); window.__krGT = setTimeout(show, 9000);
+    if (typeof App === "undefined") setTimeout(show, 400); } }, true);
+})();
+</script>
