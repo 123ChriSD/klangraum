@@ -1656,6 +1656,63 @@ body.kland .tabs { grid-template-rows: repeat(6, minmax(0, 1fr)); }
 .lxob { display: grid !important; justify-items: start; text-align: left; gap: 2px; padding: 10px 14px; min-height: 64px; }
 .lxob small { font-weight: 400; font-size: 12px; opacity: .85; }
 .lxctl { gap: 4px; } .lxctl button { min-width: 36px; padding: 0 6px; } .lxctl button.lxpl { min-width: 66px; font-size: 13px; } .lxctl input[type=range] { min-width: 40px; }
+
+/* ---------- v62: neue Oberfläche – Glas, Leuchtverlauf aus dem Logo, klarere Ebenen ---------- */
+:root { --a1: #4F7BFF; --a2: #9B5CFF; --a3: #E05CD8; --grad: linear-gradient(135deg, var(--a1), var(--a2) 55%, var(--a3)); --glass: rgba(14, 22, 30, .62); --line: rgba(255, 255, 255, .09); --line2: rgba(255, 255, 255, .16); }
+.view { background: radial-gradient(120% 70% at 50% -10%, #1a1f3a 0%, var(--abyss) 55%) fixed; }
+/* Kopfzeile und Kiesel */
+.peb { background: rgba(14, 22, 30, .55); border-color: var(--line); box-shadow: 0 4px 18px rgba(0, 0, 0, .25); }
+.peb[aria-pressed="true"] { border-color: transparent; background: linear-gradient(var(--glass), var(--glass)) padding-box, var(--grad) border-box; border: 1px solid transparent; color: #fff; }
+.top .playbtn { background: linear-gradient(rgba(14,22,30,.6), rgba(14,22,30,.6)) padding-box, var(--grad) border-box; border: 1.5px solid transparent; }
+/* Bereichs-Leiste unten */
+.tabs { background: rgba(8, 12, 18, .78); border-top: 1px solid var(--line); backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3); }
+.tabs button { position: relative; transition: color .2s; }
+.tabs button[aria-current="page"] { color: #fff; }
+.tabs button[aria-current="page"] svg { stroke: #fff; filter: drop-shadow(0 0 6px rgba(155, 92, 255, .8)); }
+.tabs button[aria-current="page"]::before { content: ""; position: absolute; left: 50%; top: 4px; width: 44px; height: 30px; margin-left: -22px; border-radius: 15px; background: var(--grad); opacity: .32; z-index: -1; }
+.tabs button[aria-current="page"]::after { content: ""; position: absolute; left: 50%; bottom: 3px; width: 18px; height: 3px; margin-left: -9px; border-radius: 2px; background: var(--grad); }
+body.kland .tabs button[aria-current="page"]::before { top: 50%; margin-top: -20px; }
+/* Steuerfeld: Glas mit Leuchtkante */
+.ksheet { background: var(--glass); border: 1px solid var(--line); box-shadow: 0 -10px 40px rgba(0, 0, 0, .45), inset 0 1px 0 var(--line2); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); }
+.ksheet::before { content: ""; position: absolute; left: 18%; right: 18%; top: -1px; height: 2px; border-radius: 2px; background: var(--grad); opacity: .85; pointer-events: none; }
+.ksgrip i { background: var(--line2) !important; }
+.ksheet .fxb, .ksheet .fb { background: rgba(255, 255, 255, .045); border: 1px solid var(--line); transition: transform .08s, background .2s; }
+.ksheet .fxb:active, .ksheet .fb:active { transform: scale(.96); }
+.ksheet .fxb[aria-pressed="true"], .ksheet .fb[aria-pressed="true"] { background: linear-gradient(rgba(40, 30, 80, .75), rgba(40, 30, 80, .75)) padding-box, var(--grad) border-box; border: 1px solid transparent; color: #fff; }
+.ksheet .fxb .fxi { filter: saturate(1.2); }
+.ksheet .fxb.lrec2 .fxi { font-size: 15px; }
+.ksheet .fxb.lrec2.rec { background: linear-gradient(#5a1620, #5a1620) padding-box, linear-gradient(135deg, #ff5a6e, #ff9a5a) border-box; border: 1px solid transparent; animation: lsblink 1s ease-in-out infinite alternate; }
+.ksheet .fbtabs button[aria-selected="true"] { color: #fff; background: linear-gradient(rgba(40,30,80,.7), rgba(40,30,80,.7)) padding-box, var(--grad) border-box; border: 1px solid transparent; }
+.kshead .ksname b { letter-spacing: .01em; }
+/* Knöpfe */
+.btn { background: rgba(255, 255, 255, .05); border-color: var(--line); }
+.btn.primary { background: var(--grad); border-color: transparent; color: #fff; box-shadow: 0 6px 22px rgba(123, 92, 255, .35); text-shadow: 0 1px 2px rgba(0, 0, 0, .25); }
+.btn.primary:disabled { box-shadow: none; }
+.seg2 { background: rgba(255, 255, 255, .05); border: 1px solid var(--line); }
+.seg2 button[aria-pressed="true"] { background: var(--grad); color: #fff; }
+.npc[aria-pressed="true"] { background: linear-gradient(rgba(40,30,80,.8), rgba(40,30,80,.8)) padding-box, var(--grad) border-box !important; border: 1px solid transparent !important; color: #fff !important; }
+/* Blätter */
+.sheet { background: rgba(14, 20, 28, .9); border-color: var(--line); backdrop-filter: blur(22px) saturate(1.3); -webkit-backdrop-filter: blur(22px) saturate(1.3); box-shadow: 0 -20px 60px rgba(0, 0, 0, .55), inset 0 1px 0 var(--line2); }
+/* Loopstation */
+.lxclock, .lxrow { background: rgba(255, 255, 255, .035); border-color: var(--line); box-shadow: inset 0 1px 0 rgba(255,255,255,.05); }
+.lxbars i.on { background: var(--grad); color: #fff; box-shadow: 0 0 14px rgba(155, 92, 255, .55); }
+.lxbeats i.on { background: #fff; border-color: #fff; box-shadow: 0 0 10px rgba(255,255,255,.7); }
+.lxsteps li { background: rgba(255, 255, 255, .04); }
+.lxsteps li.on { background: linear-gradient(rgba(40,30,80,.75), rgba(40,30,80,.75)) padding-box, var(--grad) border-box; border: 1px solid transparent; }
+.lxsteps li.on::before { background: var(--grad); color: #fff; }
+.lxwave { background: rgba(0, 0, 0, .35); box-shadow: inset 0 0 0 1px var(--line); }
+.lxonebtn { background: linear-gradient(rgba(20,40,48,.8), rgba(20,40,48,.8)) padding-box, linear-gradient(135deg, var(--spore), var(--a1)) border-box; border: 1px solid transparent; }
+.lxraum { border-color: var(--line); }
+/* Raum: Loop-Formen mit Ring */
+.rdot.isloop i { box-shadow: 0 0 0 2px #0009, 0 0 0 4px var(--a2), 0 3px 12px rgba(155, 92, 255, .7); }
+.rdot.isloop i::after { content: "🔁"; position: absolute; transform: translate(12px, -12px); font-size: 10px; }
+/* Meldungen */
+.toast { background: rgba(14, 20, 28, .92) !important; border: 1px solid var(--line2) !important; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+.toast .tact { background: var(--grad) !important; color: #fff !important; border: 0 !important; }
+.vseg { background: rgba(14, 22, 30, .6); border-color: var(--line); }
+.vseg button[aria-selected="true"] { background: var(--grad); color: #fff; text-shadow: none; box-shadow: 0 4px 16px rgba(123, 92, 255, .4); }
+.fnpp[data-on="0"] { background: var(--grad); border-color: transparent; color: #fff; }
+.labels .lbtn .lplay[data-on="0"], .rdot .lplay { background: var(--grad); }
 </style>
 
 <canvas id="c" aria-label="Klangraum: dreidimensionale Klangformen" role="img"></canvas>
@@ -1714,7 +1771,7 @@ body.kland .tabs { grid-template-rows: repeat(6, minmax(0, 1fr)); }
 
 <div class="start" id="start">
   <div class="start-inner">
-    <div class="meta">Version 61 · Einzelklang → Instrument oder Loop · stabilerer Klang · Loopstation mit Takt-Uhr</div>
+    <div class="meta">Version 62 · Formen einzeln starten · Loops direkt aufnehmen und im Raum mischen · neue Oberfläche</div>
     <h1 class="klogoH"><span class="sr">KLANGRAUM</span><span id="klogoStart" aria-hidden="true"></span></h1>
     <p>Formen, die klingen – wie echte Instrumente oder als Synthesizer. Tippe sie an, um zu spielen. Schalte <b>Kneten</b> ein, und du formst sie: rund klingt weich, spitz klingt hell. Setz sie in Bewegung, male sie an, leg deine eigenen Aufnahmen darauf. Wische zur Seite für die nächste Form, mit zwei und drei Fingern regelst du Lautstärke, Tempo, Höhen und Tiefen.</p>
     <button class="enter" id="enter">Eintauchen</button>
@@ -5451,7 +5508,7 @@ const UI = {
     el.innerHTML = peb("knead", ICON.knead, "Kneten", { pressed: Tools.knead, aria: "Kneten ein- oder ausschalten" })
       + peb("brush", ICON.brush, "Malen", { pressed: Tools.brush, aria: "Malen: Farbe verändert den Klang" })
       + peb("mel", ICON.mel, Mel.rec ? "✓ Fertig" : "Melodie", { pressed: !!Mel.rec, aria: Mel.rec ? "Grundmelodien übernehmen" : "Grundmelodie festlegen: auf den Formen tippen oder streichen" })
-      + peb("loop", ICON.loop, st === "arm" ? "…" : st === "rec" ? "■ Fertig" : nT ? "+ Loop" : "Loop", { state: st, aria: st === "rec" ? "Aufnahme beenden – der Loop läuft sofort" : st === "arm" ? "Einzählen abbrechen" : `Loop aufnehmen auf ${f ? f.name : "der Form"}: tippen, einzählen lassen, spielen, nochmal tippen – die anderen laufen weiter` })
+      + peb("loop", ICON.loop, st === "arm" ? "…" : st === "rec" ? "■ Fertig" : nT ? "+ Ton-Loop" : "Ton-Loop", { state: st, aria: st === "rec" ? "Aufnahme beenden – der Loop läuft sofort" : st === "arm" ? "Einzählen abbrechen" : `Loop aufnehmen auf ${f ? f.name : "der Form"}: tippen, einzählen lassen, spielen, nochmal tippen – die anderen laufen weiter` })
       + peb("pads", ICON.pads, "Pads", { pressed: Pads.on, aria: "Aktionsknöpfe: Sprache, Klänge, Instrumente auf Knopfdruck" })
       + peb("looper", ICON.looper, allT ? `Station ${allT}` : "Station", { aria: "Loopstation: alle Loops an/aus, versetzen, Ton, Lautstärke" })
       + peb("rec", ICON.rec, Rec.on ? Rec.label() : "Live", { pressed: Rec.on, aria: Rec.on ? "Live-Session beenden und speichern" : "Live-Session aufnehmen: alles, was erklingt – ein Tipp startet, ein Tipp beendet" });
@@ -5929,7 +5986,7 @@ const Sheets = {
   },
   menu() {
     const txt = Sheets.helpText(Music.help);
-    const s = this.open("Menü", this.head("KLANGRAUM · Version 61") + `
+    const s = this.open("Menü", this.head("KLANGRAUM · Version 62") + `
       <div class="field"><label for="rHelp">Wie viel hilft die App? <b id="helpV">${txt[0]}</b></label><input type="range" id="rHelp" min="0" max="100" step="1" value="${Music.help}"><p class="helptext" id="helpT">${txt[1]}</p></div>
       ${TempoUI.html()}
       <div class="row"><button class="btn" id="mGlide">Übergänge: Drehung ${Glide.rot ? "fließend" : "sofort"} · Tempo ${Glide.tempo ? "fließend" : "sofort"}</button></div>
@@ -10521,7 +10578,7 @@ const Radial = {
   items(f) {
     return [
       ["knead", ICON.knead, "Kneten"], ["solo", ICON.solo, f.solo ? "Einzeln aus" : "Einzeln"], ["brush", ICON.brush, "Malen"], ["vol", ICON.tune, "Lautstärke"],
-      ["loop", ICON.loop, "Loop"], Motion.any(f) && !f.still ? ["still", ICON3.stop, "Stopp"] : ["copy", ICON3.dup, "Kopie"], ["snd", ICON.mel, "Effekte"], ["more", ICON3.more, "Alles"]
+      ["loop", ICON.loop, "Ton-Loop"], Motion.any(f) && !f.still ? ["still", ICON3.stop, "Stopp"] : ["copy", ICON3.dup, "Kopie"], ["snd", ICON.mel, "Effekte"], ["more", ICON3.more, "Alles"]
     ];   // oben, oben rechts, rechts, unten rechts, unten, unten links, links, oben links
   },
   open(f, x, y, pid) {
@@ -15552,6 +15609,97 @@ Object.assign(LoopSt, {
 { const h = Help.T.find(x => x.id === "loopst"); if (h) h.h = h.h.replace("</ul>", `<li><b>🎤 Einzelklang aufnehmen</b> (in der Loopstation): ein Geräusch, einen Ton, ein Wort oder eine Gesangszeile aufnehmen (höchstens 8 s, nochmal tippen = fertig). Danach wählen: <b>🎹 Instrument-Form</b> (spielbar in der Tonart – tippen spielt Töne, drehen spielt eine Melodie, kneten verändert den Klang), <b>🔁 Loop</b> (der Klang auf der Eins, wiederholt sich im Takt und ist auch eine Form) oder <b>beides</b>. Mit <b>🎹</b> in einer Spur wird der deutlichste Klang eines Loops zur Instrument-Form.</li><li><b>Ruckelt der Klang?</b> Menü → 🔊 Klang: „stabil (mehr Puffer)“ und neu laden. KLANGRAUM plant Töne vorausschauend und vergrößert den Vorlauf selbst, wenn das Handy kurz hakt.</li></ul>`); }
 { const p = Help.T.find(x => x.id === "proj"); if (p) p.h = p.h.replace(/<\/ul>\s*$/, `<li><b>Wo liegen meine Stücke?</b> Im Speicher <b>dieses Browsers auf diesem Gerät</b>, getrennt je Adresse (die GitHub-Seite, die Claude-Ansicht und eine heruntergeladene Datei haben jeweils ihren eigenen Speicher). Nichts davon wird ins Internet hochgeladen. KLANGRAUM bittet den Browser, den Speicher dauerhaft zu behalten. Zum Sichern oder Umziehen: Meine Stücke → <b>Sichern und Laden → Als Datei sichern</b>, auf dem anderen Gerät bzw. der anderen Adresse <b>Datei öffnen</b>. Browserdaten löschen löscht auch die Stücke.</li></ul>`); }
 
+/* ============================================================
+   v62: Formen einzeln starten · Loops direkt aufnehmen · Loops im Raum mischen · neue Oberfläche
+   ============================================================ */
+
+// ---------- 1) Einzeln starten: steht alles, startet ein ▶ einer Form nur diese ----------
+// Bisher: oben ■ hält alles an; ein ▶ an einer Form startete den Takt – und damit auch alle anderen, die vorher liefen.
+const SoloStart = {
+  f: null,
+  // spielt die Form hörbar? (Takt läuft, nicht ausgeblendet, sie dreht oder ihre Loops laufen)
+  playing(g) {
+    if (!g || !Transport.running || !QuickPP.on(g)) return false;
+    const t = LoopSt.trackOf(g); if (t) return t.on && LoopSt.par(t).run;
+    return Motion.moves(g) || (Loops.count(g) > 0 && !g.lpOff) || !!g.lebt;
+  },
+  // nur f soll beim Start laufen: die anderen anhalten (sie behalten ihren Schwung, ▶ holt sie dazu)
+  only(f) {
+    let n = 0;
+    for (const g of Forms.list) { if (g === f || g.empty) continue; let any = false;
+      if (!g.still && (Motion.any(g) || g.lebt || Motion.gliding(g))) { Motion.pause(g); any = true; }
+      if (Loops.count(g) && !g.lpOff) { g.lpOff = true; any = true; }
+      if (any) n++; }
+    for (const t of LoopSt.slots) if (t && !t.fid && t.on) { t.on = false; n++; }
+    if (n) setTimeout(() => UI.toast(`Nur ${f.name} läuft – die anderen holst du mit ihrem ▶ dazu (oben ▶ = alle)`, 2600), 60);
+    return n;
+  },
+  // eine Form zum Klingen bringen (ohne die anderen mitzustarten, wenn der Takt steht)
+  start(f) {
+    if (!f) return; const cold = !Transport.running && !!Engine.ctx;
+    if (cold) this.only(f);
+    if (!QuickPP.on(f)) Fade.set(f, true, true);
+    f.lpOff = false;
+    const t = LoopSt.trackOf(f); if (t) { t.on = true; t.pend = true; }
+    if (f.still) Motion.resume(f);
+    if (!Motion.any(f) && !(Loops.count(f)) && !f.empty) Motion.setTier(f, t ? (Motion.tierOfW(Motion.wOfR(t.r0 || 1)) || 3) : 2);
+    if (!Transport.running && Engine.ctx) { this.f = f; try { LoopCtl.release && LoopCtl.release(); Transport.start(); } finally { this.f = null; } }
+    Hap(10); UI.soon(); try { KSheet.sync(true); } catch (_) {} Save.soon();
+  }
+};
+// ▶/⏸ an Namen, Punkten und in der Form-Ansicht: zeigt, ob die Form wirklich klingt; ▶ startet nur sie
+{ QuickPP.icon = function (f) { return SoloStart.playing(f) ? "⏸" : "▶"; };
+  const tg = QuickPP.toggle.bind(QuickPP); QuickPP.toggle = function (f) { if (!f) return; if (SoloStart.playing(f)) return tg(f); SoloStart.start(f); UI.toast(`${f.name} läuft`, 800); setTimeout(() => { try { Cue.sync(); } catch (_) {} }, 30); }; }
+// „Drehen/Weiter“ und Anschubsen bei stehendem Takt: nur diese Form
+{ const mt = Move.toggle.bind(Move); Move.toggle = function (f) { if (f && !Transport.running && Engine.ctx && !f.empty) { SoloStart.start(f); UI.toast(`${f.name} dreht`, 900); return; } return mt(f); }; }
+for (const k of ["resume", "setAxis", "push"]) { const o = Motion[k].bind(Motion); Motion[k] = function (f, ...a) { if (f && f.mot && !Transport.running && Engine.ctx && App.started && SoloStart.f !== f && !SoloStart._in) { SoloStart._in = true; try { SoloStart.only(f); SoloStart.f = f; return o(f, ...a); } finally { SoloStart._in = false; SoloStart.f = null; } } return o(f, ...a); }; }
+
+// ---------- 2) Loops direkt aufnehmen: 🔴 Loop im Steuerfeld jeder Form ----------
+const LoopRec = {
+  label() { const R = LoopSt.R; if (R) { const st = LoopSt.state(R.i); return st === "arm" ? `Gleich …` : R.kind === "dub" ? "Fertig" : "Fertig"; } return "Loop"; },
+  sub() { const R = LoopSt.R; if (R) { const [a, b] = LoopSt.label(R.i); return a; } return LoopSt.src === "form" ? "🎛 Formen" : "🎤 Mikro"; },
+  async tap() {
+    const R = LoopSt.R; if (R) return LoopSt.tap(R.i);
+    const i = LoopSt.free(); if (LoopSt.slots[i]) { UI.toastAct("Alle Spuren belegt", "Loopstation", () => UI.setTab("loop"), 3200); return; }
+    await LoopSt.rec(i, LoopSt.src);
+    if (LoopSt.R) UI.toast(LoopSt.R.mode === "free" ? `🔴 Spur ${i + 1} nimmt auf – nochmal tippen schließt den Loop` : `🔴 Spur ${i + 1} beginnt zur nächsten Eins`, 2200);
+  },
+  flip() { LoopSt.src = LoopSt.src === "form" ? "mic" : "form"; store.set("lsSrc", LoopSt.src); Hap(12); UI.toast(`Loop-Aufnahme von: ${LoopSt.src === "form" ? "🎛 den Formen (was du spielst)" : "🎤 dem Mikrofon"} · lang drücken = wechseln`, 2200); try { KSheet.sync(true); } catch (_) {} }
+};
+if (!store.get("lsSrc")) LoopSt.src = "form";   // in der Klang-Ansicht ist das Naheliegende: die gespielten Formen loopen
+{ const rw = FSw.row.bind(FSw); FSw.row = function () { let h = rw(); if (!h) return h; const R = LoopSt.R;
+  const btn = `<button class="fxb lrec2${R ? " rec" : ""}" data-fx="lsrec" aria-pressed="${!!R}" aria-label="Loop aufnehmen (${LoopRec.sub()}) – lang drücken: Quelle wechseln"><b class="fxi">${R ? "■" : "🔴"}</b><span class="fxt">${LoopRec.label()}</span></button>`;
+  return h.replace(/<button class="fxb mic[^"]*"[\s\S]*?<\/button>/, btn); }; }
+{ const ck = FSw.click.bind(FSw); FSw.click = function (e) { const b = e.target.closest("[data-fx]"); if (b && b.dataset.fx === "lsrec") { e.stopPropagation(); e.preventDefault(); if (LoopRec._lp) { LoopRec._lp = false; return true; } Hap(10); LoopRec.tap().then(() => this.refresh()); setTimeout(() => this.refresh(), 250); return true; } return ck(e); }; }
+document.addEventListener("pointerdown", e => { const b = e.target.closest && e.target.closest('#ksheet [data-fx="lsrec"]'); if (!b) return; clearTimeout(LoopRec.lpT); LoopRec._lp = false; LoopRec.lpT = setTimeout(() => { if (LoopSt.R) return; LoopRec._lp = true; LoopRec.flip(); }, 600); }, true);
+document.addEventListener("pointerup", () => clearTimeout(LoopRec.lpT), true);
+setInterval(() => { try { const b = document.querySelector('#ksheet [data-fx="lsrec"]'); if (!b) return; const want = `${!!LoopSt.R}${LoopRec.label()}`; if (LoopRec._w !== want) { LoopRec._w = want; KSheet.sync(true); } } catch (_) {} }, 300);
+
+// ---------- 3) Loops im Raum mischen: Lage der Loop-Form = Lautstärke, Panorama, Hall ----------
+{ const p0 = LoopSt.par.bind(LoopSt); LoopSt.par = function (t) { const P = p0(t), f = this.form(t); if (!f || !f.mixNow) return P;
+  const m = f.mixNow, g = (f.mute || !Forms.audible(f)) ? 0 : clamp(m.gain / 0.893, 0, 1.5);
+  return { ...P, g, pan: clamp(m.pan || 0, -1, 1), send: clamp((m.send || 0) * 0.45 + (m.echo || 0) * 0.05, 0, 0.9), lo: m.lo || 0, hi: m.hi || 0 }; }; }
+{ const ch0 = LoopSt.chain.bind(LoopSt); LoopSt.chain = function (t) { const fresh = !(t._ch && t._ch.c === Engine.ctx); const ch = ch0(t);
+  if (fresh || !ch.lo) { try { const c = Engine.ctx, lo = c.createBiquadFilter(), hi = c.createBiquadFilter(); lo.type = "lowshelf"; lo.frequency.value = 200; hi.type = "highshelf"; hi.frequency.value = 3200; ch.g.disconnect(); ch.g.connect(lo).connect(hi).connect(ch.lp); ch.lo = lo; ch.hi = hi; } catch (e) { console.warn(e); } }
+  return ch; }; }
+{ const ap = LoopSt.apply.bind(LoopSt); LoopSt.apply = function (t, P, time) { ap(t, P, time); try { const ch = t._ch; if (ch && ch.lo) { const at = Math.max(Engine.now(), time || 0); ch.lo.gain.setTargetAtTime(P.lo || 0, at, 0.05); ch.hi.gain.setTargetAtTime(P.hi || 0, at, 0.05); } } catch (_) {} }; }
+// Jede Spur bekommt ihre Form (auch ältere ohne), damit alle Loops im Raum stehen
+{ const iv = setInterval(() => { if (!App.started) return; clearInterval(iv); try { let n = 0; for (const t of LoopSt.slots) if (t && !LoopSt.form(t) && !t.noForm) { LoopSt.makeForm(t); n++; } if (n) Save.soon(); } catch (e) { console.warn(e); } }, 1200); }
+// Loop-Ansicht: „Im Raum mischen“
+{ const r0 = LoopSt.render.bind(LoopSt); LoopSt.render = function () { r0(); try { const el = this.el(); if (!el || UI.tab !== "loop") return; const all = el.querySelector(".lqall");
+    if (all && !el.querySelector("[data-ls=raum]") && this.any()) all.insertAdjacentHTML("afterbegin", `<button class="btn lxraum" data-ls="raum">◍ Im Raum mischen</button>`); } catch (_) {} }; }
+{ const c0 = LoopSt.click.bind(LoopSt); LoopSt.click = function (e) { const b = e.target.closest("[data-ls]"); if (b && b.dataset.ls === "raum") { Hap(8); UI.setTab("klang"); UI.setView("raum"); UI.toast("Loops im Raum: Form ziehen = näher/lauter, links/rechts = Panorama, oben = mehr Hall · Punkt tippen = ▶/⏸", 3600); return; } return c0(e); }; }
+// Raum: Loop-Formen am Punkt erkennbar
+setInterval(() => { try { const L = $("rdots"); if (!L || L.hidden) return; L.querySelectorAll(".rdot").forEach(d => { const f = Forms.byId(d.dataset.id), on = !!LoopSt.trackOf(f); if (d.classList.contains("isloop") !== on) d.classList.toggle("isloop", on); }); } catch (_) {} }, 500);
+
+// ---------- 4) Hilfe ----------
+{ const h = Help.T.find(x => x.id === "loopst"); if (h) h.h = h.h.replace("</ul>", `<li><b>Direkt aufnehmen</b>: im Steuerfeld jeder Form <b>🔴 Loop</b> tippen – nimmt auf, was du spielst (🎛 Formen) oder das Mikrofon (🎤) in die nächste freie Spur; nochmal tippen = fertig. <b>Lang drücken</b> wechselt die Quelle.</li><li><b>Im Raum mischen</b>: jede Spur ist eine Form im Raum. Näher = lauter, links/rechts = Panorama, höher = mehr Hall; Höhen/Tiefen und Lautstärke der Form wirken auf den Loop. Loop-Formen haben im Raum einen Ring am Punkt.</li></ul>`); }
+{ const h = Help.T.find(x => x.id === "schalten"); if (h) h.h = h.h.replace(/<\/ul>\s*$/, `<li><b>Einzeln starten</b>: Steht alles (oben ■), startet ▶ an einer Form <b>nur diese</b> – die anderen holst du mit ihrem eigenen ▶ dazu. Oben ▶ startet alle.</li></ul>`); }
+// Overdub-Stelle: Rundungsfehler an der Loop-Grenze abfangen
+{ const di = LoopSt.dubIdx.bind(LoopSt); LoopSt.dubIdx = function (x, N) { const L = this.L, t = this.R && this.slots[this.R.i], sh = t ? t.shift | 0 : 0, sf = Math.round(((x - Transport.t0) / Transport.spb) * 1e6) / 1e6; let ph = (((sf - sh) % L) + L) % L; if (ph >= L - 1e-6) ph = 0; return Math.min(N - 1, Math.floor(ph / L * N)); }; }
+// zwei Loop-Arten klar unterscheiden: „Ton-Loop“ (gespielte Töne der Form, veränderbar) und „🔴 Loop“ (Audio in die Loopstation)
+{ const L = Cmd.L.loop; if (L && typeof L.n === "function") { const n0 = L.n; L.n = f => String(n0(f)).replace(/^(\+ )?Loop$/, "$1Ton-Loop"); } }
+
 // Verlässt man das Stück, verstummt auch die Schnitt-Schleife
 { const st = UI.setTab.bind(UI); UI.setTab = t => { if (t !== "stueck") WaveEd.stopAll(); st(t); }; }
 /* ============================================================
@@ -16345,6 +16493,22 @@ const Tests = {
         try { f.still = true; const h1 = Bew.held().includes(f); Bew.sel = new Set([f.id]); Bew.all("sgo"); const ok1 = !f.still; f.still = true; Bew.all("go"); const ok2 = !f.still;
           ok("BV", h1 && ok1 && ok2 && /data-bwa="go"/.test(Bew.html()), `Angehaltene Formen wieder anschubsen: einzeln, Auswahl (${ok1 ? "ok" : "fehlt"}) und alle (${ok2 ? "ok" : "fehlt"}) · im Raum hält Antippen eine drehende Form an`); }
         finally { f.still = s0; Transport.start = ts; UI.toast = tp; } } } catch (e) { ok("BV", false, String(e)); }
+    // v62: einzeln starten, Raum-Mix der Loops, Loop-Knopf im Steuerfeld
+    try { if (!App.started) ok("ES", true, "nicht gestartet"); else { const L = Forms.list.filter(f => !f.empty && !LoopSt.trackOf(f)).slice(0, 3); if (L.length < 2) ok("ES", true, "zu wenig Formen"); else {
+      const keep = Project.data(true), run = Transport.running, tp = UI.toast; UI.toast = () => {};
+      try { for (const f of L) { f.still = false; Motion.ph(f).gl = null; Motion.ph(f).wy = Motion.level(3); f.lpOff = false; Fade.set(f, true, true); }
+        if (Transport.running) Transport.stop(); const pre = L.map(f => QuickPP.icon(f)).join("");
+        QuickPP.toggle(L[0]); const st = L.map(f => SoloStart.playing(f)), icons = L.map(f => QuickPP.icon(f)).join("");
+        QuickPP.toggle(L[1]); const st2 = L.map(f => SoloStart.playing(f));
+        ok("ES", pre === "▶".repeat(L.length) && st[0] && !st[1] && Transport.running && st2[0] && st2[1], `Takt stand (alle zeigen ${pre}) · ▶ an ${L[0].name} → nur ${L[0].name} läuft (${icons}) · ▶ an ${L[1].name} → zwei laufen`); }
+      finally { UI.toast = tp; Project.load(keep, true); if (!run && Transport.running) Transport.stop(); if (run && !Transport.running) Transport.start(); } } } } catch (e) { ok("ES", false, String(e)); }
+    try { if (!App.started) ok("RM", true, "nicht gestartet"); else { const sl0 = LoopSt.slots, L0 = LoopSt.L; LoopSt.L = 32; const t = { id: "q", rec: "rQ", on: true, bpm: Music.tempo(), vol: 1, ch: 1, shift: 0 }; LoopSt.slots = [t, null, null, null];
+      const f = LoopSt.makeForm(t); f.still = false; Motion.ph(f).wy = Motion.level(3);
+      f.pos = { x: -3, y: 0, z: 0 }; Forms.applyMix(f); const A = LoopSt.par(t); f.pos = { x: 3, y: 1.5, z: 2.5 }; Forms.applyMix(f); const B = LoopSt.par(t); f.pos = { x: 0, y: 0, z: -8 }; Forms.applyMix(f); const C = LoopSt.par(t);
+      LoopSt._rmF = true; Forms.remove(f); LoopSt._rmF = false; LoopSt.slots = sl0; LoopSt.L = L0;
+      ok("RM", A.pan < -0.5 && B.pan > 0.5 && B.send > A.send && C.g < A.g && B.g > C.g, `Loop im Raum: links Pan ${A.pan.toFixed(2)}, rechts oben Pan ${B.pan.toFixed(2)} mit mehr Hall (${A.send.toFixed(2)} → ${B.send.toFixed(2)}), weit hinten leiser (${A.g.toFixed(2)} → ${C.g.toFixed(2)})`); } } catch (e) { ok("RM", false, String(e)); }
+    try { const h = FSw.row ? FSw.row() : ""; ok("LR", /data-fx="lsrec"/.test(h || "") || !Forms.active, `Steuerfeld jeder Form: 🔴 Loop nimmt direkt in die nächste freie Spur auf (Quelle ${LoopSt.src === "form" ? "Formen" : "Mikrofon"}, lang drücken = wechseln)`); } catch (e) { ok("LR", false, String(e)); }
+
     // v61: Einzelklang, Takt-Vorlauf, Klang-Puffer
     try { const sr = 48000, x = new Float32Array(sr * 3); for (let i = sr; i < sr * 1.5; i++) x[i] = Math.sin(i / sr * 2 * Math.PI * 330) * 0.5 * Math.exp(-(i - sr) / sr * 4);
       const y = LoopSt.trimSound(x, sr, 6), st = y ? y.length / sr : 0, pk = y ? Math.max(...Array.from(y.subarray(0, 4000)).map(Math.abs)) : 0;
@@ -16442,7 +16606,7 @@ const Tests = {
       ok("BS", !st.length && !L.length && Object.keys(BildK.SCN).length >= 15, `Bilderkennung: ${Object.keys(BildK.SCN).length} Szenen, ${Object.keys(BildK.STYLES).length} Stile${st.length ? " – fehlt: " + st : ""}${L.length ? " – unbekannte Instrumente: " + L : ""}`); } catch (e) { ok("BS", false, String(e)); }
     try { const fs = Forms.list.filter(f => !f.empty).slice(0, 3); if (fs.length >= 2) { const keep = Cue.list.slice(); Cue.list = [{ f: fs[1].id, t: null }, { f: fs[0].id, t: null }]; Cue.sortList(); const okA = Cue.list[0].f === fs[0].id;
         const L0 = Forms.list.slice(); Arrange.moveTo(fs[0], Forms.list.indexOf(fs[1])); const okB = Cue.list[0].f === fs[1].id; Forms.list.splice(0, Forms.list.length, ...L0); Scene.gridC = null; Cue.list = keep; Cue.sortList();
-        const f = fs[0], on0 = QuickPP.on(f); QuickPP.toggle(f); const okC = QuickPP.on(f) !== on0 && !f.fd; QuickPP.toggle(f); const okD = QuickPP.on(f) === on0;
+        const f = fs[0], k0 = { still: f.still, mute: f.mute, wy: Motion.ph(f).wy, lp: f.lpOff }, p0 = SoloStart.playing(f); QuickPP.toggle(f); const okC = SoloStart.playing(f) !== p0 && !f.fd; QuickPP.toggle(f); const okD = SoloStart.playing(f) === p0; Fade.set(f, !k0.mute, true); f.still = k0.still; Motion.ph(f).gl = null; Motion.ph(f).lk = null; Motion.ph(f).wy = k0.wy; f.lpOff = k0.lp;
         ok("AR", okA && okB && okC && okD, `Set-Reihenfolge folgt der Anordnung (${okA && okB ? "ja" : "nein"}) · ▶/⏸ sofort ohne Blende (${okC && okD ? "ja" : "nein"})`); } else ok("AR", true, "zu wenige Formen – übersprungen"); } catch (e) { ok("AR", false, String(e)); }
     try { const n = Help.T.length, cats = Help.CATS.flatMap(c => c[1]).filter(id => !Help.T.some(x => x.id === id)), want = Help.WANT.filter(w => !Help.T.some(x => x.id === w[1]));
       ok("HL", !cats.length && !want.length, `Hilfe: ${n} Abschnitte in ${Help.CATS.length} Themen, ${Help.WANT.length} „Ich will …“-Antworten${cats.length + want.length ? " – fehlt: " + cats.concat(want.map(w => w[1])) : ""}`); } catch (e) { ok("HL", false, String(e)); }

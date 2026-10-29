@@ -2,7 +2,7 @@
 
 > **Zweck:** Alles, was ein neuer Chat braucht, um KLANGRAUM ohne Rückfragen sicher weiterzuentwickeln.
 > **Lesereihenfolge:** diese Datei → `claude/KLANGRAUM_STAND.md` (Änderungen je Version) → `claude/KLANGRAUM_HILFE.md` (Bedienung aus Nutzersicht) → `claude/KLANGRAUM_KONZEPT_BEDIENUNG.md` (Bedienkonzept ab v32).
-> **Stand:** Version 61 · 28.10.2026
+> **Stand:** Version 62 · 29.10.2026
 
 ---
 
@@ -184,6 +184,7 @@ Formen (inkl. `fine.vol`, `mx`, `fade`, `mels`, `takes`, `ph`, `pos`), `mood`, `
 | v45 | Set & Einsatz, Alle mit Spalten, Set aufnehmen → Form, Mikro → Form, 20 Stimmungen |
 | v46 | Einladen per QR-Code/WhatsApp, Erstellt/Geändert in Meine Stücke |
 | v47 | Jam ohne Anmeldung über freien MQTT-Vermittler |
+| **v62** | `SoloStart` (einzeln starten, ▶ zeigt echtes Klingen), `LoopRec` (🔴 Loop im Steuerfeld), Raum-Mix der Loops (`LoopSt.par` aus `f.mixNow`, Kuhschwanz-Filter), neue Oberfläche (CSS-Variablen `--grad`, `--glass`, `--line`) |
 | **v61** | Einzelklang → Instrument/Loop, Spur → Instrument, `Ticker` (Worker-Takt), `Transport.ahead()` (Vorlauf 0,12–0,4 s), `Stab` (Klang-Puffer, Stimmenzahl), weiches Stimmen-Ablösen im Klangfaden, `storage.persist`, Service Worker der Website |
 | **v60** | Loopstation: Takt-Uhr, Anleitung, Wellenbild, Klartext, Versatz (`t.shift`), Loop = Form (`t.fid`, `t.r0`; Drehen/Kneten/Tempo steuern den Loop) |
 | **v59** | `MicFix.reason`: content:// immer „content“ (Chrome Android lehnt dort still ab) |
@@ -243,6 +244,7 @@ Details je Version: `claude/KLANGRAUM_STAND.md`.
 - **Arbeitsbasis GitHub (ab v60):** Repo `123ChriSD/klangraum` – `index.html` (Website, gebaut mit `tools/mksite.py` aus dem Artifact-Rumpf), `docs/` (STAND, GEDAECHTNIS, HILFE, KONZEPT_BEDIENUNG, RECHTSPRUEFUNG), `src/` (vNN.js, cssNN.txt, vNNa.py), `tools/` (prf33.py, audit.py, t60.py …), `CLAUDE.md`. Je Version: bauen → testen → Artifact veröffentlichen → `mksite.py` → Docs kopieren → commit + push (Pages aktualisiert sich selbst). Klon in neuer Sitzung: `add_repo` + `git clone --depth 1`.
 - **Loopstation-Technik (v60):** `LoopSt.par(t)` liest die Form (run, Gain, Tempo-Faktor, Halbtöne, Tiefpass, Pan, Hall); `onStep` spielt „glatt“ (ein Puffer je Runde ab `(step−shift) mod L = 0`) oder „schlag“ (Scheiben je Schlag mit `playbackRate = Tempo/bpm × sp × 2^(HT/12)`); eigene Kette je Spur (Gain → Tiefpass → Panner → Loop-Ausgang, Hall-Send). `Motion.step` und `Forms.play` sind für Loop-Formen umgeleitet (keine Synth-Töne, Antippen = Schlag-Scheibe).
 - **Eigene Website (28.10.):** Paket `scratchpad/site/` bzw. `klangraum-website.zip` = `index.html` (v59 mit vollem Kopf, Manifest, Icons, `JamInvite.URL` = eigene Adresse, wenn nicht claude.ai) + `s/` (224 Instrumenten-Aufnahmen aus dem Artifact, `s/index.json`, `s/QUELLEN.txt` CC-BY) + `manifest.webmanifest`, `icon-192/512.png`, `.nojekyll`, `README.md`. Ziel: GitHub Pages `https://123chrisd.github.io/klangraum/` (GitHub-Name `123ChriSD`; Repo `klangraum` muss Christian öffentlich anlegen, dann Push über `add_repo`, dann Settings → Pages → main / root). Getestet auf localhost (sicher): Mikrofon direkt, keine Warnkarte, 13 Instrumente lokal, Loopstation frei → 1 Takt 90,6 BPM.
+- **Stolperfalle (v62):** Keine Zustände in `dataset` neu gezeichneter Knöpfe merken (KSheet zeichnet neu → Endlosschleife). `Motion.setAxis/resume/push` starten bei stehendem Takt nur die betroffene Form – Prüfungen, die Formen bei stehendem Takt drehen, müssen den Zustand selbst zurücksetzen.
 - **Stolperfalle (v61):** Klangfaden-Änderungen gehen über `KLANG_WORKLET` (Text wird zu `WORKLET_SRC`); neue Nachrichten im `port.onmessage` ergänzen (z. B. `vmax`). Neue Kreis-Befehle nur mit Platz in einer Gruppe anlegen (Prüfung KR). Website-Updates kommen über den Service Worker – `mksite.py` erzeugt `sw.js` mit neuem Cache-Namen je Bau.
 - **Stolperfalle (v58):** Nie auf den Artifact-Rahmen verlassen (`[hidden]`, Grund-CSS) – die Download-Datei läuft ohne ihn. Vollbild-Dialoge immer scrollbar und mit wenig Höhe/großer Schrift testen.
 - **Stolperfalle (v57):** Die veröffentlichte Datei ist ohne Kopf (den setzt das Artifact), die **Download-Datei braucht `<!doctype html>` und `<meta charset="utf-8">`** – sonst Quirks-Modus und falsche Umlaute. `App`, `StartGuard` usw. sind `const` → nicht über `window.App` erreichbar, im Wächter `typeof App`.

@@ -179,6 +179,11 @@ Stand **Version 56** (27.10.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 - **Mikrofon gesperrt?** (in der Claude-App, oder als Datei auf dem Handy) → **🎤 Mikrofon freischalten** → **Im eigenen Fenster öffnen** → Erlauben; deine Loops kommen mit und mit „⤴ Zurück in die App“ wieder zurück. Oder **Aufnahme-App / Datei**.
 - Unten stehen die **Form-Loops** (gespielte Töne): aussetzen, einsetzen, verwalten.
 
+### Neu in v62: einzeln starten, direkt loopen, im Raum mischen
+- **Einzeln starten:** Steht alles (oben ■), startet **▶ an einer Form nur diese**. Die anderen holst du mit ihrem eigenen ▶ dazu; oben ▶ startet alle. ▶/⏸ zeigt immer, ob die Form gerade wirklich klingt.
+- **🔴 Loop** im Steuerfeld jeder Form: tippen = Aufnahme in die nächste freie Spur der Loopstation (was du auf den Formen spielst), nochmal tippen = fertig. **Lang drücken** wechselt zur Aufnahme vom Mikrofon. „Ton-Loop“ nimmt dagegen die gespielten Töne auf (bleiben veränderbar).
+- **Loops im Raum mischen:** Jeder Loop ist eine Form – im **Raum** ziehen: näher = lauter, links/rechts = Panorama, höher = mehr Hall. Loop-Formen haben dort einen violetten Ring. In der Loopstation: „◍ Im Raum mischen“.
+
 ### Neu in v61: Einzelklang, stabiler Klang
 - **🎤 Einzelklang aufnehmen** (in der Loopstation): ein Geräusch, Ton, Wort oder eine Gesangszeile aufnehmen (bis 8 s, nochmal tippen = fertig). Dann wählen: **🎹 Instrument-Form** (spielbar in der Tonart), **🔁 Loop** (der Klang auf der Eins, wiederholt sich) oder **beides**. **🎹** in einer Spur macht den deutlichsten Klang des Loops zur Instrument-Form.
 - **Ruckelt der Klang?** Menü → **🔊 Klang: stabil (mehr Puffer)**, dann neu laden.
