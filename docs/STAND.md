@@ -1,8 +1,16 @@
-# KLANGRAUM – Stand Version 63 (30.10.2026)
+# KLANGRAUM – Stand Version 64 (30.10.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
 
-## Neu in v63: PULT – live spielen für Laien · harte Bassbeats
+## Neu in v64: Szenen und Drop im Pult · ein Loop · Ansicht „Alle“ entzerrt
+- Christian (30.10. 08:05): „Alle“ – die vier vorgeschlagenen nächsten Schritte aus v63 umsetzen.
+- **Szenen** (Zeile über den Pult-Feldern, 8 Plätze): ＋ tippen = merken, was gerade läuft (Zahl unten = Anzahl Klänge). Gemerkte Szene tippen = genau diese Klänge, eingereiht auf der nächsten Eins (Feld blinkt, aktive Szene leuchtet). Halten = neu merken, Meldung mit „Löschen“. Wird im Stück gespeichert (`d.pscn`).
+- **Drop** (fünfter Live-Griff): tippen → zur nächsten Eins wird es einen Takt still, ein Rauschen steigt an (Bandpass 300 Hz → 7 kHz), dann kommt alles mit Sub-Drop + Hardstyle-Kick auf der Eins zurück. Nochmal tippen = abbrechen; ■ setzt alles zurück.
+- **Ein Loop-Begriff:** Werkzeugzeile, Kreis-Menü und Pult heißen nur noch „Loop“ (nimmt auf, was gerade klingt → Spur im Pult + Loop-Form). Die gespielten Töne als bearbeitbaren Loop: Steuerfeld → Loops → „Töne loopen“. Im Steuerfeld steht wieder 🎤 Mikro statt dem zweiten Loop-Knopf.
+- **„Alle“ mit vielen Formen** (mehr als 6, oder Querformat unter 520 px Höhe mit mehr als 3): kompaktere Namensschilder (gekürzt, ohne Zusatzzeile), Einsatz-Knöpfe nur bei wartenden Formen.
+- Prüfstand 117 (neu **SZ**, **DR**, **LB**; PU/LR angepasst), Layout 0/0. E2E mit 9 Formen: Szene 1 (Klavier, Hardstyle-Beat, Hardstyle-Lead) und Szene 2 (Trommel, 808) gemerkt, Szene 1 tippen → nach der Eins genau Szene 1; Drop → still → alle 3 zurück; Alle im Querformat 900×420 → kompakt.
+
+## v63: PULT – live spielen für Laien · harte Bassbeats
 - Christian (30.10. 07:50, Bildschirmfoto Querformat mit 9 Formen): „Auf dem Handy lässt sich die App echt noch schlecht bedienen, wenn viele Formen enthalten sind. Außerdem ist die Loop-Steuerung, das Einsetzen und Stoppen von Sounds noch nicht wirklich intuitiv. Überlegt im Team aus Webdesignern, Programmierern, Künstlern, Musikern und dem Apple-Designteam … Ziel: jeder Laie kann gute elektronische Tracks mischen und aufnehmen. Auch Live-Performance soll einfachst möglich sein! Wir brauchen noch Formen für richtig harte und tiefe Bassbeats!“
 - Team-Konzept: `docs/KONZEPT_PULT.md` (GitHub). Kernentscheidungen: Einsatz auf der Eins, eine Form = ein großes Feld, drei Live-Griffe (Filter, Break, Echo), Mitschnitt.
 - **Bereich „Pult“** (ersetzt „Loop“, die Loopstation liegt darunter): Raster großer Felder (eins je Form, Typ 🥁 Beat · 〰 Bass · ⚡ Synth · 🎹 Ton · 🎤 Klang · 🔁 Loop), leuchten in Formfarbe, Pegel und Schlag-Puls. **Tippen** = ein/aus **auf der nächsten Eins** (Feld blinkt „setzt ein …“/„stoppt …“, nochmal = abbrechen); steht alles, startet sofort nur dieses Feld. **Halten** = nur diese Form hören. Oben Tempo −/+ und großer ▶/■. Felder „＋ Neuer Klang“ und „🔴 Loop aufnehmen“.

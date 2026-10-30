@@ -179,6 +179,12 @@ Stand **Version 56** (27.10.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 - **Mikrofon gesperrt?** (in der Claude-App, oder als Datei auf dem Handy) → **🎤 Mikrofon freischalten** → **Im eigenen Fenster öffnen** → Erlauben; deine Loops kommen mit und mit „⤴ Zurück in die App“ wieder zurück. Oder **Aufnahme-App / Datei**.
 - Unten stehen die **Form-Loops** (gespielte Töne): aussetzen, einsetzen, verwalten.
 
+### Neu in v64: Szenen, Drop, ein Loop
+- **Szenen** (Zeile über den Feldern im Pult): **＋** tippen = merken, was gerade läuft. Eine gemerkte Szene tippen = genau diese Klänge, auf der nächsten Eins – so baust du Intro, Hauptteil, Break. Halten = neu merken (oder löschen).
+- **Drop**: tippen – zur nächsten Eins wird es einen Takt still, ein Rauschen steigt an, dann kommt alles mit einem tiefen Bass-Schlag zurück.
+- **Loop** heißt jetzt überall gleich: nimmt auf, was gerade klingt, und legt es als Spur ins Pult. Gespielte Töne als veränderbaren Loop: Steuerfeld → Loops → „Töne loopen“.
+- **Viele Formen in „Alle“**: die Namen werden kleiner und kürzer, damit der Bildschirm frei bleibt.
+
 ### Neu in v63: das Pult
 - Unten **Pult**: jede Form ist ein großes Feld. **Tippen** = an/aus – setzt auf der **nächsten Eins** ein (blinkt so lange). **Halten** = nur das hören.
 - **Filter** (Schieber: links dumpf, rechts dünn), **Echo** halten, **Break** halten (nur Beats – loslassen, alles kommt auf der Eins zurück), **● Mitschnitt** nimmt den ganzen Track auf.

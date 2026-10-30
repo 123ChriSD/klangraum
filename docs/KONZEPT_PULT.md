@@ -21,6 +21,7 @@
 Hardstyle-Beat (verzerrte Kick mit Schweif, Riesen-Clap, Metall-Hat, Sub-Drop) · 808-Trap-Beat (1,4 s lange 808, Trap-Snare, schnelle Hats, 808-Rutscher) · Bass-Drop-Beat (Kick + Sub, Clap, Hat, Reese-Schlag) · Drum'n'Bass-Beat. Startvorlage „Harter Bassbeat“ (Hardstyle-Beat, Rumble-Bass, Hardstyle-Lead, 808-Trap-Beat).
 
 ## Nächste Schritte (vorgeschlagen)
+_Alle vier in v64 umgesetzt._
 1. Szenen im Pult (eine Zeile = ein Teil des Songs, mit einem Tipp umschalten).
 2. Ansicht „Alle“ im Querformat entzerren (Namen nur bei der gewählten Form, wie im Raum).
 3. Ton-Loop und Loopstation-Spur zusammenführen (ein „Loop“-Begriff).

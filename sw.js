@@ -1,4 +1,4 @@
-const C = "klangraum-63-202610300804";
+const C = "klangraum-64-202610300812";
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", e => { self.skipWaiting(); e.waitUntil(caches.open(C).then(c => c.addAll(CORE)).catch(() => {})); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith("klangraum-") && k !== C).map(k => caches.delete(k)))).then(() => self.clients.claim())); });

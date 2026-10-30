@@ -1,0 +1,21 @@
+
+/* ---------- v64: Szenen, Drop, viele Formen ---------- */
+.ptscn { display: grid; grid-template-columns: auto repeat(8, minmax(0, 1fr)); gap: 6px; align-items: center; }
+.ptscn .ptl { font-size: 12px; font-weight: 700; color: var(--lichen); margin-right: 2px; }
+.psc { height: 46px; min-width: 0; border-radius: 13px; border: 1px dashed var(--line2); background: rgba(255,255,255,.03); color: var(--lichen); display: grid; place-content: center; line-height: 1; font-size: 16px; padding: 0; touch-action: manipulation; }
+.psc.full { border-style: solid; border-color: var(--line); background: rgba(255,255,255,.07); color: var(--foam); }
+.psc b { font-size: 16px; } .psc small { font-size: 9.5px; color: var(--lichen); margin-top: 2px; }
+.psc.on { background: var(--grad); border-color: transparent; color: #fff; box-shadow: 0 4px 16px rgba(123,92,255,.45); } .psc.on small { color: #fff; }
+.psc.wait { animation: ppq .5s ease-in-out infinite alternate; border-color: var(--a2); }
+@media (max-width: 420px) { .ptscn { grid-template-columns: repeat(8, minmax(0, 1fr)); } .ptscn .ptl { display: none; } }
+.ptfx { grid-template-columns: minmax(0, 2fr) repeat(4, minmax(0, 1fr)); }
+@media (max-width: 520px) { .ptfx { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.pthold.ptdrop { background: linear-gradient(rgba(30,20,60,.8), rgba(30,20,60,.8)) padding-box, var(--grad) border-box; border: 1px solid transparent; }
+.pthold.ptdrop.on { background: var(--grad); animation: ppq .4s ease-in-out infinite alternate; }
+/* viele Formen in „Alle“: Namen kurz, nur die gewählte voll; leere Set-Knöpfe ausgeblendet */
+body.kmany .labels .lbtn { min-height: 30px; padding: 0 8px 0 4px; font-size: 11px; gap: 4px; }
+body.kmany .labels .lbtn b { max-width: 70px; overflow: hidden; text-overflow: ellipsis; }
+body.kmany .labels .lbtn:not([data-act="1"]) b { max-width: 54px; opacity: .85; }
+body.kmany .labels .lbtn em { display: none; }
+body.kmany .cueb:not(.in) { display: none; }
+body.kmany .labels .lbtn .lplay { transform: scale(.9); }
