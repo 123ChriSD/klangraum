@@ -1,0 +1,49 @@
+await E("try{Coach.close();UI.setTips(false)}catch(e){};0")
+print("bar:", await E("Cfg.get('bar').join(',')"))
+await pg.screenshot(path="e65_tools.png")
+b = pg.locator('#ksheet [data-cmd="keys"]').first
+print("keys btn:", await b.count())
+if await b.count(): await b.tap()
+else: await E("KeysUI.open()")
+await pg.wait_for_timeout(700)
+print("sheet:", await E("Sheets.cur"), "form:", await E("KeysUI.f && KeysUI.f.name"))
+await pg.screenshot(path="e65_keys.png")
+# Tasten spielen: Tonleiter tippen, Analysator misst Tonhöhe grob über Ereignisse
+k = pg.locator('#kyKeys .kyrow.dn [data-k="0"]')
+bb = await k.bounding_box(); print("key0 box", bb)
+for i in range(8):
+  el = pg.locator('#kyKeys .kyrow.dn [data-k="%d"]' % i); q = await el.bounding_box()
+  await pg.mouse.move(q['x']+q['width']/2, q['y']+q['height']*0.7); await pg.mouse.down(); await pg.wait_for_timeout(120); await pg.mouse.up(); await pg.wait_for_timeout(40)
+print("voices ok, errs", errs)
+# Akkord halten
+c = pg.locator('[data-kc="3"]'); q = await c.bounding_box(); await pg.mouse.move(q['x']+10,q['y']+10); await pg.mouse.down(); await pg.wait_for_timeout(300)
+print("userChord", await E("Transport.userChord"), "chord dn", await E("document.querySelectorAll('.kyc.dn').length")); await pg.mouse.up(); await pg.wait_for_timeout(100)
+print("after up dn", await E("document.querySelectorAll('.kyc.dn').length"), "holds", await E("KeysUI.chH.size + KeysUI.hold.size"))
+# Nachspielen
+await pg.locator('[data-ks="learn"][data-id="entchen"]').tap(); await pg.wait_for_timeout(300)
+print("next keys:", await E("[...document.querySelectorAll('.kyk.next')].map(b=>b.dataset.k).join(',')"))
+for kk in [0,1,2,3,4]:
+  el = pg.locator('#kyKeys .kyrow.dn [data-k="%d"]' % kk); await el.tap(); await pg.wait_for_timeout(60)
+print("idx after 5:", await E("KeysUI.idx"), "next:", await E("[...document.querySelectorAll('.kyk.next')].map(b=>b.dataset.k).join(',')"))
+await pg.locator('[data-ky="demo"]').tap(); await pg.wait_for_timeout(900); await pg.screenshot(path="e65_learn.png")
+# Aufnehmen als Loop über die Tasten
+await pg.locator('[data-kb="1"]').tap(); await pg.wait_for_timeout(100)
+await pg.locator('#kyRec').tap(); await pg.wait_for_timeout(200)
+print("rec state:", await E("KeysUI.f.loop && KeysUI.f.loop.st"), await E("document.getElementById('kyRecT').textContent"))
+for i in range(60):
+  st = await E("KeysUI.f.loop && KeysUI.f.loop.st")
+  if st == "rec": break
+  await pg.wait_for_timeout(100)
+print("now", st)
+for i in [0,2,4,7,4,2]:
+  el = pg.locator('#kyKeys .kyrow.dn [data-k="%d"]' % i); await el.tap(); await pg.wait_for_timeout(250)
+await pg.wait_for_timeout(3500)
+print("takes:", await E("KeysUI.f.takes.map(t=>t.name+':'+t.bars+'T/'+t.ev.length).join(' | ')"))
+# Lied als Loop
+await pg.locator('[data-ks="loop"][data-id="freude"]').tap(); await pg.wait_for_timeout(600)
+print("lied:", await E("Lied.cur && Lied.cur.n"), "chord now", await E("Transport.chordDeg()"), "forms", await E("Forms.list.map(f=>f.name+'('+(f.takes||[]).length+')').join(', ')"))
+await pg.screenshot(path="e65_loop.png")
+await pg.set_viewport_size({"width":844,"height":390}); await pg.wait_for_timeout(800); await pg.screenshot(path="e65_land.png")
+# schließen über ✕
+await pg.locator('.sheet [data-close]').first.click(); await pg.wait_for_timeout(300)
+print("closed:", await E("Sheets.cur"), "iv", await E("KeysUI.iv"))

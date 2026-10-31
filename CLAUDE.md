@@ -19,7 +19,7 @@ Live: https://123chrisd.github.io/klangraum/ (GitHub Pages, Zweig `main`, Ordner
 ## Veröffentlichen (je Version)
 1. App-Rumpf bauen (`src/vNNa.py` → `/home/claude/klangraum.html`, ohne Kopf).
 2. Artifact: vorher prüfen, ob eine andere Sitzung veröffentlicht hat (dann deren Fassung als Basis), dann mit `url` und **ohne** `capabilities` veröffentlichen.
-3. Website: `python3 tools/mksite.py /home/claude/klangraum.html index.html` (setzt Kopf, Manifest, eigene Adresse für Einladungen).
+3. Website: **zuerst** `python3 tools/mkvorige.py` (bisherige Fassung → `vorige/`, Christian will immer zurückspringen können), dann `python3 tools/mksite.py /home/claude/klangraum.html index.html`; nach dem Commit Git-Tag `vNN` setzen und mit `git push --tags` hochladen (setzt Kopf, Manifest, eigene Adresse für Einladungen).
 4. `docs/` aktualisieren (STAND, GEDAECHTNIS, HILFE), `src/` ergänzen, commit + push auf `main` → Pages aktualisiert sich nach ~1 Minute.
 5. Download-Datei für Christian: mit vollständigem Kopf (doctype, utf-8).
 

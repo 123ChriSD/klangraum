@@ -179,6 +179,13 @@ Stand **Version 56** (27.10.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 - **Mikrofon gesperrt?** (in der Claude-App, oder als Datei auf dem Handy) → **🎤 Mikrofon freischalten** → **Im eigenen Fenster öffnen** → Erlauben; deine Loops kommen mit und mit „⤴ Zurück in die App“ wieder zurück. Oder **Aufnahme-App / Datei**.
 - Unten stehen die **Form-Loops** (gespielte Töne): aussetzen, einsetzen, verwalten.
 
+### Neu in v65: Melodien und Lieder spielen, Rückblick schneiden
+- **🎹 Tasten** (vorn in der Werkzeugzeile oder im Pult „Melodie spielen“): farbige Tasten, nur Töne der Tonart – nichts klingt falsch. Obere Reihe = eine Oktave höher. Instrument oben wählen, Akkorde darunter halten, **Melodie aufnehmen** macht einen Loop daraus.
+- **Lieder**: ▶ vorspielen, **Nachspielen** (die nächste Taste leuchtet, ohne Zeitdruck) oder **Als Loop** (mit Begleitung). Dann folgen alle Formen den Akkorden des Lieds.
+- **Rückblick**: Ausschnitt wählen (rastet auf Takte ein) → **In den Schnittraum** (als Spur übereinanderlegen), **Als Loop ins Pult**, **Als Klang-Form**. Nichts geht verloren – der Rückblick liegt auch unter Stück → Aufnahmen.
+- **Kneten** färbt jetzt auch **Beats** (Drum-Kits) und **Loop-Formen**: spitz = heller, rund = dumpfer, rau = angezerrt.
+- **Vorige Version**: https://123chrisd.github.io/klangraum/vorige/ – falls etwas Neues nicht passt.
+
 ### Neu in v64: Szenen, Drop, ein Loop
 - **Szenen** (Zeile über den Feldern im Pult): **＋** tippen = merken, was gerade läuft. Eine gemerkte Szene tippen = genau diese Klänge, auf der nächsten Eins – so baust du Intro, Hauptteil, Break. Halten = neu merken (oder löschen).
 - **Drop**: tippen – zur nächsten Eins wird es einen Takt still, ein Rauschen steigt an, dann kommt alles mit einem tiefen Bass-Schlag zurück.

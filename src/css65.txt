@@ -1,0 +1,64 @@
+/* ---------- v65: Tasten · Lieder · Rückblick-Schnitt ---------- */
+.kybody { display: grid; gap: 10px; }
+.kyinst { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 2px; }
+.kyinst::-webkit-scrollbar { display: none; }
+.kyinst .fchip { flex: 0 0 auto; }
+.kyq { border-style: dashed !important; opacity: .9; }
+.kyhd { display: grid; grid-template-columns: auto 1fr auto; gap: 8px; align-items: center; }
+.kyhd .btn.kyo { min-height: 40px; padding: 0 10px; font-size: 13px; }
+.kykey { display: grid; text-align: center; line-height: 1.2; } .kykey b { font-size: 14px; } .kykey small { font-size: 11px; color: var(--lichen); }
+.kykeys { display: grid; gap: 6px; touch-action: none; user-select: none; -webkit-user-select: none; }
+.kyrow { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 5px; }
+.kyk { position: relative; height: clamp(74px, 14vh, 118px); border-radius: 12px; border: 1px solid rgba(255,255,255,.14); padding: 0 0 8px; display: grid; align-content: end; justify-items: center; gap: 1px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 30%, #0e1a1d) 0%, color-mix(in srgb, var(--c) 72%, #0e1a1d) 100%); color: #fff; touch-action: none; transition: transform .06s, filter .06s; -webkit-tap-highlight-color: transparent; }
+.kyrow.up .kyk { height: clamp(62px, 11vh, 96px); background: linear-gradient(180deg, color-mix(in srgb, var(--c) 22%, #0e1a1d) 0%, color-mix(in srgb, var(--c) 55%, #22323a) 100%); }
+.kyk b { font-size: 17px; font-weight: 800; text-shadow: 0 1px 2px rgba(0,0,0,.45); } .kyk small { font-size: 10px; opacity: .8; }
+.kyk.root::after { content: ""; position: absolute; top: 7px; left: 50%; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: #fff; opacity: .75; }
+.kyk.dn, .kyk.demo { transform: scale(.96); filter: brightness(1.45); box-shadow: 0 0 0 2px #fff inset, 0 0 18px var(--c); }
+.kyk.next { box-shadow: 0 0 0 3px #fff inset, 0 0 22px var(--c); animation: kynext .55s ease-in-out infinite alternate; }
+.kyk.miss { animation: kymiss .25s; }
+@keyframes kynext { from { filter: brightness(1.05); } to { filter: brightness(1.6); } }
+@keyframes kymiss { 0%, 100% { transform: translateX(0); } 30% { transform: translateX(-3px); } 70% { transform: translateX(3px); } }
+.kychords { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; touch-action: none; }
+.kyc { min-height: 48px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--c) 60%, transparent); background: color-mix(in srgb, var(--c) 18%, rgba(255,255,255,.04)); color: var(--foam); display: grid; place-content: center; line-height: 1.1; touch-action: none; }
+.kyc b { font-size: 15px; } .kyc small { font-size: 10px; color: var(--lichen); }
+.kyc.dn { background: color-mix(in srgb, var(--c) 60%, #0e1a1d); box-shadow: 0 0 16px var(--c); }
+.kyrec { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.kyrb { min-height: 46px; display: inline-flex; gap: 8px; align-items: center; }
+.kyrb.rec { animation: ppq .5s ease-in-out infinite alternate; }
+.kyopt { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.kylern { display: grid; gap: 6px; padding: 8px 10px; border-radius: 14px; border: 1px solid var(--line); background: rgba(255,255,255,.04); }
+.kylh { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; } .kylh b { margin-right: auto; } .kylh small { color: var(--lichen); margin-right: 6px; } .kylh .btn { min-height: 36px; padding: 0 10px; font-size: 13px; }
+.kybub { display: flex; gap: 4px; overflow: hidden; }
+.kyb { flex: 0 0 auto; min-width: calc(22px * var(--w)); height: 26px; border-radius: 13px; display: grid; place-content: center; font: 700 11px/1 system-ui, sans-serif; color: #fff; background: color-mix(in srgb, var(--c) 70%, #0e1a1d); opacity: .75; }
+.kyb.cur { opacity: 1; transform: scale(1.12); box-shadow: 0 0 0 2px #fff; }
+.kyb.done { opacity: .28; }
+.kysongs { display: grid; gap: 6px; }
+.kysong { display: grid; grid-template-columns: 1fr auto auto auto; gap: 6px; align-items: center; padding: 6px 8px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255,255,255,.03); }
+.kysong.on { border-color: var(--a2); }
+.kysong .btn { min-height: 38px; padding: 0 10px; font-size: 13px; }
+.kyst { display: grid; line-height: 1.25; min-width: 0; } .kyst b { font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .kyst small { font-size: 11px; color: var(--lichen); }
+.kyacc { display: flex; gap: 8px; align-items: center; font-size: 13px; color: var(--lichen); }
+.kyacc input { width: 20px; height: 20px; }
+@media (max-width: 400px) { .kysong { grid-template-columns: 1fr auto auto; } .kysong [data-ks="play"] { display: none; } .kyk b { font-size: 15px; } }
+/* Querformat: eine lange Reihe (15 Töne) */
+@media (orientation: landscape) and (max-height: 560px) {
+  .kykeys { display: flex; gap: 4px; }
+  .kyrow { display: flex; gap: 4px; flex: 8; }
+  .kyrow.up { order: 2; flex: 7; } .kyrow.dn { order: 1; }
+  .kyrow .kyk, .kyrow.up .kyk { flex: 1 1 0; height: clamp(70px, 30vh, 120px); }
+  .kyrow.up .kyk.dup { display: none; }
+  .kychords { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+/* Rückblick-Schnitt */
+.rbw { border-radius: 14px; border: 1px solid var(--line); background: rgba(0,0,0,.25); overflow: hidden; }
+.rbcv { display: block; width: 100%; height: 120px; touch-action: none; cursor: col-resize; }
+.rbrow { align-items: center; gap: 8px; flex-wrap: wrap; }
+.rbsel { font-size: 12.5px; color: var(--lichen); font-variant-numeric: tabular-nums; }
+.rbact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.rbact .btn { min-height: 58px; display: grid; place-content: center; text-align: center; line-height: 1.2; padding: 6px 8px; }
+.rbact .btn small { font-size: 10.5px; font-weight: 500; opacity: .75; margin-top: 2px; }
+.rbact .btn.primary { grid-column: 1 / -1; }
+.rbact .rbdel { color: var(--bad); }
+/* Pult: Kachel „Melodie spielen“ */
+.pp.ppkeys { border-style: solid; background: linear-gradient(160deg, rgba(255,90,110,.16), rgba(78,155,255,.16) 55%, rgba(174,123,255,.18)); }

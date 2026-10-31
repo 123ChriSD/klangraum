@@ -1,0 +1,28 @@
+await E("""window.__m = async (seed, deform) => {
+  const ac = Engine.ctx; if (!window.__an) { const a = ac.createAnalyser(); a.fftSize = 4096; a.smoothingTimeConstant = 0; Engine.out.connect(a); window.__an = a; }
+  const an = window.__an; let f = Forms.list.find(x => x.__probe === seed);
+  if (!f) { f = Forms.make({ seedId: seed }); f.__probe = seed; Forms.rebuild(f, true); }
+  if (deform) { const D = K.G.dirs, N = K.G.N;
+    if (deform === 'spitz') { const r = K.rng(5); for (let k = 0; k < 14; k++) { const z = r()*2-1, th = r()*6.283, q = Math.sqrt(1-z*z); K.brush(f.h, [q*Math.cos(th), z, q*Math.sin(th)], 0.45, 0.07); } }
+    if (deform === 'glatt') { for (let i = 0; i < N; i++) f.h[i] *= 0.1; }
+    if (deform === 'beule') { K.brush(f.h, [0,1,0], 0.9, 0.5); K.brush(f.h, [1,0,0], -0.5, 0.4); }
+    for (let i = 0; i < N; i++) f.h[i] = Math.max(-0.6, Math.min(2, f.h[i]));
+    f.dirtyGeo = true; Forms.rebuild(f, true); }
+  await new Promise(r => setTimeout(r, 300));
+  const bins = new Float32Array(an.frequencyBinCount), acc = new Float64Array(an.frequencyBinCount); let n = 0;
+  const h = Forms.play(f, 0.5, 0.9); const t0 = performance.now();
+  let env = [];
+  while (performance.now() - t0 < 900) { await new Promise(r => setTimeout(r, 30)); an.getFloatFrequencyData(bins); let e = 0; for (let i = 0; i < bins.length; i++) { const p = Math.pow(10, bins[i] / 10); acc[i] += p; e += p; } env.push(e); n++; if (performance.now() - t0 > 500 && h && !h.__r) { Forms.release(h); h.__r = 1; } }
+  const sr = ac.sampleRate, hz = i => i * sr / an.fftSize; let c = 0, s = 0, lo = 0, mi = 0, hi = 0;
+  for (let i = 1; i < acc.length; i++) { const p = acc[i] / n; c += hz(i) * p; s += p; if (hz(i) < 250) lo += p; else if (hz(i) < 2500) mi += p; else hi += p; }
+  const db = x => Math.round(10 * Math.log10(x + 1e-12));
+  const pk = env.indexOf(Math.max(...env)), dec = env.findIndex((v, i) => i > pk && v < env[pk] * 0.1);
+  await new Promise(r => setTimeout(r, 600));
+  return { seed, deform: deform || '-', cent: Math.round(c / s), tot: db(s), lo: db(lo), mi: db(mi), hi: db(hi), dec10: dec < 0 ? 'lang' : dec * 30, snd: f.snd && { tilt: +f.snd.tilt.toFixed(2), metal: +f.snd.metal.toFixed(2), noise: +f.snd.noise.toFixed(2), dec: +f.snd.dec.toFixed(2) }, kind: f.kind, ik: Inst.keyFor(f) || '' };
+}; 0""")
+await E("Transport.running && Transport.stop(); Forms.list.forEach(f=>{ Fade.set(f,false,true); }); 0")
+import json
+for sd in ["klavier","kugel","wolke","supersaw","stimme_aah","kit_909","kit_hardstyle","rumblebass","reese","donk"]:
+  for d in [None,"spitz","glatt","beule"]:
+    try: print(json.dumps(await E("__m(%s,%s)" % (json.dumps(sd), json.dumps(d))), ensure_ascii=False))
+    except Exception as ex: print(sd, d, "ERR", str(ex)[:200])

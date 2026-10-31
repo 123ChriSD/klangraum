@@ -1,8 +1,64 @@
-# KLANGRAUM – Stand Version 64 (30.10.2026)
+# KLANGRAUM – Stand Version 65 (31.10.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 64) · jede Version als Git-Tag (`v59` … `v65`).
 
-## Neu in v64: Szenen und Drop im Pult · ein Loop · Ansicht „Alle“ entzerrt
+## Neu in v65: Melodien und Lieder auf Tasten · Rückblick schneiden · Kneten färbt jeden Klang
+- Christian (31.10. 07:20):
+  - „Merke dir immer die letzte Version, sodass wir ggf. zurückspringen können.“
+  - Gezieltes Spielen wirklicher Melodien und Lieder für Menschen ohne Notenkenntnis.
+  - Handling verbessern.
+  - Rückblick geht verloren, wenn man neben das Fenster klickt; Tonspuren aus Aufzeichnungen schneiden und im Editor übereinanderlegen.
+  - Modellierung wirkt nicht immer auf den Klang.
+  - Das Flyout „Tonlage höher/tiefer“ geht manchmal nicht wieder weg.
+- **Zurückspringen:**
+  - `tools/mkvorige.py` legt vor jeder Veröffentlichung die bisherige Website-Fassung unter `vorige/` ab. Sie hat keinen Service Worker, nutzt `<base href="../">` und zeigt oben den Hinweis „Vorige Version NN · zur aktuellen“. Sie nutzt denselben Speicher.
+  - Jede Version hat einen Git-Tag. Ältere Fassungen lassen sich mit `git show vNN:index.html` wiederherstellen, das Artifact hat zusätzlich seine eigene Versionsliste.
+- **🎹 Tasten** (Werkzeugzeile vorn, Kreis → Werkzeuge, Pult-Kachel „Melodie spielen“), Konzept in `docs/KONZEPT_MELODIE.md`:
+  - zwei Reihen farbiger Tasten, nur Töne der Tonart; die obere Reihe ist eine Oktave höher, mit gleicher Farbe genau darüber. Im Querformat eine Reihe mit 15 Tasten.
+  - Wischen spielt einen Lauf, weiter unten auf der Taste ist lauter.
+  - Instrument-Leiste: alle Formen mit Instrument plus „＋ Klavier/E-Piano/Gitarre/…“. ◀ tiefer / höher ▶ verschiebt um eine Oktave.
+  - Beschriftung wählbar: 1 2 3, Do Re Mi oder C D E (deutsch, H statt B).
+  - **Akkord-Knöpfe** (I IV V VI II III mit Namen): halten = Akkord klingt, die Formen folgen.
+  - **Melodie aufnehmen** (1/2/4/8 Takte oder frei, mit Einzählen) erzeugt einen Ton-Loop der Form.
+- **Lieder** (gemeinfrei): Alle meine Entchen (10 Takte), Hänschen klein, Bruder Jakob, Ode an die Freude, Morgen kommt der Weihnachtsmann, Jingle Bells, Kanon in D.
+  - ▶ Vorspielen (die Tasten leuchten mit).
+  - **Nachspielen**: Lernzeile mit farbigen Punkten, die nächste Taste pulsiert, kein Zeitdruck; „Geschafft!“ bietet „Als Loop“ an.
+  - **Als Loop**: das Lied wird ein Loop der Form, auf Wunsch kommt die Begleitung (E-Piano, Akkorde) als eigene Form dazu.
+  - **Lied-Akkorde**: Alle Formen folgen der Akkordfolge des Lieds (Schalter „Akkorde: Lied/Stimmung“, gespeichert als `d.lied`).
+  - In Moll-Stimmungen gibt es den Knopf „Auf Dur stellen“.
+  - Ton-Loops dürfen jetzt bis **16 Takte** lang sein.
+- **Rückblick schneiden:**
+  - Der Rückblick-Knopf öffnet jetzt einen **Schnitt-Editor**: Welle mit Taktlinien, zwei Griffe (oder über die Welle wischen), antippen = ab dort anhören.
+  - **rastet auf Takte ein**: Die Zeit kommt von der Uhr des Audiosystems (`t0` des Aufnahme-Worklets plus gezählte Samples). Gemessen liegen die Schläge 12 ms nach der Taktlinie.
+  - „⤢ Ausschnitt groß“, „− / + Takt“.
+  - Was mit dem Ausschnitt passieren kann:
+    - **✂ In den Schnittraum**: als Clip auf einer neuen Spur, dort verschieben, kürzen, teilen, übereinanderlegen, mischen.
+    - **🔁 Als Loop ins Pult**: 1/2/4/8 Takte, phasengenau zum laufenden Takt.
+    - **🎹 Als Klang-Form**.
+    - **💾 Als eigene Aufnahme** und **Teilen**.
+    - **🗑 Verwerfen**.
+  - Der Rückblick liegt sofort unter Stück → Aufnahmen. Ein Tipp neben das Blatt schließt es nicht mehr. Wird es geschlossen, erscheint „Wieder öffnen“.
+- **Kneten → Klang, Befund:** Gemessen wurden Spektren vor und nach dem Kneten mit „spitz“, „glatt“ und „Beule“:
+  - Synths: stark hörbar.
+  - echte Instrumente, Techno-Samples, Aufnahmen und Gesangschnipsel: deutlich hörbar (Höhen +10 bis +18 dB).
+  - **Drum-Kits** (alle, auch die harten): **keine Wirkung** (±1 dB).
+  - **Loop-Formen**: nur „rund“ wirkte, und auch das schwach.
+- **Kneten → Klang, behoben:**
+  - Drum-Kits bekommen Helligkeit, Metall, Rauheit und leichte Verzerrung relativ zur Startform, mit Pegelausgleich (gemessen: Höhen +7 bis +9 dB, Schwerpunkt +1,1 bis +1,5 kHz).
+  - Loop-Formen werden spitz heller (Höhen bis +11 dB), rund dumpfer (Tiefpass bis 350 Hz) und rau angezerrt (WaveShaper). Die Startform ist jetzt neutral; vorher lag immer ein Tiefpass bei 9 kHz.
+- **Tonstufen-Anzeige („♪ 2 Stufen höher“), Befund:** Sie wurde im Knet-Modus alle 0,5 s neu eingeblendet und nach dem Verlassen nie ausgeblendet.
+- **Tonstufen-Anzeige, behoben:** Sie verschwindet jetzt 2,2 s nach der letzten Änderung, beim Bereichswechsel und bei offenen Blättern.
+- **Nebenbei behoben:**
+  - „Töne bearbeiten“ öffnete nicht den gewählten Loop (`Stueck.editLoop` reichte `tid` nicht weiter).
+  - Ein `UI.hideSheets`-Wrapper verlor sein Argument.
+- **Tests:**
+  - Prüfstand 125 (neu KD, LK, KB, LI, AL, LO, RE, TB): 412 → 0 Fehler, 700 → nur der schwankende T3. Layout 0/0.
+  - E2E Tasten: Tonleiter, Akkord F halten (alle Formen folgen), Nachspielen (5 richtige Tasten → nächste pulsiert), Melodie aufnehmen (Loop 1), Ode an die Freude als Loop + Begleitung, Querformat mit 15 Tasten.
+  - E2E Rückblick: Taktraster, Griff ziehen (3 → 2 Takte), Tipp daneben (Blatt bleibt), Schnittraum-Clip, Loop im Pult (5 → 4 Takte).
+  - `vorige/` geprüft: Version 64 startet, Instrumente laden, keine 404.
+
+## v64: Szenen und Drop im Pult · ein Loop · Ansicht „Alle“ entzerrt
 - Christian (30.10. 08:05): „Alle“ – die vier vorgeschlagenen nächsten Schritte aus v63 umsetzen.
 - **Szenen** (Zeile über den Pult-Feldern, 8 Plätze): ＋ tippen = merken, was gerade läuft (Zahl unten = Anzahl Klänge). Gemerkte Szene tippen = genau diese Klänge, eingereiht auf der nächsten Eins (Feld blinkt, aktive Szene leuchtet). Halten = neu merken, Meldung mit „Löschen“. Wird im Stück gespeichert (`d.pscn`).
 - **Drop** (fünfter Live-Griff): tippen → zur nächsten Eins wird es einen Takt still, ein Rauschen steigt an (Bandpass 300 Hz → 7 kHz), dann kommt alles mit Sub-Drop + Hardstyle-Kick auf der Eins zurück. Nochmal tippen = abbrechen; ■ setzt alles zurück.
