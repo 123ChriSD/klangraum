@@ -1,7 +1,7 @@
 # KLANGRAUM – Stand Version 65 (31.10.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 64) · jede Version als Git-Tag (`v59` … `v65`).
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 64) · jede Version mit Commit in `docs/VERSIONEN.md`.
 
 ## Neu in v65: Melodien und Lieder auf Tasten · Rückblick schneiden · Kneten färbt jeden Klang
 - Christian (31.10. 07:20):
@@ -13,7 +13,7 @@ Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Sa
   - Das Flyout „Tonlage höher/tiefer“ geht manchmal nicht wieder weg.
 - **Zurückspringen:**
   - `tools/mkvorige.py` legt vor jeder Veröffentlichung die bisherige Website-Fassung unter `vorige/` ab. Sie hat keinen Service Worker, nutzt `<base href="../">` und zeigt oben den Hinweis „Vorige Version NN · zur aktuellen“. Sie nutzt denselben Speicher.
-  - Jede Version hat einen Git-Tag. Ältere Fassungen lassen sich mit `git show vNN:index.html` wiederherstellen, das Artifact hat zusätzlich seine eigene Versionsliste.
+  - Jede Version steht mit Commit in `docs/VERSIONEN.md` (wiederherstellen mit `git show <commit>:index.html`), das Artifact hat zusätzlich seine eigene Versionsliste.
 - **🎹 Tasten** (Werkzeugzeile vorn, Kreis → Werkzeuge, Pult-Kachel „Melodie spielen“), Konzept in `docs/KONZEPT_MELODIE.md`:
   - zwei Reihen farbiger Tasten, nur Töne der Tonart; die obere Reihe ist eine Oktave höher, mit gleicher Farbe genau darüber. Im Querformat eine Reihe mit 15 Tasten.
   - Wischen spielt einen Lauf, weiter unten auf der Taste ist lauter.
