@@ -1,0 +1,19 @@
+await E("try{Coach.close();UI.setTips(false)}catch(e){};0")
+await E("RockSets.load('stoner')"); await pg.wait_for_timeout(2500)
+print("tab", await E("UI.tab"), "forms", await E("Forms.list.map(f=>f.name+':'+(f.takes||[]).length+(Fade.on(f)?'+':'-')).join(', ')"), "mood", await E("Music.mood.id"), await E("Math.round(Music.tempo())"))
+print("zones", await E("Object.entries(Inst.sets).filter(([k,s])=>s.kind==='syn').map(([k,s])=>k+':'+[...s.zones.values()].filter(v=>v==='ok').length+'/'+s.avail.length).join(' ')"))
+await pg.screenshot(path="e66_pult.png")
+await pg.locator('[data-psc="0"]').tap(); await pg.wait_for_timeout(300)
+print("running", await E("Transport.running"), "playing", await E("Pult.list().filter(f=>Pult.playing(f)).map(f=>f.name).join(', ')"))
+await E("""(()=>{ const a=Engine.ctx.createAnalyser(); a.fftSize=2048; Engine.out.connect(a); window.__a=a; })()""")
+lv=[]
+for i in range(20):
+  await pg.wait_for_timeout(150); lv.append(await E("(()=>{const d=new Float32Array(2048); __a.getFloatTimeDomainData(d); let m=0; for(const v of d) m=Math.max(m,Math.abs(v)); return +m.toFixed(3);})()"))
+print("peaks", lv)
+await pg.locator('[data-psc="1"]').tap(); bar = await E("Transport.spb*16"); await pg.wait_for_timeout(int(bar*1000)+500)
+print("Solo:", await E("Pult.list().filter(f=>Pult.playing(f)).map(f=>f.name).join(', ')"))
+await pg.screenshot(path="e66_pult2.png")
+# Seeds-Blatt Rock
+await E("Sheets.seeds()"); await pg.wait_for_timeout(500); await pg.locator('#seedTabs [data-cat="rock"]').tap(); await pg.wait_for_timeout(700); await pg.screenshot(path="e66_seeds.png")
+print("sets", await E("document.querySelectorAll('.rkset').length"))
+await pg.locator('.rkset[data-rkset="postgrunge"]').tap(); await pg.wait_for_timeout(400); await pg.screenshot(path="e66_set.png"); print("sheet", await E("Sheets.cur"))

@@ -1,0 +1,13 @@
+import base64
+await E("try{Coach.close();UI.setTips(false)}catch(e){};0")
+for sid in ["stoner","grunge","postgrunge"]:
+  await E("RockSets.load('%s')" % sid); await pg.wait_for_timeout(3000)
+  await E("Retro.chunks=[]; Retro.frames=0; 0")
+  await E("Pult.sGo(0)"); bar = await E("Transport.spb*16")
+  n = await E("RockSets.byId('%s').scenes.length" % sid)
+  for k in range(n):
+    if k: await E("Pult.sGo(%d)" % k)
+    await pg.wait_for_timeout(int(bar*1000*4)+200)
+  await E("Pult.allStop()"); await pg.wait_for_timeout(1500)
+  b64 = await E("""(()=>{ const sr=Engine.ctx.sampleRate, n=Retro.frames, L=new Float32Array(n), R=new Float32Array(n); let o=0; for(const c of Retro.chunks){ L.set(c[0],o); R.set(c[1]||c[0],o); o+=c[0].length; } const w=K.wav([L,R], sr); return new Promise(r=>{ const fr=new FileReader(); fr.onload=()=>r(fr.result.split(',')[1]); fr.readAsDataURL(w instanceof Blob?w:new Blob([w])); }); })()""")
+  open("rock_%s.wav" % sid, "wb").write(base64.b64decode(b64)); print(sid, "ok", len(b64))

@@ -179,6 +179,10 @@ Stand **Version 56** (27.10.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 - **Mikrofon gesperrt?** (in der Claude-App, oder als Datei auf dem Handy) → **🎤 Mikrofon freischalten** → **Im eigenen Fenster öffnen** → Erlauben; deine Loops kommen mit und mit „⤴ Zurück in die App“ wieder zurück. Oder **Aufnahme-App / Datei**.
 - Unten stehen die **Form-Loops** (gespielte Töne): aussetzen, einsetzen, verwalten.
 
+### Neu in v66: Rock
+- **＋ Neu → Rock → Band-Sets**: **Stoner-Groove**, **Grunge** oder **Post-Grunge** – komplette Band mit eigenen Riffs, Stimmung, Tempo und Szenen. Im Pult oben die Szenen (Riff, Strophe, Refrain, Solo …) tippen – sie wechseln auf der Eins.
+- Einzeln: Crunch-, Fuzz-, Drop-D-, Clean- und Lead-Gitarre, Rock-Bass, Rock-/Grunge-/Stoner-Kit. Eigene Riffs mit 🎹 Tasten aufnehmen.
+
 ### Neu in v65: Melodien und Lieder spielen, Rückblick schneiden
 - **🎹 Tasten** (vorn in der Werkzeugzeile oder im Pult „Melodie spielen“): farbige Tasten, nur Töne der Tonart – nichts klingt falsch. Obere Reihe = eine Oktave höher. Instrument oben wählen, Akkorde darunter halten, **Melodie aufnehmen** macht einen Loop daraus.
 - **Lieder**: ▶ vorspielen, **Nachspielen** (die nächste Taste leuchtet, ohne Zeitdruck) oder **Als Loop** (mit Begleitung). Dann folgen alle Formen den Akkorden des Lieds.

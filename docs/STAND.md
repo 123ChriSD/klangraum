@@ -1,9 +1,31 @@
-# KLANGRAUM – Stand Version 65 (31.10.2026)
+# KLANGRAUM – Stand Version 66 (01.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 64) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 65) · jede Version mit Commit in `docs/VERSIONEN.md`.
 
-## Neu in v65: Melodien und Lieder auf Tasten · Rückblick schneiden · Kneten färbt jeden Klang
+## Neu in v66: Rock – Stoner, Grunge, Post-Grunge
+- Christian (01.11. 10:17): „Ich möchte auch so spielen können wie Clutch, Pearl Jam, Bush – stelle entsprechende FormSets zusammen.“
+- **Gitarren aus dem Gerät** (`RockSnd`): gezupfte Saite (Karplus-Strong mit Bruchteil-Verzögerung, Anschlagsposition, Helligkeit), Powerchord (Grundton, Quinte, Oktave, leicht gestaffelt), Verzerrer (tanh mit Vorspannung, beim Fuzz zusätzlich Oktav-Gleichrichtung) und Gitarrenbox (Hochpass, Glocke, Senke, zwei Tiefpässe).
+  - Neue Klangsatz-Art `syn` (`Inst.makeRec`/`decode`-Wrapper): wird beim ersten Gebrauch berechnet (alle 4 Halbtöne ein Ton), ohne Netz und ohne Datei, läuft auch in der heruntergeladenen Datei.
+  - Formen (Kategorie **Rock**): Crunch-, Fuzz-, Drop-D-, Clean- (mit Chorus) und Lead-Gitarre (gehalten, Schleife), Rock-Bass.
+  - Im Pult heißen sie „🎸 Gitarre“.
+- **Rock-Schlagzeug** (BBX-synthetisch):
+  - Rock-Kit: Kick mit Klick, Snare mit Raum, Crash.
+  - Grunge-Kit: große, hallige Snare.
+  - Stoner-Kit: fette trockene Kick, Ride.
+- **Stimmungen:** Stoner (E dorisch, 100 bpm), Grunge (E äolisch, Em–C–G–D, 116 bpm), Post-Grunge (D äolisch, Dm–B♭–F–C, 92 bpm).
+- **Band-Sets** (`RockSets`): Riffs sind eigene Kompositionen im Stil, keine Songs der Bands. Sie kommen als Loops, die Formen drehen nicht, dazu Lautstärken und **Pult-Szenen mit Namen**:
+  - **Stoner-Groove** (à la Clutch): Fuzz-Riff im Shuffle mit Blue Note, Riff-Bass, Stoner-Kit, Blues-Solo · Szenen Riff / Solo / Break.
+  - **Grunge** (à la Pearl Jam): Clean-Arpeggio-Strophe, Crunch-Refrain, laufender Bass, Grunge-Kit mit Fill, Melodie-Solo · Szenen Strophe / Refrain / Laut.
+  - **Post-Grunge** (à la Bush): Drop-D-Riff, Clean-Strophe, Powerchord-Refrain, Bass, Rock-Kit, Refrain-Melodie · Szenen Riff / Strophe / Refrain.
+- **Einstiege:** ＋ Neu → Rock → Band-Sets (als neues Stück oder dazu) · Neues Stück → Stoner / Grunge / Post-Grunge · Hilfe „Rock spielen“.
+- **Tests:**
+  - Prüfstand 129 (neu RG, RK, RS, RL; I4 nimmt `syn`-Klänge aus), Layout 0/0.
+  - E2E: Set Stoner → Pult mit 3 Szenen, Riff läuft (Spitzen 0,4–0,85), Solo-Szene auf der Eins; Rock-Kategorie mit 3 Set-Karten.
+  - Hörproben gerendert (31/27/33 s, ohne Übersteuerung).
+  - Hinweis: Die Bandnamen stehen nur in der Doku, in der App heißen die Sets nach dem Stil.
+
+## v65: Melodien und Lieder auf Tasten · Rückblick schneiden · Kneten färbt jeden Klang
 - Christian (31.10. 07:20):
   - „Merke dir immer die letzte Version, sodass wir ggf. zurückspringen können.“
   - Gezieltes Spielen wirklicher Melodien und Lieder für Menschen ohne Notenkenntnis.

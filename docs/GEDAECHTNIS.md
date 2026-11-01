@@ -2,7 +2,7 @@
 
 > **Zweck:** Alles, was ein neuer Chat braucht, um KLANGRAUM ohne Rückfragen sicher weiterzuentwickeln.
 > **Lesereihenfolge:** diese Datei → `claude/KLANGRAUM_STAND.md` (Änderungen je Version) → `claude/KLANGRAUM_HILFE.md` (Bedienung aus Nutzersicht) → `claude/KLANGRAUM_KONZEPT_BEDIENUNG.md` (Bedienkonzept ab v32).
-> **Stand:** Version 65 · 30.10.2026
+> **Stand:** Version 66 · 30.10.2026
 
 ---
 
@@ -184,6 +184,7 @@ Formen (inkl. `fine.vol`, `mx`, `fade`, `mels`, `takes`, `ph`, `pos`), `mood`, `
 | v45 | Set & Einsatz, Alle mit Spalten, Set aufnehmen → Form, Mikro → Form, 20 Stimmungen |
 | v46 | Einladen per QR-Code/WhatsApp, Erstellt/Geändert in Meine Stücke |
 | v47 | Jam ohne Anmeldung über freien MQTT-Vermittler |
+| **v66** | Rock: `RockSnd` (Karplus-Strong + Verzerrer + Box) als Klangsatz-Art `syn` (`gm.syn = { k, range }`, berechnet in `Inst.decode`), 6 Rock-Formen, 3 BBX-Rock-Kits, 3 Stimmungen, `RockSets` (Formen + Loops + benannte Pult-Szenen, `fill()` synchron), Einstiege ＋ Neu → Rock und Neues Stück |
 | **v65** | `KeysUI` (Blatt „Melodie“: Tasten, Akkorde, Aufnahme), `Lieder` + `Lied` (Akkordfolge überschreibt `Transport.chordDeg/chordAtStep`, `d.lied`), `RetroEd` (Rückblick-Schnitt mit Taktraster aus `Retro.rt0`/`Retro.tot`), Kneten wirkt auf Drum-Kits (`Forms.fpOf`) und Loop-Formen (`LoopKnead`, WaveShaper), `KneadPitch.tick/hide`, Takes bis 16 Takte, `vorige/` + `docs/VERSIONEN.md` |
 | **v64** | Pult-Szenen (`Pult.scn`, 8 Plätze, `sSave/sGo`, gespeichert als `d.pscn`), Drop (`Pult.dropSt` arm→still→null an der Eins, `riser`/`boom`), ein Loop-Begriff (`Cmd.L.loop` → `LoopRec.tap`), `body.kmany` in Alle |
 | **v63** | `Pult` (Bereich „Pult“ = `#vLoop` mit `#pult` + `#lsbox`; `Pult.q` Einsätze auf der Eins via `Transport.onStep`; Master-Filter lp→hp hinter `Engine.out`; Echo/Break halten), 4 harte Bassbeat-Kits in `BBX`, Konzept `docs/KONZEPT_PULT.md` |
@@ -247,6 +248,7 @@ Details je Version: `claude/KLANGRAUM_STAND.md`.
 - **Arbeitsbasis GitHub (ab v60):** Repo `123ChriSD/klangraum` – `index.html` (Website, gebaut mit `tools/mksite.py` aus dem Artifact-Rumpf), `docs/` (STAND, GEDAECHTNIS, HILFE, KONZEPT_BEDIENUNG, RECHTSPRUEFUNG), `src/` (vNN.js, cssNN.txt, vNNa.py), `tools/` (prf33.py, audit.py, t60.py …), `CLAUDE.md`. Je Version: bauen → testen → Artifact veröffentlichen → `mksite.py` → Docs kopieren → commit + push (Pages aktualisiert sich selbst). Klon in neuer Sitzung: `add_repo` + `git clone --depth 1`.
 - **Loopstation-Technik (v60):** `LoopSt.par(t)` liest die Form (run, Gain, Tempo-Faktor, Halbtöne, Tiefpass, Pan, Hall); `onStep` spielt „glatt“ (ein Puffer je Runde ab `(step−shift) mod L = 0`) oder „schlag“ (Scheiben je Schlag mit `playbackRate = Tempo/bpm × sp × 2^(HT/12)`); eigene Kette je Spur (Gain → Tiefpass → Panner → Loop-Ausgang, Hall-Send). `Motion.step` und `Forms.play` sind für Loop-Formen umgeleitet (keine Synth-Töne, Antippen = Schlag-Scheibe).
 - **Eigene Website (28.10.):** Paket `scratchpad/site/` bzw. `klangraum-website.zip` = `index.html` (v59 mit vollem Kopf, Manifest, Icons, `JamInvite.URL` = eigene Adresse, wenn nicht claude.ai) + `s/` (224 Instrumenten-Aufnahmen aus dem Artifact, `s/index.json`, `s/QUELLEN.txt` CC-BY) + `manifest.webmanifest`, `icon-192/512.png`, `.nojekyll`, `README.md`. Ziel: GitHub Pages `https://123chrisd.github.io/klangraum/` (GitHub-Name `123ChriSD`; Repo `klangraum` muss Christian öffentlich anlegen, dann Push über `add_repo`, dann Settings → Pages → main / root). Getestet auf localhost (sicher): Mikrofon direkt, keine Warnkarte, 13 Instrumente lokal, Loopstation frei → 1 Takt 90,6 BPM.
+- **Stolperfalle (v66):** `Sheets.seeds()` liefert kein Element zurück – das Blatt über `#sheets .sheet` holen. Async-Funktionen im Prüfstand nicht aufrufen (Tests sind synchron) – dafür gibt es `RockSets.fill`. Neue Instrumente mit `gm.syn` haben keine eingebauten Aufnahmen (I4 nimmt sie aus).
 - **Stolperfalle (v65):** Prüfungs-Kürzel sind global eindeutig (KP gab es schon → KB). `Tests.run` ist synchron – kein `await` in Prüfungen. `Cfg.bar` hat jetzt bis 7 Plätze. Bei jeder Veröffentlichung zuerst `tools/mkvorige.py` (vorige Fassung sichern), dann `mksite.py`; nach dem Commit die Zeile in `docs/VERSIONEN.md` ergänzen (Git-Tags lassen sich nicht hochladen).
 - **Stolperfalle (v64):** `Pult.render` wird über Wrapper ergänzt (Szenenzeile vor `.ppgrid`, Drop in `.ptfx`) – `Pult.sig` muss jeden neuen Zustand enthalten, sonst wird nicht neu gezeichnet. ■ (`Transport.stop`) holt beim Drop ausgeblendete Formen zurück.
 - **Stolperfalle (v63):** `QuickPP.toggle` plant bei laufendem Takt nur ein (Pult) – Prüfungen, die sofort umschalten wollen, setzen `QuickPP._now = true`. `LoopSt.el()` ist jetzt `#lsbox` im Pult.
