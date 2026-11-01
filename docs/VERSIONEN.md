@@ -6,6 +6,7 @@
 
 | Version | Commit | Inhalt |
 |---|---|---|
+| 66 | `e92daf8` | Rock: Gitarren-Synthese, Rock-Kits, Stimmungen, Band-Sets Stoner/Grunge/Post-Grunge |
 | 65 | `8966a3d` | Tasten und Lieder ohne Noten, Rückblick-Schnitt, Kneten färbt Drum-Kits und Loop-Formen, Tonstufen-Anzeige, vorige Version unter /vorige/ |
 | 64 | `9480eaf` | Pult-Szenen, Drop, ein Loop-Begriff, Alle entzerrt |
 | 63 | `a84e617` | Pult – live einsetzen und stoppen auf der Eins, Filter/Echo/Break, Mitschnitt; harte Bassbeat-Kits; Team-Konzept |
