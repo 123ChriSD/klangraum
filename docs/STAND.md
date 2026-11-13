@@ -1,7 +1,17 @@
-# KLANGRAUM – Stand Version 70 (13.11.2026)
+# KLANGRAUM – Stand Version 71 (13.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 69) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 70) · jede Version mit Commit in `docs/VERSIONEN.md`.
+
+## Neu in v71: Mit allen Fingern modellieren – und man hört es
+- Christian (13.11. 22:46): „Verbessere die App noch weiter! Einfache Bedienung – kinderleicht! Das Modellieren von Melodien soll Multitouch unterstützen. Das Modellieren der Töne auch.“ (Der zweite Satz ließ sich auch als „das Modellieren soll auch tönen“ lesen – beides ist umgesetzt.)
+- **Befund:** In der Klangschrift galt nur ein Finger, ein gesetzter Ton ließ sich nicht mehr bewegen (nur löschen und neu setzen). Beim Kneten griff bei drei Fingern die Geste „Form herauslösen“, und Kneten war stumm – man hörte die Wirkung erst beim nächsten Antippen.
+- **Klangschrift mit mehreren Fingern** (`Schrift.bind` neu, `Schrift.drags`): Jeder Finger setzt seinen eigenen Ton – drei Finger auf einmal sind ein Akkord (bis sechs). **Ton anfassen und ziehen** verschiebt ihn: hoch/runter = Tonhöhe (klingt beim Wechsel), links/rechts = Zeit. **Am rechten Ende ziehen** ändert die Länge. Antippen löscht. Mehrere Töne lassen sich gleichzeitig verschieben. Was auf derselben Zeile darunterliegt, weicht beim Loslassen. Leeres Feld zeigt „Tippe ins Feld. Jeder Finger setzt einen Ton.“ Das Notenfeld nimmt jetzt alle Wischrichtungen selbst (`touch-action: none`); die Seite rollt man neben dem Feld.
+- **Kneten mit mehreren Fingern, mit Ton** (`Knet71`): Jeder Finger auf der Form knetet für sich und bekommt einen eigenen Leuchtring. Beim Aufsetzen und alle 0,3 s beim Weiterkneten **klingt die Form** an der Stelle des Fingers. Die Drei-Finger-Geste ist beim Kneten aus. Zwei Finger gleichzeitig aufsetzen und spreizen ändert weiter die Größe. Kein Knet-Ton, wenn die Form gerade hörbar ihren Loop spielt oder eine Aufnahme läuft.
+- **Startseite:** Kachel „Klänge formen“ heißt jetzt **„Klang kneten“** und führt direkt ins Kneten (Form in Nahansicht, Kneten an, ein Satz Erklärung). Hinweistexte beim Kneten neu in einfachen Worten.
+- **Live-Fläche:** Ein **zweiter Finger** auf der Fläche schaltet das Echo ein, solange er liegt.
+- **Tests:** Prüfstand 143 (neu **MT** Klangschrift mit mehreren Fingern, **KT** Kneten klingt), 412×892 und 700×330 ohne Fehler. Layout 412×892, 700×330, 820×1180 TOTAL 0. E2E mit echtem Mehrfinger-Touch im Testbrowser (`tools/t71_a.txt`): Kachel „Klang kneten“ → drei Finger kneten gleichzeitig (drei Ringe, drei Töne, Form ändert sich, keine Drei-Finger-Geste), einer bleibt liegen, zwei gleichzeitig = Größe 1,15 → 1,75; Klangschrift: drei Töne mit einem Griff, zwei gleichzeitig verschoben; Live-Fläche: zweiter Finger = Echo.
+- **Nicht geprüft / offen:** echte Geräte (Handballen, Auflage vieler Finger, Verzögerung). Knet-Ton nur gezählt, nicht gehört. Kneten erreicht nur die sichtbare Seite der Form. In der Klangschrift gibt es kein Zoomen mit zwei Fingern; im Querformat auf dem Handy ist das Notenfeld höher als der Bildschirm und wird neben dem Feld gerollt.
 
 ## Neu in v70: Klangschrift (eigenes Notensystem) · Live-Fläche · fette Klänge · Wucht
 - Christian (13.11. 19:34): „Ich möchte die krasseste, coolste und innovativste Musik-App schaffen! Simple, fesselnd und faszinierend! Innovative intuitive Steuerung! Krasse fette Sounds! Neues Notensystem.“

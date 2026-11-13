@@ -90,3 +90,12 @@ Wer mehr will, findet unter **Mehr** alles Bisherige (Pult, Beat-Maschine, Schni
 - **Faszination:** Das Bild der Live-Fläche antwortet auf jede Stimme (Strahlenkranz) und auf den Takt (Ringe). Es zeigt nichts, was man lesen muss.
 - **Fett heißt ausgewogen laut:** Die Messung zeigte, dass „mehr Bass“ den Klang kleiner macht, weil der Begrenzer alles andere wegdrückt. Wucht arbeitet deshalb mit Fundament, Präsenz, Sättigung und Verdichtung statt nur mit Tiefbass.
 - **Offen:** Mehrfinger-Gesten auf der Live-Fläche; Wechsel auf den Takt genau; Lautstärke je Ton in der Klangschrift; Klangschrift als Bild zum Teilen.
+
+## 10. Version 71: Hände statt Werkzeuge
+
+- **Auftrag:** kinderleicht; Melodien und Klänge mit mehreren Fingern modellieren.
+- **Kinder nehmen die ganze Hand.** Eine Oberfläche, die nur einen Finger versteht, wirkt kaputt, sobald ein zweiter aufliegt. Deshalb gilt in Klangschrift und Kneten: Jeder Finger tut dasselbe wie der erste.
+- **Anfassen statt Auswählen:** Ein Ton in der Klangschrift ist ein Ding, das man schiebt. Es gibt keinen Auswahl- oder Verschiebe-Modus; die Stelle des Griffs entscheidet (Mitte = schieben, rechtes Ende = Länge).
+- **Jede Handlung klingt:** Kneten ohne Ton ist Bildhauerei, mit Ton ist es ein Instrument. Der Ton kommt sofort beim Aufsetzen und wiederholt sich beim Weiterkneten – Ursache und Wirkung liegen unter 0,3 s auseinander.
+- **Ein Wort, eine Kachel:** „Klang kneten“ sagt, was man tut, und führt ohne Umweg dorthin.
+- **Offen:** Zoomen der Klangschrift mit zwei Fingern; Kneten auf der Rückseite der Form; eine geführte Demo beim ersten Öffnen.

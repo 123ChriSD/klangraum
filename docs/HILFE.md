@@ -8,6 +8,7 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **einen Klang mit den Fingern formen und dabei hören** | **Start** → **Klang kneten** · mit einem oder mehreren Fingern drücken und ziehen | [→](#v71) |
 | **Noten lesen oder selbst setzen** | **Start** → **Klangschrift** · oder im Song einen Klang antippen → **Noten lesen und ändern** | [→](#v70) |
 | **den Song live mit einem Finger formen** | **Start** → **Live-Fläche** · hoch = mehr Band, rechts = heller | [→](#v70) |
 | **dass alles fetter klingt** | **Mischen** → Regler **Wucht** · neue Stile Festival, Trap, Drum & Bass | [→](#v70) |
@@ -66,6 +67,26 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## 🖐 Mit allen Fingern modellieren (neu in v71) {#v71}
+
+**Klang kneten**
+- **Start → Klang kneten** (oder „Kneten“ unten im Bereich Spielen).
+- Drück und zieh an der Form. Rausziehen macht eine Spitze oder Beule, reindrücken eine Delle.
+- Nimm so viele Finger, wie du magst. Jeder Finger knetet für sich und hat einen eigenen Leuchtring.
+- **Die Form klingt beim Kneten.** So hörst du sofort, was sich ändert.
+- Zwei Finger gleichzeitig aufsetzen und spreizen: Die Form wird größer oder kleiner.
+- Spielt die Form gerade ihren Loop, hörst du die Änderung am Loop.
+
+**Klangschrift**
+- Jeder Finger setzt einen Ton. Drei Finger auf einmal sind ein Akkord.
+- **Ton anfassen und ziehen:** hoch und runter ändert die Tonhöhe, links und rechts die Zeit.
+- **Am rechten Ende ziehen:** Der Ton wird länger oder kürzer.
+- **Antippen:** Der Ton ist weg.
+- Die Seite rollst du neben dem Notenfeld.
+
+**Live-Fläche**
+- Ein zweiter Finger auf der Fläche schaltet das Echo ein, solange er liegt.
+
 ## ⚡ Klangschrift, Live-Fläche und Wucht (neu in v70) {#v70}
 
 **Klangschrift – die Noten von KLANGRAUM**

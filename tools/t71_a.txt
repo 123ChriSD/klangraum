@@ -1,0 +1,63 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots71/"
+import os, json
+T=os.environ.get("TAG","a")
+J=lambda s: E("JSON.stringify(%s)" % s)
+cdp = await pg.context.new_cdp_session(pg)
+async def touch(kind, pts):
+  await cdp.send("Input.dispatchTouchEvent", {"type":kind,"touchPoints":[{"x":p[0],"y":p[1],"id":p[2]} for p in pts]})
+await E("(async()=>{ await SongGen.make('pop'); })()"); await pg.wait_for_timeout(4000)
+await E("SongUI.stop(); UI.setTab('start'); 0"); await pg.wait_for_timeout(500)
+await pg.screenshot(path=SP+T+"_0_start.png")
+await pg.tap('[data-hm="play"]'); await pg.wait_for_timeout(1500)
+print("kneten an:", await J("[UI.tab, Scene.view, Tools.knead, Forms.active.name, document.getElementById('modebar').textContent, Transport.running]"))
+c = json.loads(await J("(() => { const c = Scene.formScreen(Forms.active); return [c.x, c.y]; })()")); print("mitte", c)
+h0 = await E("Array.from(Forms.active.h).reduce((a,v)=>a+Math.abs(v),0)"); n0 = await E("Knet71.n || 0")
+A=[c[0]-30, c[1]-20, 1]; B=[c[0]+35, c[1]+25, 2]; C=[c[0]+5, c[1]-45, 3]
+await touch("touchStart", [A]); await pg.wait_for_timeout(550)
+await touch("touchStart", [A,B]); await pg.wait_for_timeout(550)
+await touch("touchStart", [A,B,C]); await pg.wait_for_timeout(200)
+print("drei finger:", await J("[[...Input.P.values()].map(p => p.kind), !!Input.tri, !!Input.pinch, document.querySelectorAll('.kn71dot').length, [...Input.P.values()].filter(p => p.kh).length]"))
+for i in range(1,13):
+  A=[A[0]-4, A[1]-3, 1]; B=[B[0]+4, B[1]+3, 2]; C=[C[0], C[1]-4, 3]
+  await touch("touchMove", [A,B,C]); await pg.wait_for_timeout(70)
+await pg.screenshot(path=SP+T+"_1_kneten3.png")
+print("nach dem ziehen:", await J("[[...Input.P.values()].map(p => p.kind), (Knet71.n||0) - %s, +(Array.from(Forms.active.h).reduce((a,v)=>a+Math.abs(v),0) - %s).toFixed(2), document.querySelectorAll('.kn71dot').length]" % (n0, h0)))
+await touch("touchEnd", [A,C]); await pg.wait_for_timeout(200)
+print("einer bleibt:", await J("[[...Input.P.values()].map(p => p.kind), Input.kneadForm && Input.kneadForm.name, document.querySelectorAll('.kn71dot').length]"))
+await touch("touchEnd", []); await pg.wait_for_timeout(300)
+print("alle weg:", await J("[Input.P.size, document.querySelectorAll('.kn71dot').length, Input.kneadForm]"))
+# zwei Finger gleichzeitig = Größe
+s0 = await E("Forms.active.size"); A=[c[0]-25, c[1], 1]; B=[c[0]+25, c[1], 2]
+await touch("touchStart", [A,B]); await pg.wait_for_timeout(120)
+for i in range(1,9):
+  A=[A[0]-5, A[1], 1]; B=[B[0]+5, B[1], 2]; await touch("touchMove", [A,B]); await pg.wait_for_timeout(50)
+print("spreizen:", await J("[[...Input.P.values()].map(p => p.kind), +(%s).toFixed(2), +Forms.active.size.toFixed(2), document.querySelectorAll('.kn71dot').length, [...Input.P.values()].filter(p => p.kh).length]" % s0))
+await touch("touchEnd", []); await pg.wait_for_timeout(300)
+# während der Loop der Form läuft: kein Knet-Ton
+await E("Tools.toggleKnead(false); 0")
+# Klangschrift: zwei Finger gleichzeitig
+await E("Schrift.open(Forms.list.find(f => SongGen.roleOf(f) === 'mel')); 0"); await pg.wait_for_timeout(1200)
+gb = json.loads(await J("(() => { const r = document.getElementById('knGrid').getBoundingClientRect(); return [r.left, r.top, Schrift.cw, Schrift.rh]; })()"))
+free = json.loads(await J("(() => { const out = []; for (let r = 0; r < Schrift.nRows() && out.length < 3; r += 2) { let ok = true; for (let s = 9; s < 15; s++) if (Schrift.hit(r, s) >= 0) ok = false; if (ok) out.push(r); } return out; })()"))
+n0 = await E("Schrift.t.ev.length"); P=lambda col,row,i: [gb[0]+(col+0.5)*gb[2], gb[1]+(row+0.5)*gb[3], i]
+await touch("touchStart", [P(9,free[0],1), P(9,free[1],2), P(9,free[2],3)]); await pg.wait_for_timeout(120); await touch("touchEnd", []); await pg.wait_for_timeout(300)
+print("drei töne auf einmal:", n0, "→", await J("[Schrift.t.ev.length, Schrift.t.ev.slice(-3).map(e => [e.s, e.d, e.m])]"))
+await pg.screenshot(path=SP+T+"_2_akkord.png")
+# zwei davon gleichzeitig verschieben
+await touch("touchStart", [P(9,free[0],1), P(9,free[2],2)]); await pg.wait_for_timeout(100)
+for i in range(1,7):
+  await touch("touchMove", [[gb[0]+(9.5+3*i/6)*gb[2], gb[1]+(free[0]+0.5)*gb[3], 1], [gb[0]+9.5*gb[2], gb[1]+(free[2]+0.5-1*i/6)*gb[3], 2]]); await pg.wait_for_timeout(50)
+await touch("touchEnd", []); await pg.wait_for_timeout(300)
+print("verschoben:", await J("[Schrift.t.ev.length, Schrift.t.ev.slice(-3).map(e => [e.s, e.d, e.m])]"))
+await pg.screenshot(path=SP+T+"_3_verschoben.png")
+await E("Schrift.close(); 0")
+# Live: zweiter Finger = Echo
+await E("Live70.open(); 0"); await pg.wait_for_timeout(1200)
+pb = json.loads(await J("(() => { const r = document.getElementById('lvPad').getBoundingClientRect(); return [r.left, r.top, r.width, r.height]; })()"))
+await touch("touchStart", [[pb[0]+pb[2]*0.5, pb[1]+pb[3]*0.4, 1]]); await pg.wait_for_timeout(200)
+await touch("touchStart", [[pb[0]+pb[2]*0.5, pb[1]+pb[3]*0.4, 1], [pb[0]+pb[2]*0.8, pb[1]+pb[3]*0.7, 2]]); await pg.wait_for_timeout(400)
+print("zweiter finger:", await J("[Live70.hold.echo, +Wucht.n.es.gain.value.toFixed(2), +Live70.x.toFixed(2), +Live70.y.toFixed(2), document.querySelector('[data-lh=echo]').className]"))
+await pg.screenshot(path=SP+T+"_4_live.png")
+await touch("touchEnd", [[pb[0]+pb[2]*0.5, pb[1]+pb[3]*0.4, 1]]); await pg.wait_for_timeout(300)
+print("zweiter weg:", await J("[Live70.hold.echo, Live70.pid != null, +Live70.x.toFixed(2)]"))
+await touch("touchEnd", []); await E("Live70.close(); 0")
