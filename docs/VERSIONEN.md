@@ -6,6 +6,7 @@
 
 | Version | Commit | Inhalt |
 |---|---|---|
+| 69 | `b188438` | Start-Knopf überall (Kopfzeile, Blätter, Einspielen, Vollbild), Zurück-Taste führt Schritt für Schritt zum Start, Kopfknöpfe mit Namen, „Dein Weg“ auf der Startseite |
 | 68 | `3da557c` | Einspielen ohne Aufnahmeknopf (Dauerschleife, gerade rücken), neue Loops kommen von selbst in den Song, Lautstärke in der Song-Zeile, Mischen mit Gesangs-/Audiospuren, Einfach/Profi-Ansicht |
 | 67 | `dd29fd3` | Studio für Laien: Start, Song in 1 Minute (12 Stile), Song-Ansicht (Ablauf, wer spielt wann), Mischen mit Auto-Mix und Bühne, Erklär-Modus „Was ist das?“ |
 | 66 | `e92daf8` | Rock: Gitarren-Synthese, Rock-Kits, Stimmungen, Band-Sets Stoner/Grunge/Post-Grunge |
