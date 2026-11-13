@@ -1,0 +1,30 @@
+
+
+    // v67: Song in 1 Minute (12 Stile), Song-Ansicht, Mischen, Erklär-Modus, Bereiche
+    try { const bad = []; let nEv = 0; for (const S of SongGen.STYLES) { const B = SongGen.build(S, 12345), mu = K.music(B.mood), B2 = SongGen.build(S, 12345), B3 = SongGen.build(S, 777);
+        for (const p of B.parts) { nEv += p.ev.length; if (!K.seedById(p.seed)) bad.push(`${S.n}: Klang ${p.seed} fehlt`); if (!p.ev.length) bad.push(`${S.n}/${p.role} leer`);
+          if (p.ev.some(e => e[0] < 0 || e[0] >= 64)) bad.push(`${S.n}/${p.role} außerhalb der 4 Takte`);
+          if (!p.drum && p.ev.some(e => !mu.scale.has(mod(e[2], 12)))) bad.push(`${S.n}/${p.role} Ton außerhalb der Tonart`); }
+        if (JSON.stringify(B.parts.map(p => p.ev)) !== JSON.stringify(B2.parts.map(p => p.ev))) bad.push(`${S.n} nicht wiederholbar`);
+        if (JSON.stringify(B.parts.map(p => p.ev)) === JSON.stringify(B3.parts.map(p => p.ev))) bad.push(`${S.n} würfelt nicht`);
+        if (B.sections.some(s => s[1] % 4 || s[2].length < 2)) bad.push(`${S.n} Ablauf`); }
+      ok("SG", !bad.length, bad.length ? bad.slice(0, 4).join("; ") : `${SongGen.STYLES.length} Stile (${SongGen.STYLES.map(s => s.n).join(", ")}): alle Klänge vorhanden, ${nEv} Töne und Schläge, jeder Ton in der Tonart, gleiche Zahl = gleiches Stück, neu würfeln = anderes`); } catch (e) { ok("SG", false, String(e)); }
+    try { if (!App.started) ok("SF", true, "nicht gestartet"); else { const keep = Project.data(true), tp = UI.toast, ta = UI.toastAct, ul = Undo.stack.length; UI.toast = () => {}; UI.toastAct = () => {};
+        try { Project.load({ forms: [], mood: Music.mood.id, help: Music.help }, true); const S = SongGen.byId("pop"), made = SongGen.fill(S, 4242), n = Object.keys(made || {}).length, tot = Song.total(), sc = Pult.scn.filter(Boolean).length;
+          const allIn = Song.sections.every(s => s.on.length >= 2 && s.on.every(id => Forms.byId(id))), tk = Forms.list.every(f => (f.takes || []).length === 1 && f.takes[0].bars === 4 && f.takes[0].ev.length > 0);
+          const r1 = JSON.stringify(Forms.list.map(f => f.takes[0].ev)); SongGen.reroll(); const r2 = JSON.stringify(Forms.list.map(f => f.takes[0].ev));
+          const mel0 = K.MOODS.find(x => x.id === "melan"), nm = SongGen.remood("melan"), mu2 = K.music(mel0), inKey = Forms.list.filter(f => f.kind !== "drum").every(f => f.takes[0].ev.every(e => mu2.scale.has(mod(e.m, 12)))); SongGen.remood("froh");
+          MixUI.auto("druck"); const vols = Forms.list.map(f => f.fine.vol), pans = Forms.list.map(f => f.mx.pan), d = Project.data(true);
+          ok("SF", n === 6 && tot === 52 && allIn && tk && sc >= 4 && r1 !== r2 && vols.every(v => v > 0.05 && v <= 1.5) && pans.some(p => p < 0) && pans.some(p => p > 0) && !!d.sg67 && Object.keys(d.sg67.roles).length === 6 && Music.mood.id === "froh" && nm === 5 && inKey,
+            `Pop-Song: ${n} Klänge mit je einem 4-Takte-Loop · Ablauf ${Song.sections.map(s => s.name).join(" → ")} (${tot} Takte) · ${sc} Pult-Szenen · „Neu würfeln“ ändert die Loops · Auto-Mix „Druckvoll“ Lautstärken ${vols.map(v => fmt(v, 2)).join("/")}, Plätze ${pans.map(p => fmt(p, 1)).join("/")} · Stimmungswechsel zieht ${nm} Spuren in die neue Tonart um (alle Töne passen: ${inKey ? "ja" : "nein"}) · Rollen im Stück gespeichert`); }
+        finally { UI.toast = tp; UI.toastAct = ta; Project.load(keep, true); Undo.stack.length = Math.min(Undo.stack.length, ul); } } } catch (e) { ok("SF", false, String(e)); }
+    try { const ids = ["tStart", "tKlang", "tSong", "tMix", "tMehr"], have = ids.every(i => $(i)), t0 = UI.tab; UI.setTab("song"); const a = !$("vSong").hidden && $("tSong").getAttribute("aria-current") === "page" && !!$("vSong").firstChild; UI.setTab("mix"); const b = !$("vMix").hidden && $("vSong").hidden && !!$("vMix").firstChild;
+      UI.setTab("start"); const c = !$("vStart").hidden && $("vStart").querySelectorAll("[data-hm]").length >= 12; UI.setTab("loop"); const d = $("tMehr").getAttribute("aria-current") === "page" && $("vStart").hidden && !$("vLoop").hidden; UI.setTab(t0);
+      ok("SN", have && a && b && c && d && UI.tab === t0, `Bereiche unten: Start · Spielen · Song · Mischen · Mehr – jede Ansicht öffnet sich, „Mehr“ leuchtet bei Pult, Beat, Schnitt, Bild und Stück`); } catch (e) { ok("SN", false, String(e)); }
+    try { const miss = []; for (const sel of ["#bPlay", "#bMood", "#bUndo", "#tSong", "#tMix", "#tMehr"]) { const el = document.querySelector(sel); if (!el) { miss.push(sel + " fehlt"); continue; } const h = Erkl.find(el); if (!h || h.x.length < 30) miss.push(sel); }
+      const dead = Erkl.T.filter(([s]) => { try { document.querySelector(s); return false; } catch (_) { return true; } }).length; Erkl.start(); const on = document.body.classList.contains("kerkl") && !$("erklBar").hidden; Erkl.stop();
+      ok("SE", !miss.length && !dead && on && !document.body.classList.contains("kerkl"), miss.length ? "ohne Erklärung: " + miss.join(", ") : `Erklär-Modus „Was ist das?“: ${Erkl.T.length} Erklärungen in einfachen Worten, jeder andere Knopf zeigt seine Beschriftung; ein und aus`); } catch (e) { ok("SE", false, String(e)); }
+    try { const kS = Song.sections, kp = Song.playing, ks = Song.startStep, kl = SongUI.loop, kr = Song.rec, va = Visual.at, sc = Techno.songScene; Song.sections = [{ id: "x", name: "A", bars: 2, on: [], off: [], lv: {} }]; Song.playing = true; Song.rec = false; Song.startStep = 0; SongUI.loop = true; Visual.at = () => {};
+      try { Song.onStep(32, 0); const wrapped = Song.playing && Song.startStep === 32; SongUI.loop = false; Song.onStep(64, 0); const ended = !Song.playing;
+        ok("SW", wrapped && ended, `Song-Ende: mit 🔁 beginnt er nahtlos von vorn (${wrapped ? "ja" : "nein"}), ohne 🔁 hält er an (${ended ? "ja" : "nein"}) – nie spielen danach alle Spuren auf einmal`); }
+      finally { Visual.at = va; Song.sections = kS; Song.playing = kp; Song.startStep = ks; SongUI.loop = kl; Song.rec = kr; Techno.songScene = sc; } } catch (e) { ok("SW", false, String(e)); }

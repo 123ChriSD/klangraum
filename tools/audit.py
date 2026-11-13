@@ -24,7 +24,7 @@ async def main():
       if await page.evaluate("App.started"): break
     E=page.evaluate
     await E(AUD)
-    await E("Coach.close(); UI.setTips(false); 0")
+    await page.wait_for_timeout(500); await E("Coach.close(); UI.setTips(false); try { UI.setTab('klang'); } catch (_) {} 0")
     await E("""(() => { for (const id of ['saxofon','synthbass','klavier','acid_303'].filter(x => K.seedById(x))) Forms.make({ seedId: id }); for (const f of Forms.list) Forms.rebuild(f, true);
       const ev = [{ s: 0, d: 2, m: 0, v: 0.8, u: 0.4 }, { s: 8, d: 2, m: 2, v: 0.8, u: 0.6 }]; Loops.newTake(Forms.list[0], 1, ev.slice()); Loops.newTake(Forms.list[1], 1, ev.slice()); Forms.setActive(Forms.list[0]); UI.setView('nah'); UI.refresh(); return Forms.list.length; })()""")
     await page.wait_for_timeout(1500)
@@ -48,6 +48,13 @@ async def main():
       ("full_raum_knead", "Tools.toggleBrush(false); UI.setView('raum'); Tools.toggleKnead(true)"),
       ("full_off_nah", "Tools.toggleKnead(false); Full.toggle(false); UI.setView('nah')"),
       ("pads", "Pads.toggle ? Pads.toggle(true) : 0"),
+      ("v67_start", "Pads.toggle && Pads.on ? Pads.toggle(false) : 0; UI.setTab('start')"),
+      ("v67_song_leer", "UI.setTab('song')"),
+      ("v67_song", "Project.load({ forms: [], mood: Music.mood.id, help: Music.help }, true); SongGen.fill(SongGen.byId('pop'), 99); UI.setTab('song'); SongUI.render(true)"),
+      ("v67_song_edit", "SongUI.sel = 1; SongUI.render(true)"),
+      ("v67_mix", "SongUI.sel = -1; UI.setTab('mix'); MixUI.auto('aus')"),
+      ("v67_erkl", "UI.setTab('klang'); Erkl.start(); Erkl.show(Erkl.find(document.getElementById('bMood')))"),
+      ("v67_klang", "Erkl.stop(); UI.setView('nah')"),
     ]
     total = 0
     for name, js in states:

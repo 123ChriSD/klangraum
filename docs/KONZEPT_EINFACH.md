@@ -45,7 +45,7 @@ Wer mehr will, findet unter **Mehr** alles Bisherige (Pult, Beat-Maschine, Schni
 
 ## 4. Neu und eigen
 
-- **Erklär-Modus „Was ist das?“**: Nach dem Einschalten erklärt jeder Tipp das Berührte in einem Satz, ohne es auszulösen (56 eigene Erklärungen, sonst die Beschriftung des Knopfs). Die Leiste weicht aus, wenn sie das Erklärte verdeckt. So ersetzt Neugier das Handbuch.
+- **Erklär-Modus „Was ist das?“**: Nach dem Einschalten erklärt jeder Tipp das Berührte in einem Satz, ohne es auszulösen (82 eigene Erklärungen, sonst die Beschriftung des Knopfs). Die Leiste weicht aus, wenn sie das Erklärte verdeckt. So ersetzt Neugier das Handbuch.
 - **Bühne**: Mischen als Aufstellen. Links/rechts ist das Panorama, vorn ist nah und trocken, hinten weit weg mit Hall. Die Punkte pulsieren mit dem Pegel.
 - **Würfeln mit Grenzen**: „Neu würfeln“ erfindet Rhythmen und Melodien neu, lässt aber Band, Lautstärken und Ablauf stehen – je Instrument oder für alle. Gleiche Zahl ergibt dasselbe Stück (prüfbar), eine neue Zahl ein anderes.
 - **Song-Ende mit Anstand**: Mit 🔁 beginnt der Song nahtlos von vorn, ohne 🔁 hält er an. Vorher spielten nach dem letzten Teil alle Spuren auf einmal weiter.

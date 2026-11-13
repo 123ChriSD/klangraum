@@ -1,0 +1,10 @@
+import base64, os
+ids = os.environ.get("IDS","pop").split(",")
+for sid in ids:
+  await E("(async()=>{ SongUI.stop(); await SongGen.make('%s'); })()" % sid); await pg.wait_for_timeout(1800)
+  await E("SongUI.stop(); 0"); await pg.wait_for_timeout(700)
+  await E("(()=>{ const S = Song.sections; Song.sections = [S[1], S[2]].map(s => ({...s, bars: 4})); Song.outro = 0; SongUI.loop = false; Retro.chunks=[]; Retro.frames=0; SongUI.play(0); })()")
+  bar = await E("Transport.spb*16")
+  await pg.wait_for_timeout(int(bar*1000*9)+1800)
+  b64 = await E("""(()=>{ const sr=Engine.ctx.sampleRate, n=Retro.frames, L=new Float32Array(n), R=new Float32Array(n); let o=0; for(const c of Retro.chunks){ L.set(c[0],o); R.set(c[1]||c[0],o); o+=c[0].length; } const w=K.wav([L,R], sr); return new Promise(r=>{ const fr=new FileReader(); fr.onload=()=>r(fr.result.split(',')[1]); fr.readAsDataURL(w instanceof Blob?w:new Blob([w])); }); })()""")
+  open("/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/hp67/%s.wav" % sid, "wb").write(base64.b64decode(b64)); print(sid, "ok", len(b64), await E("JSON.stringify([Transport.running, Song.playing])"))

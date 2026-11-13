@@ -1,0 +1,39 @@
+await pg.wait_for_timeout(600)
+n0 = await E("(async()=>{ return (await Projects.all ? (await Projects.all()).length : -1); })()")
+await pg.tap('.hmhero'); await pg.wait_for_timeout(500); await pg.tap('[data-style="funk"]'); await pg.wait_for_timeout(3800)
+print("funk vols:", await E("JSON.stringify([Forms.list.map(f => Math.round(f.fine.vol*100)), SongGen.meta.fresh, Song.playing])"))
+await pg.tap('#tStart'); await pg.wait_for_timeout(300); await pg.tap('.hmhero'); await pg.wait_for_timeout(500)
+print("hinweis:", await E("document.querySelector('.sxs2').textContent")); await pg.tap('[data-style="pop"]'); await pg.wait_for_timeout(3800)
+print("pop ersetzt:", await E("JSON.stringify([Projects.cur.name, Forms.list.length, Song.playing, document.getElementById('projName').textContent])"))
+# Punkt ändern + Rückgängig im Lauf
+await pg.tap('#vSong .sxr:nth-child(3) .sxc[data-sc="1"]'); await pg.wait_for_timeout(300); a = await E("Song.sections[1].on.length")
+await pg.tap('#bUndo'); await pg.wait_for_timeout(1200)
+print("undo im Lauf:", a, "->", await E("JSON.stringify([Song.sections[1].on.length, Song.playing, Transport.running, SongUI.pos() && SongUI.pos().i, Forms.list.map(f => f.songG == null ? 'null' : +f.songG.toFixed(1))])"))
+# Länge ändern im Lauf
+await pg.tap('#vSong .sxb[data-sb="0"]'); await pg.wait_for_timeout(300); await pg.tap('[data-sg="longer"]'); await pg.wait_for_timeout(2600)
+print("länger im Lauf:", await E("JSON.stringify([Song.sections[0].bars, Song.playing, SongUI.sel, SongUI.pos()])"))
+await pg.tap('#bUndo'); await pg.wait_for_timeout(800); print("undo hält Editor:", await E("JSON.stringify([Song.sections[0].bars, SongUI.sel, !!document.querySelector('.sxed'), Song.playing])"))
+# Stimmung
+await E("Music.set(K.MOODS.find(m => m.id === 'melan')); 0"); await pg.wait_for_timeout(500)
+print("stimmung:", await E("JSON.stringify([Music.mood.id, Math.round(Music.tempo()), SongGen.meta.mood, Undo.stack.length])")); await pg.tap('#bUndo'); await pg.wait_for_timeout(900)
+print(" undo:", await E("JSON.stringify([Music.mood.id, Math.round(Music.tempo()), SongGen.meta.mood])"))
+# Stopp, stumm bleibt, bPlay spielt Song
+await pg.tap('#vSong .sxplay'); await pg.wait_for_timeout(500)
+await pg.tap('#tMix'); await pg.wait_for_timeout(400); await pg.tap('#vMix [data-mm]'); await pg.wait_for_timeout(300); u0 = await E("Undo.stack.length")
+await pg.tap('#bPlay'); await pg.wait_for_timeout(2600)
+print("bPlay:", await E("JSON.stringify([Song.playing, Forms.list[0].mute, SongUI.pos() && SongUI.pos().i])"))
+await pg.tap('#tSong'); await pg.wait_for_timeout(500); print("zeile stumm:", await E("document.querySelector('#vSong .sxr.q7mut .sxn').textContent"))
+await E("document.getElementById('vSong').scrollTop = 600; 0"); await pg.wait_for_timeout(9500); print("scroll bleibt:", await E("JSON.stringify([document.getElementById('vSong').scrollTop, SongUI.pos().i])"))
+# Stück wechseln im Lauf
+await E("(async()=>{ await Projects.create('Leer', 'ensemble'); })()"); await pg.wait_for_timeout(900)
+print("stückwechsel:", await E("JSON.stringify([Transport.running, Song.playing, Projects.cur.name])"))
+# Neuladen mit Song
+await E("(async()=>{ await SongGen.make('jazz'); })()"); await pg.wait_for_timeout(2500); await E("(async()=>{ await Save.now(); })()")
+await pg.reload(); await pg.wait_for_timeout(1200); await pg.tap('#enter')
+for i in range(25):
+  await pg.wait_for_timeout(400)
+  if await E("App.started"): break
+await pg.wait_for_timeout(2500)
+print("neu geladen:", await E("JSON.stringify([UI.tab, Projects.cur.name, Transport.running, Song.playing, Home67.audible(), Forms.list.length, Song.sections.length, !!SongGen.meta])"))
+await pg.tap('#bPlay'); await pg.wait_for_timeout(2500); print("bPlay nach Neuladen:", await E("JSON.stringify([Song.playing, SongUI.pos()])"))
+await pg.tap('#bPlay'); await pg.wait_for_timeout(600); print("bPlay stoppt:", await E("JSON.stringify([Song.playing, Transport.running])"))

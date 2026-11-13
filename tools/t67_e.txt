@@ -1,0 +1,43 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots67/"
+cdp = await pg.context.new_cdp_session(pg)
+async def drag(x0,y0,x1,y1,steps=8):
+  await cdp.send("Input.dispatchTouchEvent", {"type":"touchStart","touchPoints":[{"x":x0,"y":y0,"id":1}]}); await pg.wait_for_timeout(40)
+  for k in range(1,steps+1):
+    await cdp.send("Input.dispatchTouchEvent", {"type":"touchMove","touchPoints":[{"x":x0+(x1-x0)*k/steps,"y":y0+(y1-y0)*k/steps,"id":1}]}); await pg.wait_for_timeout(30)
+  await cdp.send("Input.dispatchTouchEvent", {"type":"touchEnd","touchPoints":[]}); await pg.wait_for_timeout(300)
+await pg.wait_for_timeout(600)
+# Start-Kacheln
+await pg.tap('[data-hm="keys"]'); await pg.wait_for_timeout(900)
+print("keys:", await E("JSON.stringify([UI.tab, Sheets.cur])")); await E("UI.hideSheets(); UI.setTab('start'); 0"); await pg.wait_for_timeout(300)
+await pg.tap('[data-hm="mic"]'); await pg.wait_for_timeout(500); await pg.screenshot(path=SP+"p_e1_aufn.png")
+print("aufnehmen:", await E("JSON.stringify([Sheets.cur, document.querySelectorAll('[data-ra]').length])")); await pg.tap('[data-ra="loop"]'); await pg.wait_for_timeout(700)
+print(" -> loop:", await E("UI.tab")); await E("UI.setTab('start'); 0"); await pg.wait_for_timeout(300)
+await pg.tap('[data-hm="photo"]'); await pg.wait_for_timeout(500); print("foto:", await E("UI.tab")); await E("UI.setTab('start'); 0"); await pg.wait_for_timeout(300)
+await pg.tap('[data-hm="jam"]'); await pg.wait_for_timeout(700); print("jam:", await E("!!document.getElementById('kjam') && !document.getElementById('kjam').hidden")); await E("(()=>{ const k=document.getElementById('kjam'); const b=k.querySelector('[data-jx], .close, [aria-label=Schließen]'); if (b) b.click(); else k.hidden = true; })()"); await pg.wait_for_timeout(300)
+await pg.tap('[data-hm="pieces"]'); await pg.wait_for_timeout(900); print("stücke:", await E("JSON.stringify([Sheets.cur])")); await E("UI.hideSheets(); 0")
+# Song + Mischen
+await E("(async()=>{ await SongGen.make('funk'); })()"); await pg.wait_for_timeout(2500); await E("SongUI.stop(); 0")
+# Zeile: neu würfeln, Instrument wechseln
+await pg.tap('#vSong .sxn[data-sf]'); await pg.wait_for_timeout(500); await pg.screenshot(path=SP+"p_e2_zeile.png")
+e0 = await E("JSON.stringify(Forms.list[0].takes[0].ev).length + '|' + JSON.stringify(Forms.list[0].takes[0].ev).slice(0,60)")
+await pg.tap('[data-rm="dice"]'); await pg.wait_for_timeout(500)
+print("würfeln:", e0 != await E("JSON.stringify(Forms.list[0].takes[0].ev).length + '|' + JSON.stringify(Forms.list[0].takes[0].ev).slice(0,60)"), await E("UI.tab"))
+await pg.tap('#vSong .sxr:nth-child(4) .sxn[data-sf]'); await pg.wait_for_timeout(400); await pg.tap('[data-rm="inst"]'); await pg.wait_for_timeout(700)
+print("instrument-blatt:", await E("JSON.stringify([Sheets.cur, Forms.list[2].name, Forms.list[2].inst||Forms.list[2].seedId])"))
+await E("(()=>{ const b=document.querySelector('#sheets [data-seed=\"orgel\"]'); b.scrollIntoView({block:'center'}); })()"); await pg.wait_for_timeout(300); await pg.tap('#sheets [data-seed="orgel"]'); await pg.wait_for_timeout(900)
+print(" -> gewechselt:", await E("JSON.stringify([UI.tab, Forms.list.map(f => (f.inst||f.seedId)+':'+(f.takes||[]).length), Object.keys(SongGen.meta.roles).length, Song.sections[1].on.length])"))
+# Mischen: Regler ziehen, stumm, solo, Bühne
+await pg.tap('#tMix'); await pg.wait_for_timeout(700)
+r = await E("(()=>{ const w=document.querySelector('#vMix .mxr[data-id] .mxf').getBoundingClientRect(); return [w.left,w.top+w.height/2,w.width]; })()")
+v0 = await E("Forms.list[0].fine.vol"); await drag(r[0]+r[2]*0.6, r[1], r[0]+r[2]*0.25, r[1]); print("regler:", v0, "->", await E("Forms.list[0].fine.vol"), await E("document.querySelector('#vMix .mxr[data-id] .mxv').textContent"))
+st0 = await E("document.querySelector('#vMix').scrollTop"); await drag(200, 500, 200, 300); print("blättern über Regler:", st0, "->", await E("document.querySelector('#vMix').scrollTop"), "vol bleibt", await E("Forms.list[0].fine.vol"))
+await E("document.querySelector('#vMix').scrollTop = 0; 0")
+await pg.tap('#vMix [data-mm]'); await pg.wait_for_timeout(300); print("stumm:", await E("JSON.stringify([Forms.list[0].mute, document.querySelector('#vMix .mxr').className])")); await pg.tap('#vMix [data-mm]'); await pg.wait_for_timeout(300)
+await pg.tap('#vMix [data-ms]'); await pg.wait_for_timeout(300); print("solo:", await E("JSON.stringify(Forms.list.map(f => !!f.solo))")); await pg.tap('#vMix [data-ms]'); await pg.wait_for_timeout(300)
+await E("document.querySelector('.mxstage').scrollIntoView({block:'center'}); 0"); await pg.wait_for_timeout(400)
+d = await E("(()=>{ const f=Forms.list[4]; const e=document.querySelector('.mxdot[data-md=\"'+f.id+'\"]').getBoundingClientRect(), s=document.querySelector('.mxstage').getBoundingClientRect(); return [e.left+e.width/2, e.top+23, s.left, s.top, s.width, s.height]; })()")
+m0 = await E("JSON.stringify(Forms.list[4].mx)"); await drag(d[0], d[1], d[2]+d[4]*0.85, d[3]+d[5]*0.25, 10)
+print("bühne:", m0, "->", await E("JSON.stringify([Forms.list[4].mx, Forms.list[4].mixNow && +Forms.list[4].mixNow.pan.toFixed(2), +Forms.list[4].mixNow.send.toFixed(2)])"))
+await pg.screenshot(path=SP+"p_e3_buehne.png")
+# Rückgängig
+await pg.tap('#bUndo'); await pg.wait_for_timeout(700); print("undo:", await E("JSON.stringify([Forms.list[4].mx, UI.tab])"))

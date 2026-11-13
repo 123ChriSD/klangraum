@@ -28,11 +28,28 @@ Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Sa
   - **Auto-Mix** in vier Fassungen (Ausgewogen, Druckvoll, Sanft, Weit): Lautstärke, Platz und Hall nach der Rolle.
   - Je Klang ein Regler mit Pegelstreifen, Stumm und „nur diesen hören“; „Alles“ = Gesamtlautstärke. Waagerecht ziehen regelt, senkrecht wischen blättert.
   - **Bühne**: Punkte ziehen – links/rechts = Panorama (`mx.pan`), vorn/hinten = nah und trocken bis weit weg mit Hall (`mx.hall`). Punkte pulsieren mit dem Pegel.
-- **Erklär-Modus „Was ist das?“** (`Erkl`): danach erklärt jeder Tipp das Berührte in einem Satz und löst nichts aus (56 eigene Erklärungen, sonst die Beschriftung). Die Leiste weicht aus, wenn sie das Erklärte verdeckt.
+- **Erklär-Modus „Was ist das?“** (`Erkl`): danach erklärt jeder Tipp das Berührte in einem Satz und löst nichts aus (82 eigene Erklärungen, sonst die Beschriftung). Die Leiste weicht aus, wenn sie das Erklärte verdeckt.
 - **Gestaltung:** Verlaufs-Knöpfe, Glas-Karten, feste Farben je Song-Teil und je Rolle, eigene Linien-Symbole, wandernde Abspielstelle, leuchtende Pegel. Eigene Fassungen für Tablets (ab 600/700/900 px: Raster mit Namen links, Regler einzeilig, Lautstärke und Bühne nebeneinander) und für das niedrige Querformat. Animationen aus bei „Bewegung reduzieren“.
 - **Feinschliff:** Startbild sagt in zwei Sätzen, was man hier machen kann. „▶“ bei „Dein Stück“ und im Mischen zeigt nur „läuft“, wenn wirklich etwas klingt. Beschriftungen der Werkzeugzeile und der Schalterzeile laufen nicht mehr ineinander. Die Erklärkarten zum Formen-Spielen erscheinen erst beim ersten Besuch von „Spielen“.
 - **Behoben nebenbei:** `Visual.run` stürzte ab, wenn ein Anzeige-Ereignis den Takt anhielt (danach liefen keine geplanten Ereignisse mehr, z. B. der Aufnahmestart).
-- **Tests:** §§TESTS67§§ (wird mit der Veröffentlichung der App ergänzt)
+- **Unabhängige Prüfung** (Test-Agent als Laie, echte Tipps und Fingergesten, fünf Bildschirmgrößen) – 15 Befunde, behoben:
+  - Kritisch: Lief der Takt, aber nicht der Song (nach Rückgängig, Stückwechsel, Neuladen oder ▶ oben), spielten alle Loops gleichzeitig. Jetzt läuft der Song nach Rückgängig an derselben Stelle weiter, ein Stückwechsel hält an, ein Stück mit Ablauf beginnt nach dem Start still, und ▶ oben spielt den Song.
+  - Der erzeugte Song startete mit geratenen Lautstärken (Auto-Mix lief, bevor die Rollen bekannt waren).
+  - Stumm und „nur diesen“ gingen bei jedem Start verloren; die Song-Zeilen zeigen beides jetzt an.
+  - Die Song-Ansicht sprang bei jedem Teilwechsel nach oben; Mischen zeigte nach Rückgängig alte Werte; Blättern über Reglern füllte den Rückgängig-Stapel.
+  - Länge ändern, Verschieben, Doppeln und Löschen hielten den Song an (jetzt läuft er mit der neuen Fassung weiter); während der Aufnahme sind Änderungen gesperrt.
+  - Stimmungswechsel behält das Tempo und ist rückgängig zu machen.
+  - Erklär-Modus: 26 weitere Erklärungen (Startkacheln, Teil-Aktionen, Mehr-Blatt), Leiste beginnt unten, Ring verschwindet beim Blättern, Enter löst nichts aus.
+  - Viele Teile: Punkte bleiben mindestens 30 px breit, das Raster rollt dann seitlich.
+  - Ein noch unberührter erzeugter Song wird beim nächsten Stil ersetzt statt als weiteres Stück gesammelt. „Beat“ lässt sich nicht auf ein Tasteninstrument umstellen.
+- **Tests:**
+  - Prüfstand 134 (neu **SG** 12 Stile mit 1936 Tönen und Schlägen, alle in der Tonart, wiederholbar; **SF** Pop-Song anlegen, würfeln, Stimmung wechseln, Auto-Mix, speichern; **SN** Bereiche; **SE** Erklär-Modus; **SW** Song-Ende): 412×892 und 700×330 ohne Fehler (I1/P1 schwanken gelegentlich).
+  - Layout: 412×892, 700×330 und 820×1180 TOTAL 0, jetzt auch mit den Zuständen Start, Song, Song mit offenem Teil, Mischen, Erklär-Modus. Bei 360×640 meldet nur der alte Zustand „Pads“ 7 Überlappungen (Formname/Pad-Leiste, von v67 nicht berührt).
+  - E2E mit echten Tipps (`tools/t67_*.txt`): Start → Stil → Song spielt; Teil bearbeiten; Punkt an/aus; Wiederholen und Anhalten am Ende in Echtzeit; Aufnahme bis zum Blatt „Teilen“; Zeilenmenü (würfeln, Instrument wechseln); Regler ziehen, senkrecht blättern, Stumm, Solo, Bühne ziehen, Rückgängig; Stückwechsel und Neuladen.
+  - Regression: Rock-Sets (v66), Tasten und Rückblick (v65), Pult-Szenen und Drop (v64), Pult (v63).
+  - Hörproben aller 12 Stile (Strophe + Refrain, zusammen 4:52 min): Spitzen 0,85–0,94, keine Übersteuerung. Bassanteil bei Hip-Hop, Techno, House 73–85 % (genretypisch, aber nur gemessen, nicht gehört).
+  - Website und `vorige/` (Version 66) lokal gestartet: keine Fehler, keine fehlenden Dateien.
+- **Offen:** Bereich „Spielen“ ist weiterhin dicht belegt; Gesang und eigene Loops in den Song zu bringen ist noch kein geführter Schritt; Beschriftungen der Bühnenpunkte können sich überlappen.
 ## Neu in v66: Rock – Stoner, Grunge, Post-Grunge
 - Christian (01.11. 10:17): „Ich möchte auch so spielen können wie Clutch, Pearl Jam, Bush – stelle entsprechende FormSets zusammen.“
 - **Gitarren aus dem Gerät** (`RockSnd`): gezupfte Saite (Karplus-Strong mit Bruchteil-Verzögerung, Anschlagsposition, Helligkeit), Powerchord (Grundton, Quinte, Oktave, leicht gestaffelt), Verzerrer (tanh mit Vorspannung, beim Fuzz zusätzlich Oktav-Gleichrichtung) und Gitarrenbox (Hochpass, Glocke, Senke, zwei Tiefpässe).
