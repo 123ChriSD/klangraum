@@ -6,6 +6,7 @@
 
 | Version | Commit | Inhalt |
 |---|---|---|
+| 67 | `dd29fd3` | Studio für Laien: Start, Song in 1 Minute (12 Stile), Song-Ansicht (Ablauf, wer spielt wann), Mischen mit Auto-Mix und Bühne, Erklär-Modus „Was ist das?“ |
 | 66 | `e92daf8` | Rock: Gitarren-Synthese, Rock-Kits, Stimmungen, Band-Sets Stoner/Grunge/Post-Grunge |
 | 65 | `8966a3d` | Tasten und Lieder ohne Noten, Rückblick-Schnitt, Kneten färbt Drum-Kits und Loop-Formen, Tonstufen-Anzeige, vorige Version unter /vorige/ |
 | 64 | `9480eaf` | Pult-Szenen, Drop, ein Loop-Begriff, Alle entzerrt |
