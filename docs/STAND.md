@@ -1,7 +1,17 @@
-# KLANGRAUM – Stand Version 68 (13.11.2026)
+# KLANGRAUM – Stand Version 69 (13.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 67) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 68) · jede Version mit Commit in `docs/VERSIONEN.md`.
+
+## Neu in v69: Immer zurück zum Start · beschriftete Kopfknöpfe · „Dein Weg“
+- Christian (13.11. 17:38): „Verbessere und vereinfache weiter! Es muss total intuitiv sein. Und ich möchte immer wieder einfach zur Startseite zurückkehren können.“
+- **Befund:** Die Startseite war nur über die Leiste unten erreichbar. In Blättern, im Einspielen, im Vollbild und bei ausgeblendeter Leiste gab es keinen Weg dorthin. Die Zurück-Taste des Handys führte zum Bereich „Spielen“ statt zum Start (die ältere Zurück-Logik `Nav` kannte „Klang“ als Grundseite).
+- **Start-Knopf überall** (`Heim`): Haus-Knopf oben links in der Kopfzeile (farbig, auf der Startseite gedimmt), in jedem Blatt neben dem ✕ (`Sheets.head`), im Einspielen oben links, im Vollbild oben rechts neben dem Verlassen-Knopf. Ein Tipp schließt alles Offene (Blatt, Einspielen, Erklär-Modus, Dialoge, Vollbild, Kneten/Malen) und zeigt die Startseite. Die Musik läuft weiter.
+- **Zurück-Taste** (`Nav.closeTop/depth` neu): schließt Schritt für Schritt – Einspielen, Erklär-Modus, Dialoge, Blatt, Vollbild, Kneten/Malen, Ansicht – und führt dann zur Startseite. Erst von dort verlässt sie die App. Esc am Rechner schließt wie bisher, springt aber nicht zum Start.
+- **Kopfknöpfe mit Namen** (einfache Ansicht, Hochformat): Start · dein Stück · Hören · Zurück · Stimmung · Menü. Der Vollbild-Knopf steht nur noch in der Profi-Ansicht.
+- **Dein Weg** auf der Startseite: vier nummerierte Schritte in der Karte „Dein Stück“ – Song bauen, Dazuspielen, Mischen, Aufnehmen. Ein Haken zeigt, was schon da ist. „Aufnehmen“ springt zum Aufnahme-Knopf im Song und lässt ihn aufleuchten. Die Karte steht jetzt gleich unter dem großen Knopf, die Kacheln darunter.
+- **Tests:** Prüfstand 137 (neu **HM**: Start-Knopf in Kopf, Blatt, Einspielen, Vollbild; Zurück-Schritte; Dein Weg), 412×892 und 700×330 ohne Fehler. Layout 412×892, 700×330, 820×1180 TOTAL 0. E2E mit echten Tipps und echter Zurück-Navigation des Browsers (`tools/t69_a.txt`): Blatt → Start, Kneten → Start, Pult + Blatt → Zurück → Zurück → Start, Einspielen → Start, Vollbild → Start. Regression: alle E2E aus v65–v68.
+- Nicht geprüft: die Zurück-Taste in der eingebetteten Claude-Ansicht und auf echten Handys (dort entscheidet der Browser, ob die App Verlaufseinträge anlegen darf).
 
 ## Neu in v68: Einspielen ohne Aufnahmeknopf · Spuren-Mix im Song · einfacher Bereich „Spielen“
 - Christian (13.11. 16:49): „Die App soll noch viel einfacher und besser bedienbar werden! Völlig neue Ansätze entwickeln! Loops sollen besser funktionieren! Tonspuren-Mix. ALLES SOLL EINFACHER BEDIENBAR WERDEN!“

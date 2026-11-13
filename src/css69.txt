@@ -1,0 +1,32 @@
+/* ---------- v69: Start-Knopf überall · beschriftete Kopfknöpfe · Dein Weg ---------- */
+#bHome svg, .q7hb svg, #q7home svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+#bHome { color: #fff; border-color: transparent !important; background: linear-gradient(135deg, #4F7BFF, #9B5CFF 55%, #E05CD8) !important; box-shadow: 0 6px 16px -8px rgba(155, 92, 255, .9); }
+#bHome[aria-current="page"] { background: rgba(255, 255, 255, .07) !important; box-shadow: none; color: #C9D3F2; }
+.sheet header .q7hb { margin-left: auto; width: 46px; min-width: 46px; height: 46px; padding: 0; border-radius: 50%; display: grid; place-items: center; flex: none; }
+.sheet header .q7hb + .close { margin-left: 0; }
+#q7home { display: none; position: fixed; z-index: 30; right: calc(66px + env(safe-area-inset-right, 0px)); top: calc(11px + env(safe-area-inset-top, 0px)); width: 46px; height: 46px; padding: 0; align-items: center; justify-content: center; border: 0; border-radius: 23px; font: 700 13px/1 system-ui, sans-serif; color: #fff;
+  background: linear-gradient(135deg, #4F7BFF, #9B5CFF 55%, #E05CD8); box-shadow: 0 10px 24px -8px rgba(0, 0, 0, .8); touch-action: none; cursor: pointer; }
+#q7home span { display: none; }
+body.full #q7home { display: inline-flex; opacity: .92; } body.full.fidle #q7home { opacity: .4; }
+/* einfache Ansicht: Vollbild-Knopf weicht dem Start-Knopf, Knöpfe tragen ihren Namen */
+body.keinf #bFull { display: none !important; }
+body.keinf:not(.kland) .top > .peb:not(.projchip) { position: relative; padding-bottom: 12px !important; border-radius: 16px; }
+body.keinf:not(.kland) .top > .peb:not(.projchip) svg { width: 19px; height: 19px; }
+body.keinf:not(.kland) .top > .peb:not(.projchip)::after { position: absolute; left: 0; right: 0; bottom: 4px; text-align: center; font: 700 8.6px/1 system-ui, sans-serif; letter-spacing: .01em; color: rgba(255, 255, 255, .72); white-space: nowrap; pointer-events: none; }
+body.keinf:not(.kland) #bHome::after { content: "Start"; } body.keinf:not(.kland) #bPlay::after { content: "Hören"; } body.keinf:not(.kland) #bUndo::after { content: "Zurück"; } body.keinf:not(.kland) #bMood::after { content: "Stimmung"; font-size: 7.6px; } body.keinf:not(.kland) #bMenu::after { content: "Menü"; }
+body.keinf:not(.kland) #bMood > #moodName { display: none !important; }
+/* Dein Weg */
+.hmrow.hmway { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.hmway > small { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8FA0C8; }
+.hmsteps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; position: relative; }
+.hmrow .hmsteps button { display: grid; justify-items: center; align-content: start; gap: 6px; min-height: 76px; padding: 9px 2px 8px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, .09); background: rgba(255, 255, 255, .04); font-size: 12px; font-weight: 700; color: #DDE4F8; line-height: 1.15; }
+.hmsteps button > i { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 14px; font-weight: 800; color: #fff; background: linear-gradient(135deg, #4F7BFF, #9B5CFF 55%, #E05CD8); box-shadow: 0 6px 14px -6px rgba(155, 92, 255, .9); }
+.hmsteps button.q7ok > i { background: linear-gradient(135deg, #2FD0B5, #3FA9FF); box-shadow: 0 6px 14px -6px rgba(47, 208, 181, .9); }
+.hmsteps button b { font-weight: 700; font-size: 11px; letter-spacing: -.01em; text-align: center; }
+/* Dein Stück mit dem Weg steht gleich unter dem großen Knopf */
+.hm > .hmtop { order: 0; } .hm > .hmhero { order: 1; } .hm > .hmcur { order: 2; } .hm > .hmgrid { order: 3; } .hm > .hmfoot { order: 4; }
+@media (min-width: 700px) { .hmsteps button b { font-size: 14px; } .hmrow .hmsteps button { min-height: 88px; } }
+.hmrow .hmlink { display: flex; grid-auto-flow: column; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: none; font-size: 13.5px; font-weight: 650; color: #A9B4D0; }
+.hmlink svg { width: 18px; height: 18px; }
+.sxrec.q7pulse { animation: sxbeat .45s ease-in-out 5 alternate; box-shadow: 0 0 0 3px #fff, 0 0 30px #F25CC1; }
+@media (orientation: landscape) and (max-height: 520px) { .hmrow .hmsteps button { min-height: 56px; grid-auto-flow: column; align-content: center; align-items: center; justify-content: center; gap: 8px; } }

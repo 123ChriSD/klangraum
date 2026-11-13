@@ -73,3 +73,10 @@ Wer mehr will, findet unter **Mehr** alles Bisherige (Pult, Beat-Maschine, Schni
 - **Ein Ort für die Lautstärke, an dem man hinsieht:** der Regler steht in der Song-Zeile, nicht nur im Bereich Mischen.
 - **Weniger auf einmal:** Der Bereich Spielen zeigt vier Knöpfe statt siebzehn; „▴ Mehr“ und die Profi-Ansicht holen alles zurück (schrittweise Offenlegung).
 - **Offen:** Mikrofon-Loops haben noch die alte Bedienung (Loopstation). Die Verzögerung echter Geräte beim Gerade-Rücken ist ungemessen.
+
+## 8. Version 69: Ein Zuhause, das immer erreichbar ist
+
+- **Problem:** Wer sich verläuft, braucht einen Punkt, an dem er neu anfangen kann. Die Startseite war dieser Punkt, aber aus Blättern, dem Einspielen und dem Vollbild nicht erreichbar; die Zurück-Taste führte woandershin.
+- **Regel:** Der Haus-Knopf steht immer an derselben Stelle (oben links) und in jeder Ebene, die die Kopfzeile verdeckt. Er schließt alles und ändert nichts an der Musik (kein Verlust, also keine Rückfrage).
+- **Zurück-Taste = eine Ebene zu:** wie in jeder Handy-App. Die letzte Ebene ist die Startseite.
+- **Namen statt Rätsel:** Kopfknöpfe tragen in der einfachen Ansicht ihr Wort. „Dein Weg“ zeigt die vier Schritte zum fertigen Lied als Zahlenreihe, statt sie in sieben gleichwertigen Kacheln zu verstecken.

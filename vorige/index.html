@@ -2,8 +2,8 @@
 <meta name="theme-color" content="#0A1315"><meta name="description" content="KLANGRAUM – Formen, die klingen. Loopstation, Beatbox, Instrumente.">
 <link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<style>:root{box-sizing:border-box}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><a href="./" style="position:fixed;z-index:2147483000;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);background:#3a2a10;color:#ffd58a;font:600 10px/1.2 system-ui,sans-serif;padding:2px 8px;border-radius:0 0 10px 10px;text-decoration:none;opacity:.92">Vorige Version 67 · zur aktuellen →</a>
-<title>(Vorige 67) KLANGRAUM</title>
+<style>:root{box-sizing:border-box}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><a href="./" style="position:fixed;z-index:2147483000;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);background:#3a2a10;color:#ffd58a;font:600 10px/1.2 system-ui,sans-serif;padding:2px 8px;border-radius:0 0 10px 10px;text-decoration:none;opacity:.92">Vorige Version 68 · zur aktuellen →</a>
+<title>(Vorige 68) KLANGRAUM</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* Layout: Vollbild-Tiefsee (WebGL) mit einer lebenden Klangform. Oben ruhige Kiesel (Stimmung, Raum, Menü),
@@ -2098,6 +2098,71 @@ body.kerkl, body.kerkl * { cursor: help !important; }
 @media (max-width: 380px) { .sxi { width: 40px; height: 44px; } .sxstep b { min-width: 62px; } .sxstep button { width: 40px; } .mxpre button { font-size: 10.8px; } .sxh h3 { letter-spacing: .08em; font-size: 11.5px; } .sxh small { font-size: 11px; } .sxti b { font-size: 18px; } }
 @media (max-width: 360px) { .hmt { min-height: 112px; padding: 12px; } .hmt b { font-size: 14.5px; } .mxpre { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (prefers-reduced-motion: reduce) { .hmhero::after, .hmeq i, .sxart i, .sxplay.q7on::before, .sxc.q7cur, .sxrec.q7on > i { animation: none !important; } }
+/* ---------- v68: Einspielen · Spuren-Mix im Song · einfacher Bereich „Spielen“ ---------- */
+#einsp { position: fixed; inset: 0; z-index: 60; overflow: hidden auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; color: #EEF2FF; touch-action: pan-y;
+  background: radial-gradient(90% 40% at 10% -6%, rgba(242, 92, 193, .30) 0%, transparent 62%), radial-gradient(80% 40% at 98% 0%, rgba(79, 123, 255, .28) 0%, transparent 60%), #070b14; }
+#einsp svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
+#einsp :where(button) { font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; cursor: pointer; }
+.ein { box-sizing: border-box; width: 100%; max-width: 980px; margin: 0 auto; display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); padding: calc(12px + env(safe-area-inset-top, 0px)) 14px calc(20px + env(safe-area-inset-bottom, 0px)); }
+.etop { display: flex; align-items: center; gap: 10px; }
+.ex { width: 46px; height: 46px; flex: 0 0 46px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .12); background: rgba(255, 255, 255, .05); display: grid; place-items: center; }
+.eti { flex: 1; min-width: 0; display: grid; gap: 1px; } .eti b { font-family: var(--f-display); font-size: 22px; font-weight: 650; letter-spacing: -.01em; } .eti small { font-size: 12.5px; line-height: 1.3; color: #A9B4D0; }
+.edone { min-height: 48px; padding: 0 20px; border: 0; border-radius: 17px; font-size: 16px; font-weight: 800; color: #fff !important; background: linear-gradient(120deg, #4F7BFF, #8E5BFF 50%, #E85CC8); box-shadow: 0 12px 26px -12px rgba(142, 91, 255, .9), 0 1px 0 rgba(255, 255, 255, .3) inset; }
+.echips { display: flex; gap: 7px; overflow-x: auto; padding: 2px 0 4px; scrollbar-width: none; } .echips::-webkit-scrollbar { display: none; }
+.echip { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 13px 0 6px; border-radius: 22px; border: 1px solid rgba(255, 255, 255, .12); background: rgba(255, 255, 255, .045); font-size: 14px; font-weight: 650; position: relative; }
+.echip > i { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; color: #0a0f1c; background: var(--c); } .echip > i svg { width: 18px; height: 18px; stroke-width: 2; }
+.echip em { width: 7px; height: 7px; border-radius: 50%; background: #5FE0C4; box-shadow: 0 0 8px #5FE0C4; }
+.echip[aria-pressed="true"] { border-color: var(--c); background: color-mix(in srgb, var(--c) 22%, transparent); box-shadow: 0 0 0 1px var(--c) inset; }
+.echip.new { padding: 0 14px; border-style: dashed; color: #C9D3F2 !important; }
+.estrip { position: relative; height: 92px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255, 255, 255, .1); background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02)); }
+.egrid span { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255, 255, 255, .07); } .egrid span.b1 { background: rgba(255, 255, 255, .26); }
+.egrid b { position: absolute; left: 6px; top: 4px; font-size: 10.5px; font-weight: 800; color: rgba(255, 255, 255, .5); }
+.edots { position: absolute; inset: 14px 0 6px 0; }
+.edots i { position: absolute; height: 9px; min-width: 9px; margin-top: -4.5px; border-radius: 5px; background: var(--c); box-shadow: 0 0 10px -1px var(--c); opacity: .78; }
+.edots i.nw { opacity: 1; box-shadow: 0 0 0 1.5px #fff, 0 0 14px var(--c); }
+.ehead { position: absolute; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; border-radius: 2px; background: #fff; box-shadow: 0 0 14px 2px rgba(255, 255, 255, .7); pointer-events: none; }
+.eg { position: absolute; top: 0; bottom: 0; width: 14px; margin-left: -7px; background: radial-gradient(closest-side, rgba(255, 255, 255, .85), transparent); animation: egp .7s ease-out forwards; pointer-events: none; }
+@keyframes egp { from { opacity: 1; transform: scaleX(1); } to { opacity: 0; transform: scaleX(3.4); } }
+.erow { display: flex; align-items: center; gap: 8px; }
+.ebeat { display: flex; gap: 5px; } .ebeat i { width: 11px; height: 11px; border-radius: 50%; background: rgba(255, 255, 255, .16); transition: transform .08s; } .ebeat i.on { background: #fff; transform: scale(1.35); box-shadow: 0 0 10px #fff; } .ebeat i:first-child.on { background: #F25CC1; box-shadow: 0 0 12px #F25CC1; }
+.ecnt { position: absolute; right: 10px; bottom: 5px; font-size: 11px; font-weight: 650; color: rgba(255, 255, 255, .55); pointer-events: none; } .esp { flex: 1; }
+.eb { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 0 12px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, .11); background: rgba(255, 255, 255, .05); font-size: 13px; font-weight: 650; white-space: nowrap; } .eb svg { width: 18px; height: 18px; }
+.eb[disabled] { opacity: .3; pointer-events: none; } .eb.pp { width: 46px; padding: 0; border-radius: 50%; } .eb.tg[aria-pressed="true"] { color: #fff; border-color: transparent; background: linear-gradient(135deg, rgba(79, 123, 255, .6), rgba(232, 92, 200, .6)); }
+#einsp .ekeys { gap: 7px; } #einsp .kyk { height: clamp(84px, 17vh, 150px); border-radius: 15px; } #einsp .kyrow.up .kyk { height: clamp(70px, 14vh, 124px); } #einsp .kyk b { font-size: 18px; }
+.eoct { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 8px; font-size: 12px; color: #A9B4D0; text-align: center; }
+.eoct button { min-height: 40px; padding: 0 12px; border-radius: 13px; border: 1px solid rgba(255, 255, 255, .11); background: rgba(255, 255, 255, .05); font-size: 12.5px; font-weight: 650; color: #DDE4F8 !important; white-space: nowrap; }
+.epads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; touch-action: none; user-select: none; -webkit-user-select: none; }
+.epad { height: clamp(96px, 19vh, 170px); border-radius: 24px; border: 1px solid color-mix(in srgb, var(--c) 60%, transparent); display: grid; align-content: center; justify-items: center; gap: 3px; touch-action: none; transition: transform .06s, filter .06s;
+  background: radial-gradient(120% 120% at 30% 20%, color-mix(in srgb, var(--c) 62%, #0c1220), color-mix(in srgb, var(--c) 22%, #0c1220)); box-shadow: 0 1px 0 rgba(255, 255, 255, .22) inset, 0 16px 30px -18px var(--c); }
+.epad b { font-size: 19px; font-weight: 800; text-shadow: 0 1px 6px rgba(0, 0, 0, .4); } .epad small { font-size: 12px; opacity: .85; }
+.epad.dn { transform: scale(.96); filter: brightness(1.5); box-shadow: 0 0 0 2px #fff inset, 0 0 26px var(--c); }
+.epads.n3 .epad:first-child { grid-column: 1 / -1; }
+.eopt { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.eseg { display: inline-flex; padding: 3px; gap: 2px; border-radius: 16px; background: rgba(255, 255, 255, .06); }
+.eseg button { min-height: 40px; padding: 0 12px; border: 0; border-radius: 13px; background: none; font-size: 13px; font-weight: 650; color: #A9B4D0 !important; white-space: nowrap; }
+.eseg button[aria-pressed="true"] { color: #fff !important; background: linear-gradient(135deg, rgba(79, 123, 255, .7), rgba(232, 92, 200, .7)); }
+.ehint { margin: 0; font-size: 12.5px; line-height: 1.45; color: #8FA0C8; }
+.eempty { display: grid; justify-items: center; gap: 14px; padding: 8vh 10px; text-align: center; } .eempty p { margin: 0; max-width: 36ch; color: #A9B4D0; line-height: 1.5; }
+body.keinsp .toast { z-index: 70; }
+/* Song-Zeile mit Lautstärke */
+.sxnw.mxr { display: flex; align-items: center; gap: 6px; min-width: 0; padding: 0; border: 0; border-radius: 0; background: none; grid-template-columns: none; grid-template-areas: none; }
+.sxnw .sxn { flex: 1 1 auto; min-width: 0; } .sxnw .mxn { grid-area: auto; }
+.sxnw .sxn b { flex: 0 0 auto; font-size: 14px; } .sxnw .sxn small { flex: 1 1 0; min-width: 0; }
+.sxnw .sxv { flex: 0 0 clamp(96px, 30%, 150px); grid-area: auto; grid-template-columns: minmax(0, 1fr); padding: 0 12px 0 10px; } .sxnw .sxv .mxv { display: none; }
+.sxnw .mxf { height: 40px; } .sxnw .mxk { width: 22px; height: 28px; margin: -14px 0 0 -11px; border-radius: 8px; } .sxnw .mxf::before, .sxnw .mxfill, .sxnw .mxlv { height: 10px; margin-top: -5px; border-radius: 5px; }
+@media (min-width: 600px) { .sxr { grid-template-columns: clamp(250px, 38%, 380px) minmax(0, 1fr); } .sxnw .sxv { flex-basis: 120px; } }
+@media (orientation: landscape) and (max-height: 520px) { .sxr { grid-template-columns: minmax(220px, 40%) minmax(0, 1fr); } .sxnw .sxv { flex-basis: 96px; }
+  .ein { gap: 8px; padding-top: 8px; } .estrip { height: 54px; } .edots { inset: 12px 0 4px 0; } .eti small, .ehint { display: none; } #einsp .kyk, #einsp .kyrow.up .kyk { height: clamp(64px, 26vh, 110px); } .epads { grid-template-columns: repeat(4, minmax(0, 1fr)); } .epads.n3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .epads.n3 .epad:first-child { grid-column: auto; } .epad { height: clamp(80px, 34vh, 130px); } }
+@media (min-width: 700px) and (min-height: 521px) { .ein { gap: 16px; padding-left: 28px; padding-right: 28px; } .estrip { height: 120px; } #einsp .kyk { height: clamp(110px, 16vh, 190px); } #einsp .kyrow.up .kyk { height: clamp(96px, 13vh, 160px); } .epads { grid-template-columns: repeat(4, minmax(0, 1fr)); } .epads.n3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .epads.n3 .epad:first-child { grid-column: auto; } .epad { height: clamp(150px, 24vh, 260px); } }
+/* Bereich „Spielen“ in der einfachen Ansicht: nur das Wichtigste, „▴ Mehr“ zeigt alles */
+body.keinf:not(.ksopen) #ksheet .ksfx, body.keinf:not(.ksopen) #ksheet .kpm, body.keinf:not(.ksopen) #ksheet .kshide { display: none !important; }
+body.keinf:not(.ksopen) #ksheet .ksq .fb[data-ks="rec"], body.keinf:not(.ksopen) #ksheet .ksq .fb[data-ks="retro"], body.keinf:not(.ksopen) #ksheet .ksq .fb[data-ks="scenes"] { display: none !important; }
+body.keinf:not(.ksopen):not(.kland):not(.kside) #ksheet .ksq { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+body.keinf:not(.ksopen):not(.kland):not(.kside) #ksheet .ksq .fb { height: 64px; border-radius: 16px; } body.keinf:not(.ksopen) #ksheet .ksq .fb span { font-size: 13px !important; letter-spacing: 0; } body.keinf:not(.ksopen):not(.kland):not(.kside) #ksheet .ksq .fb svg { width: 26px; height: 26px; }
+body.keinf .cueb, body.keinf #cueL { display: none !important; }
+body.keinf:not(.ksopen) #ksheet .ksdet { margin-left: auto; width: auto; padding: 0 14px; gap: 6px; } body.keinf:not(.ksopen) #ksheet .ksdet span { display: inline !important; font-size: 13px; font-weight: 700; }
+@media (prefers-reduced-motion: reduce) { .eg { animation: none; opacity: 0; } }
+body.ksopen:not(.kside) .navedge { display: none !important; }
 </style>
 
 <canvas id="c" aria-label="Klangraum: dreidimensionale Klangformen" role="img"></canvas>
@@ -2156,9 +2221,9 @@ body.kerkl, body.kerkl * { cursor: help !important; }
 
 <div class="start" id="start">
   <div class="start-inner">
-    <div class="meta">Version 67 · Studio: Song in 1 Minute · Song-Ansicht · Mischen · Erklär-Modus</div>
+    <div class="meta">Version 68 · Einspielen ohne Aufnahmeknopf · Spuren-Mix im Song · einfacher Bereich Spielen</div>
     <h1 class="klogoH"><span class="sr">KLANGRAUM</span><span id="klogoStart" aria-hidden="true"></span></h1>
-    <p>Musik machen ohne Vorkenntnisse: Wähle einen Stil, und KLANGRAUM baut dir einen ganzen Song. Oder spiel, forme und mische deine Klänge selbst – nichts klingt falsch.</p><ul class="stfeat"><li>Song in 1 Minute</li><li>Melodien auf bunten Tasten</li><li>Klänge kneten</li><li>Mischen wie im Studio</li></ul>
+    <p>Musik machen ohne Vorkenntnisse: Wähle einen Stil, und KLANGRAUM baut dir einen ganzen Song. Oder spiel, forme und mische deine Klänge selbst – nichts klingt falsch.</p><ul class="stfeat"><li>Song in 1 Minute</li><li>Einspielen ohne Aufnahmeknopf</li><li>Klänge kneten</li><li>Mischen wie im Studio</li></ul>
     <button class="enter" id="enter">Eintauchen</button>
     <p class="err" id="startErr" hidden></p>
   </div>
@@ -6371,7 +6436,7 @@ const Sheets = {
   },
   menu() {
     const txt = Sheets.helpText(Music.help);
-    const s = this.open("Menü", this.head("KLANGRAUM · Version 67") + `
+    const s = this.open("Menü", this.head("KLANGRAUM · Version 68") + `
       <div class="field"><label for="rHelp">Wie viel hilft die App? <b id="helpV">${txt[0]}</b></label><input type="range" id="rHelp" min="0" max="100" step="1" value="${Music.help}"><p class="helptext" id="helpT">${txt[1]}</p></div>
       ${TempoUI.html()}
       <div class="row"><button class="btn" id="mGlide">Übergänge: Drehung ${Glide.rot ? "fließend" : "sofort"} · Tempo ${Glide.tempo ? "fließend" : "sofort"}</button></div>
@@ -17642,6 +17707,210 @@ Help.T.push({ id: "studio", ic: "✨", t: "Song in 1 Minute, Song-Ansicht und Mi
   <li><b>Mehr</b> (unten rechts): Pult, Beat-Maschine, Schnittraum, Foto wird Musik, Loops und Aufnahmen. Wer alle Bereiche wie früher direkt in der Leiste haben will, schaltet dort „Alle Bereiche in der Leiste zeigen“ ein.</li>
   <li>Eigene Klänge kommen in den Song, sobald sie einen Loop haben: im Bereich Spielen mit <b>Tasten</b> eine Melodie aufnehmen oder mit <b>Loop</b> festhalten, was gerade klingt.</li></ul>` });
 
+/* =====================================================================================
+   v68: EINSPIELEN ohne Aufnahmeknopf · Spuren-Mix im Song · einfacher Bereich „Spielen“
+   – Einsp: Dauerschleife – was du spielst, bleibt, wird gerade gerückt und wiederholt sich
+   – neue Klänge mit Loop kommen von selbst in den Song · Lautstärke direkt in der Song-Zeile
+   – Mischen auch für Gesangs- und Audiospuren · Einfach/Profi-Schalter
+   ===================================================================================== */
+const Einsp = {
+  on: false, f: null, t: null, L: 2, q: store.get("einQ") ?? 2, click: store.get("einClick") !== false, made: null, round: -1, hold: new Map(), undone: false,
+  QUICK: [["klavier", "Klavier"], ["fingerbass", "Bass"], ["trommel", "Schlagzeug"], ["saite", "Gitarre"], ["floete", "Flöte"], ["epiano", "E-Piano"], ["streicher", "Streicher"], ["kit_909", "Elektro-Beat"]],
+  PADS: { kick: ["Bassdrum", "tief, der Puls", 0.15], snare: ["Snare", "der Schlag auf 2 und 4", 0.47], hat: ["Hi-Hat", "das Zischeln", 0.72], top: ["Becken", "der Akzent", 0.92] },
+  QS: [[2, "grob"], [1, "fein"], [0, "frei"]],
+  drum(f) { return !!f && (f.kind === "drum" || !!(f.layer && f.layer.parts.some(p => p.kind === "drum"))); },
+  playable(f) { return !!f && Forms.list.includes(f) && !f.empty && !f.remote && !LoopSt.trackOf(f) && (this.drum(f) || KeysUI.melodic(f)); },
+  forms() { return Forms.list.filter(f => this.playable(f)); },
+  zones(f) { const sd = K.seedById(f.inst || f.seedId); return sd && sd.kit ? ["kick", "snare", "hat", "top"] : ["kick", "snare", "hat"]; },
+  el() { let e = $("einsp"); if (!e) { e = document.createElement("div"); e.id = "einsp"; e.hidden = true; e.setAttribute("role", "dialog"); e.setAttribute("aria-label", "Einspielen"); document.body.appendChild(e); this.bind(e); } return e; },
+  // Stelle im Loop (Sechzehntel, mit Bruchteil) – so, wie die Loops abgespielt werden
+  local() {
+    const spb = Transport.spb, lat = 0.03 + ((Engine.ctx && Engine.ctx.outputLatency) || 0.02), pf = (Engine.now() - lat - Transport.t0) / spb, len = this.L * 16; let ls = pf;
+    if (Song.playing) { const a = Song.at(Math.floor(Math.max(0, pf))); if (a) ls = pf - a.startStep; }
+    return { pf, len, x: mod(ls - (this.t ? Loops.shift(this.t) : 0), len), abs: Math.floor((ls - (this.t ? Loops.shift(this.t) : 0)) / len) };
+  },
+  open(f, opt = {}) {
+    if (!Engine.ctx) { UI.toast("Erst „Eintauchen“ – dann ist der Ton an"); return; }
+    if (Engine.ctx.state !== "running") Engine.ctx.resume();
+    try { UI.hideSheets(); if (Erkl.on) Erkl.stop(); } catch (_) {}
+    this.f = this.playable(f) ? f : opt.pick ? null : (this.playable(Forms.active) ? Forms.active : null); this.made = null; this.undone = false; this.hold.clear();
+    this.setForm(this.f, true); this.on = true; document.body.classList.add("keinsp"); const e = this.el(); e.hidden = false; this.render(); this.start(); cancelAnimationFrame(this.raf); const loop = () => { if (!this.on) return; this.paint(); this.raf = requestAnimationFrame(loop); }; this.raf = requestAnimationFrame(loop);
+  },
+  tidy() { const f = this.f, t = this.t; if (f && t && !t.ev.length && f.takes) { const i = f.takes.indexOf(t); if (i >= 0) f.takes.splice(i, 1); } },   // leere Loops nicht liegen lassen
+  setForm(f, quiet) {
+    if (f !== this.f) this.tidy(); this.f = f || null; this.t = f && (f.takes || []).length ? f.takes[0] : null; this.L = this.t ? this.t.bars : (Song.sections.length ? 4 : 2); this.round = -1;
+    if (f) { try { Forms.setActive(f); Fade.set(f, true, true); if (f.lpOff) f.lpOff = false; Forms.applyMix(f); SongUI.adopt(f); } catch (e) { console.warn(e); } }
+    if (!quiet) this.render();
+  },
+  // der Takt läuft mit: ein Stück mit Ablauf spielt als Song, sonst laufen einfach alle Loops
+  start() {
+    try { if (Nav67.songPiece() || (Song.sections.length && Forms.list.some(g => Loops.count(g) > 0))) { if (!Song.playing) SongUI.play(SongUI.sel >= 0 ? SongUI.sel : this.fullest()); }
+      else { if (!Transport.running) Transport.start(); LoopCtl.release(); } } catch (e) { console.warn(e); }
+  },
+  fullest() { let b = 0, n = -1; Song.sections.forEach((s, i) => { if (s.on.length > n) { n = s.on.length; b = i; } }); return b; },
+  close() {
+    if (!this.on) return; this.on = false; cancelAnimationFrame(this.raf); for (const [, v] of this.hold) { try { Forms.release(v.h); } catch (_) {} } this.hold.clear();
+    document.body.classList.remove("keinsp"); const e = $("einsp"); if (e) e.hidden = true;
+    const f = this.f, n = f && this.t ? this.t.ev.length : 0;
+    if (f && this.made === f && !n) { try { Forms.del(f); } catch (_) {} }      // eben geholt, nichts gespielt: wieder weg
+    else if (f && this.t && !n) this.tidy();
+    else if (n) { Save.soon(); UI.toast(`${f.name}: dein Loop läuft (${n} ${n === 1 ? "Ton" : "Töne"}, ${this.L} ${this.L === 1 ? "Takt" : "Takte"})${Song.sections.length ? " – im Song hat er eine eigene Zeile" : ""}`, 3200); }
+    this.f = null; this.t = null; this.made = null; try { UI.refresh(); if (UI.tab === "song") SongUI.render(true); else if (UI.tab === "mix") MixUI.render(true); else if (UI.tab === "start") Home67.render(true); } catch (_) {}
+  },
+  take() { const f = this.f; if (this.t && f.takes && f.takes.includes(this.t)) return this.t; if (!this.undone) { Undo.push(); this.undone = true; } this.t = Loops.newTake(f, this.L, [], this.drum(f) ? "Rhythmus" : "Melodie"); this.t.base = 0; this.fresh = true; return this.t; },
+  // ein gespielter Ton: klingt sofort und landet (gerade gerückt) im Loop – ab der nächsten Runde spielt ihn der Loop
+  press(pid, b, y) {
+    const f = this.f; if (!f) return; const dr = this.drum(f), r = b.getBoundingClientRect(), vel = clamp(0.55 + 0.42 * ((y - r.top) / Math.max(1, r.height)), 0.4, 1);
+    let h = null, ev;
+    if (dr) { const z = b.dataset.z, u = this.PADS[z][2]; h = Forms.play(f, u, vel, { zone: z, help: 50 }); ev = { z, u, d: 1 }; }
+    else { const k = +b.dataset.k, m = KeysUI.midi(f, k); h = Forms.play(f, k / 14, vel, { midi: m }); ev = { m, u: clamp((m - 28) / 60, 0, 1), d: 1, k }; }
+    b.classList.add("dn"); Hap(4);
+    const P = this.local(), q = this.q, len = P.len; let s = q ? mod(Math.round(P.x / q) * q, len) : Math.round(P.x * 100) / 100; if (s >= len) s = 0;
+    ev.s = s; ev.v = Math.round(vel * 100) / 100; ev.r = P.abs + (q && Math.round(P.x / q) * q >= len ? 1 : 0);
+    const t = this.take(); if (!this.undone) { Undo.push(); this.undone = true; }
+    const rec = { ev, t0: Engine.now(), b, h, t }; this.hold.set(pid, rec);
+    // erst einfügen, wenn die Stelle vorbei ist – sonst spielt der Loop den Ton gleich noch einmal
+    const wait = Math.max(0, (s - P.x) * Transport.spb) + 0.55; rec.tm = setTimeout(() => this.commit(rec), wait * 1000);
+    this.ghost(ev);
+  },
+  commit(rec) {
+    if (rec.done) return; rec.done = true; const t = rec.t, e = rec.ev; if (!this.on || !t || !this.f || !(this.f.takes || []).includes(t)) return;
+    const i = t.ev.findIndex(x => (e.z ? x.z === e.z : x.m === e.m) && Math.abs(x.s - e.s) < 0.5); const o = { s: e.s, d: e.d, v: e.v, u: e.u, r: e.r }; if (e.z) o.z = e.z; else o.m = e.m;
+    if (i >= 0) t.ev[i] = o; else t.ev.push(o); rec.o = o; this.round = Math.max(this.round, e.r); this.dots(); Save.soon();
+  },
+  lift(pid) {
+    const v = this.hold.get(pid); if (!v) return; this.hold.delete(pid); try { Forms.release(v.h); } catch (_) {} v.b.classList.remove("dn");
+    if (!v.ev.z) { const d = clamp(Math.round((Engine.now() - v.t0) / Transport.spb * 2) / 2, this.q || 0.5, this.L * 16 - 0.5); v.ev.d = d; if (v.o) { v.o.d = d; this.dots(); } }
+  },
+  ghost(ev) { const st = $("einStrip"); if (!st) return; const g = document.createElement("i"); g.className = "eg"; g.style.left = (ev.s / (this.L * 16) * 100) + "%"; st.appendChild(g); setTimeout(() => g.remove(), 700); },
+  undoRound() {
+    const t = this.t; if (!t || !t.ev.length) return; Hap(10); let r = -Infinity; for (const e of t.ev) if (e.r != null && e.r > r) r = e.r;
+    if (r === -Infinity) { UI.toast("Das sind Töne von früher – „Alles weg“ leert den Loop", 2400); return; }
+    const n0 = t.ev.length; t.ev = t.ev.filter(e => e.r !== r); UI.toast(`${n0 - t.ev.length} ${n0 - t.ev.length === 1 ? "Ton" : "Töne"} der letzten Runde entfernt`, 1600); this.dots(); this.btns(); Save.soon();
+  },
+  clear() { const t = this.t; if (!t || !t.ev.length) return; Undo.push(); this.undone = true; t.ev = []; Hap(14); UI.toast("Loop geleert – spiel neu ein", 1500); this.dots(); this.btns(); Save.soon(); },
+  setLen(n) { if (this.t && this.t.ev.length && n < this.t.bars) { const cut = this.t.ev.filter(e => e.s >= n * 16).length; if (cut) { Undo.push(); this.t.ev = this.t.ev.filter(e => e.s < n * 16); } } this.L = n; if (this.t) this.t.bars = n; this.render(); Save.soon(); },
+  async add(seedId, name) {
+    if (Forms.list.length >= Forms.MAX) { UI.toast("Im Stück ist kein Platz mehr für einen weiteren Klang", 2400); return; }
+    Undo.push(); this.undone = true; const f = Forms.make({ seedId, name }); if (!f) return; Forms.rebuild(f, true); f.still = false; this.made = f; this.setForm(f); Hap(12); UI.refresh();
+  },
+  colOfEv(e) { if (e.z) return ({ kick: "#FF8A6B", snare: "#FFD76B", hat: "#5FE0C4", top: "#B08CFF" })[e.z] || "#fff"; const f = this.f; for (let k = 0; k <= 14; k++) if (KeysUI.midi(f, k) === e.m) return KeysUI.COL[mod(k, 7)]; return "#C9D3F2"; },
+  dots() {
+    const st = $("einDots"); if (!st) return; const t = this.t, len = this.L * 16; if (!t || !t.ev.length) { st.innerHTML = ""; this.btns(); return; }
+    const dr = this.drum(this.f), ms = t.ev.filter(e => !e.z).map(e => e.m), lo = Math.min(...ms, 999), hi = Math.max(...ms, -999), ZR = { top: 0, hat: 1, snare: 2, kick: 3 };
+    st.innerHTML = t.ev.filter(e => e.s < len).map(e => { const y = dr ? 12 + (ZR[e.z] ?? 1) * 22 : (hi > lo ? 86 - (e.m - lo) / (hi - lo) * 74 : 50); return `<i style="left:${(e.s / len * 100).toFixed(2)}%;top:${y.toFixed(1)}%;width:${Math.max(1.2, (dr ? 0.6 : e.d * 0.9) / len * 100).toFixed(2)}%;--c:${this.colOfEv(e)}"${e.r === this.round ? ' class="nw"' : ""}></i>`; }).join("");
+    this.btns();
+  },
+  btns() { const n = this.t ? this.t.ev.length : 0, e = $("einsp"); if (!e) return; e.querySelectorAll('[data-ei="undo"], [data-ei="clear"]').forEach(b => b.disabled = !n); const c = $("einCnt"); if (c) c.textContent = n ? `${n} ${n === 1 ? "Ton" : "Töne"} im Loop` : "noch leer – spiel einfach los"; },
+  paint() { const ph = $("einHead"); if (!ph || !Transport.running) { if (ph) ph.style.opacity = "0"; return; } const P = this.local(); ph.style.opacity = "1"; ph.style.left = (P.x / P.len * 100).toFixed(2) + "%"; const bt = Math.floor(mod(P.x, 16) / 4); if (bt !== this.lastBt) { this.lastBt = bt; const e = $("einsp"); if (e) e.querySelectorAll(".ebeat i").forEach((x, i) => x.classList.toggle("on", i === bt)); } },
+  render() {
+    const e = this.el(), f = this.f, dr = this.drum(f), len = this.L * 16;
+    const chips = this.forms().map(g => `<button class="echip" data-ef="${g.id}" aria-pressed="${g === f}" style="--c:${SongGen.col(g)}"><i>${SongGen.icOf(g)}</i>${esc(g.name)}${Loops.count(g) ? "<em></em>" : ""}</button>`).join("");
+    const have = new Set(Forms.list.map(g => g.inst || g.seedId)), quick = this.QUICK.filter(([id]) => !have.has(id) && K.seedById(id)).slice(0, f ? 4 : 8).map(([id, n]) => `<button class="echip new" data-en="${id}" data-nm="${n}">＋ ${n}</button>`).join("");
+    const grid = Array.from({ length: this.L * 4 }, (_, i) => `<span class="${i % 4 === 0 ? "b1" : ""}" style="left:${(i * 4 / len * 100).toFixed(2)}%">${i % 4 === 0 ? `<b>${i / 4 + 1}</b>` : ""}</span>`).join("");
+    let play = "";
+    if (f && dr) play = `<div class="epads n${this.zones(f).length}">${this.zones(f).map(z => `<button class="epad" data-z="${z}" style="--c:${this.colOfEv({ z })}"><b>${this.PADS[z][0]}</b><small>${this.PADS[z][1]}</small></button>`).join("")}</div>`;
+    else if (f) { const row = (a, b, cls) => { let h = ""; for (let k = a; k <= b; k++) h += `<button class="kyk${mod(k, 7) === 0 ? " root" : ""}${cls === "up" && k === 7 ? " dup" : ""}" data-k="${k}" style="--c:${KeysUI.COL[mod(k, 7)]}" aria-label="Ton ${esc(deN(KeysUI.midi(f, k)))}"><b>${esc(KeysUI.lab(f, k))}</b></button>`; return `<div class="kyrow ${cls}">${h}</div>`; };
+      play = `<div class="kykeys ekeys">${row(7, 14, "up")}${row(0, 7, "dn")}</div><div class="eoct"><button data-ei="oct-" aria-label="Eine Oktave tiefer">◀ tiefer</button><span>${esc(KeysUI.keyTxt())} · kein Ton klingt falsch</span><button data-ei="oct+" aria-label="Eine Oktave höher">höher ▶</button></div>`; }
+    e.innerHTML = `<div class="ein"><div class="etop"><button class="ex" data-ei="close" aria-label="Schließen">${I67.x}</button><div class="eti"><b>Einspielen</b><small>${f ? "Spiel los – es bleibt und wiederholt sich." : "Womit möchtest du spielen?"}</small></div><button class="eb pp" data-ei="pp" aria-label="${Transport.running ? "Anhalten" : "Weiterlaufen lassen"}">${Transport.running ? I67.stop : I67.play}</button><button class="edone" data-ei="close">Fertig</button></div>
+      <div class="echips" aria-label="Klang wählen">${chips}${quick}</div>
+      ${f ? `<div class="estrip" id="einStrip"><div class="egrid">${grid}</div><div class="edots" id="einDots"></div><i class="ehead" id="einHead"></i><span class="ecnt" id="einCnt"></span></div>
+      <div class="erow"><div class="ebeat" aria-hidden="true"><i></i><i></i><i></i><i></i></div><span class="esp"></span>
+        <button class="eb" data-ei="undo" aria-label="Die Töne der letzten Runde entfernen">${I67.left}<span>Letzte Runde</span></button><button class="eb" data-ei="clear" aria-label="Loop leeren">${I67.trash}<span>Alles weg</span></button></div>
+      ${play}
+      <div class="eopt"><span class="eseg" aria-label="Länge des Loops">${[1, 2, 4].map(n => `<button data-el="${n}" aria-pressed="${this.L === n}">${n} ${n === 1 ? "Takt" : "Takte"}</button>`).join("")}</span>
+        <span class="eseg" aria-label="Gerade rücken">${this.QS.map(([v, n]) => `<button data-eq="${v}" aria-pressed="${this.q === v}">${n}</button>`).join("")}</span>
+        <button class="eb tg" data-ei="click" aria-pressed="${this.click}" aria-label="Klick im Takt: ${this.click ? "an" : "aus"}"><span>Klick</span></button></div>
+      <p class="ehint">„grob“ rückt jeden Ton auf den nächsten halben Schlag – so klingt es auch im Takt, wenn du ungenau triffst. „fein“ lässt schnellere Töne zu, „frei“ ändert nichts.</p>`
+      : `<div class="eempty"><div class="sxart"><i></i><i></i><i></i><i></i><i></i></div><p>Tippe oben einen Klang an. Danach spielst du auf bunten Tasten oder Trommel-Feldern – ohne Aufnahmeknopf.</p></div>`}</div>`;
+    this.dots(); this.lastBt = -1;
+  },
+  act(k) {
+    if (k === "close") return this.close();
+    if (k === "pp") { Hap(10); if (Transport.running) { if (Song.playing) SongUI.stop(); else Transport.stop(); } else this.start(); return setTimeout(() => this.render(), 60); }
+    if (k === "undo") return this.undoRound();
+    if (k === "clear") return this.clear();
+    if (k === "click") { this.click = !this.click; store.set("einClick", this.click); Hap(); return this.render(); }
+    if (k === "oct-" || k === "oct+") { KeysUI.oct = clamp(KeysUI.oct + (k === "oct+" ? 1 : -1), -2, 2); store.set("kOct", KeysUI.oct); Hap(); return this.render(); }
+  },
+  bind(e) {
+    e.addEventListener("pointerdown", ev => { const b = ev.target.closest(".kyk[data-k], .epad[data-z]"); if (!b) return; ev.preventDefault(); try { b.setPointerCapture(ev.pointerId); } catch (_) {} this.press(ev.pointerId, b, ev.clientY); });
+    const up = ev => this.lift(ev.pointerId); e.addEventListener("pointerup", up); e.addEventListener("pointercancel", up);
+    e.addEventListener("click", ev => {
+      const a = ev.target.closest("[data-ei]"); if (a && !a.disabled) return this.act(a.dataset.ei);
+      const c = ev.target.closest("[data-ef]"); if (c) { const f = Forms.byId(c.dataset.ef); if (f) { Hap(); this.setForm(f); } return; }
+      const n = ev.target.closest("[data-en]"); if (n) return this.add(n.dataset.en, n.dataset.nm);
+      const l = ev.target.closest("[data-el]"); if (l) { Hap(); return this.setLen(+l.dataset.el); }
+      const q = ev.target.closest("[data-eq]"); if (q) { this.q = +q.dataset.eq; store.set("einQ", this.q); Hap(); return this.render(); }
+    });
+    e.addEventListener("contextmenu", ev => ev.preventDefault());
+  }
+};
+// Klick im Takt, solange eingespielt wird (geht nicht in Aufnahmen)
+{ const os = Transport.onStep.bind(Transport); Transport.onStep = function (step, time) { try { if (Einsp.on && Einsp.click && step % 4 === 0) Metro.click(time, mod(Song.loopStep(step), 16) === 0); } catch (_) {} return os(step, time); }; }
+// Stück geladen oder rückgängig gemacht: die Einspiel-Ansicht hält keine alten Formen fest
+{ const pl = Project.load.bind(Project); Project.load = function (d, mem) { const r = pl(d, mem); try { if (Einsp.on) { const id = Einsp.f && Einsp.f.id, f = id && Forms.byId(id); Einsp.made = null; Einsp.hold.clear(); if (f && Einsp.playable(f)) Einsp.setForm(f); else { Einsp.f = null; Einsp.t = null; Einsp.render(); } } SongUI.had = null; } catch (e) { console.warn(e); } return r; }; }
+
+/* ---------- Song: neue Klänge mit Loop kommen von selbst hinein · Lautstärke in der Zeile ---------- */
+// Form in alle Teile aufnehmen, wenn sie noch in keinem vorkommt
+SongUI.adopt = function (f) { const S = Song.sections; if (!f || !S.length || S.some(s => s.on.includes(f.id))) return false; for (const s of S) s.on.push(f.id); Save.soon(); return true; };
+// beobachten: bekommt eine Form ihren ersten Loop, spielt sie ab jetzt im Song mit
+SongUI.watch = function () {
+  const cur = new Map(Forms.list.filter(f => !f.empty && !f.remote).map(f => [f.id, this.hasLoop(f)])); const had = this.had; this.had = cur; if (!had || !Song.sections.length) return;
+  for (const [id, lp] of cur) if (lp && had.get(id) === false || (lp && !had.has(id))) { const f = Forms.byId(id); if (f && this.adopt(f) && !Einsp.on) UI.toast(`„${f.name}“ spielt jetzt in allen Teilen deines Songs mit – unter „Song“ schaltest du es je Teil an oder aus`, 4200); }
+};
+{ const tk = SongUI.tick.bind(SongUI); SongUI.tick = function () { try { this.watch(); document.body.classList.toggle("ksopen", KSheet.det === "half"); } catch (_) {} return tk(); }; }
+// Zeile im Song: Lautstärke-Regler gleich neben dem Namen (derselbe Regler wie unter „Mischen“)
+{ const rn = SongUI.render.bind(SongUI); SongUI.render = function (force) { if (MixUI.drag) return; const r = rn(force); try { const el = this.el(); if (el && !el.hidden) for (const row of el.querySelectorAll(".sxr:not(.sxhd)")) { if (row.querySelector(".sxv")) continue; const nb = row.querySelector(".sxn[data-sf]"), f = nb && Forms.byId(nb.dataset.sf); if (!f) continue; const w = document.createElement("div"); w.className = "sxnw mxr"; nb.replaceWith(w); w.appendChild(nb); w.insertAdjacentHTML("beforeend", `<div class="mxfw sxv">${MixUI.fader(f.id, f.fine.vol, 1.5, f.name + ": Lautstärke")}</div>`); } } catch (e) { console.warn(e); } return r; }; }
+{ const so = SongUI.sigOf.bind(SongUI); SongUI.sigOf = function () { return so() + "§" + this.forms().map(f => Math.round(f.fine.vol * 50)).join("."); }; }
+
+/* ---------- Mischen: auch Gesangs- und Audiospuren ---------- */
+MixUI.audio = function () { try { return (Sing.tracks || []).filter(t => t && t.rec); } catch (_) { return []; } };
+MixUI.setAudio = function (t, v) { t.vol = clamp(v, 0, 1.5); try { for (const e of Sing.srcs) if (e.t === t && e.g) e.g.gain.setTargetAtTime(t.mute ? 0 : t.vol, Engine.now(), 0.03); } catch (_) {} Save.soon(); };
+{ const rn = MixUI.render.bind(MixUI); MixUI.render = function (force) { const r = rn(force); try { const el = this.el(), A = this.audio(); if (el && !el.hidden && A.length && !el.querySelector(".mxaud")) { const rows = el.querySelector(".mxrows"); if (rows) rows.insertAdjacentHTML("afterend", `<div class="sxh mxaud"><h3>Gesang und Audiospuren</h3><small>laufen von vorn mit</small></div><div class="mxrows">${A.map(t => `<div class="mxr${t.mute ? " q7off" : ""}" data-aid="${t.id}" style="--c:#FF9AD5"><span class="mxn"><i>${I67.mic}</i><b>${esc(t.name || "Gesang")}</b></span><div class="mxfw">${this.fader("a:" + t.id, t.vol ?? 1, 1.5, (t.name || "Gesang") + ": Lautstärke")}</div><button class="mxb" data-am="${t.id}" aria-pressed="${!!t.mute}" aria-label="${esc(t.name || "Gesang")} ${t.mute ? "wieder einschalten" : "stumm schalten"}">${t.mute ? I67.mute : I67.vol}</button></div>`).join("")}</div>`); } } catch (e) { console.warn(e); } return r; };
+  const sv = MixUI.setVol.bind(MixUI); MixUI.setVol = function (id, v, row) { if (String(id).startsWith("a:")) { const t = this.audio().find(x => "a:" + x.id === id); if (!t) return; v = clamp(v, 0, 1.5); if (Math.abs(v - 1) < 0.035) v = 1; this.setAudio(t, v); const u = v / 1.5 * 100, w = row.querySelector(".mxf"); w.querySelector(".mxfill").style.width = u + "%"; w.querySelector(".mxk").style.left = u + "%"; row.querySelector(".mxv").textContent = Math.round(v * 100); return; } return sv(id, v, row); };
+  const sg = MixUI.sigOf.bind(MixUI); MixUI.sigOf = function () { return sg() + "§" + this.audio().map(t => t.id + Math.round((t.vol ?? 1) * 100) + (t.mute ? "m" : "")).join("."); }; }
+document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("#vMix [data-am]"); if (!b) return; const t = MixUI.audio().find(x => String(x.id) === b.dataset.am); if (!t) return; Undo.push(); t.mute = !t.mute; MixUI.setAudio(t, t.vol ?? 1); Hap(8); MixUI.render(true); });
+
+/* ---------- Einfach oder Profi ---------- */
+const Einf68 = {
+  profi() { return !!store.get("tabsAll"); },
+  sync() { const p = this.profi(); document.body.classList.toggle("ktabsall", p); document.body.classList.toggle("keinf", !p); },
+  set(p) { store.set("tabsAll", !!p); this.sync(); try { UI.refresh(); Layout.last = ""; Layout.sync(); } catch (_) {} }
+};
+Einf68.sync();
+try { MixUI.bind($("vSong")); } catch (e) { console.warn(e); }   // Regler in den Song-Zeilen
+// im einfachen Bereich „Spielen“ öffnet „Loop“ das Einspielen (statt der Audio-Aufnahme)
+for (const tp of ["pointerdown", "pointerup", "click"]) document.addEventListener(tp, e => { if (!document.body.classList.contains("keinf") || Erkl.on) return; const b = e.target.closest && e.target.closest('#ksheet .ksq [data-ks="loop"]'); if (!b) return; e.stopImmediatePropagation(); if (tp === "click") { e.preventDefault(); Hap(8); Einsp.open(Forms.active); } }, true);
+// Prüfstand: läuft mit allen Schaltern (Profi) und stellt danach zurück
+setTimeout(() => { try { const tr = Tests.run.bind(Tests); Tests.run = function () { const ke = document.body.classList.contains("keinf"), eo = Einsp.on; if (eo) Einsp.close(); document.body.classList.remove("keinf"); try { return tr.apply(null, arguments); } finally { if (ke) document.body.classList.add("keinf"); } }; } catch (e) { console.warn(e); } }, 0);
+
+/* ---------- Einstiege ---------- */
+// Start: „Selbst einspielen“ statt „Live auflegen“ (das Pult steht unter „Mehr“)
+{ const i = Home67.TILES.findIndex(t => t[0] === "pult"); const tile = ["einsp", "loop", "Selbst einspielen", "Spiel los – es bleibt als Loop", "#F25CC1", "#9B5CFF"]; if (i >= 0) Home67.TILES.splice(i, 1); Home67.TILES.unshift(tile);
+  const ha = Home67.act.bind(Home67); Home67.act = function (k) { if (k === "einsp") { Hap(8); return Einsp.open(null, { pick: !Einsp.playable(Forms.active) }); } return ha(k); }; }
+// Song: „Klang dazu“ und das Zeilenmenü führen zum Einspielen
+{ const sa = SongUI.act.bind(SongUI); SongUI.act = function (k, b) { if (k === "newf") { if (Song.rec) return this.busyRec(); Hap(8); return Einsp.open(null, { pick: true }); } return sa(k, b); };
+  const rm = SongUI.rowMenu.bind(SongUI); SongUI.rowMenu = function (f) { rm(f); try { const m = document.querySelector("#sheets .sxmenu"); if (m && Einsp.playable(f)) { m.insertAdjacentHTML("afterbegin", `<button class="sxbtn q7big" data-ein="${f.id}"><i>${I67.loop}</i><span><b>Dazuspielen</b><small>selbst etwas einspielen – es kommt zum Loop dazu</small></span></button>`); m.querySelector("[data-ein]").addEventListener("click", ev => { ev.stopPropagation(); Hap(8); Einsp.open(f); }); } } catch (e) { console.warn(e); } }; }
+// Mehr: ein Schalter für alles – einfach oder Profi
+{ const mo = Nav67.more.bind(Nav67); Nav67.more = function () { mo(); try { const b = document.querySelector('#sheets [data-mo="all"]'); if (b) { b.querySelector("span").innerHTML = "<b>Profi-Ansicht</b><small>alle Bereiche unten in der Leiste und alle Schalter im Bereich „Spielen“</small>"; b.addEventListener("click", () => setTimeout(() => Einf68.sync(), 0)); }
+      const g = document.querySelector("#sheets .mrg"); if (g) { g.insertAdjacentHTML("afterbegin", `<button class="hmt q7wide" data-mo2="einsp" style="--c1:#F25CC1;--c2:#9B5CFF"><i>${I67.loop}</i><b>Selbst einspielen</b><span>Tasten oder Trommel-Felder – was du spielst, bleibt als Loop</span></button>`); g.querySelector("[data-mo2]").addEventListener("click", ev => { ev.stopPropagation(); UI.hideSheets(); Einsp.open(null, { pick: !Einsp.playable(Forms.active) }); }); } } catch (e) { console.warn(e); } }; }
+// Erklärungen
+Erkl.T.unshift(
+  ['[data-hm="einsp"], [data-mo2="einsp"], [data-ein], #ksheet .ksq [data-ks="loop"]', "Selbst einspielen", "Du spielst auf bunten Tasten oder Trommel-Feldern, während der Takt läuft. Es gibt keinen Aufnahmeknopf: Was du spielst, bleibt und wiederholt sich als Loop."],
+  [".sxv .mxf", "Lautstärke dieser Zeile", "Nach rechts ziehen = lauter, nach links = leiser. Derselbe Regler steht auch unter „Mischen“."],
+  ['[data-mo="all"]', "Profi-Ansicht", "Aus: nur das Wichtigste ist zu sehen. An: alle Bereiche stehen unten in der Leiste, und im Bereich „Spielen“ erscheinen alle Schalter."]
+);
+Help.T.push({ id: "einspielen", ic: "🔁", t: "Selbst einspielen – ohne Aufnahmeknopf", k: "einspielen loop aufnehmen dauerschleife overdub tasten trommel pads schlagzeug gerade rücken quantisieren raster klick metronom letzte runde einfach profi lautstärke zeile spuren mix gesang",
+  h: `<ul><li><b>Öffnen</b>: Start → <b>Selbst einspielen</b> · im Song <b>Klang dazu</b> oder Instrument antippen → <b>Dazuspielen</b> · im Bereich Spielen der Knopf <b>Loop</b>.</li>
+  <li>Oben wählst du den Klang (oder holst mit ＋ einen neuen). Der Takt läuft, dein Stück spielt mit.</li>
+  <li><b>Es gibt keinen Aufnahmeknopf.</b> Jeder Ton, den du auf den bunten Tasten oder den Trommel-Feldern spielst, erscheint als Punkt im Band und wird ab der nächsten Runde vom Loop gespielt. Du kannst Runde für Runde etwas dazuspielen.</li>
+  <li><b>Letzte Runde</b> nimmt zurück, was du zuletzt gespielt hast. <b>Alles weg</b> leert den Loop.</li>
+  <li><b>1 · 2 · 4 Takte</b>: Länge des Loops. <b>grob · fein · frei</b>: wie stark gerade gerückt wird – „grob“ setzt jeden Ton auf den nächsten halben Schlag, das klingt auch bei ungenauem Spiel im Takt. <b>Klick</b>: hörbarer Schlag zum Mitzählen (kommt nicht in Aufnahmen).</li>
+  <li><b>Fertig</b> schließt. Hat dein Stück einen Ablauf, spielt der neue Klang in allen Teilen mit; unter <b>Song</b> schaltest du ihn je Teil an oder aus.</li>
+  <li><b>Lautstärke in der Song-Zeile</b>: neben jedem Instrument steht ein kleiner Regler. Unter <b>Mischen</b> gibt es zusätzlich Regler für Gesangs- und Audiospuren.</li>
+  <li><b>Einfach oder Profi</b>: Mehr → <b>Profi-Ansicht</b>. Aus (Standard): im Bereich Spielen stehen nur Tasten, Kneten, Malen und Loop; „▴ Mehr“ zeigt alles. An: alle Schalter und alle Bereiche wie früher.</li></ul>` });
+
 // Verlässt man das Stück, verstummt auch die Schnitt-Schleife
 { const st = UI.setTab.bind(UI); UI.setTab = t => { if (t !== "stueck") WaveEd.stopAll(); st(t); }; }
 /* ============================================================
@@ -18435,6 +18704,23 @@ const Tests = {
         try { f.still = true; const h1 = Bew.held().includes(f); Bew.sel = new Set([f.id]); Bew.all("sgo"); const ok1 = !f.still; f.still = true; Bew.all("go"); const ok2 = !f.still;
           ok("BV", h1 && ok1 && ok2 && /data-bwa="go"/.test(Bew.html()), `Angehaltene Formen wieder anschubsen: einzeln, Auswahl (${ok1 ? "ok" : "fehlt"}) und alle (${ok2 ? "ok" : "fehlt"}) · im Raum hält Antippen eine drehende Form an`); }
         finally { f.still = s0; Transport.start = ts; UI.toast = tp; } } } catch (e) { ok("BV", false, String(e)); }
+
+    // v68: Einspielen ohne Aufnahmeknopf, neue Loops kommen in den Song, Regler in der Song-Zeile, Einfach/Profi
+    try { if (!App.started) ok("EI", true, "nicht gestartet"); else { const keep = Project.data(true), tp = UI.toast, ul = Undo.stack.length, st = Einsp.start, q0 = Einsp.q, tab0 = UI.tab; UI.toast = () => {}; Einsp.start = () => {};
+        try { Project.load({ forms: [], mood: Music.mood.id, help: Music.help }, true); const f = Forms.make({ seedId: "klavier", name: "Klavier" }), d = Forms.make({ seedId: "trommel", name: "Schlagzeug" }); Forms.rebuild(f, true); Forms.rebuild(d, true);
+          Song.sections = [{ id: "a", name: "Strophe", bars: 4, on: [], off: [], lv: {} }, { id: "b", name: "Refrain", bars: 4, on: [], off: [], lv: {} }]; SongUI.had = null; SongUI.watch();
+          Einsp.q = 2; Einsp.open(f); const keys = $("einsp").querySelectorAll(".kyk[data-k]").length, b = $("einsp").querySelector('.kyk[data-k="2"]'); Einsp.press(1, b, 10); const rec = Einsp.hold.get(1); Einsp.lift(1); Einsp.commit(rec);
+          const t = f.takes[0], e = t && t.ev[0], onGrid = !!e && Math.abs(e.s / 2 - Math.round(e.s / 2)) < 1e-6 && e.s >= 0 && e.s < Einsp.L * 16, inKey = !!e && Music.mu.scale.has(mod(e.m, 12)), dots = $("einDots").children.length, adopted = Song.sections.every(s => s.on.includes(f.id));
+          Einsp.undoRound(); const gone = t.ev.length === 0; Einsp.setForm(d); const pads = $("einsp").querySelectorAll(".epad[data-z]").length; Einsp.press(2, $("einsp").querySelector('.epad[data-z="kick"]'), 10); const r2 = Einsp.hold.get(2); Einsp.lift(2); Einsp.commit(r2); const dz = d.takes[0] && d.takes[0].ev[0] && d.takes[0].ev[0].z;
+          Einsp.close(); const closed = $("einsp").hidden && !f.takes.length && d.takes.length === 1;
+          const g = Forms.make({ seedId: "floete", name: "Flöte" }); Forms.rebuild(g, true); SongUI.watch(); const before = Song.sections[0].on.includes(g.id); Loops.newTake(g, 1, [{ s: 0, d: 2, m: 72, v: 0.8, u: 0.5 }]); SongUI.watch(); const after = Song.sections.every(s => s.on.includes(g.id));
+          ok("EI", keys === 16 && onGrid && inKey && dots === 1 && adopted && gone && pads === 3 && dz === "kick" && closed && !before && after,
+            `Einspielen: 16 Tasten bzw. ${pads} Trommel-Felder · ein gespielter Ton liegt gerade gerückt im Loop (Schritt ${e ? e.s : "–"}, in der Tonart: ${inKey ? "ja" : "nein"}) und erscheint im Band · „Letzte Runde“ nimmt ihn zurück · leerer Loop verschwindet beim Schließen · Klang mit erstem Loop spielt von selbst in allen Song-Teilen mit (${after ? "ja" : "nein"})`); }
+        finally { try { if (Einsp.on) Einsp.close(); } catch (_) {} UI.toast = tp; Einsp.start = st; Einsp.q = q0; Project.load(keep, true); Undo.stack.length = Math.min(Undo.stack.length, ul); if (UI.tab !== tab0) UI.setTab(tab0); } } } catch (e) { ok("EI", false, String(e)); }
+    try { const p0 = Einf68.profi(), b = document.body; Einf68.set(false); const a = b.classList.contains("keinf") && !b.classList.contains("ktabsall"); Einf68.set(true); const c = !b.classList.contains("keinf") && b.classList.contains("ktabsall"); Einf68.set(p0); b.classList.remove("keinf");
+      const t0 = UI.tab; UI.setTab("song"); SongUI.render(true); const rows = $("vSong").querySelectorAll(".sxr:not(.sxhd)").length, fad = $("vSong").querySelectorAll(".sxv .mxf").length; UI.setTab(t0);
+      ok("EP", a && c && rows === fad, `Einfach/Profi-Schalter: einfach = 5 Bereiche und schlankes Steuerfeld, Profi = alle Bereiche und alle Schalter · Song-Zeilen mit eigenem Lautstärke-Regler: ${fad} von ${rows}`); } catch (e) { ok("EP", false, String(e)); }
+
 
     // v67: Song in 1 Minute (12 Stile), Song-Ansicht, Mischen, Erklär-Modus, Bereiche
     try { const bad = []; let nEv = 0; for (const S of SongGen.STYLES) { const B = SongGen.build(S, 12345), mu = K.music(B.mood), B2 = SongGen.build(S, 12345), B3 = SongGen.build(S, 777);

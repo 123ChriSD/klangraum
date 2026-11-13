@@ -1,6 +1,6 @@
 # KLANGRAUM – Hilfe
 
-Stand **Version 68** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ → **Hilfe** (oder Taste **?** / **F1**). Dort gibt es ein Suchfeld – ein Wort wie „Loop“, „leiser“ oder „Mikrofon“ genügt.
+Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ → **Hilfe** (oder Taste **?** / **F1**). Dort gibt es ein Suchfeld – ein Wort wie „Loop“, „leiser“ oder „Mikrofon“ genügt.
 
 ---
 
@@ -8,6 +8,7 @@ Stand **Version 68** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **zurück zur Startseite** | **Haus-Knopf oben links** – auch in jedem Blatt, im Einspielen und im Vollbild · oder die Zurück-Taste des Handys | [→](#heim) |
 | **selbst etwas einspielen**, das als Loop bleibt | **Start** → **Selbst einspielen** → Klang wählen → einfach spielen (kein Aufnahmeknopf) | [→](#einspielen) |
 | im Song ein Instrument **lauter oder leiser** | unten **Song** → Regler neben dem Namen ziehen | [→](#einspielen) |
 | **alle Schalter** wie früher sehen | **Mehr** → **Profi-Ansicht** einschalten | [→](#einspielen) |
@@ -62,6 +63,14 @@ Stand **Version 68** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## ⌂ Zurück zur Startseite – von überall (neu in v69) {#heim}
+
+- **Haus-Knopf oben links:** bringt dich aus jedem Bereich zur Startseite. Die Musik läuft weiter, nichts geht verloren.
+- Derselbe Knopf steht in **jedem Blatt** neben dem ✕, im **Einspielen** oben links und im **Vollbild** oben rechts.
+- **Zurück-Taste des Handys** (oder Zurück im Browser): schließt zuerst, was offen ist (Blatt, Einspielen, Vollbild), und führt dann zur Startseite. Erst von dort verlässt sie die App.
+- **Dein Weg** auf der Startseite: vier Schritte – Song bauen, Dazuspielen, Mischen, Aufnehmen. Ein Haken zeigt, was schon da ist.
+- In der einfachen Ansicht tragen die Knöpfe oben ihren Namen: Start · dein Stück · Hören · Zurück (letzten Schritt zurücknehmen) · Stimmung · Menü.
+
 ## 🔁 Selbst einspielen – ohne Aufnahmeknopf (neu in v68) {#einspielen}
 
 - **Öffnen:** Start → **Selbst einspielen** · im Song **Klang dazu** oder Instrument antippen → **Dazuspielen** · im Bereich Spielen der Knopf **Loop**.

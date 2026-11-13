@@ -1,0 +1,6 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots67/"
+await pg.wait_for_timeout(700)
+await E("(async()=>{ await SongGen.make('pop'); })()"); await pg.wait_for_timeout(2200); await E("SongUI.stop(); UI.setTab('start'); 0"); await pg.wait_for_timeout(500)
+await E("document.querySelector('.hmway').scrollIntoView({block:'center'}); 0"); await pg.wait_for_timeout(400); await pg.screenshot(path=SP+"p_k4_weg.png")
+await pg.tap('[data-hm="w4"]'); await pg.wait_for_timeout(900); print("w4:", await E("JSON.stringify([UI.tab, !!document.querySelector('.sxrec.q7pulse')])"))
+await E("UI.setTab('klang'); Einf68.set(true); 0"); await pg.wait_for_timeout(500); await pg.tap('#bFull'); await pg.wait_for_timeout(900); await pg.screenshot(path=SP+"p_k5_voll.png"); await pg.tap('#q7home'); await pg.wait_for_timeout(500); print("voll-start:", await E("JSON.stringify([Full.on, UI.tab])"))
