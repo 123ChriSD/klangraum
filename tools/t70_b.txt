@@ -1,0 +1,12 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots70/"
+import os
+T=os.environ.get("TAG","b")
+await E("(async()=>{ await SongGen.make('trap'); })()"); await pg.wait_for_timeout(5000)
+await E("Schrift.open(Forms.list.find(f => SongGen.roleOf(f) === 'arp')); 0"); await pg.wait_for_timeout(1200); await pg.screenshot(path=SP+T+"_schrift.png")
+print("schrift:", await E("JSON.stringify([Schrift.per, +Schrift.cw.toFixed(1), Schrift.rh, Schrift.nRows(), document.getElementById('kn70').scrollHeight, innerHeight])"))
+await E("Schrift.setForm(Forms.list.find(f => f.kind === 'drum')); 0"); await pg.wait_for_timeout(800); await pg.screenshot(path=SP+T+"_schrift_beat.png")
+await E("Schrift.close(); Live70.open(); 0"); await pg.wait_for_timeout(1500); await E("Live70.set(0.62, 0.8); document.getElementById('lvHint').classList.add('q7gone'); 0"); await pg.wait_for_timeout(1200); await pg.screenshot(path=SP+T+"_live.png")
+print("live:", await E("JSON.stringify([Live70.L.map(l => l.role + (Live70.isOn(l) ? '+' : '-')), Transport.running, Array.from(Engine.stat.lv||[]).map(v => +v.toFixed(2))])"))
+await E("Live70.close(); UI.setTab('mix'); 0"); await pg.wait_for_timeout(500); await E("document.querySelector('.wu70').scrollIntoView({block:'center'}); 0"); await pg.wait_for_timeout(300); await pg.screenshot(path=SP+T+"_mix.png")
+await E("UI.setTab('start'); SongGen.open(); 0"); await pg.wait_for_timeout(700); await pg.screenshot(path=SP+T+"_stile.png")
+await E("UI.hideSheets(); UI.setTab('song'); 0"); await pg.wait_for_timeout(500); await pg.screenshot(path=SP+T+"_song.png")

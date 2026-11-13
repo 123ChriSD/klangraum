@@ -80,3 +80,13 @@ Wer mehr will, findet unter **Mehr** alles Bisherige (Pult, Beat-Maschine, Schni
 - **Regel:** Der Haus-Knopf steht immer an derselben Stelle (oben links) und in jeder Ebene, die die Kopfzeile verdeckt. Er schließt alles und ändert nichts an der Musik (kein Verlust, also keine Rückfrage).
 - **Zurück-Taste = eine Ebene zu:** wie in jeder Handy-App. Die letzte Ebene ist die Startseite.
 - **Namen statt Rätsel:** Kopfknöpfe tragen in der einfachen Ansicht ihr Wort. „Dein Weg“ zeigt die vier Schritte zum fertigen Lied als Zahlenreihe, statt sie in sieben gleichwertigen Kacheln zu verstecken.
+
+## 9. Version 70: Lesen, Formen, Wucht
+
+- **Auftrag:** krasseste, coolste, innovativste Musik-App – simpel, fesselnd, faszinierend; innovative Steuerung, fette Sounds, neues Notensystem.
+- **Notensystem ohne Vorwissen (Klangschrift):** Klassische Noten verlangen Schlüssel, Vorzeichen und Notenwerte. Die Klangschrift braucht drei Regeln: Farbe/Zahl = welcher Ton, Länge = wie lang, Höhe = wie hoch. Die Farben sind dieselben wie auf den bunten Tasten – was man gespielt hat, erkennt man wieder. Weil die Zeilen die Tonleiter sind, klingt kein gesetzter Ton falsch; helle Zeilen zeigen, was zum Akkord passt (Hilfe statt Regelwerk).
+- **Schreiben wie Malen:** tippen, ziehen, tippen. Keine Werkzeugwahl, kein Modus. Jeder gesetzte Ton klingt sofort (Rückmeldung in unter 100 ms).
+- **Steuerung mit einer Geste (Live-Fläche):** Zwei Dinge, die jeder hört, liegen auf zwei Richtungen: wie viel Band (hoch/runter) und wie hell (links/rechts). Der Finger macht aus einem fertigen Song ein Instrument – Aufbau, Break und Einsatz entstehen ohne Wissen über Arrangement. „Stille“ und „Echo“ sind Haltetasten, weil Loslassen der musikalische Moment ist.
+- **Faszination:** Das Bild der Live-Fläche antwortet auf jede Stimme (Strahlenkranz) und auf den Takt (Ringe). Es zeigt nichts, was man lesen muss.
+- **Fett heißt ausgewogen laut:** Die Messung zeigte, dass „mehr Bass“ den Klang kleiner macht, weil der Begrenzer alles andere wegdrückt. Wucht arbeitet deshalb mit Fundament, Präsenz, Sättigung und Verdichtung statt nur mit Tiefbass.
+- **Offen:** Mehrfinger-Gesten auf der Live-Fläche; Wechsel auf den Takt genau; Lautstärke je Ton in der Klangschrift; Klangschrift als Bild zum Teilen.

@@ -1,7 +1,29 @@
-# KLANGRAUM – Stand Version 69 (13.11.2026)
+# KLANGRAUM – Stand Version 70 (13.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 68) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 69) · jede Version mit Commit in `docs/VERSIONEN.md`.
+
+## Neu in v70: Klangschrift (eigenes Notensystem) · Live-Fläche · fette Klänge · Wucht
+- Christian (13.11. 19:34): „Ich möchte die krasseste, coolste und innovativste Musik-App schaffen! Simple, fesselnd und faszinierend! Innovative intuitive Steuerung! Krasse fette Sounds! Neues Notensystem.“
+- **Klangschrift** (`Schrift`, Vollbild `#kn70`) – das Notensystem von KLANGRAUM zum Lesen **und** Schreiben:
+  - Jeder Ton ist ein bunter Balken. **Farbe und Zahl** = Ton der Tonleiter (1 = Grundton, dieselben sieben Farben wie die bunten Tasten), **Länge** = Dauer, **Höhe** = Tonhöhe. Vier Kästchen sind ein Schlag, sechzehn ein Takt. Schlagzeug hat vier Zeilen (Becken, Hi-Hat, Snare, Bassdrum).
+  - **Tippen** setzt einen Ton (er klingt sofort), **nach rechts ziehen** macht ihn länger, **nochmal tippen** löscht ihn. Senkrecht wischen blättert. Tipp-Länge kurz/mittel/lang, Loop-Länge 1/2/4 Takte.
+  - **Helle Zeilen** zeigen die Töne des Akkords im jeweiligen Takt, die Grundton-Zeile ist rötlich hinterlegt. Töne außerhalb der Tonleiter erscheinen gestrichelt mit ♯.
+  - Übersicht über den ganzen Loop oben (tippen springt zum Takt), Abspiellinie läuft mit. Hochformat zeigt 1 Takt, Querformat/Tablet 2, große Bildschirme 4. ▲/▼ holen höhere und tiefere Töne dazu.
+  - Legende 1–7 mit Notennamen: antippen spielt den Ton. „Allein hören“, „Einspielen“ (wechselt zu den Tasten), „Alles weg“.
+  - Einstiege: Start → **Klangschrift** · Song → Klang antippen → **Noten lesen und ändern** (mit Kleinbild der Töne) · Einspielen → **Noten**.
+- **Live-Fläche** (`Live70`, Vollbild `#lv70`) – ein Finger formt den ganzen Song:
+  - Das Stück läuft als Dauerschleife. **Nach oben** kommen die Klänge der Reihe nach dazu (Akkorde → Bass → Beat → Begleitung → Melodie; ganz oben löst die Refrain-Melodie die Strophen-Melodie ab). **Nach rechts** öffnet sich ein Filter über der ganzen Musik (dumpf → hell, mit Resonanz).
+  - Der Punkt bleibt liegen, wo man loslässt. Links stehen die Namen der Klänge auf ihrer Höhe und leuchten, wenn sie spielen.
+  - **Stille** (halten; loslassen = Einsatz) und **Echo** (halten; punktierte Achtel im Takt). **Aufnehmen** schneidet das Spiel mit; „Stopp“ hält die Musik an und zeigt die fertige Aufnahme.
+  - Bild: Strahlenkranz aus den Pegeln der Stimmen, Ringe im Takt, Punktraster, Farbe Blau → Magenta → Orange nach Klang. Pfeiltasten bewegen den Punkt (Tastatur).
+  - Einstiege: Start → **Live-Fläche** · Song → farbiger Knopf oben neben „wiederholen“.
+- **Fette Klänge** (`Fett`, im Gerät berechnet über den „syn“-Weg aus v66): Monster-Bass, Donner-Bass, Hymnen-Säge (neun Sägezähne), Laser-Zupfer, Sirenen-Lead, Synth-Bläser und das **Fette Kit** (Kick mit Bauch, Clap-Snare, knappe Hi-Hat, Einschlag). Zu finden unter Formen → Techno & Bass → „Fett (neu)“.
+- **Drei neue Song-Stile:** Festival (128 BPM), Trap (140), Drum & Bass (172) – 15 Stile insgesamt.
+- **Wucht** (`Wucht`): Klangwucht auf der Summe, vor Verdichter und Begrenzer – Bassfundament (75 Hz), weniger Mulm (260 Hz), Präsenz (3,2 kHz), Glanz (8,5 kHz), weiche Sättigung, dichtere Verdichtung. Ein Regler unter Mischen (aus · sanft · kräftig · fett · maximal; Standard „kräftig“). Gilt für alles, auch für Aufnahmen; wird je Gerät gemerkt.
+- **Messung der Song-Stile** (`tools/t70_h.txt`, `tools/ana70.py`; Anteil der Energie unter 150 Hz): Festival 51 %, Trap 65 %, Drum & Bass 53 %, zum Vergleich Pop 36 %. Erster Entwurf lag bei 90–95 % – die Bassdrum erdrückte alles; Kick und Bässe wurden danach abgestimmt. In Hip-Hop, House, Techno wurden Beat und Bass zurückgenommen (91→82 %, 82→71 %, 88→82 %); die älteren Kits bleiben kick-lastig. Kein Stil übersteuert (Spitze ≤ 0,90).
+- **Tests:** Prüfstand 141 (neu **F7** Klänge/Stile, **WU** Wucht, **KS** Klangschrift, **LF** Live-Fläche), 412×892 und 700×330 ohne Fehler. Layout 412×892, 700×330, 820×1180 TOTAL 0 (neun neue Zustände). E2E mit echten Berührungen (`tools/t70_a.txt`): Festival-Song → Live-Fläche über den Song-Knopf, Finger nach unten links (1 von 6 Klängen, Filter 564 Hz) und oben rechts (5 von 6, offen), Stille/Echo halten, Aufnahme und Stopp, Klangschrift über das Zeilenmenü, Ton tippen/löschen/ziehen (Länge 4), blättern, Schlagzeug, Wechsel zu Einspielen und zurück, Haus-Knopf, Wucht-Regler. Bilder in Hoch-, Querformat und Tablet angesehen.
+- **Nicht geprüft / offen:** Klang nur gemessen, nicht gehört. Bei 360×640 meldet die Layout-Prüfung im Bereich „Spielen“ Klang-Chips unter dem Ansichtsschalter (57 Treffer, unverändert seit v69 – die Leiste rollt dort unter dem Schalter durch). Live-Fläche: nur ein Finger, Umschalten sofort statt auf den Takt. Klangschrift: keine Lautstärke je Ton, kein Bild-Export.
 
 ## Neu in v69: Immer zurück zum Start · beschriftete Kopfknöpfe · „Dein Weg“
 - Christian (13.11. 17:38): „Verbessere und vereinfache weiter! Es muss total intuitiv sein. Und ich möchte immer wieder einfach zur Startseite zurückkehren können.“

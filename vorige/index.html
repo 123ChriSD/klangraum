@@ -2,8 +2,8 @@
 <meta name="theme-color" content="#0A1315"><meta name="description" content="KLANGRAUM – Formen, die klingen. Loopstation, Beatbox, Instrumente.">
 <link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<style>:root{box-sizing:border-box}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><a href="./" style="position:fixed;z-index:2147483000;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);background:#3a2a10;color:#ffd58a;font:600 10px/1.2 system-ui,sans-serif;padding:2px 8px;border-radius:0 0 10px 10px;text-decoration:none;opacity:.92">Vorige Version 68 · zur aktuellen →</a>
-<title>(Vorige 68) KLANGRAUM</title>
+<style>:root{box-sizing:border-box}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><a href="./" style="position:fixed;z-index:2147483000;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);background:#3a2a10;color:#ffd58a;font:600 10px/1.2 system-ui,sans-serif;padding:2px 8px;border-radius:0 0 10px 10px;text-decoration:none;opacity:.92">Vorige Version 69 · zur aktuellen →</a>
+<title>(Vorige 69) KLANGRAUM</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* Layout: Vollbild-Tiefsee (WebGL) mit einer lebenden Klangform. Oben ruhige Kiesel (Stimmung, Raum, Menü),
@@ -2163,6 +2163,38 @@ body.keinf .cueb, body.keinf #cueL { display: none !important; }
 body.keinf:not(.ksopen) #ksheet .ksdet { margin-left: auto; width: auto; padding: 0 14px; gap: 6px; } body.keinf:not(.ksopen) #ksheet .ksdet span { display: inline !important; font-size: 13px; font-weight: 700; }
 @media (prefers-reduced-motion: reduce) { .eg { animation: none; opacity: 0; } }
 body.ksopen:not(.kside) .navedge { display: none !important; }
+/* ---------- v69: Start-Knopf überall · beschriftete Kopfknöpfe · Dein Weg ---------- */
+#bHome svg, .q7hb svg, #q7home svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+#bHome { color: #fff; border-color: transparent !important; background: linear-gradient(135deg, #4F7BFF, #9B5CFF 55%, #E05CD8) !important; box-shadow: 0 6px 16px -8px rgba(155, 92, 255, .9); }
+#bHome[aria-current="page"] { background: rgba(255, 255, 255, .07) !important; box-shadow: none; color: #C9D3F2; }
+.sheet header .q7hb { margin-left: auto; width: 46px; min-width: 46px; height: 46px; padding: 0; border-radius: 50%; display: grid; place-items: center; flex: none; }
+.sheet header .q7hb + .close { margin-left: 0; }
+#q7home { display: none; position: fixed; z-index: 30; right: calc(66px + env(safe-area-inset-right, 0px)); top: calc(11px + env(safe-area-inset-top, 0px)); width: 46px; height: 46px; padding: 0; align-items: center; justify-content: center; border: 0; border-radius: 23px; font: 700 13px/1 system-ui, sans-serif; color: #fff;
+  background: linear-gradient(135deg, #4F7BFF, #9B5CFF 55%, #E05CD8); box-shadow: 0 10px 24px -8px rgba(0, 0, 0, .8); touch-action: none; cursor: pointer; }
+#q7home span { display: none; }
+body.full #q7home { display: inline-flex; opacity: .92; } body.full.fidle #q7home { opacity: .4; }
+/* einfache Ansicht: Vollbild-Knopf weicht dem Start-Knopf, Knöpfe tragen ihren Namen */
+body.keinf #bFull { display: none !important; }
+body.keinf:not(.kland) .top > .peb:not(.projchip) { position: relative; padding-bottom: 12px !important; border-radius: 16px; }
+body.keinf:not(.kland) .top > .peb:not(.projchip) svg { width: 19px; height: 19px; }
+body.keinf:not(.kland) .top > .peb:not(.projchip)::after { position: absolute; left: 0; right: 0; bottom: 4px; text-align: center; font: 700 8.6px/1 system-ui, sans-serif; letter-spacing: .01em; color: rgba(255, 255, 255, .72); white-space: nowrap; pointer-events: none; }
+body.keinf:not(.kland) #bHome::after { content: "Start"; } body.keinf:not(.kland) #bPlay::after { content: "Hören"; } body.keinf:not(.kland) #bUndo::after { content: "Zurück"; } body.keinf:not(.kland) #bMood::after { content: "Stimmung"; font-size: 7.6px; } body.keinf:not(.kland) #bMenu::after { content: "Menü"; }
+body.keinf:not(.kland) #bMood > #moodName { display: none !important; }
+/* Dein Weg */
+.hmrow.hmway { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.hmway > small { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8FA0C8; }
+.hmsteps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; position: relative; }
+.hmrow .hmsteps button { display: grid; justify-items: center; align-content: start; gap: 6px; min-height: 76px; padding: 9px 2px 8px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, .09); background: rgba(255, 255, 255, .04); font-size: 12px; font-weight: 700; color: #DDE4F8; line-height: 1.15; }
+.hmsteps button > i { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 14px; font-weight: 800; color: #fff; background: linear-gradient(135deg, #4F7BFF, #9B5CFF 55%, #E05CD8); box-shadow: 0 6px 14px -6px rgba(155, 92, 255, .9); }
+.hmsteps button.q7ok > i { background: linear-gradient(135deg, #2FD0B5, #3FA9FF); box-shadow: 0 6px 14px -6px rgba(47, 208, 181, .9); }
+.hmsteps button b { font-weight: 700; font-size: 11px; letter-spacing: -.01em; text-align: center; }
+/* Dein Stück mit dem Weg steht gleich unter dem großen Knopf */
+.hm > .hmtop { order: 0; } .hm > .hmhero { order: 1; } .hm > .hmcur { order: 2; } .hm > .hmgrid { order: 3; } .hm > .hmfoot { order: 4; }
+@media (min-width: 700px) { .hmsteps button b { font-size: 14px; } .hmrow .hmsteps button { min-height: 88px; } }
+.hmrow .hmlink { display: flex; grid-auto-flow: column; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: none; font-size: 13.5px; font-weight: 650; color: #A9B4D0; }
+.hmlink svg { width: 18px; height: 18px; }
+.sxrec.q7pulse { animation: sxbeat .45s ease-in-out 5 alternate; box-shadow: 0 0 0 3px #fff, 0 0 30px #F25CC1; }
+@media (orientation: landscape) and (max-height: 520px) { .hmrow .hmsteps button { min-height: 56px; grid-auto-flow: column; align-content: center; align-items: center; justify-content: center; gap: 8px; } }
 </style>
 
 <canvas id="c" aria-label="Klangraum: dreidimensionale Klangformen" role="img"></canvas>
@@ -2221,7 +2253,7 @@ body.ksopen:not(.kside) .navedge { display: none !important; }
 
 <div class="start" id="start">
   <div class="start-inner">
-    <div class="meta">Version 68 · Einspielen ohne Aufnahmeknopf · Spuren-Mix im Song · einfacher Bereich Spielen</div>
+    <div class="meta">Version 69 · Start-Knopf überall · Zurück-Taste führt zum Start · Dein Weg · beschriftete Knöpfe</div>
     <h1 class="klogoH"><span class="sr">KLANGRAUM</span><span id="klogoStart" aria-hidden="true"></span></h1>
     <p>Musik machen ohne Vorkenntnisse: Wähle einen Stil, und KLANGRAUM baut dir einen ganzen Song. Oder spiel, forme und mische deine Klänge selbst – nichts klingt falsch.</p><ul class="stfeat"><li>Song in 1 Minute</li><li>Einspielen ohne Aufnahmeknopf</li><li>Klänge kneten</li><li>Mischen wie im Studio</li></ul>
     <button class="enter" id="enter">Eintauchen</button>
@@ -6436,7 +6468,7 @@ const Sheets = {
   },
   menu() {
     const txt = Sheets.helpText(Music.help);
-    const s = this.open("Menü", this.head("KLANGRAUM · Version 68") + `
+    const s = this.open("Menü", this.head("KLANGRAUM · Version 69") + `
       <div class="field"><label for="rHelp">Wie viel hilft die App? <b id="helpV">${txt[0]}</b></label><input type="range" id="rHelp" min="0" max="100" step="1" value="${Music.help}"><p class="helptext" id="helpT">${txt[1]}</p></div>
       ${TempoUI.html()}
       <div class="row"><button class="btn" id="mGlide">Übergänge: Drehung ${Glide.rot ? "fließend" : "sofort"} · Tempo ${Glide.tempo ? "fließend" : "sofort"}</button></div>
@@ -17911,6 +17943,90 @@ Help.T.push({ id: "einspielen", ic: "🔁", t: "Selbst einspielen – ohne Aufna
   <li><b>Lautstärke in der Song-Zeile</b>: neben jedem Instrument steht ein kleiner Regler. Unter <b>Mischen</b> gibt es zusätzlich Regler für Gesangs- und Audiospuren.</li>
   <li><b>Einfach oder Profi</b>: Mehr → <b>Profi-Ansicht</b>. Aus (Standard): im Bereich Spielen stehen nur Tasten, Kneten, Malen und Loop; „▴ Mehr“ zeigt alles. An: alle Schalter und alle Bereiche wie früher.</li></ul>` });
 
+/* =====================================================================================
+   v69: IMMER ZURÜCK ZUM START · beschriftete Kopfknöpfe · „Dein Weg“ auf der Startseite
+   – Heim: Start-Knopf oben links, in jedem Blatt, im Einspielen, im Vollbild
+   – Nav: die Zurück-Taste des Handys schließt Schritt für Schritt und führt zum Start
+   ===================================================================================== */
+const Heim = {
+  // alles schließen, was über der Startseite liegen kann
+  clean() {
+    const t = fn => { try { fn(); } catch (_) {} };
+    t(() => { if (Einsp.on) Einsp.close(); }); t(() => { if (Erkl.on) Erkl.stop(); }); t(() => Radial.close()); t(() => FPop.close()); t(() => Cfg.close()); t(() => { const j = $("kjam"); if (j) j.remove(); });
+    t(() => { const c = $("coach"); if (c && !c.hidden) Coach.close(); }); t(() => UI.hideSheets()); t(() => { if (Full.on) Full.toggle(false); }); t(() => { if (Tools.knead) Tools.toggleKnead(false); }); t(() => { if (Tools.brush) Tools.toggleBrush(false); });
+  },
+  over() { try { return Einsp.on || Erkl.on || !!document.querySelector("#sheets .sheet") || !!$("kjam") || !!$("kcfg") || !!Full.on; } catch (_) { return false; } },
+  atHome() { return UI.tab === "start" && !this.over(); },
+  go() { Hap(8); this.clean(); if (UI.tab !== "start") UI.setTab("start"); else Home67.render(true); const v = $("vStart"); if (v) v.scrollTop = 0; },
+  init() {
+    const top = document.querySelector(".top"); if (top && !$("bHome")) { const b = document.createElement("button"); b.className = "peb"; b.id = "bHome"; b.setAttribute("aria-label", "Zur Startseite"); b.innerHTML = I67.home; top.insertBefore(b, top.firstChild); b.onclick = () => this.go(); }
+    if (!$("q7home")) { const f = document.createElement("button"); f.id = "q7home"; f.setAttribute("aria-label", "Zur Startseite"); f.innerHTML = I67.home + "<span>Start</span>"; document.body.appendChild(f); f.onclick = () => this.go(); }
+    document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-home]"); if (b) { e.stopPropagation(); this.go(); } }, true);
+    document.body.classList.add("k69");
+  }
+};
+Heim.init();
+// jedes Blatt bekommt den Start-Knopf neben dem Schließen-Knopf
+{ const sh = Sheets.head; Sheets.head = t => sh(t).replace('<button class="peb close"', `<button class="peb q7hb" data-home aria-label="Zur Startseite">${I67.home}</button><button class="peb close"`); }
+// Einspielen: links oben geht es zur Startseite, „Fertig“ schließt
+{ const rn = Einsp.render.bind(Einsp); Einsp.render = function () { const r = rn(); try { const x = $("einsp").querySelector(".ex"); if (x) { x.innerHTML = I67.home; x.dataset.ei = "home"; x.setAttribute("aria-label", "Zur Startseite"); } } catch (_) {} return r; };
+  const ac = Einsp.act.bind(Einsp); Einsp.act = function (k) { if (k === "home") { this.close(); return Heim.go(); } return ac(k); }; }
+// im Kopf zeigen, wo man ist
+{ const st = UI.setTab.bind(UI); UI.setTab = function (t) { const r = st(t); try { const b = $("bHome"); if (b) b.setAttribute("aria-current", t === "start" ? "page" : "false"); } catch (_) {} return r; }; }
+
+/* ---------- Zurück-Taste: schließt Schritt für Schritt, dann Startseite ---------- */
+// Die vorhandene Zurück-Logik (Nav) kannte „Klang“ als Grundseite. Jetzt ist die Startseite der Grund,
+// und Einspielen, Erklär-Modus, Vollbild und die Dialoge zählen als Ebenen mit.
+setTimeout(() => { try {
+  Nav.closeTop = function (fromPop) {
+    const t = fn => { try { return fn(); } catch (_) { return false; } };
+    if (t(() => Einsp.on)) { Einsp.close(); this.sync(); return true; }
+    if (t(() => Erkl.on)) { Erkl.stop(); this.sync(); return true; }
+    if (Coach.open) { Coach.close(); return true; }
+    const over = document.querySelector(".over"); if (over) { if (Measure.k2run) return true; Measure.close(); this.sync(); return true; }
+    if ($("kjam")) { $("kjam").remove(); this.sync(); return true; } if ($("kcfg")) { t(() => Cfg.close()); this.sync(); return true; }
+    if (Sheets.cur) { if (this.stack.length) this.back(); else UI.hideSheets(); return true; }
+    if (t(() => Full.on)) { Full.toggle(false); this.sync(); return true; }
+    if (UI.tab === "stueck" && Stueck.mode !== "list") { Stueck.back(); this.sync(); return true; }
+    if (Tools.brush || Tools.knead) { Tools.brush = false; Tools.knead = false; UI.modes(); this.sync(); return true; }
+    if (UI.tab === "klang" && Scene.view !== "nah") { UI.setView("nah"); this.sync(); return true; }
+    if (fromPop && UI.tab !== "start") { UI.setTab("start"); this.sync(); return true; }     // nur die Zurück-Taste führt zum Start, Esc nicht
+    return false;
+  };
+  Nav.depth = function () { const t = fn => { try { return fn() ? 1 : 0; } catch (_) { return 0; } };
+    return t(() => Einsp.on) + t(() => Erkl.on) + (Coach.open ? 1 : 0) + (document.querySelector(".over") ? 1 : 0) + ($("kjam") || $("kcfg") ? 1 : 0) + (Sheets.cur ? 1 : 0) + t(() => Full.on) + (UI.tab === "stueck" && Stueck.mode !== "list" ? 1 : 0) + (UI.tab !== "start" ? 1 : 0) + (Tools.brush || Tools.knead ? 1 : 0) + (UI.tab === "klang" && Scene.view !== "nah" ? 1 : 0); };
+  setInterval(() => { try { Nav.sync(); } catch (_) {} }, 500);    // auch Einspielen und Vollbild bekommen ihren Verlaufseintrag
+} catch (e) { console.warn(e); } }, 0);
+
+/* ---------- Startseite: „Dein Weg“ – vier Schritte zum fertigen Lied ---------- */
+Home67.way = function () {
+  const song = (() => { try { return Song.sections.length > 0 && Forms.list.some(f => Loops.count(f) > 0); } catch (_) { return false; } })();
+  const own = (() => { try { const R = (SongGen.meta && SongGen.meta.roles) || {}; return Forms.list.some(f => !R[f.id] && Loops.count(f) > 0); } catch (_) { return false; } })();
+  return [["w1", "Song bauen", song], ["w2", "Dazuspielen", own], ["w3", "Mischen", false], ["w4", "Aufnehmen", false]];
+};
+{ const rn = Home67.render.bind(Home67); Home67.render = function (force) { const r = rn(force); try { const el = this.el(), row = el && el.querySelector(".hmrow"); if (row && !row.dataset.w) { row.dataset.w = "1"; row.classList.add("hmway");
+      row.innerHTML = `<small>Dein Weg zum fertigen Lied</small><div class="hmsteps">${this.way().map(([k, n, ok], i) => `<button data-hm="${k}"${ok ? ' class="q7ok"' : ""}><i>${ok ? "✓" : i + 1}</i><b>${n}</b></button>`).join("")}</div><button class="hmlink" data-hm="pieces">${I67.folder}<span>Meine Stücke</span></button>`; } } catch (e) { console.warn(e); } return r; };
+  const so = Home67.sigOf.bind(Home67); Home67.sigOf = function () { return so() + "§" + this.way().map(w => w[2] ? 1 : 0).join(""); };
+  const ha = Home67.act.bind(Home67); Home67.act = function (k) {
+    if (k === "w1") { Hap(8); return this.way()[0][2] ? UI.setTab("song") : SongGen.open(); }
+    if (k === "w2") { Hap(8); return Einsp.open(null, { pick: !Einsp.playable(Forms.active) }); }
+    if (k === "w3") { Hap(8); return UI.setTab("mix"); }
+    if (k === "w4") { Hap(8); if (!this.way()[0][2]) { UI.toastAct("Zum Aufnehmen brauchst du erst einen Song.", "Song bauen", () => SongGen.open(), 4200); return; } UI.setTab("song"); setTimeout(() => { const b = document.querySelector("#vSong .sxrec"); if (b) { b.scrollIntoView({ block: "center", behavior: "smooth" }); b.classList.add("q7pulse"); setTimeout(() => b.classList.remove("q7pulse"), 2600); } }, 200); return; }
+    return ha(k); }; }
+Erkl.T.unshift(
+  ["#bHome, #q7home, [data-home], #einsp .ex", "Zur Startseite", "Bringt dich von überall zurück zur Startseite. Deine Musik läuft dabei weiter, nichts geht verloren."],
+  ['[data-hm="w1"]', "Schritt 1: Song bauen", "Lass dir einen Song bauen oder öffne den Ablauf deines Stücks."],
+  ['[data-hm="w2"]', "Schritt 2: Dazuspielen", "Spiel selbst etwas ein – es bleibt als Loop und kommt in deinen Song."],
+  ['[data-hm="w3"]', "Schritt 3: Mischen", "Stell ein, wie laut jeder Klang ist und wo er steht."],
+  ['[data-hm="w4"]', "Schritt 4: Aufnehmen", "Nimm den fertigen Song als Audio-Datei auf und teile ihn."]
+);
+Help.T.push({ id: "heim", ic: "⌂", t: "Zurück zur Startseite – von überall", k: "start startseite zurück home heim verlaufen wo bin ich zurücktaste back weg schritte",
+  h: `<ul><li><b>Start-Knopf oben links</b> (Haus): bringt dich aus jedem Bereich zur Startseite. Die Musik läuft weiter, nichts geht verloren.</li>
+  <li>Derselbe Knopf steht in <b>jedem Blatt</b> neben dem ✕, im <b>Einspielen</b> oben links und im <b>Vollbild</b> unten links.</li>
+  <li><b>Zurück-Taste des Handys</b> (oder Zurück im Browser): schließt zuerst, was offen ist (Blatt, Einspielen, Vollbild), und führt dann zur Startseite. Erst von dort verlässt sie die App.</li>
+  <li><b>Dein Weg</b> auf der Startseite: vier Schritte – Song bauen, Dazuspielen, Mischen, Aufnehmen. Ein Haken zeigt, was schon da ist.</li>
+  <li>In der einfachen Ansicht sind die Knöpfe oben beschriftet: Start · dein Stück · Abspielen · Zurück (letzten Schritt zurücknehmen) · Stimmung · Menü.</li></ul>` });
+
 // Verlässt man das Stück, verstummt auch die Schnitt-Schleife
 { const st = UI.setTab.bind(UI); UI.setTab = t => { if (t !== "stueck") WaveEd.stopAll(); st(t); }; }
 /* ============================================================
@@ -18704,6 +18820,16 @@ const Tests = {
         try { f.still = true; const h1 = Bew.held().includes(f); Bew.sel = new Set([f.id]); Bew.all("sgo"); const ok1 = !f.still; f.still = true; Bew.all("go"); const ok2 = !f.still;
           ok("BV", h1 && ok1 && ok2 && /data-bwa="go"/.test(Bew.html()), `Angehaltene Formen wieder anschubsen: einzeln, Auswahl (${ok1 ? "ok" : "fehlt"}) und alle (${ok2 ? "ok" : "fehlt"}) · im Raum hält Antippen eine drehende Form an`); }
         finally { f.still = s0; Transport.start = ts; UI.toast = tp; } } } catch (e) { ok("BV", false, String(e)); }
+
+    // v69: Start-Knopf überall, Zurück-Schritte, Dein Weg
+    try { if (!App.started) ok("HM", true, "nicht gestartet"); else { const t0 = UI.tab, st = Einsp.start, tp = UI.toast; Einsp.start = () => {}; UI.toast = () => {};
+        try { const hb = !!$("bHome") && !!$("q7home"), sh = Sheets.head("x").includes("data-home"); UI.setTab("loop"); Sheets.open("Test", Sheets.head("Test") + "<p>x</p>"); const f = Forms.list.find(x => Einsp.playable(x)); if (f) Einsp.open(f); const ex = f ? $("einsp").querySelector('.ex[data-ei="home"]') : true;
+          const over = Heim.over(); Heim.go(); const home = Heim.atHome() && UI.tab === "start" && !Einsp.on && !document.querySelector("#sheets .sheet");
+          UI.setTab("mix"); Sheets.open("Test", Sheets.head("Test")); const esc0 = Nav.closeTop() && UI.tab === "mix" && !document.querySelector("#sheets .sheet"), esc1 = Nav.closeTop() === false && UI.tab === "mix"; Sheets.open("Test", Sheets.head("Test")); const s1 = esc0 && esc1 && Nav.closeTop(true) && !document.querySelector("#sheets .sheet") && UI.tab === "mix", s2 = Nav.closeTop(true) && UI.tab === "start", s3 = Nav.closeTop(true) === false;
+          UI.setTab("start"); Home67.render(true); const way = $("vStart").querySelectorAll(".hmsteps [data-hm]").length;
+          ok("HM", hb && sh && !!ex && over && home && s1 && s2 && s3 && way === 4, `Start-Knopf oben links, in jedem Blatt, im Einspielen und im Vollbild: aus Pult + offenem Blatt + Einspielen führt ein Tipp zur Startseite · Zurück-Taste: erst Blatt zu, dann Startseite, dann nichts mehr · „Dein Weg“ mit ${way} Schritten`); }
+        finally { try { if (Einsp.on) Einsp.close(); UI.hideSheets(); } catch (_) {} Einsp.start = st; UI.toast = tp; UI.setTab(t0); } } } catch (e) { ok("HM", false, String(e)); }
+
 
     // v68: Einspielen ohne Aufnahmeknopf, neue Loops kommen in den Song, Regler in der Song-Zeile, Einfach/Profi
     try { if (!App.started) ok("EI", true, "nicht gestartet"); else { const keep = Project.data(true), tp = UI.toast, ul = Undo.stack.length, st = Einsp.start, q0 = Einsp.q, tab0 = UI.tab; UI.toast = () => {}; Einsp.start = () => {};

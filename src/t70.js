@@ -1,0 +1,32 @@
+
+
+    // v70: fette Klänge, Wucht, Klangschrift, Live-Fläche
+    try { const sr = 24000, kinds = Object.keys(Fett.K); let bad = "";
+      for (const k of kinds) { const x = RockSnd.render("f7:" + k, 45, sr); let pk = 0, nan = false; for (let i = 0; i < x.length; i++) { const a = Math.abs(x[i]); if (!(a >= 0)) nan = true; if (a > pk) pk = a; } if (nan || pk < 0.2 || pk > 2.2 || Math.abs(x.length - sr * Fett.K[k].dur) > 2) bad += `${k}(${pk.toFixed(2)}) `; }
+      const seeds = ["f7_reese", "f7_sub", "f7_saw", "f7_pluck", "f7_lead", "f7_brass", "kit_fett"].filter(id => !K.seedById(id)), kit = BBX.KITS.kit_fett.filter(n => typeof BBX.SND[n] !== "function");
+      let sty = ""; for (const id of ["festival", "trap", "dnb"]) { const S = SongGen.byId(id), B = S && SongGen.build(S, 4711), B2 = S && SongGen.build(S, 4711); if (!S || B.parts.length !== 6 || B.parts.some(p => !p.ev.length || !K.seedById(p.seed)) || JSON.stringify(B.parts.map(p => p.ev)) !== JSON.stringify(B2.parts.map(p => p.ev)) || !K.MOODS.some(m => m.id === S.mood)) sty += id + " "; }
+      const old = RockSnd.render("crunch", 52, 8000).length > 0;
+      ok("F7", !bad && !seeds.length && !kit.length && !sty && old && SongGen.STYLES.length >= 15, `Fette Klänge: ${kinds.length} Klänge werden im Gerät berechnet (ohne Aussetzer, Pegel im Rahmen${bad ? " – FEHLER: " + bad : ""}) · 7 neue Formen samt Schlagzeug · Stile Festival, Trap, Drum & Bass bauen je 6 Stimmen, gleiche Zahl = gleiches Stück${sty ? " – FEHLER: " + sty : ""} · Rock-Klänge unverändert`); } catch (e) { ok("F7", false, String(e)); }
+    try { if (!Engine.ctx) ok("WU", true, "ohne Ton nicht prüfbar"); else { const v0 = Wucht.v, st = store.set; store.set = () => {};
+        try { const wired = Wucht.wire() && !!Wucht.n; Wucht.set(0); const c0 = Wucht.n.sh.curve; Wucht.set(1); const c1 = Wucht.n.sh.curve; let mono = !!c1 && c1.length === 2049; if (mono) for (let i = 1; i < c1.length; i++) if (c1[i] < c1[i - 1]) { mono = false; break; }
+          Wucht.filter(0.3); Wucht.filter(null); Wucht.echo(true); Wucht.echo(false); Wucht.cut(true); Wucht.cut(false);
+          ok("WU", wired && c0 === null && mono && Math.abs(c1[2048] - 1) < 1e-6 && Wucht.word(0) === "aus" && Wucht.word(1) === "maximal", `Wucht ist in die Summe eingeschleift (vor Verdichter und Begrenzer) · aus = unverfälscht, voll = weiche Sättigung ohne Sprung · Filter, Echo und Stille der Live-Fläche schalten`); }
+        finally { store.set = st; Wucht.v = v0; Wucht.apply(true); } } } catch (e) { ok("WU", false, String(e)); }
+    try { let rt = true; for (let r = -3; r < 45; r++) { const q = Schrift.rowOf(Schrift.midiOf(r)); if (q.r !== r || q.sharp !== 0) rt = false; } const sh = Schrift.rowOf(Schrift.midiOf(7) + (Music.mu.so(8) - Music.mu.so(7) > 1 ? 1 : 0));
+      const f = App.started ? Forms.list.find(x => Einsp.playable(x) && !Einsp.drum(x)) : null;
+      if (!f) ok("KS", rt, "Klangschrift: jede Zeile ist ein Ton der Tonleiter, hin und zurück eindeutig (ohne spielbaren Klang nur die Rechnung geprüft)");
+      else { const tk = f.takes ? f.takes.slice() : null, ev0 = tk && tk[0] ? tk[0].ev.slice() : null, b0 = tk && tk[0] ? tk[0].bars : 0, es = Einsp.start, tp = UI.toast, up = Undo.push, fp = Forms.play, ss = Save.soon, ad = SongUI.adopt, t0 = UI.tab; Einsp.start = () => {}; UI.toast = () => {}; Undo.push = () => {}; Forms.play = () => null; Save.soon = () => {}; SongUI.adopt = () => {};
+        try { if (f.takes) f.takes = []; Schrift.open(f); const open = Schrift.on && !$("kn70").hidden && !!$("knGrid") && Heim.over(), n = Schrift.nRows(), row = 4;
+          Schrift.add(row, 3, 2); const t = Schrift.t, e = t && t.ev[0], a1 = !!e && e.s === 3 && e.d === 2 && e.m === Schrift.midiOf(Schrift.hi - row) && Schrift.hit(row, 4) === 0 && Schrift.hit(row, 5) < 0 && Schrift.hit(row + 1, 3) < 0;
+          Schrift.add(row, 4, 4); const a2 = t.ev.length === 1 && t.ev[0].s === 4 && t.ev[0].d === 4;       // überlappende Töne derselben Zeile ersetzen sich
+          Schrift.add(row - 2, 4, 1); const drawn = $("knNotes").querySelectorAll(".knn").length === 2, mini = Schrift.svg(f, t).includes("<rect");
+          Schrift.remove(Schrift.hit(row, 5)); const a3 = t.ev.length === 1 && t.ev[0].d === 1; Schrift.setLen(1); const a4 = t.bars === 1 && Schrift.L === 1;
+          const back = Nav.closeTop() && !Schrift.on && $("kn70").hidden && !Heim.over();
+          ok("KS", rt && open && n >= 12 && a1 && a2 && drawn && mini && a3 && a4 && back, `Klangschrift: jede Zeile ist ein Ton der Tonleiter (hin und zurück eindeutig) · ${n} Zeilen · Tippen setzt einen Ton an der richtigen Stelle und Höhe, Überlappendes wird ersetzt, Löschen und Loop-Länge stimmen · Töne werden gezeichnet (auch als Kleinbild) · Zurück schließt`); }
+        finally { try { if (Schrift.on) Schrift.close(); } catch (_) {} if (tk) { f.takes = tk; if (tk[0] && ev0) { tk[0].ev = ev0; tk[0].bars = b0; } } else delete f.takes; Einsp.start = es; UI.toast = tp; Undo.push = up; Forms.play = fp; Save.soon = ss; SongUI.adopt = ad; if (UI.tab !== t0) UI.setTab(t0); } } } catch (e) { ok("KS", false, String(e)); }
+    try { const fm = Live70.forms, ro = SongGen.roleOf, mr = MixUI.role, R = { a: "beat", b: "hook", c: "akk", d: "mel", e: "bass", g: "arp" }, fake = Object.keys(R).map(id => ({ id, name: id }));
+      let L; try { Live70.forms = () => fake; SongGen.roleOf = f => R[f.id]; MixUI.role = f => R[f.id]; L = Live70.layers(); } finally { Live70.forms = fm; SongGen.roleOf = ro; MixUI.role = mr; }
+      const order = L.map(l => l.role).join(","), at = y => L.filter(l => Live70.isOn(l, y)).map(l => l.role).join(","), tiles = ["live", "noten"].every(k => Home67.TILES.some(t => t[0] === k));
+      const tp = UI.toastAct, tt = UI.toast; let asked = 0, opened = false; UI.toastAct = () => { asked++; }; UI.toast = () => { asked++; };
+      try { if (!Live70.forms().length || !Engine.ctx) { Live70.open(); opened = Live70.on; } } finally { UI.toastAct = tp; UI.toast = tt; if (Live70.on && opened) Live70.close(); }
+      ok("LF", order === "akk,bass,beat,arp,mel,hook" && at(0) === "akk" && at(0.4) === "akk,bass,beat" && at(0.7) === "akk,bass,beat,arp,mel" && at(1) === "akk,bass,beat,arp,hook" && tiles && !opened, `Live-Fläche: von unten nach oben kommen Akkorde, Bass, Beat, Begleitung, Melodie dazu – ganz oben löst die Refrain-Melodie die Strophen-Melodie ab · ohne Loops öffnet sie nicht, sondern bietet den Song-Erzeuger an · Kacheln auf der Startseite`); } catch (e) { ok("LF", false, String(e)); }

@@ -8,6 +8,9 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **Noten lesen oder selbst setzen** | **Start** → **Klangschrift** · oder im Song einen Klang antippen → **Noten lesen und ändern** | [→](#v70) |
+| **den Song live mit einem Finger formen** | **Start** → **Live-Fläche** · hoch = mehr Band, rechts = heller | [→](#v70) |
+| **dass alles fetter klingt** | **Mischen** → Regler **Wucht** · neue Stile Festival, Trap, Drum & Bass | [→](#v70) |
 | **zurück zur Startseite** | **Haus-Knopf oben links** – auch in jedem Blatt, im Einspielen und im Vollbild · oder die Zurück-Taste des Handys | [→](#heim) |
 | **selbst etwas einspielen**, das als Loop bleibt | **Start** → **Selbst einspielen** → Klang wählen → einfach spielen (kein Aufnahmeknopf) | [→](#einspielen) |
 | im Song ein Instrument **lauter oder leiser** | unten **Song** → Regler neben dem Namen ziehen | [→](#einspielen) |
@@ -63,6 +66,32 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## ⚡ Klangschrift, Live-Fläche und Wucht (neu in v70) {#v70}
+
+**Klangschrift – die Noten von KLANGRAUM**
+- Jeder Ton ist ein bunter Balken. **Farbe und Zahl** sagen, welcher Ton der Tonleiter es ist (1 ist der Grundton). Die **Länge** zeigt, wie lange er klingt, die **Höhe**, wie hoch er ist.
+- Vier Kästchen sind ein Schlag, sechzehn ein Takt.
+- **Tippen** setzt einen Ton. **Nach rechts ziehen** macht ihn länger. **Nochmal tippen** löscht ihn.
+- Helle Zeilen passen besonders gut zum Akkord des Takts.
+- Oben siehst du den ganzen Loop; ein Tipp dorthin springt zum Takt. ▲ und ▼ zeigen höhere und tiefere Töne.
+- Schlagzeug hat vier Zeilen: Becken, Hi-Hat, Snare, Bassdrum.
+- Du findest die Klangschrift auf der **Startseite**, im **Song** (Klang antippen → „Noten lesen und ändern“) und im **Einspielen** („Noten“).
+
+**Live-Fläche – ein Finger formt den Song**
+- Dein Stück läuft. Leg den Finger auf die Fläche und zieh.
+- **Nach oben:** Die Klänge kommen der Reihe nach dazu. Links stehen ihre Namen; was spielt, leuchtet.
+- **Nach rechts:** Der Klang wird heller, nach links dumpfer.
+- Der Punkt bleibt liegen, wo du loslässt.
+- **Stille** hältst du gedrückt. Beim Loslassen setzt alles wieder ein.
+- **Echo** hältst du gedrückt: Die Musik hallt im Takt nach.
+- **Aufnehmen** schneidet dein Spiel mit. „Stopp“ hält die Musik an und zeigt die Aufnahme.
+- Die Live-Fläche braucht Loops. Ohne Loops bietet sie „Song bauen“ an.
+
+**Wucht und fette Klänge**
+- **Mischen → Wucht:** macht den ganzen Klang fetter und lauter. Ganz links ist sie aus.
+- Neue Klänge: Formen → **Techno & Bass** → „Fett (neu)“ – Monster-Bass, Donner-Bass, Hymnen-Säge, Laser-Zupfer, Sirenen-Lead, Synth-Bläser, Fettes Kit.
+- Neue Stile im Song-Erzeuger: **Festival**, **Trap**, **Drum & Bass**.
+
 ## ⌂ Zurück zur Startseite – von überall (neu in v69) {#heim}
 
 - **Haus-Knopf oben links:** bringt dich aus jedem Bereich zur Startseite. Die Musik läuft weiter, nichts geht verloren.
