@@ -1,6 +1,6 @@
 # KLANGRAUM – Hilfe
 
-Stand **Version 56** (27.10.2026). Dieselbe Hilfe steht in der App: Menü ☰ → **Hilfe** (oder Taste **?** / **F1**). Dort gibt es ein Suchfeld – ein Wort wie „Loop“, „leiser“ oder „Mikrofon“ genügt.
+Stand **Version 67** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ → **Hilfe** (oder Taste **?** / **F1**). Dort gibt es ein Suchfeld – ein Wort wie „Loop“, „leiser“ oder „Mikrofon“ genügt.
 
 ---
 
@@ -8,6 +8,12 @@ Stand **Version 56** (27.10.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| in einer Minute einen **ganzen Song** haben | unten **Start** → **Song in 1 Minute** → Stil antippen | [→](#studio) |
+| festlegen, **welches Instrument wann spielt** | unten **Song** → Punkte antippen (leuchtet = spielt mit) | [→](#studio) |
+| **Strophe, Refrain, Break** anordnen | unten **Song** → Teil antippen: umbenennen, länger/kürzer, schieben, doppeln, löschen | [→](#studio) |
+| **mischen** (lauter, leiser, links, rechts, mehr Hall) | unten **Mischen** → **Auto-Mix**, Regler ziehen, Punkte auf der **Bühne** ziehen | [→](#studio) |
+| wissen, **was ein Knopf tut** | **Start** → **Was ist das?** → den Knopf antippen | [→](#studio) |
+| den **Song als Datei** verschicken | unten **Song** → **Song aufnehmen und teilen** | [→](#studio) |
 | ein **neues Stück** anfangen | Ordner-Knopf oben links → **＋ Neues Stück** → Stimmung, Tempo, Formen wählen → **Stück anlegen** | [→](#neues-stück) |
 | eine **Form anhalten / weiterlaufen** lassen | **⏸ / ▶ im Namen** der Form antippen (Alle, Form-Ansicht) · im Raum den **Punkt** unter der Form | [→](#formen-schalten) |
 | **mehrere Formen** stoppen und **nacheinander einsetzen** | ◌ am Namen → **＋ Set** · dann **■ Set stoppen** / **▶ Einsetzen** | [→](#set) |
@@ -53,6 +59,27 @@ Stand **Version 56** (27.10.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## ✨ Studio: Start, Song in 1 Minute, Song-Ansicht, Mischen (neu in v67) {#studio}
+
+Unten stehen fünf Bereiche: **Start · Spielen · Song · Mischen · Mehr**. „Spielen“ ist der bisherige Bereich „Klang“. Pult, Beat, Schnitt, Bild und Stück liegen unter **Mehr**; wer sie wie früher direkt in der Leiste haben will, schaltet dort „Alle Bereiche in der Leiste zeigen“ ein.
+
+- **Start**: ein großer Knopf **Song in 1 Minute** und sechs Wege – Melodie spielen, Klänge formen, Aufnehmen, Foto wird Musik, Live auflegen, Zusammen spielen. Darunter „Dein Stück“ mit ▶, Song, Mischen und Meine Stücke.
+- **Song in 1 Minute**: einen von zwölf Stilen antippen (Pop, Lo-Fi, House, Hip-Hop, Rock, Ballade, Funk, Sommer, Filmmusik, Ambient, Techno, Jazz). Es entsteht ein neues Stück mit Band (Beat, Bass, Akkorde, Begleitung, Melodie, Refrain-Melodie), je einem Loop von vier Takten und dem Ablauf Intro – Strophe – Refrain – Strophe – Refrain – Break – Refrain – Outro. Der Song spielt sofort. Das vorige Stück bleibt unter Meine Stücke.
+- **Song**:
+  - **Ablauf**: farbige Blöcke. Antippen öffnet den Teil: Name (Intro, Strophe, Refrain, Break, Solo, Outro), Länge − / ＋ (in Schritten von 4 Takten), ◀ ▶ verschieben, Doppeln, Löschen, „Ab hier hören“. ＋ hängt einen Teil an.
+  - **Wer spielt wann?**: je Instrument eine Zeile, je Teil ein Punkt. Leuchtet der Punkt, spielt das Instrument in diesem Teil. Beim Abspielen wandert die Markierung mit.
+  - **Instrument antippen**: neu würfeln (nur dieses), anderes Instrument (die Töne bleiben), nur diesen hören, im Bereich Spielen öffnen, entfernen.
+  - **Neu würfeln**: neue Rhythmen und Melodien im selben Stil; Band, Lautstärken und Ablauf bleiben.
+  - **🔁** oben rechts: an = der Song beginnt am Ende von vorn, aus = er hält an.
+  - **Song aufnehmen und teilen**: spielt einmal von vorn bis hinten und speichert eine Audio-Datei, danach Teilen (WhatsApp, Mail, MP3, Video).
+  - Eigene Klänge erscheinen als Zeile, sobald sie einen Loop haben (Spielen → **Tasten** oder **Loop**).
+- **Mischen**:
+  - **Auto-Mix** stellt Lautstärke, Platz und Hall nach der Rolle ein. Vier Fassungen: Ausgewogen, Druckvoll (mehr Beat und Bass, wenig Hall), Sanft (leiser Beat, mehr Hall), Weit (breit verteilt, viel Hall).
+  - **Lautstärke**: je Klang ein Regler; der helle Streifen zeigt den Pegel. Daneben Stumm und „nur diesen hören“. „Alles“ regelt die Gesamtlautstärke.
+  - **Bühne**: Punkte ziehen. Links/rechts = im Kopfhörer links/rechts, vorn = nah und trocken, hinten = weit weg mit Hall.
+- **Was ist das?** (Start oder Mehr): danach tippst du irgendetwas an und bekommst es in einem Satz erklärt, ohne dass etwas ausgelöst wird. „Fertig“ beendet das.
+- Alles ist mit ↶ oben rückgängig zu machen.
+
 ## ★ Schnellstart in 60 Sekunden
 
 - Beim Start fragt KLANGRAUM, ob es das **Mikrofon** benutzen darf – erlauben, dann ist es sofort bereit (geht auch ohne).

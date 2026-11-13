@@ -1,8 +1,38 @@
-# KLANGRAUM – Stand Version 66 (01.11.2026)
+# KLANGRAUM – Stand Version 67 (13.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 65) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 66) · jede Version mit Commit in `docs/VERSIONEN.md`.
 
+## Neu in v67: Studio für Laien – Start · Song in 1 Minute · Song-Ansicht · Mischen · Erklär-Modus
+- Christian (13.11. 14:51): „Du bist ab sofort ein Team aus Software- und Webentwicklern, innovativsten Designern, Ergonomen und Psychologen sowie führenden Musikern. Sieh dir das Programm an. Es muss leichter zu bedienen sein. Alle Funktionen müssen selbsterklärend und intuitiv sein, auch für Nichtmusiker und Laien muss die Zusammenstellung von Songs und das Mischen von Tonspuren easy sein und Spaß machen. Prüfe die App und entwickle diese zu einem vollständigen Tool! Neuartig, innovativ, perfekt zu bedienen für Laien!“ – dazu: „grafisch super hochwertig“, „optimiert für Smartphones und Tablets“.
+- **Befund** (Rundgang als Laie, Bildschirmfotos aller Bereiche; ausführlich in `docs/KONZEPT_EINFACH.md`):
+  - Rund 30 Bedienelemente auf dem ersten Bildschirm, mehrere ohne Beschriftung, zwei Beschriftungen liefen ineinander.
+  - Kein geführter Weg zum Lied: Song bauen lag an drei Orten (Pult-Szenen, Stück → Song, Schnittraum), Mischen an vier.
+  - Das Startbild erklärte Fingergesten statt zu sagen, was man hier machen kann.
+- **Fünf Bereiche unten** (`Nav67`): **Start · Spielen · Song · Mischen · Mehr**. „Spielen“ ist der bisherige Bereich „Klang“. Pult, Beat, Schnitt, Bild und Stück liegen unter **Mehr**; der Schalter „Alle Bereiche in der Leiste zeigen“ holt sie zurück (`body.ktabsall`).
+- **Start** (`Home67`, `#vStart`): „Was möchtest du heute machen?“ – großer Knopf **Song in 1 Minute**, sechs Kacheln (Melodie spielen, Klänge formen, Aufnehmen, Foto wird Musik, Live auflegen, Zusammen spielen), Karte „Dein Stück“ (▶, Song, Mischen, Meine Stücke), „Was ist das?“ und Hilfe. Die App öffnet nach „Eintauchen“ hier.
+- **Song in 1 Minute** (`SongGen`): zwölf Stile – Pop, Lo-Fi, House, Hip-Hop, Rock, Ballade, Funk, Sommer, Filmmusik, Ambient, Techno, Jazz.
+  - Ein Tipp legt ein neues Stück an: Stimmung und Tempo des Stils, bis zu sechs Klänge (Beat, Bass, Akkorde, Begleitung, Melodie, Refrain-Melodie) mit je einem Loop von vier Takten, Lautstärken, Plätze auf der Bühne.
+  - Muster je Rolle aus Vorlagen (Schlagzeug, Bass, Akkord-Rhythmen, Arpeggien), Akkorde aus der Stimmung. Die Melodie entsteht als Motiv – Wiederholung auf dem neuen Akkord – Gegenmotiv – Schluss, betonte Töne sind Akkordtöne, Durchgangstöne pentatonisch.
+  - Ablauf: Intro 4 · Strophe 8 · Refrain 8 · Strophe 8 · Refrain 8 · Break 4 · Refrain 8 · Outro 4 Takte (52 Takte, je nach Tempo 1:41 bis 2:53 min). Dieselben Teile stehen auch als Szenen im Pult.
+  - Der Song spielt sofort. Das vorige Stück bleibt unter Meine Stücke.
+  - **Neu würfeln** (alle oder ein Instrument): neue Rhythmen und Melodien im selben Stil, der Rest bleibt.
+  - **Stimmung wechseln** (Knopf oben): der erzeugte Song zieht mit denselben Mustern in die neue Tonart und Akkordfolge um.
+- **Song** (`SongUI`, `#vSong`) – neue Bedienung für den vorhandenen Song-Baukasten (`Song.sections`):
+  - **Ablauf** als farbige Blöcke (Intro blau, Strophe türkis, Refrain pink, Break gelb, Outro grau). Antippen: umbenennen, − / ＋ Länge, ◀ ▶ verschieben, Doppeln, Löschen, „Ab hier hören“; ＋ hängt an.
+  - **Wer spielt wann?**: je Instrument eine Zeile, je Teil ein Punkt (an/aus). Die Abspielstelle wandert durch Blöcke und Punkte.
+  - Instrument antippen: neu würfeln, anderes Instrument (Töne bleiben), nur diesen hören, im Bereich Spielen öffnen, entfernen.
+  - **🔁**: an = der Song beginnt am Ende nahtlos von vorn, aus = er hält an. Vorher liefen nach dem letzten Teil alle Spuren gleichzeitig weiter (behoben, gilt auch für Stück → Song).
+  - **Song aufnehmen und teilen**: einmal von vorn bis hinten als Audio-Datei; die Aufnahme heißt wie das Stück.
+- **Mischen** (`MixUI`, `#vMix`):
+  - **Auto-Mix** in vier Fassungen (Ausgewogen, Druckvoll, Sanft, Weit): Lautstärke, Platz und Hall nach der Rolle.
+  - Je Klang ein Regler mit Pegelstreifen, Stumm und „nur diesen hören“; „Alles“ = Gesamtlautstärke. Waagerecht ziehen regelt, senkrecht wischen blättert.
+  - **Bühne**: Punkte ziehen – links/rechts = Panorama (`mx.pan`), vorn/hinten = nah und trocken bis weit weg mit Hall (`mx.hall`). Punkte pulsieren mit dem Pegel.
+- **Erklär-Modus „Was ist das?“** (`Erkl`): danach erklärt jeder Tipp das Berührte in einem Satz und löst nichts aus (56 eigene Erklärungen, sonst die Beschriftung). Die Leiste weicht aus, wenn sie das Erklärte verdeckt.
+- **Gestaltung:** Verlaufs-Knöpfe, Glas-Karten, feste Farben je Song-Teil und je Rolle, eigene Linien-Symbole, wandernde Abspielstelle, leuchtende Pegel. Eigene Fassungen für Tablets (ab 600/700/900 px: Raster mit Namen links, Regler einzeilig, Lautstärke und Bühne nebeneinander) und für das niedrige Querformat. Animationen aus bei „Bewegung reduzieren“.
+- **Feinschliff:** Startbild sagt in zwei Sätzen, was man hier machen kann. „▶“ bei „Dein Stück“ und im Mischen zeigt nur „läuft“, wenn wirklich etwas klingt. Beschriftungen der Werkzeugzeile und der Schalterzeile laufen nicht mehr ineinander. Die Erklärkarten zum Formen-Spielen erscheinen erst beim ersten Besuch von „Spielen“.
+- **Behoben nebenbei:** `Visual.run` stürzte ab, wenn ein Anzeige-Ereignis den Takt anhielt (danach liefen keine geplanten Ereignisse mehr, z. B. der Aufnahmestart).
+- **Tests:** §§TESTS67§§ (wird mit der Veröffentlichung der App ergänzt)
 ## Neu in v66: Rock – Stoner, Grunge, Post-Grunge
 - Christian (01.11. 10:17): „Ich möchte auch so spielen können wie Clutch, Pearl Jam, Bush – stelle entsprechende FormSets zusammen.“
 - **Gitarren aus dem Gerät** (`RockSnd`): gezupfte Saite (Karplus-Strong mit Bruchteil-Verzögerung, Anschlagsposition, Helligkeit), Powerchord (Grundton, Quinte, Oktave, leicht gestaffelt), Verzerrer (tanh mit Vorspannung, beim Fuzz zusätzlich Oktav-Gleichrichtung) und Gitarrenbox (Hochpass, Glocke, Senke, zwei Tiefpässe).
