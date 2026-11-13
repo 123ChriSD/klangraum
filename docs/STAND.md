@@ -1,7 +1,34 @@
-# KLANGRAUM – Stand Version 67 (13.11.2026)
+# KLANGRAUM – Stand Version 68 (13.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 66) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 67) · jede Version mit Commit in `docs/VERSIONEN.md`.
+
+## Neu in v68: Einspielen ohne Aufnahmeknopf · Spuren-Mix im Song · einfacher Bereich „Spielen“
+- Christian (13.11. 16:49): „Die App soll noch viel einfacher und besser bedienbar werden! Völlig neue Ansätze entwickeln! Loops sollen besser funktionieren! Tonspuren-Mix. ALLES SOLL EINFACHER BEDIENBAR WERDEN!“
+- **Befund zu den Loops:**
+  - Einen Loop einzuspielen hieß bisher: Aufnahme-Knopf, Länge wählen, einzählen lassen, im richtigen Moment spielen, stoppen. Für Laien sind das fünf Fehlerquellen.
+  - Ein neuer Klang mit Loop kam nie im Song vor: Er stand in keinem Teil des Ablaufs und blieb beim Abspielen stumm.
+  - Ungenau gespielte Töne blieben ungenau.
+- **Einspielen** (`Einsp`, eigene Vollbild-Ansicht) – der neue Ansatz: **Es gibt keinen Aufnahmeknopf.**
+  - Der Takt läuft (ein Stück mit Ablauf spielt als Song mit). Jeder Ton auf den bunten Tasten bzw. jedem Trommel-Feld klingt sofort, erscheint als farbiger Punkt im Band und wird ab der nächsten Runde vom Loop gespielt. Runde für Runde kann man dazuspielen.
+  - **Gerade rücken:** grob (halber Schlag, Standard), fein (Sechzehntel), frei. So klingt es auch bei ungenauem Spiel im Takt.
+  - **Letzte Runde** nimmt die Töne der letzten Runde zurück, **Alles weg** leert den Loop. Länge 1, 2 oder 4 Takte. **Klick** zum Mitzählen (kommt nicht in Aufnahmen). ▶/■ oben.
+  - Klang-Leiste oben: alle spielbaren Klänge des Stücks, dazu ＋ Klavier, Bass, Schlagzeug, Gitarre, Flöte, E-Piano, Streicher, Elektro-Beat. Schlagzeug bekommt große Felder (Bassdrum, Snare, Hi-Hat, bei Kits auch Becken) mit einem Satz Erklärung.
+  - Technik: Stelle im Loop aus `Engine.now()` minus Ausgabeverzögerung, wie `Loops.onStep` sie rechnet (`Song.loopStep`, `Loops.shift`). Der Ton wird erst eingefügt, wenn seine Stelle vorbei ist, damit der Loop ihn nicht sofort doppelt spielt. Leere Loops und unbenutzte neue Klänge werden beim Schließen entfernt.
+  - Einstiege: Start → **Selbst einspielen** (erste Kachel) · Song → **Klang dazu** · Song → Instrument antippen → **Dazuspielen** · Bereich Spielen → **Loop** (in der einfachen Ansicht) · Mehr.
+- **Neue Klänge kommen von selbst in den Song** (`SongUI.watch/adopt`): Bekommt ein Klang seinen ersten Loop (Einspielen, Tasten, Loopstation), spielt er in allen Teilen mit; je Teil schaltet man ihn im Song an oder aus.
+- **Spuren-Mix im Song:** Jede Zeile unter „Wer spielt wann?“ hat ihren Lautstärke-Regler direkt neben dem Namen (derselbe Regler wie unter Mischen).
+- **Mischen** zeigt jetzt auch **Gesangs- und Audiospuren** mit Regler und Stumm.
+- **Einfach oder Profi** (`Einf68`, Mehr → **Profi-Ansicht**, Standard aus):
+  - Einfach: im Bereich Spielen stehen nur ＋ Neu, der Name, „▴ Mehr“ und vier große Knöpfe (Tasten, Kneten, Malen, Loop). Die Schalterzeile, der Spielen/Bearbeiten-Schalter, Live, Rückblick, Szenen und der Set-Knopf erscheinen erst mit „▴ Mehr“.
+  - Profi: alle Schalter und alle Bereiche in der Leiste wie früher.
+- **Behoben nebenbei:** Bei aufgeklapptem Steuerfeld lagen die Pfeile „nächste Form“ auf dem Feld (bestand schon länger; die Layout-Prüfung deckt diesen Zustand jetzt ab).
+- **Tests:**
+  - Prüfstand 136 (neu **EI** Einspielen: Ton liegt gerade gerückt im Loop, Trommel-Felder, Letzte Runde, Aufräumen, Aufnahme in den Song; **EP** Einfach/Profi, Regler je Song-Zeile): 412×892 und 700×330 ohne Fehler.
+  - Layout 412×892, 700×330, 820×1180: TOTAL 0, jetzt auch Einspielen (Tasten, Trommel, Klangwahl), Song mit Reglern, Spielen einfach / aufgeklappt / Profi.
+  - E2E mit echten Tipps (`tools/t68_a.txt`): Start → Selbst einspielen → Klavier, 5 Töne → Loop spielt von selbst (Pegel gemessen) → Letzte Runde → Trommel, 8 Schläge → Fertig; im Pop-Song „Klang dazu“ → E-Piano einspielen → 7. Zeile in allen 8 Teilen; Regler in der Song-Zeile ziehen; Loop-Knopf im einfachen Steuerfeld; „▴ Mehr“.
+  - Regression: alle E2E aus v67 (Song, Mischen, Aufnahme, Rückgängig, Neuladen), Rock (v66), Tasten und Rückblick (v65), Pult (v63/v64).
+  - Nicht geprüft: ob das Gerade-Rücken auf echten Handys mit ihrer Ton- und Berührungsverzögerung die Töne dorthin setzt, wo man sie hört (im Testbrowser nicht messbar). Diesmal ohne zweiten unabhängigen Tester.
 
 ## Neu in v67: Studio für Laien – Start · Song in 1 Minute · Song-Ansicht · Mischen · Erklär-Modus
 - Christian (13.11. 14:51): „Du bist ab sofort ein Team aus Software- und Webentwicklern, innovativsten Designern, Ergonomen und Psychologen sowie führenden Musikern. Sieh dir das Programm an. Es muss leichter zu bedienen sein. Alle Funktionen müssen selbsterklärend und intuitiv sein, auch für Nichtmusiker und Laien muss die Zusammenstellung von Songs und das Mischen von Tonspuren easy sein und Spaß machen. Prüfe die App und entwickle diese zu einem vollständigen Tool! Neuartig, innovativ, perfekt zu bedienen für Laien!“ – dazu: „grafisch super hochwertig“, „optimiert für Smartphones und Tablets“.

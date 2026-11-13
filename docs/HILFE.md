@@ -1,6 +1,6 @@
 # KLANGRAUM – Hilfe
 
-Stand **Version 67** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ → **Hilfe** (oder Taste **?** / **F1**). Dort gibt es ein Suchfeld – ein Wort wie „Loop“, „leiser“ oder „Mikrofon“ genügt.
+Stand **Version 68** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ → **Hilfe** (oder Taste **?** / **F1**). Dort gibt es ein Suchfeld – ein Wort wie „Loop“, „leiser“ oder „Mikrofon“ genügt.
 
 ---
 
@@ -8,6 +8,9 @@ Stand **Version 67** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **selbst etwas einspielen**, das als Loop bleibt | **Start** → **Selbst einspielen** → Klang wählen → einfach spielen (kein Aufnahmeknopf) | [→](#einspielen) |
+| im Song ein Instrument **lauter oder leiser** | unten **Song** → Regler neben dem Namen ziehen | [→](#einspielen) |
+| **alle Schalter** wie früher sehen | **Mehr** → **Profi-Ansicht** einschalten | [→](#einspielen) |
 | in einer Minute einen **ganzen Song** haben | unten **Start** → **Song in 1 Minute** → Stil antippen | [→](#studio) |
 | festlegen, **welches Instrument wann spielt** | unten **Song** → Punkte antippen (leuchtet = spielt mit) | [→](#studio) |
 | **Strophe, Refrain, Break** anordnen | unten **Song** → Teil antippen: umbenennen, länger/kürzer, schieben, doppeln, löschen | [→](#studio) |
@@ -59,6 +62,17 @@ Stand **Version 67** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## 🔁 Selbst einspielen – ohne Aufnahmeknopf (neu in v68) {#einspielen}
+
+- **Öffnen:** Start → **Selbst einspielen** · im Song **Klang dazu** oder Instrument antippen → **Dazuspielen** · im Bereich Spielen der Knopf **Loop**.
+- Oben wählst du den Klang oder holst mit ＋ einen neuen. Der Takt läuft, dein Stück spielt mit.
+- **Es gibt keinen Aufnahmeknopf.** Jeder Ton auf den bunten Tasten oder den Trommel-Feldern erscheint als Punkt im Band und wird ab der nächsten Runde vom Loop gespielt. Du kannst Runde für Runde dazuspielen.
+- **Letzte Runde** nimmt zurück, was du zuletzt gespielt hast. **Alles weg** leert den Loop.
+- **1 · 2 · 4 Takte:** Länge des Loops. **grob · fein · frei:** wie stark gerade gerückt wird – „grob“ setzt jeden Ton auf den nächsten halben Schlag. **Klick:** hörbarer Schlag zum Mitzählen, kommt nicht in Aufnahmen. **◀ tiefer / höher ▶** verschiebt die Tasten um eine Oktave.
+- **Fertig** schließt. Hat dein Stück einen Ablauf, spielt der neue Klang in allen Teilen mit; unter **Song** schaltest du ihn je Teil an oder aus.
+- **Lautstärke im Song:** neben jedem Instrument steht ein Regler. Unter **Mischen** gibt es zusätzlich Regler für Gesangs- und Audiospuren.
+- **Einfach oder Profi:** Mehr → **Profi-Ansicht**. Aus (Standard): im Bereich Spielen stehen nur Tasten, Kneten, Malen und Loop, „▴ Mehr“ zeigt alles. An: alle Schalter und alle Bereiche wie früher.
+
 ## ✨ Studio: Start, Song in 1 Minute, Song-Ansicht, Mischen (neu in v67) {#studio}
 
 Unten stehen fünf Bereiche: **Start · Spielen · Song · Mischen · Mehr**. „Spielen“ ist der bisherige Bereich „Klang“. Pult, Beat, Schnitt, Bild und Stück liegen unter **Mehr**; wer sie wie früher direkt in der Leiste haben will, schaltet dort „Alle Bereiche in der Leiste zeigen“ ein.

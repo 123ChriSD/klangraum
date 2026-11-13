@@ -55,6 +55,14 @@ async def main():
       ("v67_mix", "SongUI.sel = -1; UI.setTab('mix'); MixUI.auto('aus')"),
       ("v67_erkl", "UI.setTab('klang'); Erkl.start(); Erkl.show(Erkl.find(document.getElementById('bMood')))"),
       ("v67_klang", "Erkl.stop(); UI.setView('nah')"),
+      ("v68_einsp", "Einsp.start = () => {}; Einsp.open(Forms.list.find(f => f.kind !== 'drum'))"),
+      ("v68_einsp_drum", "Einsp.setForm(Forms.list.find(f => f.kind === 'drum'))"),
+      ("v68_einsp_wahl", "Einsp.close(); Einsp.open(null, { pick: true })"),
+      ("v68_song", "Einsp.close(); UI.setTab('song'); SongUI.render(true)"),
+      ("v68_klang_profi", "UI.setTab('klang'); Einf68.set(true); UI.setView('nah')"),
+      ("v68_klang_profi_mehr", "KSheet.set('half')"),
+      ("v68_klang_mehr", "Einf68.set(false); KSheet.set('half')"),
+      ("v68_klang_einfach", "KSheet.set('peek')"),
     ]
     total = 0
     for name, js in states:

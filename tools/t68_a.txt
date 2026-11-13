@@ -1,0 +1,47 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots67/"
+import os
+T=os.environ.get("TAG","p")
+await pg.wait_for_timeout(600); await pg.screenshot(path=SP+T+"_h0_start.png")
+await pg.tap('[data-hm="einsp"]'); await pg.wait_for_timeout(700); await pg.screenshot(path=SP+T+"_h1_wahl.png")
+print("offen:", await E("JSON.stringify([Einsp.on, Einsp.f && Einsp.f.name, document.querySelectorAll('#einsp .echip').length, Transport.running])"))
+await pg.tap('#einsp [data-en="klavier"], #einsp .echip[data-ef]'); await pg.wait_for_timeout(900)
+print("klang:", await E("JSON.stringify([Einsp.f && Einsp.f.name, Einsp.L, Einsp.q, Transport.running, document.querySelectorAll('#einsp .kyk').length])"))
+for k in [0, 2, 4, 2, 7]:
+  await pg.tap('#einsp .kyrow.dn .kyk[data-k="%d"]' % k); await pg.wait_for_timeout(430)
+await pg.wait_for_timeout(1500); await pg.screenshot(path=SP+T+"_h2_spielen.png")
+print("loop:", await E("JSON.stringify([Einsp.t && Einsp.t.ev.map(e => [e.s, e.m, e.d, e.r]), Einsp.t && Einsp.t.bars, document.getElementById('einCnt').textContent])"))
+await pg.wait_for_timeout(5200)
+lv = await E("JSON.stringify(Array.from(Engine.stat.lv||[]).map(v => +v.toFixed(2)))"); print("spielt von selbst (Pegel):", lv)
+await pg.tap('#einsp [data-ei="undo"]'); await pg.wait_for_timeout(400); print("letzte runde:", await E("Einsp.t.ev.length"))
+for k in [0, 4]:
+  await pg.tap('#einsp .kyrow.dn .kyk[data-k="%d"]' % k); await pg.wait_for_timeout(500)
+await pg.wait_for_timeout(900)
+await pg.tap('#einsp .echip:has-text("Trommel")'); await pg.wait_for_timeout(900)
+for z in ["kick","hat","snare","hat","kick","kick","snare","hat"]:
+  await pg.tap('#einsp .epad[data-z="%s"]' % z); await pg.wait_for_timeout(270)
+await pg.wait_for_timeout(1300); await pg.screenshot(path=SP+T+"_h3_trommel.png")
+print("trommel:", await E("JSON.stringify([Einsp.f.name, Einsp.t.ev.map(e => e.s + e.z[0])])"))
+await pg.tap('#einsp .edone'); await pg.wait_for_timeout(700)
+print("fertig:", await E("JSON.stringify([Einsp.on, UI.tab, Forms.list.map(f => f.name + ':' + (f.takes||[]).map(t => t.ev.length).join('+')), (document.querySelector('.toast')||{}).textContent])"))
+# Song: neuer Klang im erzeugten Song
+await E("(async()=>{ await SongGen.make('pop'); })()"); await pg.wait_for_timeout(2600)
+await E("document.querySelector('#vSong [data-sg=newf]').scrollIntoView({block:'center'}); 0"); await pg.wait_for_timeout(300); await pg.tap('#vSong [data-sg="newf"]'); await pg.wait_for_timeout(700)
+await pg.tap('#einsp [data-en="epiano"]'); await pg.wait_for_timeout(800)
+for k in [0, 2, 4, 7]:
+  await pg.tap('#einsp .kyrow.dn .kyk[data-k="%d"]' % k); await pg.wait_for_timeout(450)
+await pg.wait_for_timeout(1200); await pg.tap('#einsp .edone'); await pg.wait_for_timeout(900)
+print("im song:", await E("JSON.stringify([UI.tab, Forms.list.length, Song.sections.map(s => s.on.length), Song.playing, Forms.list[6] && Forms.list[6].takes[0].ev.length, Forms.list[6] && Forms.list[6].takes[0].bars])"))
+await E("document.getElementById('vSong').scrollTop = 0; 0"); await pg.wait_for_timeout(400); await pg.screenshot(path=SP+T+"_h4_song.png")
+# Regler in der Song-Zeile
+cdp = await pg.context.new_cdp_session(pg)
+r = await E("(()=>{ const w=document.querySelector('#vSong .sxv .mxf').getBoundingClientRect(); return [w.left,w.top+w.height/2,w.width]; })()")
+v0 = await E("Forms.list[0].fine.vol")
+await cdp.send("Input.dispatchTouchEvent", {"type":"touchStart","touchPoints":[{"x":r[0]+r[2]*0.6,"y":r[1],"id":1}]})
+for k in range(1,8):
+  await cdp.send("Input.dispatchTouchEvent", {"type":"touchMove","touchPoints":[{"x":r[0]+r[2]*(0.6-0.05*k),"y":r[1],"id":1}]}); await pg.wait_for_timeout(30)
+await cdp.send("Input.dispatchTouchEvent", {"type":"touchEnd","touchPoints":[]}); await pg.wait_for_timeout(500)
+print("zeilen-regler:", v0, "->", await E("Forms.list[0].fine.vol"), "regler:", await E("document.querySelectorAll('#vSong .sxv .mxf').length"))
+await E("SongUI.stop(); 0"); await pg.tap('#tKlang'); await pg.wait_for_timeout(1300); await pg.screenshot(path=SP+T+"_h5_spielen_einfach.png")
+print("einfach:", await E("JSON.stringify([document.body.classList.contains('keinf'), [...document.querySelectorAll('#ksheet button')].filter(b => b.getBoundingClientRect().width > 4).map(b => (b.textContent||'').trim().slice(0,8))])"))
+await pg.tap('#ksheet .ksq [data-ks="loop"]'); await pg.wait_for_timeout(700); print("loop-knopf:", await E("JSON.stringify([Einsp.on, Einsp.f && Einsp.f.name])")); await pg.tap('#einsp .edone'); await pg.wait_for_timeout(400)
+await pg.tap('#ksheet .ksdet'); await pg.wait_for_timeout(700); await pg.screenshot(path=SP+T+"_h6_mehr.png"); print("mehr:", await E("JSON.stringify([KSheet.det, document.body.classList.contains('ksopen'), !!document.querySelector('#ksheet .ksfx') && document.querySelector('#ksheet .ksfx').getBoundingClientRect().height])"))

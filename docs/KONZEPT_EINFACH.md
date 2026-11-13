@@ -63,3 +63,13 @@ Wer mehr will, findet unter **Mehr** alles Bisherige (Pult, Beat-Maschine, Schni
 - Der Klang der erzeugten Songs ist gemessen (keine Übersteuerung, Pegel, Bassanteil), aber nicht gehört. Rückmeldung je Stil ist nötig.
 - Der Bereich „Spielen“ selbst ist noch dicht belegt (Schalterzeile, sieben Werkzeuge). Nächster Schritt wäre eine reduzierte Leiste für Einsteiger.
 - Gesang zum Song und eigene Loops in den Ablauf zu bringen, geht über „Spielen“ und „Mehr“, ist aber noch kein geführter Schritt.
+
+## 7. Version 68: Einspielen ohne Aufnahmeknopf
+
+- **Problem:** Aufnehmen ist für Laien eine Prüfung (Knopf, Länge, Einzählen, Einsatz treffen, stoppen). Wer sie nicht besteht, hat keinen Loop – und hält die App für kaputt.
+- **Ansatz:** Die Aufnahme abschaffen. Der Loop läuft immer, und was man spielt, bleibt (Dauerschleife wie bei einem Loop-Pedal im Overdub, aber ohne Pedal). Fehler kosten nichts: „Letzte Runde“ nimmt sie zurück.
+- **Gerade rücken als Standard:** „grob“ verzeiht bis zu einem Viertelschlag. Das Ergebnis klingt nach Musik, bevor man Timing gelernt hat (Selbstwirksamkeit).
+- **Sehen, was bleibt:** Jeder Ton erscheint sofort als farbiger Punkt im Band; die Abspiellinie zeigt, wo die Runde steht; vier Schlag-Punkte zählen mit.
+- **Ein Ort für die Lautstärke, an dem man hinsieht:** der Regler steht in der Song-Zeile, nicht nur im Bereich Mischen.
+- **Weniger auf einmal:** Der Bereich Spielen zeigt vier Knöpfe statt siebzehn; „▴ Mehr“ und die Profi-Ansicht holen alles zurück (schrittweise Offenlegung).
+- **Offen:** Mikrofon-Loops haben noch die alte Bedienung (Loopstation). Die Verzögerung echter Geräte beim Gerade-Rücken ist ungemessen.

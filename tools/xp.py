@@ -11,7 +11,7 @@ async def main():
     for i in range(25):
       await pg.wait_for_timeout(400)
       if await pg.evaluate("App.started"): break
-    await pg.wait_for_timeout(1800); E = pg.evaluate; await E("try{Coach.close(); UI.setTips(false);}catch(e){} 0"); await pg.wait_for_timeout(300); (await E("UI.setTab('klang'); 0")) if not __import__("os").environ.get("HOME67") else None
+    await pg.wait_for_timeout(1800); E = pg.evaluate; await E("try{Coach.close(); UI.setTips(false);}catch(e){} 0"); await pg.wait_for_timeout(300); (await E("UI.setTab('klang'); try { document.body.classList.remove('keinf'); } catch (_) {} 0")) if not __import__("os").environ.get("HOME67") else None
     import sys
     exec(open(sys.argv[1]).read(), globals(), locals()) if False else None
     code=open(sys.argv[1]).read()

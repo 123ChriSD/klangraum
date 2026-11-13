@@ -1,0 +1,7 @@
+import os
+T=os.environ.get("TAG","p"); SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots67/"
+await pg.wait_for_timeout(500)
+await E("(async()=>{ await SongGen.make('pop'); })()"); await pg.wait_for_timeout(2200)
+await E("Einsp.open(Forms.list[4]); 0"); await pg.wait_for_timeout(1500); await pg.screenshot(path=SP+T+"_s1_einsp.png")
+await E("Einsp.setForm(Forms.list[0]); 0"); await pg.wait_for_timeout(600); await pg.screenshot(path=SP+T+"_s2_drum.png")
+await E("Einsp.close(); SongUI.stop(); UI.setTab('song'); 0"); await pg.wait_for_timeout(700); await pg.screenshot(path=SP+T+"_s3_song.png")
