@@ -1,0 +1,8 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots72/"
+import os
+T=os.environ.get("TAG","b")
+await E("(async()=>{ await SongGen.make('pop'); })()"); await pg.wait_for_timeout(4000)
+await E("UI.setTab('mix'); 0"); await pg.wait_for_timeout(500); await E("document.querySelector('.bw72').scrollIntoView({block:'center'}); 0"); await pg.wait_for_timeout(1800); await pg.screenshot(path=SP+T+"_mix.png")
+await E("Live70.open(); 0"); await pg.wait_for_timeout(1200); await pg.screenshot(path=SP+T+"_live.png")
+await E("Ber72.go('noten'); 0"); await pg.wait_for_timeout(1200); await pg.screenshot(path=SP+T+"_noten.png")
+await E("Ber72.go('knet'); 0"); await pg.wait_for_timeout(1200); await pg.screenshot(path=SP+T+"_knet.png")

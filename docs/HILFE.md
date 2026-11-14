@@ -8,6 +8,9 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **den Klang durch Kippen und Schütteln des Geräts ändern** | **Mischen** → **Bewegung** einschalten · oder in der Live-Fläche **Kippen** | [→](#v72) |
+| **mitten im Stück den Bereich wechseln** | Leiste **Tasten · Noten · Kneten · Live** oben in jedem dieser Bereiche | [→](#v72) |
+| **dass mein Spiel von selbst aufgenommen wird** | läuft von selbst · beim Wechsel des Stücks fragt KLANGRAUM · **Mischen** → **Mitschnitt** | [→](#v72) |
 | **einen Klang mit den Fingern formen und dabei hören** | **Start** → **Klang kneten** · mit einem oder mehreren Fingern drücken und ziehen | [→](#v71) |
 | **Noten lesen oder selbst setzen** | **Start** → **Klangschrift** · oder im Song einen Klang antippen → **Noten lesen und ändern** | [→](#v70) |
 | **den Song live mit einem Finger formen** | **Start** → **Live-Fläche** · hoch = mehr Band, rechts = heller | [→](#v70) |
@@ -67,6 +70,32 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## 📱 Bewegung, Mitschnitt und Wechsel mitten im Stück (neu in v72) {#v72}
+
+**Bewegung – das Gerät kippen und schütteln**
+- **Mischen → Bewegung** einschalten (oder **Kippen** in der Live-Fläche). Sie ist aus, bis du sie einschaltest. Das Gerät fragt vielleicht um Erlaubnis.
+- **Links oder rechts kippen:** Die Musik wird dumpfer oder heller.
+- **Nach vorn kippen** (obere Kante weg von dir): Echo im Takt.
+- **Schütteln:** Die Musik stottert.
+- **In der Live-Fläche** rollt der Punkt wie eine Kugel. Legst du den Finger auf, führt der Finger.
+- Die Mitte ist die Haltung beim Einschalten. Den kleinen Kreis antippen setzt sie neu.
+- Kommen keine Bewegungsdaten an, schaltet sich die Bewegung von selbst wieder aus. Dann hilft die Website oder die heruntergeladene Datei.
+
+**Live-Fläche mit mehreren Fingern**
+- Erster Finger: der Punkt.
+- Zweiter Finger: Echo. Je weiter weg vom ersten, desto stärker.
+- Dritter Finger: Stille. Abheben = alles setzt wieder ein.
+
+**Wechsel mitten im Stück**
+- Oben in Einspielen, Klangschrift, Kneten und Live-Fläche steht dieselbe Leiste: **Tasten · Noten · Kneten · Live**.
+- Ein Tipp wechselt den Bereich. Die Musik läuft weiter.
+- „Fertig“ in der Live-Fläche hält die Musik nicht an, wenn sie vorher schon lief.
+
+**Mitschnitt**
+- KLANGRAUM nimmt von selbst auf, was du spielst. Stille fällt weg, behalten werden die letzten fünf Minuten.
+- Wechselst du das Stück, fragt KLANGRAUM: **Dein Spiel behalten?** „Speichern“ legt den Mitschnitt zu den Aufnahmen des Stücks.
+- **Mischen → Mitschnitt:** ausschalten oder mit „Jetzt sichern“ sofort ablegen.
+
 ## 🖐 Mit allen Fingern modellieren (neu in v71) {#v71}
 
 **Klang kneten**

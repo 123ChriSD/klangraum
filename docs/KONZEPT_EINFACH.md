@@ -99,3 +99,11 @@ Wer mehr will, findet unter **Mehr** alles Bisherige (Pult, Beat-Maschine, Schni
 - **Jede Handlung klingt:** Kneten ohne Ton ist Bildhauerei, mit Ton ist es ein Instrument. Der Ton kommt sofort beim Aufsetzen und wiederholt sich beim Weiterkneten – Ursache und Wirkung liegen unter 0,3 s auseinander.
 - **Ein Wort, eine Kachel:** „Klang kneten“ sagt, was man tut, und führt ohne Umweg dorthin.
 - **Offen:** Zoomen der Klangschrift mit zwei Fingern; Kneten auf der Rückseite der Form; eine geführte Demo beim ersten Öffnen.
+
+## 11. Version 72: Der Körper spielt mit, nichts geht verloren, nichts hält an
+
+- **Bewegung als Ausdruck, nicht als Menü:** Kippen und Schütteln sind Gesten, die jeder ohne Erklärung ausprobiert. Drei Zuordnungen, die man hört und versteht: Seite = Klangfarbe, vor = Echo, Ruck = Stotter. Zuschaltbar, weil ein Gerät in der Hand sonst ungewollt den Klang verstellt; die Mitte ist die Haltung beim Einschalten, damit man sitzen, stehen oder liegen kann.
+- **Mehr Finger = mehr Ausdruck, dieselbe Regel:** Auf der Live-Fläche hat jeder weitere Finger genau eine Aufgabe (Echo, Stille). Wer nur einen Finger nutzt, verliert nichts.
+- **Musik hält nie an, nur weil man etwas anderes tun will:** Ein Wechsel des Bereichs ist kein Abbruch. Die Leiste Tasten · Noten · Kneten · Live zeigt die vier Arten des Veränderns als gleichwertige Wege durch dasselbe laufende Stück.
+- **Nichts geht verloren:** Laien drücken nicht „Aufnahme“, bevor etwas Gutes passiert. Der Mitschnitt läuft deshalb immer, und KLANGRAUM fragt erst im Nachhinein – am natürlichen Ende, dem Wechsel des Stücks.
+- **Offen:** Bewegung auf einzelne Klänge statt auf alles; weitere Gesten (Drehen um die Hochachse); Mitschnitt auch beim Schließen sichern.
