@@ -123,3 +123,11 @@ Wer mehr will, findet unter **Mehr** alles Bisherige (Pult, Beat-Maschine, Schni
 - **Zoomen, wie man es kennt:** Zwei Finger zusammen/auseinander – die Geste gibt es überall, also auch hier.
 - **Gleichschritt mit einem Tipp:** „alle“ macht aus drei Formen ein Ensemble, das man gemeinsam anhält und startet.
 - **Empfindlichkeit gehört dem Menschen:** Wie stark man ein Gerät kippt, ist Gewohnheit. Drei Stufen und „umkehren“ statt Zahlen.
+
+## 14. Version 75: Ein gutes Ende, und die eigene Stimme von Anfang an
+
+- **Aufhören ist für Laien das Schwerste.** Musik einfach zu stoppen klingt wie ein Abbruch. Ein Knopf, der „zu Ende spielt“, gibt jedem Stück eine Form – und ist umkehrbar, damit man ihn ohne Angst drückt.
+- **Ausgewogen heißt: von oben nach unten.** Was das Ohr zuerst sucht (Melodie), geht zuerst; was trägt (Bass, Akkorde), bleibt bis zum Schluss und setzt den letzten Ton. So endet jedes Stück auf dem Grundton, ohne dass jemand wissen muss, was das ist.
+- **Die eigene Stimme macht ein Stück zum eigenen.** Wer beim Anlegen etwas aufnimmt, hat von der ersten Sekunde an einen Klang, den es nur einmal gibt. Die Frage „spielt sie mit den anderen oder ihr eigenes?“ ist die einzige Entscheidung.
+- **Singen statt tippen:** Viele können eine Melodie summen, aber nicht auf Tasten finden. Die erkannten Töne lassen sich als Start-Melodie für alle übernehmen.
+- **Offen:** Rhythmus der gesungenen Melodie übernehmen; Ausklang-Länge wählbar; Ausklang als Song-Abschnitt speichern.

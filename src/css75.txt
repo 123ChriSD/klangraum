@@ -1,0 +1,18 @@
+
+/* ---------- v75: Ausklang ---------- */
+.ou75 { position: fixed; z-index: 15; display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px 0 9px; border-radius: 17px; border: 1px solid rgba(255, 255, 255, .16); background: rgba(10, 14, 26, .72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #EEF2FF; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; -webkit-tap-highlight-color: transparent; overflow: hidden; }
+.ou75[hidden] { display: none; }
+.ou75 i { display: grid; place-items: center; } .ou75 svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.ou75::before { content: ""; position: absolute; inset: 0; width: var(--p, 0%); background: linear-gradient(90deg, #FFB25C, #FF3CAC); opacity: 0; transition: width .3s linear; z-index: -1; }
+.ou75.q7on { border-color: transparent; color: #fff; } .ou75.q7on::before { opacity: .85; }
+body.full .ou75, body.kneadmode .ou75 { display: none; }
+@media (prefers-reduced-motion: reduce) { .ou75::before { transition: none; } }
+/* Neues Stück: Eigener Klang */
+.rn75 { margin-top: 6px; } .rn75bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 8px 0; }
+.rn75bar .eb, .rn75all { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 48px; padding: 0 14px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .06); color: #EEF2FF; font: inherit; font-weight: 700; cursor: pointer; }
+.rn75bar .eb svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.rn75go { flex: 1 1 auto; } .rn75go .lvdot { width: 13px; height: 13px; border-radius: 50%; background: #FF5A6E; flex: 0 0 auto; }
+.rn75go.q7rec { background: #D8323C; border-color: transparent; } .rn75go.q7rec .lvdot { background: #fff; border-radius: 3px; }
+.rn75f { min-height: 48px; display: inline-flex; align-items: center; }
+.rn75m { margin: 4px 0; } .rn75msg { margin: 6px 0 4px; font-size: 13.5px; color: #A9B4D0; }
+.rn75all { width: 100%; margin-top: 10px; font-size: 13.5px; } .rn75 .sm74seg button:disabled { opacity: .4; }

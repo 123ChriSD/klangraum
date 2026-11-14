@@ -8,6 +8,8 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **das Stück schön enden lassen** | **Spielen** → oben links **Ausklang** | [→](#v75) |
+| **beim Anlegen eines Stücks gleich meine Stimme oder ein Instrument aufnehmen** | **Start** (unten) → **Stück mit Melodie** → Abschnitt **Eigener Klang** | [→](#v75) |
 | **alle Formen zugleich anhalten oder gleich schnell drehen** | **Spielen** → Leiste unten links → **alle** | [→](#v74) |
 | **ein neues Stück mit meiner eigenen Melodie beginnen** | **Start** (unten) → **Stück mit Melodie** · Melodie tippen → anlegen | [→](#v73) |
 | **eine Form genau drehen oder sofort anhalten** | **Spielen** → Leiste unten links: Stopp · ¼ ½ 1 2 4 · Richtung | [→](#v73) |
@@ -74,6 +76,24 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## 🌅 Ausklang und eigener Klang im neuen Stück (neu in v75) {#v75}
+
+**Ausklang – das Stück schön enden lassen**
+- Im Bereich **Spielen** steht oben links der Knopf **Ausklang**.
+- Tippe ihn an, während dein Stück läuft. Es endet in etwa zwölf Sekunden.
+- Zuerst gehen die Melodien, dann die Begleitung, dann das Schlagzeug, zuletzt Bass und Akkorde.
+- Am Ende spielen Bass und Akkord einen Schlusston, der ausklingt.
+- Dein Stück bleibt, wie es ist. **Hören** spielt es wieder.
+- **Nochmal tippen** bricht den Ausklang ab.
+
+**Neues Stück – eigenen Klang aufnehmen**
+- Im Blatt **Neues Stück** gibt es den Abschnitt **Eigener Klang**.
+- **Aufnehmen:** bis zu zwölf Sekunden über das Mikrofon. Oder **Audiodatei** wählen.
+- Beim Anlegen wird daraus eine eigene Form. Du kannst sie in jeder Tonhöhe spielen.
+- **Die neue Form spielt:** die Start-Melodie – oder ihre eigene (was du gesungen hast) – oder nichts vor.
+- **Gesungene Töne als Start-Melodie für alle nehmen:** Du singst die Melodie, statt sie zu tippen.
+- Am besten klappt die Erkennung mit einzelnen, klaren Tönen nacheinander.
+
 ## 🎛 Start einstellen, mehr Finger, alle Formen steuern (neu in v74) {#v74}
 
 **Neues Stück – der Start noch genauer**

@@ -1,7 +1,22 @@
-# KLANGRAUM – Stand Version 74 (14.11.2026)
+# KLANGRAUM – Stand Version 75 (14.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 73) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 74) · jede Version mit Commit in `docs/VERSIONEN.md`.
+
+## Neu in v75: Ausklang (Outro auf Knopfdruck) · Neues Stück: Töne aufnehmen und als Form mitnehmen
+- Christian (14.11. 13:45): „Ich brauche im Form-Bereich noch einen Fade-out-Button, der aus dem Stück automatisch ein gutes Outro erstellt und die Formen ausgewogen beendet.“ · (13:48): „Und ich möchte auch beim Zusammenstellen des neuen Stückes bereits Töne aufnehmen können und daraus eine Form erstellen, die entweder die Hauptmelodie spielt oder eine eigene.“
+- **Ausklang** (`Outro75`, Knopf `#ou75` im Bereich Spielen oben links neben dem runden Abspielknopf, in „Form“, „Alle“ und „Raum“):
+  - Ein Tipp bei laufender Musik macht ein Ende von etwa zwölf Sekunden (2 bis 8 Takte je nach Tempo, beginnt auf der nächsten Eins).
+  - **Reihenfolge:** Melodien (0–50 %) → Begleitung (15–65 %) → Schlagzeug (45–92 %) → Akkorde und Bass (55/60–100 %), jede Stimme mit weicher Kurve. Dabei schließt sich der Klang (Tiefpass) und ein Echo kommt dazu.
+  - **Schlusston:** Auf der letzten Eins schweigt alles andere; Bass und Akkord-Stimme spielen den Grundton bzw. Grundakkord und klingen drei Sekunden aus (ohne beide: die letzte Melodie-Stimme, sonst Bassdrum und Becken).
+  - Danach steht die Musik. **Das Stück bleibt unverändert** (Lautstärken, Loops, Drehungen wie vorher; „Hören“ spielt es wieder). Nochmal tippen bricht ab, alles spielt weiter; lief ein Song, läuft er im selben Abschnitt weiter. Eine laufende Aufnahme endet mit dem Ausklang. Auch in „Alles auf einen Blick“.
+- **Neues Stück → „Eigener Klang“** (`RecNP`, Abschnitt vor der Start-Melodie, wahlweise):
+  - **Aufnehmen** (Mikrofon, bis 12 s, Pegelanzeige) oder **Audiodatei**; Anhören, Verwerfen.
+  - Beim Anlegen wird daraus eine **eigene Form** (wie bei „Aufnehmen“ auf der Startseite: in jeder Tonhöhe spielbar, knetbar); das Original liegt bei den Aufnahmen des neuen Stücks.
+  - **Die neue Form spielt:** **die Start-Melodie** (wie die anderen, auch im Kanon) · **ihre eigene** – die gesungenen/gespielten Töne, die KLANGRAUM nacheinander erkennt (`RecNP.track`: Tonhöhe je 43 ms, Töne ab 85 ms, wiederholte Töne an der Lautstärke-Delle; bis 16) · **nichts vor**.
+  - **„Gesungene Töne als Start-Melodie für alle nehmen“:** die Melodie singen statt tippen.
+- **Tests:** Prüfstand 157 (neu **O5** Ausklang, **R5** Tonerkennung; **A7** angepasst), 412×892 und 700×330 ohne Fehler außer dem bekannten Schwanker I1. Layout 412×892, 700×330, 820×1180 TOTAL 0 (vier neue Zustände). E2E (`tools/t75_a.txt`, simuliertes Mikrofon): Aufnahme im Blatt → Stück angelegt mit vierter Form „Stimme“ (Aufnahme), sie trägt die Start-Melodie und dreht mit; Ausklang: Lautstärken über die Zeit gemessen (Klavier und Stimme zuerst auf 0, dann Trommel, Bass zuletzt), Filter und Echo fahren mit, Schlusston (4 Töne), danach Stopp und alles wie vorher, „Hören“ spielt wieder; Abbruch stellt sofort zurück; Ausklang mitten in einem Song mit Loops. Proben v70–v74 als Gegenprobe fehlerfrei.
+- **Nicht geprüft / offen:** Ausklang nur gemessen, nicht gehört – ob die Reihenfolge und die zwölf Sekunden musikalisch gut sitzen, muss ein Ohr entscheiden. Die Tonerkennung ist mit reinen Tönen geprüft, nicht mit echter Stimme (das simulierte Mikrofon liefert nur kurze Pieptöne, daraus entsteht kein Tonverlauf); Akkorde, Hauchen, Vibrato und Nebengeräusche können Töne verfälschen. Rhythmus der gesungenen Melodie wird nicht übernommen, nur die Tonfolge. In der eingebetteten Claude-Ansicht ist das Mikrofon gesperrt – dort geht „Audiodatei“.
 
 ## Neu in v74: Start genauer einstellen · mehr mit mehreren Fingern · alle Formen zugleich steuern
 - Christian (14.11. 12:57): „Sehr gut, verbessere die Möglichkeiten der Startkalibrierung noch weiter. Auch die Multitouch-Funktionen sollen noch cooler und besser werden. Die Steuerung der Formen weiter verbessern!“
