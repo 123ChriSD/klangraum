@@ -8,6 +8,7 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **den Dreh-Knopf ein- oder ausblenden, Formen mit Gesten anhalten und schneller drehen** | **Spielen** → runder Knopf unten links · **Mehr → Alles → Gesten** | [→](#v77) |
 | **einer Form eine eigene Melodie geben – oder alle wieder gleich spielen lassen** | **Spielen** → oben links **♪** | [→](#v76) |
 | **das Stück schön enden lassen** | **Spielen** → oben links **Ausklang** | [→](#v75) |
 | **beim Anlegen eines Stücks gleich meine Stimme oder ein Instrument aufnehmen** | **Start** (unten) → **Stück mit Melodie** → Abschnitt **Eigener Klang** | [→](#v75) |
@@ -77,6 +78,25 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## ✌ Gesten und der Dreh-Knopf (neu in v77) {#v77}
+
+**Dreh-Knopf (unten links im Bereich Spielen)**
+- Der kleine runde Knopf zeigt, wie schnell sich die gewählte Form dreht.
+- **Antippen:** Die Leiste klappt auf – Stopp/Weiter, ¼ bis 4 Umdrehungen je Takt, Richtung, „alle“. Der Pfeil rechts klappt sie wieder ein; nach ein paar Sekunden tut sie das von selbst.
+- **Hoch oder runter ziehen:** ändert das Tempo direkt. Unter „Stopp“ dreht die Form rückwärts.
+- **Lange drücken:** blendet den Knopf ganz aus. Zurück: **Mehr → Alles → Gesten → Dreh-Knopf**. Dort wählst du auch „Leiste“ (immer offen).
+
+**Gesten neben den Formen**
+- **Mit zwei Fingern tippen:** Die gewählte Form hält sofort an. Nochmal: Sie dreht weiter.
+- **Mit drei Fingern tippen:** Alle Formen halten an. Nochmal: Alle drehen weiter.
+- **Zwei Finger drehen wie einen Knopf:** Tempo der gewählten Form. Rechtsherum schneller, linksherum langsamer, über Stopp hinaus rückwärts.
+- **Zwei Finger zusammen oder auseinander:** näher heran, alle Formen, Raum (wie bisher).
+- Eine kurze Anzeige in der Mitte sagt, was erkannt wurde.
+
+**Auf einer Form** bleibt alles beim Spielen: Tippen und Halten = Töne (mehrere Finger = mehrere Töne), Wischen = Drehen und Anschubsen. Die Tipp-Gesten gelten dort nicht.
+
+**Abschalten:** Mehr → Alles → Gesten → Schalter „Gesten“.
+
 ## ♪ Start-Melodie für alle, eigene Melodien einzeln (neu in v76) {#v76}
 
 **Beim Anlegen**

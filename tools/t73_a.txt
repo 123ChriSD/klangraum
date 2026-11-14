@@ -2,7 +2,7 @@ SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/s
 import os, json
 T=os.environ.get("TAG","a")
 J=lambda s: E("JSON.stringify(%s)" % s)
-await E("Auto72.set(false); 0")   # sonst fragt der Mitschnitt vor dem Stückwechsel und die Probe läuft weiter
+await E("Auto72.set(false); Dreh77.set('auf', true); 0")   # sonst fragt der Mitschnitt vor dem Stückwechsel und die Probe läuft weiter
 await pg.wait_for_timeout(400); await pg.screenshot(path=SP+T+"_0_start.png", full_page=False)
 await E("document.querySelector('.al73row').scrollIntoView({block:'end'}); 0"); await pg.wait_for_timeout(300); await pg.screenshot(path=SP+T+"_0b_start_unten.png")
 n0 = await E("Projects.known ? Projects.known.length : 0"); pid0 = await E("Projects.cur.id")

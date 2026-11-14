@@ -5,7 +5,7 @@ J=lambda s: E("JSON.stringify(%s)" % s)
 cdp = await pg.context.new_cdp_session(pg)
 async def touch(kind, pts):
   await cdp.send("Input.dispatchTouchEvent", {"type":kind,"touchPoints":[{"x":p[0],"y":p[1],"id":p[2]} for p in pts]})
-await E("Auto72.set(false); 0")
+await E("Auto72.set(false); Dreh77.set('auf', true); 0")
 await E("StartMel.open(); 0"); await pg.wait_for_timeout(700)
 await pg.tap('#sm73S [data-sm="pre:wellen"]'); await pg.wait_for_timeout(300)
 await pg.tap('#sm73S [data-sm="oct:7"]'); await pg.wait_for_timeout(300); await pg.tap('#sm73S [data-sm="k:2"]'); await pg.wait_for_timeout(200)

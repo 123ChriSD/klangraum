@@ -1,7 +1,28 @@
-# KLANGRAUM – Stand Version 76 (14.11.2026)
+# KLANGRAUM – Stand Version 77 (14.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 75) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 76) · jede Version mit Commit in `docs/VERSIONEN.md`.
+
+## Neu in v77: Dreh-Knopf zum Ein- und Ausblenden · Gesten mit zwei und drei Fingern
+- Christian (14.11. 18:01, mit Bildschirmfoto vom Telefon: die Dreh-Leiste bricht in zwei Zeilen um und liegt über den Formen): „Der Geschwindigkeitsregler stört, der muss auszublenden gehen. Verbessere die Steuerung weiter. Multitouch soll Gesten verstehen.“
+- **Dreh-Knopf statt Dreh-Leiste** (`Dreh77`, weiter das Element `#dr73`):
+  - Unten links sitzt nur noch ein **runder Knopf** (48 px) mit Tempo und Richtung der gewählten Form („½“, „Stopp“, „steht“).
+  - **Antippen** klappt die Leiste auf (Stopp/Weiter, ¼ ½ 1 2 4, Richtung, „alle“, neu: Pfeil zum Einklappen). Sie klappt nach 8 s ohne Berührung von selbst ein.
+  - **Hoch/runter ziehen** am Knopf ändert das Tempo direkt, ohne die Leiste zu öffnen (24 px je Stufe).
+  - **Lange drücken** (0,65 s) blendet den Knopf ganz aus; die Meldung bietet „Zurückholen“ an.
+  - Einstellung im Blatt „Gesten“: **Knopf** (Vorgabe) · **Leiste** (immer offen) · **aus**. Wird gemerkt (`store` „dr77“).
+  - Die Leiste **bricht nicht mehr um**: eine Zeile, Tempo-Felder schrumpfen bis 22 px, darunter lässt sie sich seitlich schieben.
+- **Eine Tempo-Reihe von rückwärts bis vorwärts** (`Dreh77.V`: −4 −2 −1 −½ −¼ · Stopp · ¼ ½ 1 2 4). Knopf-Ziehen und die Dreh-Geste laufen über dieselbe Reihe; über Stopp hinaus dreht die Form andersherum.
+- **Gesten** (`Gest77`, nur **neben** den Formen – auf einer Form spielen Finger weiter Töne, ein Akkord hält nichts an):
+  - **Zwei Finger tippen** = gewählte Form hält sofort an / dreht weiter.
+  - **Drei Finger tippen** = alle Formen halten an / drehen weiter.
+  - **Zwei Finger drehen wie einen Knopf** = Tempo der gewählten Form (rechtsherum schneller, linksherum langsamer, über Stopp hinaus rückwärts; 23° je Stufe; mit „alle“ in der Leiste für alle Formen).
+  - Zoomen und Ansicht wechseln mit zwei Fingern bleibt wie bisher; sobald die Drehung erkannt ist, wird ein versehentlicher Zoom zurückgenommen.
+- **Anzeige für erkannte Gesten** (`Hud77`, `#g77`): Symbol, Name der Form, was geschah, bei Tempo die Stelle auf der Reihe.
+- **Blatt „Gesten und Dreh-Knopf“** (Mehr → Alles → Gesten, auch über die Hilfe): Schalter „Gesten“, Wahl für den Dreh-Knopf, alle Gesten mit kleinem Bild und einem Satz. Nach der ersten erkannten Geste bietet eine Meldung das Blatt einmal an.
+- **Tests:** Prüfstand 162 (neu **DK**, **DL**, **GT**, **GQ**), 412×892 und 700×330. Layout 412×892, 700×330, 820×1180 TOTAL 0 (sieben neue Zustände). E2E mit echten Mehrfinger-Berührungen (`tools/t77_a.txt`, `tools/t77_b.txt`): Knopf tippen/ziehen/lange drücken/von selbst einklappen; Tipp mit zwei und drei Fingern in „Alle“ und „Form“; Drehen +1,2 rad → 4 je Takt, zurück −2,1 rad → ½ linksherum, Zoom unverändert; ein Finger daneben, zwei Finger auf der Form und „Gesten aus“ lösen nichts aus.
+- **Verworfen:** „Zwei Finger auf einer Form zusammendrücken = festhalten“ – das ist seit langem Zoomen („zwei Finger zusammen/auseinander, egal worauf“) und bleibt es.
+- **Nicht geprüft / offen:** nicht auf echten Geräten – gerade die Schwellen (Tipp unter 0,38 s bzw. 0,48 s, Drehung ab 22°) sind nur mit nachgestellten Berührungen erprobt. In der Form-Ansicht ist auf kleinen Telefonen neben der Form wenig Platz für zwei Finger (ober- und unterhalb geht es). Die Testumgebung ist so langsam, dass die Tipp-Zeit dort fünffach gestreckt werden musste (`Gest77.K`).
 
 ## Neu in v76: Start-Melodie für alle Formen – eigene Melodien einzeln wählbar
 - Christian (14.11. 16:07): „Die Start-Melodie soll sich zunächst auf alle Formen auswirken; eigene Melodien sollen separat gewählt werden können.“

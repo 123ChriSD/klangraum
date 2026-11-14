@@ -1,0 +1,81 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots77/"
+import os, json, math
+J=lambda s: E("JSON.stringify(%s)" % s)
+cdp = await pg.context.new_cdp_session(pg)
+async def touch(kind, pts):
+  await cdp.send("Input.dispatchTouchEvent", {"type":kind,"touchPoints":[{"x":p[0],"y":p[1],"id":p[2]} for p in pts]})
+await E("Auto72.set(false); store.set('g77hint', true); Gest77.K = 5; 0")
+await E("UI.setView('alle'); 0"); await pg.wait_for_timeout(1200)
+# freie Stellen neben den Formen suchen
+free = json.loads(await J("(() => { const out = []; const top = 200, bot = document.getElementById('ksheet').getBoundingClientRect().top - 70; for (let y = top; y < bot; y += 14) for (let x = 30; x < innerWidth - 30; x += 14) { if (document.elementFromPoint(x, y) !== document.getElementById('c')) continue; let bad = false; for (const [ax, ay] of [[0, 0], [-36, 0], [36, 0], [0, -36], [0, 36], [-26, -26], [26, 26], [-26, 26], [26, -26]]) if (Scene.hit(x + ax, y + ay, {}) || Scene.platterAt(x + ax, y + ay)) bad = true; if (bad) continue; out.push([x, y]); } return out; })()"))
+print("freie Punkte:", len(free))
+def pick(n, mind=70):
+  res=[]
+  for p in free:
+    if all(math.hypot(p[0]-q[0], p[1]-q[1])>=mind for q in res) and all(math.hypot(p[0]-q[0], p[1]-q[1])<=320 for q in res): res.append(p)
+    if len(res)==n: return res
+  return res
+P2 = pick(2); P3 = pick(3, 42); assert len(P3) == 3, P3; print("P2", P2, "P3", P3)
+async def tap(pts):
+  await touch("touchStart", [(p[0], p[1], i+1) for i, p in enumerate(pts)]); await pg.wait_for_timeout(60); await touch("touchEnd", []); await pg.wait_for_timeout(1600)
+st = "[Forms.list.filter(f => !f.empty).map(f => [f.name, f.still ? 'still' : (Dreh73.rpb(f) > 0 ? +Dreh73.rpb(f).toFixed(2) * Dreh73.dir(f) : 0)]), document.getElementById('g77') ? document.getElementById('g77').textContent : null]"
+await E("Dreh73.all = true; Dreh73.act('r:1'); Dreh73.all = false; Dreh73.paint(); 0"); await pg.wait_for_timeout(400)
+print("start:", await J(st))
+await tap(P2); print("zwei Finger getippt:", await J(st))
+await pg.screenshot(path=SP+"b1_tipp2.png")
+await tap(P2); print("nochmal:", await J(st))
+await tap(P3); print("drei Finger getippt:", await J(st))
+await pg.screenshot(path=SP+"b2_tipp3.png")
+await tap(P3); print("nochmal:", await J(st))
+# ein Finger tippt daneben: nichts
+await tap(P2[:1]); print("ein Finger daneben:", await J(st))
+# zwei Finger drehen wie einen Knopf (rechtsherum)
+cx = (P2[0][0] + P2[1][0]) / 2; cy = (P2[0][1] + P2[1][1]) / 2; R = 55
+a0 = math.atan2(P2[1][1]-P2[0][1], P2[1][0]-P2[0][0])
+def pair(a): return [(cx - R*math.cos(a), cy - R*math.sin(a), 1), (cx + R*math.cos(a), cy + R*math.sin(a), 2)]
+z0 = await J("[Scene.user.zoom, Scene.view]")
+await touch("touchStart", pair(a0)); await pg.wait_for_timeout(80)
+for k in range(1, 13):
+  await touch("touchMove", pair(a0 + k * 0.1)); await pg.wait_for_timeout(25)
+await pg.wait_for_timeout(1500)
+print("gedreht +1.2 rad:", await J(st), z0, await J("[Scene.user.zoom, Scene.view, Dreh77.idx(Forms.active)]"))
+await pg.screenshot(path=SP+"b3_knopf.png")
+for k in range(11, -22, -1):
+  await touch("touchMove", pair(a0 + k * 0.1)); await pg.wait_for_timeout(20)
+await pg.wait_for_timeout(1500)
+print("zurueck bis -2.1 rad:", await J(st), await J("[Scene.user.zoom, Scene.view, Dreh77.idx(Forms.active)]"))
+await touch("touchEnd", []); await pg.wait_for_timeout(1500)
+# zusammenziehen daneben zoomt / wechselt weiter die Ansicht
+await touch("touchStart", [(cx - 80, cy, 1), (cx + 80, cy, 2)]); await pg.wait_for_timeout(60)
+for k in range(1, 9):
+  await touch("touchMove", [(cx - 80 + k * 7, cy, 1), (cx + 80 - k * 7, cy, 2)]); await pg.wait_for_timeout(20)
+await touch("touchEnd", []); await pg.wait_for_timeout(1500)
+print("zusammengezogen daneben:", await J("[Scene.view, +Scene.user.zoom.toFixed(2)]"), await J(st))
+await E("UI.setView('nah'); Scene.resetUser(); 0"); await pg.wait_for_timeout(1200)
+# auf der Form: zwei Finger tippen = zwei Toene, kein Anhalten
+c = json.loads(await J("(() => { const f = Forms.active, c = Scene.formScreen(f); return [c.x, c.y, Scene.screenRadius(f)]; })()")); print("form:", c)
+await E("Dreh73.act('r:1'); window.__pl = 0; { const o = Forms.play.bind(Forms); Forms.play = function (...a) { __pl++; return o(...a); }; } 0"); await pg.wait_for_timeout(300)
+d = min(70, c[2] * 0.6)
+await tap([(c[0] - d, c[1]), (c[0] + d, c[1])]); print("zwei Finger auf der Form getippt:", await J("[__pl, Forms.active.still, +Dreh73.rpb(Forms.active).toFixed(2)]"))
+# Form-Ansicht: zwei Finger neben der Form tippen
+fr = json.loads(await J("(() => { const out = []; const bot = document.getElementById('ksheet').getBoundingClientRect().top - 70; for (let y = 200; y < bot; y += 12) for (let x = 24; x < innerWidth - 24; x += 12) { if (document.elementFromPoint(x, y) !== document.getElementById('c')) continue; let bad = false; for (const [ax, ay] of [[0, 0], [-30, 0], [30, 0], [0, -30], [0, 30]]) if (Scene.hit(x + ax, y + ay, {})) bad = true; if (!bad) out.push([x, y]); } return out; })()"))
+free = fr; N2 = pick(2, 60); print("frei in Form-Ansicht:", len(fr), N2)
+await tap(N2); print("Form-Ansicht, zwei Finger daneben getippt:", await J("[Forms.active.still, +Dreh73.rpb(Forms.active).toFixed(2), document.getElementById('g77').textContent]"))
+await pg.screenshot(path=SP+"b4_nah.png")
+await tap(N2); print("nochmal:", await J("[Forms.active.still, +Dreh73.rpb(Forms.active).toFixed(2)]"))
+# auf der Form: zwei Finger zusammenziehen zoomt weiter wie bisher (kein Anhalten)
+c = json.loads(await J("(() => { const f = Forms.active, c = Scene.formScreen(f); return [c.x, c.y, Scene.screenRadius(f)]; })()"))
+await touch("touchStart", [(c[0] - d, c[1], 1), (c[0] + d, c[1], 2)]); await pg.wait_for_timeout(900)
+for k in range(1, 9):
+  await touch("touchMove", [(c[0] - d + k * d / 10, c[1], 1), (c[0] + d - k * d / 10, c[1], 2)]); await pg.wait_for_timeout(20)
+await pg.wait_for_timeout(1500)
+print("auf der Form zusammengezogen:", await J("[Scene.view, Forms.active.still, +Dreh73.rpb(Forms.active).toFixed(2), [...Input.P.values()].map(p => p.kind)]"))
+await touch("touchEnd", []); await pg.wait_for_timeout(1500)
+# Gesten aus
+await E("UI.setView('alle'); Gest77.set(false); 0"); await pg.wait_for_timeout(1000)
+await tap(P2); print("Gesten aus, zwei Finger getippt:", await J(st))
+await E("Gest77.set(true); Gest77.open(); 0"); await pg.wait_for_timeout(700)
+await pg.screenshot(path=SP+"b5_blatt.png")
+await pg.tap('[data-g7="dk:weg"]'); await pg.wait_for_timeout(300); print("blatt aus:", await J("[Dreh77.mode, document.getElementById('g77dkS').textContent, document.querySelector('[data-g7=\"dk:weg\"]').getAttribute('aria-pressed')]"))
+await pg.tap('[data-g7="dk:mini"]'); await pg.wait_for_timeout(300); await pg.tap('[data-g7="tog"]'); await pg.wait_for_timeout(300); print("schalter:", await J("[Dreh77.mode, Gest77.on, document.querySelector('[data-g7=\"tog\"]').getAttribute('aria-checked')]")); await E("Gest77.set(true); 0")
+print("ERR", errs)

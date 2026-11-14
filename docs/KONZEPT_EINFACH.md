@@ -138,3 +138,13 @@ Wer mehr will, findet unter **Mehr** alles Bisherige (Pult, Beat-Maschine, Schni
 - **Auswahl statt Schalter:** „Spielt mit / spielt nicht“ war zu grob. Jetzt sagt jede Form, *was* sie spielt.
 - **Derselbe Ort im Stück:** Was man beim Anlegen entscheidet, muss man danach wiederfinden. Der Knopf ♪ zeigt immer, was die gewählte Form spielt, und führt zur selben Auswahl.
 - **Zwei Wege aus einer getippten Melodie:** nur diese Form – oder neue gemeinsame Melodie. Damit ist auch „die Start-Melodie ändern“ gelöst, ohne ein eigenes Menü.
+
+## 16. Version 77: Nichts liegt im Weg, die Hand kennt Abkürzungen
+
+- **Was man selten braucht, ist klein:** Die Dreh-Leiste war immer da und lag über den Formen. Jetzt ist sie ein Knopf, der zeigt, was los ist, und erst auf Wunsch aufgeht. Wer sie gar nicht will, drückt lange.
+- **Der Knopf ist selbst ein Regler:** Ziehen ändert das Tempo. So braucht die häufigste Handlung keine Leiste.
+- **Gesten nur dort, wo nichts anderes gemeint sein kann:** Auf einer Form heißt jeder Finger „Ton“. Deshalb gelten Tipp- und Dreh-Gesten nur neben den Formen. Ein Kind, das mit drei Fingern einen Akkord greift, hält nichts an.
+- **Eine Geste, eine Bedeutung:** Tippen = anhalten/weiter (zwei Finger: diese Form, drei: alle). Drehen = Tempo. Zusammen/auseinander = Ansicht. Mehr nicht.
+- **Jede Geste antwortet:** Eine kurze Anzeige sagt, was erkannt wurde. Versteckte Gesten ohne Rückmeldung lernt niemand.
+- **Abschaltbar und nachlesbar:** Ein Blatt zeigt alle Gesten mit Bild; ein Schalter stellt sie ab.
+
