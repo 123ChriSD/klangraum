@@ -2375,6 +2375,35 @@ body.full .dr73, body.kneadmode .dr73 { display: none; }
 .al73go.q7top { margin-bottom: 12px; }
 .sm73 { margin-top: 6px; padding: 2px 0 6px; border-radius: 16px; transition: box-shadow .3s, background .3s; } .sm73.q7hi { box-shadow: 0 0 0 2px #9B5CFF; background: rgba(155, 92, 255, .1); }
 .sm73 .sm73bar .eb { flex: 1 1 0; min-height: 44px; padding: 0 8px; } .sm73 .sm73bar .eb:disabled { opacity: .4; }
+
+/* ---------- v74 ---------- */
+.sm74pre { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 2px; }
+.sm74lage { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 13px; color: #A9B4D0; }
+.sm74seg button { min-height: 40px; }
+.sm74opt { margin-top: 16px; padding: 12px; border-radius: 16px; background: rgba(255, 255, 255, .04); border: 1px solid rgba(255, 255, 255, .08); transition: opacity .2s; }
+.sm74opt.q7off { opacity: .45; }
+.sm74opt h4 { margin: 0 0 8px; font-size: 14px; font-weight: 800; color: #EEF2FF; }
+.sm74l { display: grid; gap: 6px; margin-top: 10px; } .sm74l > span { font-size: 12.5px; color: #A9B4D0; }
+.sm74who { display: flex; flex-wrap: wrap; gap: 6px; } .sm74who .npc small { margin-left: 6px; opacity: .7; } .sm74who .npc:disabled { opacity: .45; }
+.sm73row i { width: auto; min-width: 28px; padding: 0 5px; box-sizing: border-box; }
+/* Bewegung einstellen */
+.b74o { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.b74o .eb { min-height: 40px; padding: 0 12px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .06); color: #EEF2FF; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.b74o .eb.tg[aria-pressed="true"] { background: linear-gradient(135deg, #35C0E0, #4F7BFF); border-color: transparent; }
+.b74o .eseg button { min-height: 36px; font-size: 13px; }
+.lvmid { display: none; position: absolute; right: calc(14px + env(safe-area-inset-right, 0px)); bottom: calc(96px + env(safe-area-inset-bottom, 0px)); min-height: 36px; padding: 0 12px; border-radius: 18px; border: 1px solid #35C0E0; background: rgba(12, 16, 30, .7); color: #fff; font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
+body.kbw74 .lvmid { display: block; }
+.lvbot.q7four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; } .lvbot.q7four .lvh { padding: 0 2px; } .lvbot.q7four .lvh b { font-size: 14.5px; } .lvbot.q7four .lvh small { font-size: 10px; }
+@media (max-width: 519px) { .lvbot.q7four .lvh small { display: none; } .lvbot.q7four .lvh { height: 60px; } }
+@media (orientation: landscape) and (max-height: 520px) { .lvmid { bottom: calc(62px + env(safe-area-inset-bottom, 0px)); } }
+/* Klangschrift: Ansicht */
+.kn74z button { min-width: 48px; }
+/* Dreh-Leiste: alle */
+.dr73 { flex-wrap: wrap; } .dr74a { flex: 0 0 auto; min-width: 42px; min-height: 46px; padding: 0 8px; border-radius: 14px; font-size: 12px; font-weight: 800; }
+.dr74a[aria-pressed="true"] { background: linear-gradient(135deg, #FFB25C, #FF3CAC) !important; color: #fff; }
+@media (max-width: 440px) { .dr73 { gap: 4px; } .dr73s { grid-template-columns: repeat(5, 28px); gap: 1px; } .dr73s button { font-size: 14px; } .dr73p { flex-basis: 48px; } .dr73d { flex-basis: 38px; } .dr74a { min-width: 40px; padding: 0 6px; } }
+@media (max-width: 379px) { .dr73s { grid-template-columns: repeat(5, 25px); } .dr73p { flex-basis: 44px; } .dr73d { flex-basis: 34px; } .dr74a { min-width: 36px; padding: 0 4px; } }
+body.kdr73 #ksheet .kchip[data-ks="fstop"], body.kdr73 #ksheet .kchip[data-ks="fgo"] { display: none; }
 </style>
 
 <canvas id="c" aria-label="Klangraum: dreidimensionale Klangformen" role="img"></canvas>
@@ -2433,7 +2462,7 @@ body.full .dr73, body.kneadmode .dr73 { display: none; }
 
 <div class="start" id="start">
   <div class="start-inner">
-    <div class="meta">Version 73 · Stück mit eigener Start-Melodie · Dreh-Leiste (genau drehen, sofort anhalten) · Alles auf einen Blick</div>
+    <div class="meta">Version 74 · Start genauer einstellen (Vorlagen, Kanon, wer mitspielt) · Zerhacker und Zoom mit mehreren Fingern · alle Formen zugleich steuern</div>
     <h1 class="klogoH"><span class="sr">KLANGRAUM</span><span id="klogoStart" aria-hidden="true"></span></h1>
     <p>Musik machen ohne Vorkenntnisse: Wähle einen Stil, und KLANGRAUM baut dir einen ganzen Song. Oder spiel, forme und mische deine Klänge selbst – nichts klingt falsch.</p><ul class="stfeat"><li>Song in 1 Minute</li><li>Einspielen ohne Aufnahmeknopf</li><li>Klänge kneten</li><li>Mischen wie im Studio</li></ul>
     <button class="enter" id="enter">Eintauchen</button>
@@ -6648,7 +6677,7 @@ const Sheets = {
   },
   menu() {
     const txt = Sheets.helpText(Music.help);
-    const s = this.open("Menü", this.head("KLANGRAUM · Version 73") + `
+    const s = this.open("Menü", this.head("KLANGRAUM · Version 74") + `
       <div class="field"><label for="rHelp">Wie viel hilft die App? <b id="helpV">${txt[0]}</b></label><input type="range" id="rHelp" min="0" max="100" step="1" value="${Music.help}"><p class="helptext" id="helpT">${txt[1]}</p></div>
       ${TempoUI.html()}
       <div class="row"><button class="btn" id="mGlide">Übergänge: Drehung ${Glide.rot ? "fließend" : "sofort"} · Tempo ${Glide.tempo ? "fließend" : "sofort"}</button></div>
@@ -19051,6 +19080,132 @@ Help.T.push({ id: "v73", ic: "🧭", t: "Start-Melodie, Dreh-Leiste, Alles auf e
   <p><b>Mit dem Finger:</b> Waagerecht wischen dreht, senkrecht wischen kippt (Melodie). Leicht schräge Bewegungen zählen nur noch für die Hauptrichtung – die Form kippt nicht mehr ungewollt mit. Festhalten und loslassen hält sie an.</p>
   <p><b>Alles auf einen Blick:</b> Startseite unten oder „Mehr“: alle Bereiche und Funktionen, nach Aufgaben geordnet, mit Suche.</p>` });
 
+/* =====================================================================================
+   v74: START NOCH GENAUER EINSTELLEN · MEHR MIT MEHREREN FINGERN · FORMEN GEMEINSAM STEUERN
+   – Neues Stück: Melodie-Vorlagen, Zufall, drei Lagen; wer mitspielt, Dreh-Tempo, zusammen oder als Kanon, sofort oder auf Zuruf.
+   – Bewegung: Empfindlichkeit, Achsen umkehren, „Mitte neu“ auch in der Live-Fläche.
+   – Live-Fläche: 3. Finger = Zerhacker im Takt, 4. Finger = Stille, Leuchtspur; Knopf „Hacken“.
+   – Klangschrift: mit zwei Fingern auf- und zuziehen = mehr oder weniger Takte zeigen (auch als Knöpfe).
+   – Dreh-Leiste: Schalter „alle“ – Stopp, Tempo und Richtung für alle Formen zugleich; der ältere „Anhalten“-Knopf entfällt dort.
+   ===================================================================================== */
+
+/* ---------- 1) Neues Stück: Start-Melodie mit Vorlagen und Start-Einstellungen ---------- */
+Object.assign(StartMel, {
+  RS: [[0.25, "¼"], [0.5, "½"], [1, "1"], [2, "2"]],
+  o(S) { if (!S.mo) S.mo = { oct: 0, r: 1, kanon: false, go: true, off: {} }; return S.mo; },
+  drumSeed(id) { const sd = K.seedById(id); return !sd || sd.kind === "drum"; },
+  lab(k) { return (mod(k, 7) + 1) + (k >= 7 ? "▴" : k < 0 ? "▾" : ""); },
+  sec(S) { const mood = this.mood(), O = this.o(S), seg = (key, L, cur) => `<span class="eseg sm74seg">${L.map(([v, n]) => `<button data-sm="${key}:${v}" aria-pressed="${String(cur) === String(v)}">${n}</button>`).join("")}</span>`;
+    return `<div class="sm73" id="sm73S"><h3 class="ph3">Start-Melodie <small>wahlweise</small></h3><p class="kch">Spiel eine kurze Melodie – bis ${this.MAXN} Töne – oder nimm eine Vorlage. Die Formen des neuen Stücks spielen sie zuerst <b>gemeinsam</b>. Bleibt das Feld leer, entsteht das Stück wie gewohnt.</p>
+      <div class="sm74pre" aria-label="Vorlagen">${Mel.PRESETS.filter(P => P.d && P.d.length > 1).map(P => `<button class="npc" data-sm="pre:${P.id}">${esc(P.n)}</button>`).join("")}<button class="npc" data-sm="pre:zufall">🎲 Zufall</button></div>
+      <div class="sm73row" id="sm73Row" aria-live="polite"></div>
+      <div class="sm74lage"><span>Lage</span>${seg("oct", [[-7, "tief"], [0, "mittel"], [7, "hoch"]], O.oct)}</div>
+      <div class="sm73keys">${[0, 1, 2, 3, 4, 5, 6, 7].map(k => `<button class="sm73k" data-sm="k:${k}" style="--c:${KeysUI.COL[k % 7]}" aria-label="Ton ${k + 1}"><b>${k + 1}</b><small>${esc(deN(this.midiFor(mood, k + O.oct)).replace(/[’',]/g, ""))}</small></button>`).join("")}</div>
+      <div class="sm73bar"><button class="eb" data-sm="undo" aria-label="Letzten Ton entfernen">${I67.left}<span>Zurück</span></button><button class="eb" data-sm="play" aria-label="Melodie anhören">${I67.play}<span>Anhören</span></button><button class="eb" data-sm="clear" aria-label="Melodie leeren">${I67.trash}<span>Leeren</span></button></div>
+      <div class="sm74opt" id="sm74Opt"><h4>So startet das Stück</h4>
+        <div class="sm74l"><span>Wer spielt mit</span><div class="sm74who">${S.forms.map((id, i) => { const sd = K.seedById(id), dr = this.drumSeed(id); return `<button class="npc" data-sm="who:${i}" aria-pressed="${!dr && O.off[i] !== true}"${dr ? " disabled" : ""}>${esc(sd ? sd.name : id)}${dr ? "<small>ohne Töne</small>" : ""}</button>`; }).join("") || "<small class=\"kch\">Noch keine Formen gewählt.</small>"}</div></div>
+        <div class="sm74l"><span>Drehungen je Takt</span>${seg("r", this.RS, O.r)}</div>
+        <div class="sm74l"><span>Einsatz</span>${seg("kanon", [[0, "zusammen"], [1, "nacheinander (Kanon)"]], O.kanon ? 1 : 0)}</div>
+        <div class="sm74l"><span>Beginn</span>${seg("go", [[1, "spielt sofort"], [0, "wartet auf dich"]], O.go ? 1 : 0)}</div></div></div>`; },
+  paint() { const r = $("sm73Row"), S = NewPiece.st; if (!r || !S) return; const d = S.mel || (S.mel = []);
+    r.innerHTML = d.length ? d.map(k => `<i style="--c:${KeysUI.COL[mod(k, 7)]}">${this.lab(k)}</i>`).join("") : `<span>Noch keine Melodie – tippe auf die bunten Tasten oder wähl eine Vorlage.</span>`;
+    const s = $("sm73S"); if (s) { for (const k of ["undo", "play", "clear"]) { const b = s.querySelector(`[data-sm="${k}"]`); if (b) b.disabled = !d.length; } s.querySelectorAll(".sm73k").forEach(b => { b.disabled = d.length >= this.MAXN; }); const o = $("sm74Opt"); if (o) o.classList.toggle("q7off", !d.length); }
+    const go = document.querySelector('#npS [data-np="go"]'); if (go) go.textContent = d.length ? "Stück mit dieser Melodie anlegen" : "Stück anlegen"; },
+  zufall() { const n = 8, d = [0]; let rs = (Date.now() ^ (Math.random() * 1e9)) >>> 0; const rnd = () => { rs = (Math.imul(rs, 1664525) + 1013904223) >>> 0; return rs / 4294967296; }; for (let i = 1; i < n; i++) { const st = [-2, -1, -1, 1, 1, 2, 2, 3][Math.floor(rnd() * 8)]; d.push(clamp(d[i - 1] + st, -2, 9)); } d[n - 1] = [0, 2, 4][Math.floor(rnd() * 3)]; return d; },
+  act(k) {
+    const S = NewPiece.st; if (!S) return; const d = S.mel || (S.mel = []), mood = this.mood(), O = this.o(S), [a, v] = k.split(":");
+    const tune = (L, from) => { if (!Engine.ctx) return; const t0 = Engine.ctx.currentTime + 0.05, gap = clamp(30 / (S.bpm || mood.bpm || 108), 0.16, 0.4); L.forEach((n, i) => this.beep(this.midiFor(mood, n), t0 + i * gap, gap * 0.8)); };
+    if (a === "k") { if (d.length >= this.MAXN) return; const n = +v + O.oct; d.push(n); this.beep(this.midiFor(mood, n)); Hap(5); return this.paint(); }
+    if (a === "undo") { d.pop(); Hap(); return this.paint(); }
+    if (a === "clear") { d.length = 0; Hap(10); return this.paint(); }
+    if (a === "play") return tune(d);
+    if (a === "pre") { const L = v === "zufall" ? this.zufall() : ((Mel.PRESETS.find(P => P.id === v) || {}).d || []).map(x => x + O.oct); d.length = 0; d.push(...L.slice(0, this.MAXN)); Hap(8); tune(d); return this.paint(); }
+    Hap(6);
+    if (a === "oct") O.oct = +v; else if (a === "r") O.r = +v; else if (a === "kanon") O.kanon = v === "1"; else if (a === "go") O.go = v === "1"; else if (a === "who") { if (O.off[+v]) delete O.off[+v]; else O.off[+v] = true; }
+    const y = $("sm73S") ? $("sm73S").getBoundingClientRect().top : null; NewPiece.render(); if (y != null && $("sm73S")) { const sh = $("sm73S").closest(".sheet") || document.scrollingElement, dy = $("sm73S").getBoundingClientRect().top - y; try { (sh.scrollBy ? sh : document.scrollingElement).scrollBy(0, dy); } catch (_) {} }
+  },
+  // Melodie auf die gewählten Formen legen (off: Stellen der Formen im Blatt, die nicht mitspielen)
+  apply(d, off) { const out = [], L = Forms.list, use = off && this.opt && this.opt.n === L.length; L.forEach((f, i) => { if (!f || f.empty || f.remote || f.kind === "drum") return; if (use && off[i]) return; Mel.add(f, d, "Start-Melodie"); out.push(f); }); return out; },
+  after(d) { try { const O = this.opt || { r: 1, kanon: false, go: true, off: null, n: -1 }, F = this.apply(d, O.off);
+      F.forEach((f, j) => { try { if (O.kanon && j) { const p = Motion.ph(f); p.ry += K.TAU * (2 * j / Math.max(2, d.length)); if (p.lk) p.lk.y = null; } if (O.go) Move.setR(f, O.r || 1, { soft: false }); } catch (_) {} });
+      if (F.length && O.go) { try { if (!Transport.running) Transport.start(); } catch (_) {} } Save.soon(); try { UI.refresh(); } catch (_) {}
+      UI.toast(!F.length ? "Dieses Stück hat keine Form mit Tonhöhen – die Melodie wurde nicht übernommen." : `${F.length} ${F.length === 1 ? "Form spielt" : "Formen spielen"} deine Melodie${O.kanon && F.length > 1 ? " – nacheinander, als Kanon" : F.length > 1 ? " – alle dasselbe" : ""}.${O.go ? "" : " Tippe unten links auf „Drehen“ – mit „alle“ starten alle zugleich."} Unten links: Stopp, Tempo und Richtung.`, 5800); this.opt = null; return F; } catch (e) { console.warn(e); return []; } }
+});
+{ const go = NewPiece.go.bind(NewPiece); NewPiece.go = async function () { try { const S = this.st, O = S && S.mo; StartMel.opt = O ? { r: O.r, kanon: !!O.kanon, go: O.go !== false, off: { ...O.off }, n: S.forms.filter(id => this.ok(id)).slice(0, 8).length } : null; } catch (_) { StartMel.opt = null; } return go(); }; }
+
+/* ---------- 2) Bewegung: Empfindlichkeit, Achsen umkehren, Mitte neu ---------- */
+Object.assign(Beweg, {
+  SENS: { sanft: 50, normal: 35, stark: 22 }, cfg: Object.assign({ sens: "normal", ilr: false, ifb: false }, store.get("bw74") || {}),
+  setCfg(k, v) { this.cfg[k] = v; store.set("bw74", this.cfg); this.RANGE = this.SENS[this.cfg.sens] || 35; this.paint(); }
+});
+Beweg.RANGE = Beweg.SENS[Beweg.cfg.sens] || 35;
+{ const ax = Beweg.axes.bind(Beweg); Beweg.axes = function (b, g, a) { const r = ax(b, g, a); return [this.cfg.ilr ? -r[0] : r[0], this.cfg.ifb ? -r[1] : r[1]]; };
+  const rw = Beweg.row.bind(Beweg); Beweg.row = function () { const C = this.cfg; return rw().replace(/<\/div><\/div>$/, `</div><div class="b74o" role="group" aria-label="Bewegung einstellen"><button class="eb" data-b74="mid">Mitte neu</button><span class="eseg">${[["sanft", "sanft"], ["normal", "normal"], ["stark", "stark"]].map(([v, n]) => `<button data-b74="sens:${v}" aria-pressed="${C.sens === v}">${n}</button>`).join("")}</span><button class="eb tg" data-b74="ilr" aria-pressed="${C.ilr}" aria-label="Links und rechts vertauschen">↔ umkehren</button><button class="eb tg" data-b74="ifb" aria-pressed="${C.ifb}" aria-label="Vor und zurück vertauschen">↕ umkehren</button></div></div>`); };
+  const pt = Beweg.paint.bind(Beweg); Beweg.paint = function () { const r = pt(); try { document.body.classList.toggle("kbw74", this.on); document.querySelectorAll("[data-b74]").forEach(b => { const k = b.dataset.b74; if (k.startsWith("sens:")) b.setAttribute("aria-pressed", this.cfg.sens === k.slice(5)); else if (k === "ilr" || k === "ifb") b.setAttribute("aria-pressed", !!this.cfg[k]); }); } catch (_) {} return r; };
+  document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-b74]"); if (!b) return; const k = b.dataset.b74; Hap(8); if (k === "mid") { if (Beweg.on) Beweg.center(); else Beweg.start(); } else if (k.startsWith("sens:")) Beweg.setCfg("sens", k.slice(5)); else { Beweg.setCfg(k, !Beweg.cfg[k]); Beweg.zero = null; } }); }
+
+/* ---------- 3) Live-Fläche: 3. Finger = Zerhacker im Takt, 4. Finger = Stille, Leuchtspur ---------- */
+Live70.gate = false; Live70.tr = [];
+Live70.gateSet = function (on) { on = !!on; if (this.gate === on) return; this.gate = on; try { const N = Wucht.n; if (N && !on) { const g = N.cut.gain, t = Engine.ctx.currentTime; g.cancelScheduledValues(t); g.setTargetAtTime(this.hold.cut ? 0 : 1, t, 0.008); } } catch (_) {} const b = $("lv70") && $("lv70").querySelector('[data-lh="gate"]'); if (b) b.classList.toggle("q7on", on); };
+// jede Sechzehntel: erste Hälfte offen, zweite zu
+{ const os = Transport.onStep.bind(Transport); Transport.onStep = function (step, time) { try { if (Live70.on && Live70.gate && !Live70.hold.cut && Wucht.n) { const g = Wucht.n.cut.gain, h = Transport.spb * 0.5; g.cancelScheduledValues(time); g.setValueAtTime(1, time); g.setValueAtTime(0, time + h); Live70.nGate = (Live70.nGate || 0) + 1; } } catch (_) {} return os(step, time); }; }
+Live70.mtUpdate = function () {
+  const n = this.X.length;
+  if (n >= 1) { const [mx, my, sz] = this.mainXY(), a = this.echoFor(Math.hypot(this.X[0].x - mx, this.X[0].y - my), sz); if (!this.hold.echo) this.holdSet("echo", true); this.mtEcho = true; this.mtAmt = a; Wucht.echoAmt(a); }
+  else if (this.mtEcho) { this.mtEcho = false; this.mtAmt = 0; this.holdSet("echo", false); }
+  const cut = n >= 3, gate = n === 2;
+  if (cut !== !!this.mtCut) { this.mtCut = cut; if (cut) this.gateSet(false); this.holdSet("cut", cut); }
+  if (gate !== !!this.mtGate) { this.mtGate = gate; this.hold.gate = gate; this.gateSet(gate); }
+};
+{ const hs = Live70.holdSet.bind(Live70); Live70.holdSet = function (k, on) { if (k !== "gate") return hs(k, on); if (!!this.hold.gate === !!on) return; this.hold.gate = !!on; Hap(on ? 12 : 6); this.gateSet(on); };
+  const bd = Live70.bind.bind(Live70); Live70.bind = function (el) { bd(el);
+    el.addEventListener("pointerdown", e => { if (!e.target.closest("#lvPad") || this.pid == null || this.pid === e.pointerId || this.X.length !== 2 || this.X.some(q => q.id === e.pointerId)) return; this.X.push({ id: e.pointerId, x: e.clientX, y: e.clientY }); try { $("lvPad").setPointerCapture(e.pointerId); } catch (_) {} e.preventDefault(); this.mtUpdate(); }); };
+  const rn = Live70.render.bind(Live70); Live70.render = function () { const r = rn(); try { this.mtGate = false; this.gate = false; this.tr = []; const e = this.el(), bt = e.querySelector(".lvbot");
+      if (bt && !bt.querySelector('[data-lh="gate"]')) { const ec = bt.querySelector('[data-lh="echo"]'); if (ec) ec.insertAdjacentHTML("afterend", `<button class="lvh" data-lh="gate" aria-label="Hacken – solange du hältst: die Musik wird im Takt zerhackt"><b>Hacken</b><small>halten</small></button>`); bt.classList.add("q7four"); }
+      if (!e.querySelector("#lvMid")) e.insertAdjacentHTML("beforeend", `<button class="lvmid" id="lvMid" data-b74="mid" aria-label="Mitte neu setzen: so, wie du das Gerät jetzt hältst">Mitte neu</button>`);
+      const h = $("lvHint"); if (h) h.innerHTML = "Leg den Finger auf die Fläche und zieh:<br><b>hoch</b> = mehr Band · <b>rechts</b> = heller<br><b>2. Finger</b> = Echo · <b>3.</b> = Zerhacker · <b>4.</b> = Stille"; } catch (_) {} return r; };
+  const cl = Live70.close.bind(Live70); Live70.close = function (...a) { try { this.gateSet(false); this.mtGate = false; this.hold.gate = false; } catch (_) {} return cl(...a); };
+  const dr = Live70.draw.bind(Live70); Live70.draw = function () { const r = dr(); try { const cv = $("lvCv"); if (!cv) return r; const g = cv.getContext("2d"), d = this.dpr || 1, R = cv.getBoundingClientRect(), [mx, my] = this.mainXY(), px = (mx - R.left) * d, py = (my - R.top) * d, T = this.tr;
+      if (!T.length || Math.hypot(T[T.length - 1][0] - px, T[T.length - 1][1] - py) > 2) T.push([px, py, performance.now()]); const now = performance.now(); while (T.length && (now - T[0][2] > 650 || T.length > 40)) T.shift();
+      if (T.length > 2) { g.save(); g.globalCompositeOperation = "lighter"; g.lineCap = "round"; g.lineJoin = "round"; for (let i = 1; i < T.length; i++) { const a = 1 - (now - T[i][2]) / 650; if (a <= 0) continue; g.strokeStyle = `rgba(255,255,255,${0.5 * a})`; g.lineWidth = (2 + 16 * a) * d; g.beginPath(); g.moveTo(T[i - 1][0], T[i - 1][1]); g.lineTo(T[i][0], T[i][1]); g.stroke(); } g.restore(); }
+      if (this.gate) { g.save(); g.globalCompositeOperation = "lighter"; g.fillStyle = `rgba(255,215,107,${0.1 + 0.12 * Math.abs(Math.sin(now / 60))})`; g.fillRect(0, 0, cv.width, cv.height); g.restore(); } } catch (_) {} return r; }; }
+
+/* ---------- 4) Klangschrift: mit zwei Fingern auf- und zuziehen = mehr oder weniger Takte zeigen ---------- */
+Schrift.perWant = 0; Schrift.Z = new Map();
+{ const lo = Schrift.layout.bind(Schrift); Schrift.layout = function () { lo(); const w = this.perWant; if (!w) return; const e = this.el(), W = Math.min(e.clientWidth || innerWidth, 1180); this.per = Math.min(this.L, w); this.page = clamp(Math.floor(this.page / this.per) * this.per, 0, Math.max(0, this.L - this.per)); this.cw = Math.max(4, Math.floor((W - this.lw - 28) / (this.per * 16) * 100) / 100); };
+  Schrift.zoom = function (dir) { const cur = this.per, to = dir > 0 ? (cur >= 4 ? 4 : cur * 2) : Math.max(1, cur >> 1), cap = Math.min(4, Math.max(1, this.L)); const want = Math.min(to, cap >= 4 ? 4 : cap >= 2 ? 2 : 1); if (want === cur) return false; this.perWant = want; Hap(8); this.render(); return true; };
+  const rn = Schrift.render.bind(Schrift); Schrift.render = function () { const r = rn(); try { this.Z.clear(); const b = this.el().querySelector(".knbar"); if (b && this.f && this.L > 1 && !b.querySelector(".kn74z")) b.insertAdjacentHTML("beforeend", `<span class="eseg kn74z" aria-label="So viele Takte auf einmal zeigen">${[1, 2, 4].filter(k => k <= this.L).map(k => `<button data-kz="${k}" aria-pressed="${this.per === k}" aria-label="${k} ${k === 1 ? "Takt" : "Takte"} zeigen">🔍 ${k}</button>`).join("")}</span>`); } catch (_) {} return r; };
+  const bd = Schrift.bind.bind(Schrift); Schrift.bind = function (el) { bd(el);
+    el.addEventListener("click", e => { const b = e.target.closest("[data-kz]"); if (!b) return; this.perWant = +b.dataset.kz; Hap(); this.render(); });
+    el.addEventListener("pointerdown", e => { if (!e.target.closest("#knGrid")) return; this.Z.set(e.pointerId, { x: e.clientX, x0: e.clientX }); const D = this.drags.get(e.pointerId); if (D && D.ev) D.o = { s: D.ev.s, d: D.ev.d, m: D.ev.m, z: D.ev.z, u: D.ev.u }; });
+    el.addEventListener("pointermove", e => { const q = this.Z.get(e.pointerId); if (!q) return; q.x = e.clientX; if (this.Z.size !== 2) return; const [a, b] = [...this.Z.values()], d0 = Math.abs(a.x0 - b.x0), d1 = Math.abs(a.x - b.x); if (d0 < 30) return; const k = d1 / d0; if (k < 1.4 && k > 0.7) return;
+      if ((a.x - a.x0) * (b.x - b.x0) > 0) return;                                                                          // beide Finger in dieselbe Richtung: Töne verschieben, kein Zoom
+      for (const D of this.drags.values()) { if (D.g) D.g.remove(); if (D.ev && D.o) Object.assign(D.ev, D.o); } this.drags.clear();   /* angefasste Töne zurück an ihren Platz */ this.Z.clear(); if (!this.zoom(k > 1 ? -1 : 1)) this.notes(); });
+    const up = e => this.Z.delete(e.pointerId); el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up); }; }
+
+/* ---------- 5) Dreh-Leiste: „alle“ – Stopp, Tempo und Richtung für alle Formen zugleich ---------- */
+Dreh73.all = false;
+Dreh73.targets = function (f) { return this.all ? Forms.list.filter(x => x && !x.empty && !x.remote) : [f]; };
+{ const ht = Dreh73.html.bind(Dreh73); Dreh73.html = function (f) { const n = Forms.list.filter(x => x && !x.empty && !x.remote).length; return ht(f) + (n > 1 ? `<button class="dr74a" data-dr="all" aria-pressed="${this.all}" aria-label="Alle Formen zugleich steuern: ${this.all ? "an" : "aus"}">alle</button>` : ""); };
+  const ac = Dreh73.act.bind(Dreh73); Dreh73.act = function (k, f = Forms.active) {
+    if (k === "all") { this.all = !this.all; Hap(8); const el = $("dr73"); if (el) el.dataset.sg = ""; UI.toast(this.all ? "Alle: Stopp, Tempo und Richtung gelten jetzt für alle Formen zugleich" : "Die Leiste steuert wieder nur die gewählte Form", 2400); return this.paint(); }
+    if (!this.all || !f || f.empty) return ac(k, f);
+    const T = this.targets(f), S = this.state(f); Hap(8);
+    try { for (const x of T) {
+        if (k === "pp") { if (S.mv) { if (!x.still && (this.rpb(x) > 0 || Motion.moves(x))) this.stop(x); } else if (x.still) Motion.resume(x); else if (!(this.rpb(x) > 0)) Move.setR(x, 1, { soft: false }); }
+        else if (k === "flip") { const p = Motion.ph(x), w = Motion.tw(x, "y") || p.wy; if (x.still) Motion.resume(x); x.mot.dreh = 0; Motion.glideTo(x, "y", w ? -w : -Motion.wOfR(1), { soft: false }); if (p.lk) p.lk.y = null; }
+        else if (k.startsWith("r:")) Move.setR(x, +k.slice(2), { soft: false }); }
+      if (k !== "pp" || !S.mv) { if (!Transport.running && Engine.ctx) Transport.start(); } } catch (e) { console.warn(e); }
+    Save.soon(); try { UI.soon(); } catch (_) {} this.paint(); };
+  const pt = Dreh73.paint.bind(Dreh73); Dreh73.paint = function () { const r = pt(); try { const el = $("dr73"), on = !!el && !el.hidden; document.body.classList.toggle("kdr73", on); if (on && String(this.all) !== el.dataset.all) { el.dataset.all = String(this.all); el.dataset.sg = ""; pt(); } } catch (_) {} return r; }; }
+
+Help.T.push({ id: "v74", ic: "🎛", t: "Start einstellen, mehr Finger, alle Formen steuern", k: "start einstellen kalibrieren vorlage zufall lage tief hoch kanon nacheinander wer spielt mit dreh tempo empfindlichkeit umkehren mitte neu zerhacker hacken vier finger zoom takte zeigen zwei finger alle formen zugleich",
+  h: `<p><b>Neues Stück – der Start noch genauer:</b> Im Abschnitt „Start-Melodie“ gibt es jetzt <b>Vorlagen</b> und <b>Zufall</b>, drei <b>Lagen</b> (tief, mittel, hoch) und „So startet das Stück“: <b>wer mitspielt</b> (jede Form einzeln), <b>Drehungen je Takt</b> (¼ bis 2), <b>zusammen oder nacheinander</b> (Kanon: jede weitere Form setzt zwei Töne später ein) und ob das Stück <b>sofort spielt</b> oder auf dich wartet.</p>
+  <p><b>Bewegung einstellen</b> (Mischen → Bewegung): <b>Empfindlichkeit</b> sanft, normal, stark · <b>↔ / ↕ umkehren</b>, falls sich Kippen verkehrt herum anfühlt · <b>Mitte neu</b> – auch als Knopf in der Live-Fläche.</p>
+  <p><b>Live-Fläche:</b> zweiter Finger = Echo, <b>dritter Finger = Zerhacker</b> (die Musik wird im Takt zerhackt), <b>vierter Finger = Stille</b>. Der Punkt zieht eine Leuchtspur. „Hacken“ gibt es auch als Knopf zum Halten.</p>
+  <p><b>Klangschrift:</b> Mit zwei Fingern im Notenfeld <b>zusammenziehen</b> zeigt mehr Takte, <b>auseinanderziehen</b> weniger. Dasselbe machen die Knöpfe 🔍 1 · 2 · 4.</p>
+  <p><b>Dreh-Leiste – alle:</b> Der Schalter „alle“ lässt Stopp, Tempo und Richtung für alle Formen zugleich gelten – so laufen sie im Gleichschritt.</p>` });
+
 // Verlässt man das Stück, verstummt auch die Schnitt-Schleife
 { const st = UI.setTab.bind(UI); UI.setTab = t => { if (t !== "stueck") WaveEd.stopAll(); st(t); }; }
 /* ============================================================
@@ -19845,6 +20000,43 @@ const Tests = {
           ok("BV", h1 && ok1 && ok2 && /data-bwa="go"/.test(Bew.html()), `Angehaltene Formen wieder anschubsen: einzeln, Auswahl (${ok1 ? "ok" : "fehlt"}) und alle (${ok2 ? "ok" : "fehlt"}) · im Raum hält Antippen eine drehende Form an`); }
         finally { f.still = s0; Transport.start = ts; UI.toast = tp; } } } catch (e) { ok("BV", false, String(e)); }
 
+    // v74: Start einstellen, Bewegung einstellen, Zerhacker, Zoom, alle Formen
+    try { const ma = Mel.add, fl = Forms.list, op = StartMel.opt, made = []; let o;
+      try { Mel.add = (f, d, n) => { made.push(f.id); }; Forms.list = [{ id: "a", kind: "synth" }, { id: "b", kind: "drum" }, { id: "c", kind: "synth" }, { id: "d", kind: "sample" }];
+        StartMel.opt = { n: 4, off: { 2: true } }; const F = StartMel.apply([0, 2, 4], StartMel.opt.off), a = made.join() === "a,d" && F.length === 2;
+        made.length = 0; StartMel.opt = { n: 7, off: { 2: true } }; StartMel.apply([0, 2], StartMel.opt.off); const b = made.join() === "a,c,d";       // passt die Liste nicht zum Blatt, spielen alle mit
+        const z = StartMel.zufall(), zz = z.length === 8 && z[0] === 0 && z.every(k => k >= -2 && k <= 9) && [0, 2, 4].includes(z[7]);
+        o = a && b && zz && StartMel.lab(0) === "1" && StartMel.lab(7) === "1▴" && StartMel.lab(-3) === "5▾" && StartMel.midiFor(Music.mood, 7) - StartMel.midiFor(Music.mood, 0) === 12 && StartMel.midiFor(Music.mood, -7) - StartMel.midiFor(Music.mood, 0) === -12; }
+      finally { Mel.add = ma; Forms.list = fl; StartMel.opt = op; }
+      ok("S4", o, "Start einstellen: abgewählte Formen bekommen die Melodie nicht · Zufall liefert acht Töne, beginnt auf dem Grundton und endet auf einem Ton des Grundakkords · tiefe und hohe Lage liegen genau eine Oktave tiefer bzw. höher"); } catch (e) { ok("S4", false, String(e)); }
+    try { const B = Beweg, st = { cfg: { ...B.cfg }, R: B.RANGE, lr: B.lr, fb: B.fb, zero: B.zero, got: B.got }, ss = store.set; store.set = () => {}; let o;
+      try { B.cfg = { sens: "normal", ilr: false, ifb: false }; B.RANGE = 35; const a0 = B.axes(10, 20, 0); B.cfg.ilr = true; const a1 = B.axes(10, 20, 0); B.cfg.ifb = true; const a2 = B.axes(10, 20, 0); B.cfg.ilr = false; B.cfg.ifb = false;
+        const full = s => { B.setCfg("sens", s); B.zero = null; B.got = 0; B.lr = 0; B.fb = 0; B.feed(0, 0, 0); for (let i = 0; i < 60; i++) B.feed(0, 25, 0); return B.lr; }, s1 = full("sanft"), s2 = full("normal"), s3 = full("stark");
+        o = a0[0] === 20 && a0[1] === -10 && a1[0] === -20 && a1[1] === -10 && a2[0] === -20 && a2[1] === 10 && s1 < s2 && s2 < s3 && s3 > 0.999 && Math.abs(s2 - 21 / 31) < 0.01; }
+      finally { store.set = ss; B.cfg = st.cfg; B.RANGE = st.R; B.lr = st.lr; B.fb = st.fb; B.zero = st.zero; B.got = st.got; }
+      ok("B5", o, "Bewegung einstellen: ↔ und ↕ kehren je eine Achse um · bei 25° Neigung reicht „stark“ für den vollen Ausschlag, „normal“ für zwei Drittel, „sanft“ für weniger"); } catch (e) { ok("B5", false, String(e)); }
+    try { const hs = Live70.holdSet, ea = Wucht.echoAmt, mx = Live70.mainXY, gs = Live70.gateSet, st = { X: Live70.X, e: Live70.mtEcho, c: Live70.mtCut, g: Live70.mtGate, h: Live70.hold, gate: Live70.gate }; const log = [];
+      let o; try { Live70.hold = {}; Live70.holdSet = (k, on) => { Live70.hold[k] = on; log.push(k + (on ? "+" : "-")); }; Live70.gateSet = on => { log.push("gate" + (on ? "+" : "-")); }; Wucht.echoAmt = () => {}; Live70.mainXY = () => [100, 100, 300]; Live70.mtEcho = false; Live70.mtCut = false; Live70.mtGate = false;
+        const P = n => { Live70.X = Array.from({ length: n }, (_, i) => ({ id: i, x: 150 + i * 30, y: 150 })); Live70.mtUpdate(); }; P(1); P(2); P(3); P(2); P(1); P(0);
+        o = log.join(" ") === "echo+ gate+ gate- cut+ gate- cut- gate+ gate- echo-"; }
+      finally { Live70.holdSet = hs; Wucht.echoAmt = ea; Live70.mainXY = mx; Live70.gateSet = gs; Live70.X = st.X; Live70.mtEcho = st.e; Live70.mtCut = st.c; Live70.mtGate = st.g; Live70.hold = st.h; Live70.gate = st.gate; }
+      ok("L4", o, "Live-Fläche: zweiter Finger = Echo, dritter = Zerhacker, vierter = Stille (der Zerhacker ruht dann) – und beim Abheben in umgekehrter Reihenfolge zurück"); } catch (e) { ok("L4", false, String(e)); }
+    try { const S = Schrift, st = { L: S.L, per: S.per, page: S.page, cw: S.cw, pw: S.perWant, f: S.f, lw: S.lw, rh: S.rh, lo: S.lo, hi: S.hi }, rn = S.render, hp = window.Hap; let o;
+      try { S.render = () => { S.layout(); }; S.f = S.f || { kind: "synth" }; S.L = 4; S.page = 3; S.perWant = 0; S.layout(); const p0 = S.per, c0 = S.cw;
+        const z1 = S.zoom(1), p1 = S.per, c1 = S.cw, pg = S.page; S.zoom(1); const p2 = S.per; const z3 = S.zoom(1); S.zoom(-1); S.zoom(-1); S.zoom(-1); const p3 = S.per, z4 = S.zoom(-1);
+        o = p1 === Math.min(4, p0 * 2) && (p1 === p0 || c1 < c0) && pg % p1 === 0 && p2 === 4 && z3 === false && p3 === 1 && z4 === false; }
+      finally { S.render = rn; Object.assign(S, { L: st.L, per: st.per, page: st.page, cw: st.cw, perWant: st.pw, f: st.f, lw: st.lw, rh: st.rh, lo: st.lo, hi: st.hi }); }
+      ok("Z4", o, "Klangschrift-Ansicht: zusammenziehen zeigt doppelt so viele Takte (bis 4), auseinanderziehen halb so viele (bis 1) · die Seite beginnt immer auf einem passenden Takt"); } catch (e) { ok("Z4", false, String(e)); }
+    try { const mk = id => ({ id, rot: 0, bus: -1, pulse: 0, still: false, moff: { x: 0, z: 0 }, mot: { dreh: 0, schwing: 0, puls: 0, kreis: 0, rate: 1 } }), A = mk("a"), Bf = mk("b"), C = mk("c"), fl = Forms.list, ts = Transport.start, ss = Save.soon, us = UI.soon, tt = UI.toast, am = Forms.applyMix, all0 = Dreh73.all; Transport.start = () => {}; Save.soon = () => {}; UI.soon = () => {}; UI.toast = () => {}; Forms.applyMix = () => {};
+      let o; try { Forms.list = [A, Bf, C]; Dreh73.all = true; Dreh73.act("r:2", A); const a = [A, Bf, C].every(f => Math.abs(Dreh73.rpb(f) - 2) < 1e-9);
+        Dreh73.act("pp", A); const b = [A, Bf, C].every(f => f.still && Dreh73.rpb(f) === 0); Dreh73.act("pp", A); const c = [A, Bf, C].every(f => !f.still && Math.abs(Dreh73.rpb(f) - 2) < 1e-9);
+        Dreh73.act("flip", A); const d = [A, Bf, C].every(f => Dreh73.dir(f) === -1);
+        Dreh73.all = false; Dreh73.act("r:0.5", A); const e = Math.abs(Dreh73.rpb(A) - 0.5) < 1e-9 && Math.abs(Dreh73.rpb(Bf) - 2) < 1e-9;
+        o = a && b && c && d && e && Dreh73.html(A).includes('data-dr="all"'); }
+      finally { Forms.list = fl; Transport.start = ts; Save.soon = ss; UI.soon = us; UI.toast = tt; Forms.applyMix = am; Dreh73.all = all0; }
+      ok("D4", o, "Dreh-Leiste „alle“: Tempo, Stopp, Weiter und Richtung gelten für alle Formen zugleich · ohne „alle“ nur für die gewählte"); } catch (e) { ok("D4", false, String(e)); }
+
+
     // v73: Start-Melodie, Dreh-Leiste, Alles auf einen Blick
     try { const ma = Mel.add, fl = Forms.list, made = []; let o;
       try { Mel.add = (f, d, n) => { made.push([f.id, d.join(","), n]); }; Forms.list = [{ id: "a", kind: "synth" }, { id: "b", kind: "drum" }, { id: "c", kind: "synth", empty: true }, { id: "d", kind: "sample" }];
@@ -19887,9 +20079,9 @@ const Tests = {
       let o; try { Live70.hold = {}; Live70.holdSet = (k, on) => { Live70.hold[k] = on; log.push(k + (on ? "+" : "-")); }; Wucht.echoAmt = a => { amt = a; }; Live70.mainXY = () => [100, 100, 300]; Live70.mtEcho = false; Live70.mtCut = false;
         Live70.X = [{ id: 1, x: 100, y: 190 }]; Live70.mtUpdate(); const a1 = amt; Live70.X[0].y = 400; Live70.mtUpdate(); const a2 = amt;
         Live70.X.push({ id: 2, x: 50, y: 50 }); Live70.mtUpdate(); Live70.X.pop(); Live70.mtUpdate(); Live70.X = []; Live70.mtUpdate();
-        o = Math.abs(a1 - 0.5) < 1e-6 && a2 === 1 && log.join(" ") === "echo+ cut+ cut- echo-" && Live70.echoFor(0, 300) === 0.25; }
+        o = Math.abs(a1 - 0.5) < 1e-6 && a2 === 1 && log.join(" ") === "echo+ echo-" && Live70.echoFor(0, 300) === 0.25; }
       finally { Live70.holdSet = hs; Wucht.echoAmt = ea; Live70.mainXY = mx; Live70.X = st.X; Live70.mtEcho = st.e; Live70.mtCut = st.c; Live70.hold = st.h; }
-      ok("L2", o, "Live-Fläche mit mehreren Fingern: zweiter Finger schaltet das Echo, sein Abstand zum Punkt regelt die Stärke (nah 25 %, weit 100 %) · dritter Finger = Stille, beim Abheben setzt alles wieder ein · sind alle weiteren Finger weg, ist auch das Echo aus"); } catch (e) { ok("L2", false, String(e)); }
+      ok("L2", o, "Live-Fläche mit mehreren Fingern: zweiter Finger schaltet das Echo, sein Abstand zum Punkt regelt die Stärke (nah 25 %, weit 100 %) · sind alle weiteren Finger weg, ist auch das Echo aus (dritter und vierter Finger: siehe L4)"); } catch (e) { ok("L2", false, String(e)); }
     try { const A = Auto72, st = { on: A.on, c: A.chunks, f: A.frames, q: A.quiet }, ss = store.set, ra = Recs.add, so = Sheets.open, pc = Projects.cur; let saved = null, asked = 0; store.set = () => {};
       let o; try { const sr = A.sr(), blk = (amp, n = sr / 2) => { const a = new Float32Array(n).fill(amp); return [a, a]; };
         A.on = true; A.chunks = []; A.frames = 0; A.quiet = 0;

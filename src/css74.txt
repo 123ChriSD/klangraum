@@ -1,0 +1,29 @@
+
+/* ---------- v74 ---------- */
+.sm74pre { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 2px; }
+.sm74lage { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 13px; color: #A9B4D0; }
+.sm74seg button { min-height: 40px; }
+.sm74opt { margin-top: 16px; padding: 12px; border-radius: 16px; background: rgba(255, 255, 255, .04); border: 1px solid rgba(255, 255, 255, .08); transition: opacity .2s; }
+.sm74opt.q7off { opacity: .45; }
+.sm74opt h4 { margin: 0 0 8px; font-size: 14px; font-weight: 800; color: #EEF2FF; }
+.sm74l { display: grid; gap: 6px; margin-top: 10px; } .sm74l > span { font-size: 12.5px; color: #A9B4D0; }
+.sm74who { display: flex; flex-wrap: wrap; gap: 6px; } .sm74who .npc small { margin-left: 6px; opacity: .7; } .sm74who .npc:disabled { opacity: .45; }
+.sm73row i { width: auto; min-width: 28px; padding: 0 5px; box-sizing: border-box; }
+/* Bewegung einstellen */
+.b74o { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.b74o .eb { min-height: 40px; padding: 0 12px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .06); color: #EEF2FF; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.b74o .eb.tg[aria-pressed="true"] { background: linear-gradient(135deg, #35C0E0, #4F7BFF); border-color: transparent; }
+.b74o .eseg button { min-height: 36px; font-size: 13px; }
+.lvmid { display: none; position: absolute; right: calc(14px + env(safe-area-inset-right, 0px)); bottom: calc(96px + env(safe-area-inset-bottom, 0px)); min-height: 36px; padding: 0 12px; border-radius: 18px; border: 1px solid #35C0E0; background: rgba(12, 16, 30, .7); color: #fff; font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
+body.kbw74 .lvmid { display: block; }
+.lvbot.q7four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; } .lvbot.q7four .lvh { padding: 0 2px; } .lvbot.q7four .lvh b { font-size: 14.5px; } .lvbot.q7four .lvh small { font-size: 10px; }
+@media (max-width: 519px) { .lvbot.q7four .lvh small { display: none; } .lvbot.q7four .lvh { height: 60px; } }
+@media (orientation: landscape) and (max-height: 520px) { .lvmid { bottom: calc(62px + env(safe-area-inset-bottom, 0px)); } }
+/* Klangschrift: Ansicht */
+.kn74z button { min-width: 48px; }
+/* Dreh-Leiste: alle */
+.dr73 { flex-wrap: wrap; } .dr74a { flex: 0 0 auto; min-width: 42px; min-height: 46px; padding: 0 8px; border-radius: 14px; font-size: 12px; font-weight: 800; }
+.dr74a[aria-pressed="true"] { background: linear-gradient(135deg, #FFB25C, #FF3CAC) !important; color: #fff; }
+@media (max-width: 440px) { .dr73 { gap: 4px; } .dr73s { grid-template-columns: repeat(5, 28px); gap: 1px; } .dr73s button { font-size: 14px; } .dr73p { flex-basis: 48px; } .dr73d { flex-basis: 38px; } .dr74a { min-width: 40px; padding: 0 6px; } }
+@media (max-width: 379px) { .dr73s { grid-template-columns: repeat(5, 25px); } .dr73p { flex-basis: 44px; } .dr73d { flex-basis: 34px; } .dr74a { min-width: 36px; padding: 0 4px; } }
+body.kdr73 #ksheet .kchip[data-ks="fstop"], body.kdr73 #ksheet .kchip[data-ks="fgo"] { display: none; }

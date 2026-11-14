@@ -8,6 +8,7 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **alle Formen zugleich anhalten oder gleich schnell drehen** | **Spielen** → Leiste unten links → **alle** | [→](#v74) |
 | **ein neues Stück mit meiner eigenen Melodie beginnen** | **Start** (unten) → **Stück mit Melodie** · Melodie tippen → anlegen | [→](#v73) |
 | **eine Form genau drehen oder sofort anhalten** | **Spielen** → Leiste unten links: Stopp · ¼ ½ 1 2 4 · Richtung | [→](#v73) |
 | **eine Funktion finden** | **Start** (unten) oder **Mehr** → **Alles auf einen Blick** · mit Suche | [→](#v73) |
@@ -73,6 +74,32 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## 🎛 Start einstellen, mehr Finger, alle Formen steuern (neu in v74) {#v74}
+
+**Neues Stück – der Start noch genauer**
+- Im Abschnitt **Start-Melodie** gibt es **Vorlagen** und **🎲 Zufall**. Jede klingt sofort vor.
+- **Lage:** tief, mittel oder hoch.
+- **Wer spielt mit:** Tippe eine Form an, um sie aus- oder einzuschalten.
+- **Drehungen je Takt:** ¼, ½, 1 oder 2.
+- **Einsatz:** zusammen – oder nacheinander als Kanon.
+- **Beginn:** spielt sofort – oder wartet, bis du „Drehen“ tippst.
+
+**Bewegung einstellen** (Mischen → Bewegung)
+- **Empfindlichkeit:** sanft, normal, stark.
+- **↔ umkehren / ↕ umkehren:** falls sich das Kippen verkehrt herum anfühlt.
+- **Mitte neu:** Die jetzige Haltung gilt als unverändert. Den Knopf gibt es auch in der Live-Fläche.
+
+**Live-Fläche mit mehr Fingern**
+- Zweiter Finger: Echo. Dritter Finger: **Zerhacker** – die Musik wird im Takt zerhackt. Vierter Finger: Stille.
+- **Hacken** gibt es auch als Knopf zum Halten.
+
+**Klangschrift – mehr oder weniger Takte zeigen**
+- Zwei Finger im Notenfeld **zusammenziehen:** mehr Takte. **Auseinanderziehen:** weniger.
+- Oder die Knöpfe **🔍 1 · 2 · 4**.
+
+**Dreh-Leiste – alle**
+- Der Schalter **alle** lässt Stopp, Tempo und Richtung für alle Formen zugleich gelten.
+
 ## 🧭 Start-Melodie, Dreh-Leiste, Alles auf einen Blick (neu in v73) {#v73}
 
 **Neues Stück mit deiner Melodie**

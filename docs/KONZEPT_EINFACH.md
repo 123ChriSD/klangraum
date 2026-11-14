@@ -114,3 +114,12 @@ Wer mehr will, findet unter **Mehr** alles Bisherige (Pult, Beat-Maschine, Schni
 - **Genau heißt: ein Tipp, ein Wert.** Wischen ist ausdrucksstark, aber ungenau. Die Dreh-Leiste setzt daneben feste Werte (¼ bis 4 Umdrehungen je Takt) und einen Stopp, der wirklich sofort hält. Gesten bleiben, wirken aber nur noch in die gemeinte Richtung.
 - **Ein Ort für alles:** Funktionen sind nach Bereichen verteilt, damit jede Ansicht ruhig bleibt. Dafür braucht es einen Ort, an dem man alles findet, ohne zu wissen, wo es wohnt: geordnet nach Aufgaben und mit Suche.
 - **Offen:** Start-Melodie mit Rhythmus (jetzt nur Tonfolge) und mit dem späteren Instrument vorhören; der ältere „Anhalten“-Knopf im Steuerfeld gehört mit der Dreh-Leiste zusammengeführt; Effekte in der Übersicht.
+
+## 13. Version 74: Der Anfang als Entscheidung, die Hand als Mischpult
+
+- **Der Start ist die wichtigste Minute.** Wer mit einer Vorlage oder per Zufall eine Melodie hört, hat sofort Material – ohne „ich kann keine Melodie erfinden“. Wenige Fragen in Alltagssprache (wer, wie schnell, zusammen oder nacheinander, sofort oder gleich) ersetzen Einstellungen, die man sonst später suchen müsste.
+- **Kanon als Aha-Erlebnis:** Dieselbe Melodie, versetzt – das versteht jedes Kind vom Singen. Ein Schalter genügt.
+- **Jeder Finger eine Stufe mehr:** 1 formt, 2 Echo, 3 zerhackt, 4 schweigt. Die Reihenfolge steigert sich wie ein Aufbau; nichts muss man sich merken, was man nicht ausprobieren kann.
+- **Zoomen, wie man es kennt:** Zwei Finger zusammen/auseinander – die Geste gibt es überall, also auch hier.
+- **Gleichschritt mit einem Tipp:** „alle“ macht aus drei Formen ein Ensemble, das man gemeinsam anhält und startet.
+- **Empfindlichkeit gehört dem Menschen:** Wie stark man ein Gerät kippt, ist Gewohnheit. Drei Stufen und „umkehren“ statt Zahlen.
