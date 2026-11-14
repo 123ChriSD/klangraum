@@ -8,6 +8,9 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **ein neues Stück mit meiner eigenen Melodie beginnen** | **Start** (unten) → **Stück mit Melodie** · Melodie tippen → anlegen | [→](#v73) |
+| **eine Form genau drehen oder sofort anhalten** | **Spielen** → Leiste unten links: Stopp · ¼ ½ 1 2 4 · Richtung | [→](#v73) |
+| **eine Funktion finden** | **Start** (unten) oder **Mehr** → **Alles auf einen Blick** · mit Suche | [→](#v73) |
 | **den Klang durch Kippen und Schütteln des Geräts ändern** | **Mischen** → **Bewegung** einschalten · oder in der Live-Fläche **Kippen** | [→](#v72) |
 | **mitten im Stück den Bereich wechseln** | Leiste **Tasten · Noten · Kneten · Live** oben in jedem dieser Bereiche | [→](#v72) |
 | **dass mein Spiel von selbst aufgenommen wird** | läuft von selbst · beim Wechsel des Stücks fragt KLANGRAUM · **Mischen** → **Mitschnitt** | [→](#v72) |
@@ -70,6 +73,27 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## 🧭 Start-Melodie, Dreh-Leiste, Alles auf einen Blick (neu in v73) {#v73}
+
+**Neues Stück mit deiner Melodie**
+- **Start** (unten) → **Stück mit Melodie**. Oder: Meine Stücke → ＋ Neues Stück.
+- Im Abschnitt **Start-Melodie** tippst du auf den bunten Tasten eine kurze Melodie, bis 16 Töne.
+- **Zurück** nimmt den letzten Ton weg, **Anhören** spielt sie vor, **Leeren** fängt neu an.
+- **Stück mit dieser Melodie anlegen:** Alle Formen des neuen Stücks spielen zuerst dasselbe.
+- Schlagzeug hat keine Tonhöhen und bleibt stehen.
+- Lässt du das Feld leer, entsteht das Stück wie gewohnt. Andere Stücke bleiben, wie sie sind.
+
+**Dreh-Leiste – genau drehen, sofort anhalten**
+- Im Bereich **Spielen** unten links, für die gewählte Form.
+- **Drehen** startet. **Stopp** hält sofort an. **Weiter** dreht mit dem alten Tempo.
+- **¼ · ½ · 1 · 2 · 4** sind Umdrehungen je Takt. Ein Tipp stellt genau diesen Wert ein.
+- Der **Pfeil** kehrt die Richtung um.
+- Mit dem Finger: waagerecht wischen dreht, senkrecht wischen kippt. Leicht schräge Bewegungen zählen nur für die Hauptrichtung.
+
+**Alles auf einen Blick**
+- **Start** (unten) oder **Mehr** (oben): alle Bereiche und Funktionen in einem Blatt, nach Aufgaben geordnet.
+- Oben ist eine **Suche**. Findet sie nichts, sucht ein Knopf in der Hilfe weiter.
+
 ## 📱 Bewegung, Mitschnitt und Wechsel mitten im Stück (neu in v72) {#v72}
 
 **Bewegung – das Gerät kippen und schütteln**

@@ -2330,6 +2330,51 @@ body.kneadmode .knead.on:not(.paint):not(.turn) { opacity: 0; }
 .am72r .eb:disabled { opacity: .4; }
 .mxr.am72r .mxn > i { background: linear-gradient(135deg, #FF5A6E, #E05CD8); }
 @media (max-width: 519px) { .am72r .b72b { flex-wrap: wrap; } .am72r .b72t { flex: 1 1 calc(100% - 80px); } .am72r .eb { margin-left: 72px; } }
+
+/* ---------- v73: Start-Melodie · Dreh-Leiste · Alles auf einen Blick ---------- */
+.sm73row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; min-height: 44px; margin: 12px 0; padding: 8px 10px; border-radius: 14px; background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .08); }
+.sm73row i { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 9px; background: var(--c); color: #0a0f1c; font: 800 13px/1 system-ui, sans-serif; font-style: normal; }
+.sm73row span { color: #8FA0C8; font-size: 13.5px; }
+.sm73keys { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.sm73k { display: grid; place-content: center; justify-items: center; gap: 2px; min-height: 62px; padding: 0; border-radius: 16px; border: 0; background: linear-gradient(180deg, var(--c), color-mix(in srgb, var(--c) 72%, #000)); color: #0a0f1c; font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 6px 14px -8px var(--c); }
+.sm73k b { font-size: 22px; font-weight: 800; line-height: 1; } .sm73k small { font-size: 11.5px; font-weight: 700; opacity: .75; } .sm73k:active { transform: translateY(2px); filter: brightness(1.15); } .sm73k:disabled { opacity: .4; }
+.sm73bar { display: flex; gap: 8px; margin-top: 14px; align-items: center; }
+.sm73bar .eb, .sm73bar .edone { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 50px; padding: 0 14px; border-radius: 15px; font: inherit; font-weight: 700; cursor: pointer; color: #EEF2FF; }
+.sm73bar .eb { border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .06); } .sm73bar .eb svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.sm73bar .edone { flex: 1 1 auto; border: 0; background: linear-gradient(135deg, #4F7BFF, #9B5CFF 55%, #E05CD8); font-weight: 800; } .sm73bar button:disabled { opacity: .4; }
+.btn.sm73new { border-color: #9B5CFF; }
+/* Dreh-Leiste: schwebt unten links über dem Steuerfeld */
+.dr73 { position: fixed; z-index: 15; left: calc(12px + env(safe-area-inset-left, 0px)); bottom: calc(76px + var(--toolsh, 72px) + var(--fctlh, 0px) + var(--mbarh, 0px) + env(safe-area-inset-bottom, 0px)); display: flex; align-items: stretch; gap: 5px; padding: 4px; border-radius: 18px; background: rgba(10, 14, 26, .72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, .1); max-width: calc(100vw - 108px); }
+.dr73[hidden] { display: none; }
+.dr73 button { font: inherit; color: #EEF2FF; cursor: pointer; -webkit-tap-highlight-color: transparent; border: 0; background: rgba(255, 255, 255, .07); }
+.dr73 svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; display: block; }
+.dr73p { flex: 0 0 56px; display: grid; justify-items: center; align-content: center; gap: 2px; min-height: 46px; padding: 0; border-radius: 14px; } .dr73p b { font-size: 10.5px; font-weight: 800; line-height: 1; }
+.dr73p[aria-pressed="true"] { background: linear-gradient(135deg, #4F7BFF, #9B5CFF 55%, #E05CD8); }
+.dr73s { flex: 0 1 auto; min-width: 0; display: grid; grid-template-columns: repeat(5, 36px); gap: 2px; }
+.dr73s button { min-height: 46px; padding: 0; border-radius: 12px; background: none; font-size: 15px; font-weight: 800; color: #A9B4D0; }
+.dr73s button[aria-pressed="true"] { background: #EEF2FF; color: #0a0f1c; }
+.dr73d { flex: 0 0 44px; display: grid; place-items: center; min-height: 46px; padding: 0; border-radius: 14px; } .dr73d i { display: block; } .dr73d i.q7l { transform: scaleX(-1); }
+body.full .dr73, body.kneadmode .dr73 { display: none; }
+@media (max-width: 379px) { .dr73s { grid-template-columns: repeat(5, 31px); } .dr73p { flex-basis: 50px; } .dr73d { flex-basis: 40px; } }
+/* Alles auf einen Blick */
+.al73q { display: block; width: 100%; box-sizing: border-box; min-height: 48px; margin: 4px 0 6px; padding: 0 14px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .06); color: #EEF2FF; font: inherit; font-size: 16px; }
+.al73q:focus { outline: 2px solid #9B5CFF; outline-offset: 1px; }
+.al73h { margin: 16px 0 8px; font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #C9D3F2; } .al73h small { font-weight: 500; letter-spacing: 0; text-transform: none; color: #8FA0C8; }
+.al73g { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 8px; } .al73g.q7w { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+.al73g[hidden], .al73h[hidden], .al73t[hidden] { display: none !important; }
+.al73t { display: grid; justify-items: center; align-content: center; gap: 5px; min-height: 72px; padding: 8px 4px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, .09); background: rgba(255, 255, 255, .045); color: #EEF2FF; font: inherit; cursor: pointer; text-align: center; -webkit-tap-highlight-color: transparent; }
+.al73t i { display: grid; place-items: center; } .al73t svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.al73t b { font-size: 12px; font-weight: 700; line-height: 1.2; overflow-wrap: anywhere; } .al73t small { font-size: 11px; line-height: 1.25; color: #8FA0C8; }
+.al73t.q7wide { grid-template-columns: 26px minmax(0, 1fr); justify-items: start; text-align: left; column-gap: 10px; padding: 8px 12px; min-height: 60px; } .al73t.q7wide i { grid-row: 1 / span 2; } .al73t.q7wide b { font-size: 14px; }
+.al73t:active { background: rgba(155, 92, 255, .3); }
+.al73no { color: #A9B4D0; }
+.al73row { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin-top: 14px; }
+.al73go { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 60px; padding: 8px 14px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, .14); background: rgba(255, 255, 255, .05); color: #EEF2FF; font: inherit; text-align: left; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.al73go i { flex: 0 0 auto; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #4F7BFF, #9B5CFF); } .al73go svg { width: 21px; height: 21px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.al73go span { display: grid; gap: 2px; min-width: 0; } .al73go b { font-size: 15px; font-weight: 800; } .al73go small { font-size: 12px; color: #8FA0C8; }
+.al73go.q7top { margin-bottom: 12px; }
+.sm73 { margin-top: 6px; padding: 2px 0 6px; border-radius: 16px; transition: box-shadow .3s, background .3s; } .sm73.q7hi { box-shadow: 0 0 0 2px #9B5CFF; background: rgba(155, 92, 255, .1); }
+.sm73 .sm73bar .eb { flex: 1 1 0; min-height: 44px; padding: 0 8px; } .sm73 .sm73bar .eb:disabled { opacity: .4; }
 </style>
 
 <canvas id="c" aria-label="Klangraum: dreidimensionale Klangformen" role="img"></canvas>
@@ -2388,7 +2433,7 @@ body.kneadmode .knead.on:not(.paint):not(.turn) { opacity: 0; }
 
 <div class="start" id="start">
   <div class="start-inner">
-    <div class="meta">Version 72 · Bewegung: Gerät kippen und schütteln formt den Klang (zuschaltbar) · Live-Fläche mit mehreren Fingern · Wechsel mitten im Stück · Mitschnitt</div>
+    <div class="meta">Version 73 · Stück mit eigener Start-Melodie · Dreh-Leiste (genau drehen, sofort anhalten) · Alles auf einen Blick</div>
     <h1 class="klogoH"><span class="sr">KLANGRAUM</span><span id="klogoStart" aria-hidden="true"></span></h1>
     <p>Musik machen ohne Vorkenntnisse: Wähle einen Stil, und KLANGRAUM baut dir einen ganzen Song. Oder spiel, forme und mische deine Klänge selbst – nichts klingt falsch.</p><ul class="stfeat"><li>Song in 1 Minute</li><li>Einspielen ohne Aufnahmeknopf</li><li>Klänge kneten</li><li>Mischen wie im Studio</li></ul>
     <button class="enter" id="enter">Eintauchen</button>
@@ -6603,7 +6648,7 @@ const Sheets = {
   },
   menu() {
     const txt = Sheets.helpText(Music.help);
-    const s = this.open("Menü", this.head("KLANGRAUM · Version 72") + `
+    const s = this.open("Menü", this.head("KLANGRAUM · Version 73") + `
       <div class="field"><label for="rHelp">Wie viel hilft die App? <b id="helpV">${txt[0]}</b></label><input type="range" id="rHelp" min="0" max="100" step="1" value="${Music.help}"><p class="helptext" id="helpT">${txt[1]}</p></div>
       ${TempoUI.html()}
       <div class="row"><button class="btn" id="mGlide">Übergänge: Drehung ${Glide.rot ? "fließend" : "sofort"} · Tempo ${Glide.tempo ? "fließend" : "sofort"}</button></div>
@@ -18884,6 +18929,128 @@ Help.T.push({ id: "v72b", ic: "⏺", t: "Mitschnitt und Wechsel mitten im Stück
   <p><b>Wechsel mitten im Stück:</b> In Einspielen, Klangschrift, Kneten und Live-Fläche steht oben dieselbe Leiste: <b>Tasten · Noten · Kneten · Live</b>. Ein Tipp wechselt den Bereich, die Musik läuft weiter. Auch „Fertig“ in der Live-Fläche hält die Musik nicht mehr an, wenn sie vorher schon lief.</p>
   <p><b>Live-Fläche mit mehreren Fingern:</b> Der erste Finger führt den Punkt. Ein <b>zweiter Finger</b> gibt Echo – je weiter weg vom ersten, desto stärker. Ein <b>dritter Finger</b> ist Stille; beim Abheben setzt alles wieder ein.</p>` });
 
+/* =====================================================================================
+   v73: START-MELODIE · DREH-LEISTE · ALLES AUF EINEN BLICK
+   – StartMel: beim Anlegen eines neuen Stücks eine Melodie spielen – alle Startformen bekommen sie als Grundmelodie
+               und spielen zunächst dasselbe (nur in diesem neuen Stück).
+   – Dreh73:   Drehen, Tempo, Richtung und Anhalten direkt unter der Form: ein Tipp = genau ein Wert, Stopp = sofort.
+               Wischen und Loslassen wirken nur noch auf die gemeinte Achse.
+   – Alles73:  alle Bereiche und Funktionen in einem Blatt, nach Aufgaben geordnet, mit Suche.
+   ===================================================================================== */
+Object.assign(I67, {
+  dreh: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.500 12a7.500 7.500 0 1 1-2.400-5.500"/><path d="M19.800 3.800v4.400h-4.400"/></svg>',
+  raster: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.500" y="3.500" width="7" height="7" rx="1.800"/><rect x="13.500" y="3.500" width="7" height="7" rx="1.800"/><rect x="3.500" y="13.500" width="7" height="7" rx="1.800"/><rect x="13.500" y="13.500" width="7" height="7" rx="1.800"/></svg>'
+});
+
+/* ---------- 1) Start-Melodie: im Blatt „Neues Stück“ eine Melodie spielen – alle Formen des neuen Stücks spielen sie zuerst ---------- */
+const StartMel = {
+  MAXN: 16,
+  midiFor(mood, k) { const mu = K.music(mood); let b = 60 + mod(mood.root, 12); if (b > 66) b -= 12; return b + mu.so(k); },
+  midi(k) { return this.midiFor(Music.mood, k); },
+  mood() { const S = NewPiece.st; return (S && K.MOODS.find(m => m.id === S.mood)) || Music.mood; },
+  beep(m, when, dur = 0.32) { const c = Engine.ctx; if (!c) return; try { if (c.state !== "running") c.resume(); const t = Math.max(c.currentTime, when || 0), o = c.createOscillator(), o2 = c.createOscillator(), g = c.createGain(), g2 = c.createGain(), f = midiHz(m); o.type = "triangle"; o.frequency.value = f; o2.type = "sine"; o2.frequency.value = f * 2; g2.gain.value = 0.25;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.32, t + 0.012); g.gain.exponentialRampToValueAtTime(0.0001, t + dur + 0.25); o.connect(g); o2.connect(g2).connect(g); g.connect(Engine.sum || Engine.out); o.start(t); o2.start(t); o.stop(t + dur + 0.3); o2.stop(t + dur + 0.3); } catch (e) { console.warn(e); } },
+  // Abschnitt für das Blatt „Neues Stück“
+  sec(S) { const mood = this.mood();
+    return `<div class="sm73" id="sm73S"><h3 class="ph3">Start-Melodie <small>wahlweise</small></h3><p class="kch">Spiel hier eine kurze Melodie – bis ${this.MAXN} Töne. Alle Formen des neuen Stücks bekommen sie und spielen zuerst <b>dasselbe</b>. Lässt du das Feld leer, bleibt alles wie gewohnt.</p>
+      <div class="sm73row" id="sm73Row" aria-live="polite"></div>
+      <div class="sm73keys">${[0, 1, 2, 3, 4, 5, 6, 7].map(k => `<button class="sm73k" data-sm="k:${k}" style="--c:${KeysUI.COL[k % 7]}" aria-label="Ton ${k + 1}"><b>${k + 1}</b><small>${esc(deN(this.midiFor(mood, k)).replace(/[0-9’',]/g, ""))}</small></button>`).join("")}</div>
+      <div class="sm73bar"><button class="eb" data-sm="undo" aria-label="Letzten Ton entfernen">${I67.left}<span>Zurück</span></button><button class="eb" data-sm="play" aria-label="Melodie anhören">${I67.play}<span>Anhören</span></button><button class="eb" data-sm="clear" aria-label="Melodie leeren">${I67.trash}<span>Leeren</span></button></div></div>`; },
+  paint() { const r = $("sm73Row"), S = NewPiece.st; if (!r || !S) return; const d = S.mel || (S.mel = []);
+    r.innerHTML = d.length ? d.map(k => `<i style="--c:${KeysUI.COL[k % 7]}">${k + 1}</i>`).join("") : `<span>Noch keine Melodie – tippe auf die bunten Tasten.</span>`;
+    const s = $("sm73S"); if (s) { for (const k of ["undo", "play", "clear"]) { const b = s.querySelector(`[data-sm="${k}"]`); if (b) b.disabled = !d.length; } s.querySelectorAll(".sm73k").forEach(b => { b.disabled = d.length >= this.MAXN; }); }
+    const go = document.querySelector('#npS [data-np="go"]'); if (go) go.textContent = d.length ? "Stück mit dieser Melodie anlegen" : "Stück anlegen"; },
+  act(k) {
+    const S = NewPiece.st; if (!S) return; const d = S.mel || (S.mel = []), mood = this.mood();
+    if (k.startsWith("k:")) { const n = +k.slice(2); if (d.length >= this.MAXN) return; d.push(n); this.beep(this.midiFor(mood, n)); Hap(5); }
+    else if (k === "undo") { d.pop(); Hap(); }
+    else if (k === "clear") { d.length = 0; Hap(10); }
+    else if (k === "play" && Engine.ctx) { const t0 = Engine.ctx.currentTime + 0.05, bpm = S.bpm || mood.bpm || 108, gap = clamp(30 / bpm, 0.16, 0.4); d.forEach((n, i) => this.beep(this.midiFor(mood, n), t0 + i * gap, gap * 0.8)); return; }
+    this.paint();
+  },
+  // Melodie auf alle Formen des (eben angelegten) Stücks legen, die Töne spielen können
+  apply(d) { const out = []; for (const f of Forms.list) { if (!f || f.empty || f.remote || f.kind === "drum") continue; Mel.add(f, d, "Start-Melodie"); out.push(f); } return out; },
+  after(d) { try { const F = this.apply(d); for (const f of F) { try { Move.setR(f, 1, { soft: false }); } catch (_) {} }                // alle drehen gleich schnell: eine Umdrehung je Takt = die ganze Melodie
+      if (F.length) { try { if (!Transport.running) Transport.start(); } catch (_) {} } Save.soon(); try { UI.refresh(); } catch (_) {}
+      UI.toast(F.length ? `${F.length} ${F.length === 1 ? "Form spielt" : "Formen spielen"} deine Melodie – alle dasselbe. Unten links: Stopp, Tempo und Richtung für die gewählte Form.` : "Dieses Stück hat keine Form mit Tonhöhen – die Melodie wurde nicht übernommen.", 5600); return F; } catch (e) { console.warn(e); return []; } },
+  // Einstieg von der Startseite: das Blatt „Neues Stück“ öffnen und zur Melodie springen
+  open() { if (!Engine.ctx) { UI.toast("Erst „Eintauchen“ – dann ist der Ton an"); return; } NewPiece.open(); setTimeout(() => { try { const s = $("sm73S"); if (s) { s.scrollIntoView({ block: "center" }); s.classList.add("q7hi"); setTimeout(() => s.classList.remove("q7hi"), 1800); } } catch (_) {} }, 120); }
+};
+{ const rn = NewPiece.render.bind(NewPiece); NewPiece.render = function () { const r = rn(); try { const go = document.querySelector("#npS .np-go"); if (go && this.st && !$("sm73S")) { go.insertAdjacentHTML("beforebegin", StartMel.sec(this.st)); StartMel.paint(); } } catch (e) { console.warn(e); } return r; };
+  const go = NewPiece.go.bind(NewPiece); NewPiece.go = async function () { const d = this.st && Array.isArray(this.st.mel) ? this.st.mel.slice() : []; const r = await go(); if (d.length) StartMel.after(d); return r; };
+  document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("#sm73S [data-sm]"); if (b) StartMel.act(b.dataset.sm); });
+  document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-sm0]"); if (!b) return; Hap(8); UI.hideSheets(); setTimeout(() => StartMel.open(), 60); }); }
+
+/* ---------- 2) Dreh-Leiste: genau drehen, sofort anhalten ---------- */
+const Dreh73 = {
+  R: [[0.25, "¼"], [0.5, "½"], [1, "1"], [2, "2"], [4, "4"]],
+  rpb(f) { try { return f && !f.still ? Motion.rpbOf(Motion.tw(f, "y")) : 0; } catch (_) { return 0; } },
+  near(r) { if (!(r > 0)) return -1; let b = -1, bd = 0.09; this.R.forEach(([x], i) => { const d = Math.abs(Math.log2(r / x)); if (d < bd) { bd = d; b = i; } }); return b; },
+  dir(f) { try { const p = Motion.ph(f); return (Math.sign(Motion.tw(f, "y")) || Math.sign(p.wy) || 1) < 0 ? -1 : 1; } catch (_) { return 1; } },
+  state(f) { const r = this.rpb(f), mv = !!f && !f.still && (r > 0 || Motion.moves(f)); return { r, mv, still: !!(f && f.still), i: this.near(r), dir: this.dir(f) }; },
+  txt(S) { return S.still ? "angehalten" : S.r > 0 ? `${S.r < 1 ? S.r.toFixed(2).replace(".", ",").replace(/0$/, "") : String(Math.round(S.r * 10) / 10).replace(".", ",")} je Takt` : S.mv ? "bewegt sich" : "steht"; },
+  html(f) { const S = this.state(f);
+    return `<button class="dr73p" data-dr="pp" aria-pressed="${S.mv}" aria-label="${S.mv ? "Sofort anhalten" : S.still ? "Weiterdrehen" : "Drehen lassen"} – ${this.txt(S)}"><i>${S.mv ? I67.stop : I67.play}</i><b>${S.mv ? "Stopp" : S.still ? "Weiter" : "Drehen"}</b></button><span class="dr73s" role="group" aria-label="Umdrehungen je Takt">${this.R.map(([x, n], i) => `<button data-dr="r:${x}" aria-pressed="${S.i === i}" aria-label="${n} ${x === 1 ? "Umdrehung" : "Umdrehungen"} je Takt">${n}</button>`).join("")}</span><button class="dr73d" data-dr="flip" aria-label="Drehrichtung umkehren – jetzt ${S.dir < 0 ? "linksherum" : "rechtsherum"}"><i class="${S.dir < 0 ? "q7l" : ""}">${I67.dreh}</i></button>`; },
+  el() { let e = $("dr73"); if (!e) { e = document.createElement("div"); e.id = "dr73"; e.className = "dr73"; e.hidden = true; e.setAttribute("role", "group"); e.setAttribute("aria-label", "Drehen der gewählten Form"); document.body.appendChild(e); } return e; },
+  show() { try { const f = Forms.active; return !!(App.started && UI.tab === "klang" && f && !f.empty && !f.remote && (Scene.view === "nah" || Scene.view === "alle") && !FBar.mode() && !Mel.rec && KSheet.visible() && !Full.on && !Einsp.on && !Schrift.on && !Live70.on && !document.body.classList.contains("kerkl")); } catch (_) { return false; } },
+  // sofort und genau anhalten (kein Auslaufen) · Weiter dreht mit dem alten Tempo
+  stop(f) { Motion.finishGlides(f); Motion.pause(f); },
+  act(k, f = Forms.active) {
+    if (!f || f.empty) return; Hap(8);
+    try {
+      if (k === "pp") { const S = this.state(f); if (S.mv) this.stop(f); else if (S.still) { Motion.resume(f); if (!(this.rpb(f) > 0) && !Motion.moves(f)) Move.setR(f, 1, { soft: false }); } else Move.setR(f, 1, { soft: false }); }
+      else if (k === "flip") { const p = Motion.ph(f), w = Motion.tw(f, "y") || p.wy; if (f.still) Motion.resume(f); f.mot.dreh = 0; Motion.glideTo(f, "y", w ? -w : -Motion.wOfR(1), { soft: false }); if (p.lk) p.lk.y = null; if (!Transport.running && Engine.ctx) Transport.start(); }
+      else if (k.startsWith("r:")) Move.setR(f, +k.slice(2), { soft: false });
+    } catch (e) { console.warn(e); }
+    Save.soon(); try { UI.soon(); } catch (_) {} this.paint();
+  },
+  // Anzeige nachführen (auch wenn die Form mit dem Finger angeschubst wurde)
+  paint() { const el = this.el(), on = this.show(); if (el.hidden === on) el.hidden = !on; if (!on) return; try { const ks = $("ksheet"), top = ks && !ks.hidden ? ks.getBoundingClientRect().top : 0; if (top > 80) { const b = Math.round(innerHeight - top + 8) + "px"; if (el.style.bottom !== b) el.style.bottom = b; } } catch (_) {} const f = Forms.active, S = this.state(f), sg = `${f.id}|${S.mv}|${S.still}|${S.i}|${S.dir}`; if (el.dataset.sg === sg) return; el.dataset.sg = sg; el.innerHTML = this.html(f); }
+};
+document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-dr]"); if (b) Dreh73.act(b.dataset.dr); });
+setInterval(() => { try { Dreh73.paint(); } catch (_) {} }, 300);
+// Wischen und Loslassen: nur die gemeinte Achse. Schräge Bewegungen (über 60 % Anteil) wirken weiter auf beide.
+{ const pu = Motion.push.bind(Motion); Motion.push = function (f, vx, vy) { const ax = Math.abs(vx), ay = Math.abs(vy); if (ay < ax * 0.6) vy = 0; else if (ax < ay * 0.6) vx = 0; return pu(f, vx, vy); };
+  const re = Motion.release.bind(Motion); Motion.release = function (f, wy, wx) { if (wx != null) { const ay = Math.abs(wy), ax = Math.abs(wx); if (ax < ay * 0.6) wx = 0; else if (ay < ax * 0.6) wy = 0; } return re(f, wy, wx); }; }
+
+/* ---------- 3) Alles auf einen Blick ---------- */
+const Alles73 = {
+  AREAS: [["start", "home", "Start"], ["klang", "blob", "Spielen"], ["song", "song", "Song"], ["mix", "mix", "Mischen"], ["loop", "deck", "Pult"], ["beat", "drum", "Beat"], ["schnitt", "song", "Schnitt"], ["bild", "photo", "Foto"], ["stueck", "folder", "Loops"]],
+  MAKE: [["gen", "magic", "Song bauen", "Ein fertiger Song in einer Minute"], ["smel", "note", "Stück mit Melodie", "Eine Melodie spielen – alle Startformen spielen sie"], ["tasten", "keys", "Einspielen", "Auf bunten Tasten in den Loop spielen"], ["noten", "noten", "Klangschrift", "Töne als bunte Balken lesen und setzen"], ["knet", "blob", "Klang kneten", "Form mit den Fingern drücken und ziehen"], ["live", "live", "Live-Fläche", "Ein Finger formt den ganzen Song"], ["pieces", "folder", "Meine Stücke", "Öffnen, neu anlegen, sichern"], ["help", "help", "Hilfe", "Alles erklärt, mit Suche"], ["erkl", "help", "Was ist das?", "Antippen und erklären lassen"]],
+  items() { const out = []; try { for (const g of Cmd.GROUPS) for (const id of g[3]) { const c = Cmd.L[id]; if (!c) continue; let n = id, a = ""; try { n = c.n(Forms.active) || id; } catch (_) {} try { a = c.a ? c.a(Forms.active) || "" : ""; } catch (_) {} let ic = ""; try { ic = typeof c.ic === "function" ? c.ic(Forms.active) : c.ic || ""; } catch (_) {} out.push({ id, g: g[0], gn: g[1], n: String(n).replace(/<[^>]+>/g, ""), a: String(a).replace(/<[^>]+>/g, ""), ic }); } } catch (e) { console.warn(e); } return out.filter((x, i, A) => A.findIndex(y => y.id === x.id) === i); },
+  open() {
+    Hap(8); const it = this.items(), groups = [...new Set(it.map(x => x.g))];
+    const s = Sheets.open("Alles", Sheets.head("Alles auf einen Blick") + `<input class="al73q" id="al73Q" type="search" placeholder="Suchen: z. B. Echo, Tempo, Aufnahme" aria-label="Funktion suchen" autocomplete="off">
+      <div id="al73B">
+      <h3 class="al73h">Bereiche</h3><div class="al73g q7ar">${this.AREAS.map(([k, ic, n]) => `<button class="al73t" data-al="tab:${k}" data-q="${esc((n + " bereich").toLowerCase())}"><i>${I67[ic] || ""}</i><b>${n}</b></button>`).join("")}</div>
+      <h3 class="al73h">Musik machen</h3><div class="al73g q7w">${this.MAKE.map(([k, ic, n, d]) => `<button class="al73t q7wide" data-al="mk:${k}" data-q="${esc((n + " " + d).toLowerCase())}"><i>${I67[ic] || ""}</i><b>${n}</b><small>${d}</small></button>`).join("")}</div>
+      ${groups.map(g => { const L = it.filter(x => x.g === g); return `<h3 class="al73h">${esc(L[0].gn)}${g !== "mehr" && g !== "ansicht" && g !== "set" ? ` <small>für die gewählte Form${Forms.active && !Forms.active.empty ? " „" + esc(Forms.active.name) + "“" : ""}</small>` : ""}</h3><div class="al73g">${L.map(x => `<button class="al73t" data-al="cmd:${x.id}" data-q="${esc((x.n + " " + x.a + " " + x.gn).toLowerCase())}" title="${esc(x.a)}"><i>${x.ic}</i><b>${esc(x.n)}</b></button>`).join("")}</div>`; }).join("")}
+      <p class="al73no" id="al73No" hidden><span></span> <button class="lnk" data-al="hq">In der Hilfe danach suchen</button></p></div>`);
+    s.classList.add("al73");
+    const q = s.querySelector("#al73Q"); q.addEventListener("input", () => { const v = q.value.trim().toLowerCase(); let any = false; s.querySelectorAll(".al73t").forEach(b => { const on = !v || b.dataset.q.includes(v); b.hidden = !on; if (on) any = true; }); s.querySelectorAll(".al73g").forEach(g => { const vis = [...g.children].some(b => !b.hidden); g.hidden = !vis; if (g.previousElementSibling) g.previousElementSibling.hidden = !vis; }); const no = s.querySelector("#al73No"); no.hidden = !v; no.firstElementChild.textContent = any ? "Nicht dabei?" : `Keine Funktion heißt „${q.value.trim()}“.`; this.q = q.value.trim(); });
+    s.addEventListener("click", e => { const b = e.target.closest("[data-al]"); if (!b || b.dataset.al === "open") return; e.stopPropagation(); this.act(b.dataset.al); });
+  },
+  act(k) {
+    Hap(8); UI.hideSheets(); if (k === "hq") return Help.open(this.q || ""); const [t, id] = k.split(":");
+    try {
+      if (t === "tab") return UI.setTab(id);
+      if (t === "cmd") { if (UI.tab !== "klang" && !["tLoop", "tStueck", "tBeat", "tSchnitt", "tBild", "help", "cfg", "mixer"].includes(id)) UI.setTab("klang"); return setTimeout(() => { try { Cmd.run(id, Forms.active && !Forms.active.empty ? Forms.active : null); } catch (e) { console.warn(e); } }, 80); }
+      if (id === "gen") return SongGen.open(); if (id === "smel") return StartMel.open(); if (id === "pieces") return Projects.open(); if (id === "help") return Help.open(); if (id === "erkl") return Erkl.start();
+      return Ber72.go(id);
+    } catch (e) { console.warn(e); }
+  }
+};
+document.addEventListener("click", e => { const b = e.target.closest && e.target.closest('[data-al="open"]'); if (!b) return; UI.hideSheets(); setTimeout(() => Alles73.open(), 40); });
+// Einstiege: Startseite (unten) und Blatt „Mehr“ (oben)
+{ const rn = Home67.render.bind(Home67); Home67.render = function (force) { const r = rn(force); try { const h = this.el() && this.el().querySelector(".hm"); if (h && !h.querySelector(".al73go")) h.insertAdjacentHTML("beforeend", `<div class="al73row"><button class="al73go" data-al="open"><i>${I67.raster}</i><span><b>Alles auf einen Blick</b><small>Jede Funktion, geordnet und mit Suche</small></span></button><button class="al73go" data-sm0="1"><i>${I67.note || ""}</i><span><b>Stück mit Melodie</b><small>Erst spielen, dann spielen alle Formen mit</small></span></button></div>`); } catch (e) { console.warn(e); } return r; };
+  const mo = Nav67.more.bind(Nav67); Nav67.more = function (...a) { const r = mo(...a); try { const g = document.querySelector("#sheets .sheet .mrg"); if (g && !g.parentElement.querySelector(".al73go")) g.insertAdjacentHTML("beforebegin", `<button class="al73go q7top" data-al="open"><i>${I67.raster}</i><span><b>Alles auf einen Blick</b><small>Jede Funktion, geordnet und mit Suche</small></span></button>`); } catch (_) {} return r; }; }
+try { Erkl.T.push([".dr73", "Dreh-Leiste", "Hier drehst du die gewählte Form genau: „Drehen“ startet, „Stopp“ hält sofort an, die Zahlen sind Umdrehungen je Takt (¼ bis 4), der Pfeil kehrt die Richtung um."], [".al73go", "Alles auf einen Blick", "Öffnet eine Übersicht mit allen Bereichen und Funktionen – geordnet nach Aufgaben und mit Suche."]); } catch (_) {}
+Help.T.push({ id: "v73", ic: "🧭", t: "Start-Melodie, Dreh-Leiste, Alles auf einen Blick", k: "start melodie neues stück alle formen gleich startformen drehen anschieben anschubsen anhalten stopp tempo richtung umdrehungen genau übersicht alle funktionen suche",
+  h: `<p><b>Stück mit eigener Melodie:</b> Im Blatt <b>Neues Stück</b> (Startseite → „Stück mit Melodie“ oder Meine Stücke → ＋ Neues Stück) gibt es den Abschnitt <b>Start-Melodie</b>. Tippe auf den bunten Tasten eine kurze Melodie, bis 16 Töne – sie passt zur gewählten Stimmung. „Stück mit dieser Melodie anlegen“ gibt sie allen Formen des neuen Stücks als Grundmelodie; sie drehen gleich schnell und spielen zunächst <b>dasselbe</b>. Schlagzeug hat keine Tonhöhen und bleibt stehen. Andere Stücke bleiben unberührt. Lässt du das Feld leer, entsteht das Stück wie gewohnt. Danach änderst du jede Form einzeln (Klang &amp; Effekt → Melodie).</p>
+  <p><b>Dreh-Leiste</b> (im Bereich Spielen, unten links über dem Steuerfeld): <b>Drehen / Stopp / Weiter</b> – Stopp hält <b>sofort</b> an, Weiter dreht mit dem alten Tempo. Die Zahlen <b>¼ · ½ · 1 · 2 · 4</b> sind Umdrehungen je Takt: ein Tipp stellt genau diesen Wert ein. Der Pfeil kehrt die Richtung um. Die Leiste zeigt immer den aktuellen Stand, auch wenn du die Form mit dem Finger anschubst.</p>
+  <p><b>Mit dem Finger:</b> Waagerecht wischen dreht, senkrecht wischen kippt (Melodie). Leicht schräge Bewegungen zählen nur noch für die Hauptrichtung – die Form kippt nicht mehr ungewollt mit. Festhalten und loslassen hält sie an.</p>
+  <p><b>Alles auf einen Blick:</b> Startseite unten oder „Mehr“: alle Bereiche und Funktionen, nach Aufgaben geordnet, mit Suche.</p>` });
+
 // Verlässt man das Stück, verstummt auch die Schnitt-Schleife
 { const st = UI.setTab.bind(UI); UI.setTab = t => { if (t !== "stueck") WaveEd.stopAll(); st(t); }; }
 /* ============================================================
@@ -19677,6 +19844,30 @@ const Tests = {
         try { f.still = true; const h1 = Bew.held().includes(f); Bew.sel = new Set([f.id]); Bew.all("sgo"); const ok1 = !f.still; f.still = true; Bew.all("go"); const ok2 = !f.still;
           ok("BV", h1 && ok1 && ok2 && /data-bwa="go"/.test(Bew.html()), `Angehaltene Formen wieder anschubsen: einzeln, Auswahl (${ok1 ? "ok" : "fehlt"}) und alle (${ok2 ? "ok" : "fehlt"}) · im Raum hält Antippen eine drehende Form an`); }
         finally { f.still = s0; Transport.start = ts; UI.toast = tp; } } } catch (e) { ok("BV", false, String(e)); }
+
+    // v73: Start-Melodie, Dreh-Leiste, Alles auf einen Blick
+    try { const ma = Mel.add, fl = Forms.list, made = []; let o;
+      try { Mel.add = (f, d, n) => { made.push([f.id, d.join(","), n]); }; Forms.list = [{ id: "a", kind: "synth" }, { id: "b", kind: "drum" }, { id: "c", kind: "synth", empty: true }, { id: "d", kind: "sample" }];
+        const F = StartMel.apply([0, 2, 4, 7]); o = F.length === 2 && made.length === 2 && made.every(m => m[1] === "0,2,4,7" && m[2] === "Start-Melodie") && made[0][0] === "a" && made[1][0] === "d"; }
+      finally { Mel.add = ma; Forms.list = fl; }
+      const m0 = StartMel.midi(0), oct = StartMel.midi(7) - m0 === 12, rng = m0 >= 55 && m0 <= 66;
+      ok("SM", o && oct && rng && typeof StartMel.after === "function" && typeof NewPiece.go === "function", `Start-Melodie: alle Startformen mit Tonhöhen bekommen dieselbe Melodie als Grundmelodie (Trommel und leere Formen nicht) · acht Tasten = eine Oktave der Tonart ab ${deN(m0)}`); } catch (e) { ok("SM", false, String(e)); }
+    try { const f = { rot: 0, bus: -1, pulse: 0, still: false, moff: { x: 0, z: 0 }, mot: { dreh: 0, schwing: 0, puls: 0, kreis: 0, rate: 1 } }, tr = Transport.running, ts = Transport.start, ks = KSheet.sync, ss = Save.soon, us = UI.soon, fa = Forms.active, am = Forms.applyMix; Transport.start = () => {}; KSheet.sync = () => {}; Save.soon = () => {}; UI.soon = () => {}; Forms.applyMix = () => {};
+      let o; try { const p = Motion.ph(f);
+        Dreh73.act("r:2", f); const a = Math.abs(Dreh73.rpb(f) - 2) < 1e-9 && Dreh73.state(f).i === 3 && Dreh73.state(f).mv;                 // ein Tipp = genau dieser Wert
+        Dreh73.act("flip", f); const b = Math.abs(Dreh73.rpb(f) - 2) < 1e-9 && Dreh73.dir(f) === -1;
+        Dreh73.act("pp", f); const c = f.still === true && Dreh73.rpb(f) === 0 && !Dreh73.state(f).mv && Dreh73.txt(Dreh73.state(f)) === "angehalten";   // sofort still
+        Dreh73.act("pp", f); const d = !f.still && Math.abs(Dreh73.rpb(f) - 2) < 1e-9 && Dreh73.dir(f) === -1;                                   // Weiter: altes Tempo, alte Richtung
+        Dreh73.act("r:0.25", f); const e = Math.abs(Dreh73.rpb(f) - 0.25) < 1e-9 && Dreh73.state(f).i === 0;
+        Motion.stopForm(f); Motion.push(f, 1.2, 0.3); const h = p.wy !== 0 && p.wx === 0; Motion.stopForm(f); Motion.push(f, 0.2, 1.2); const v = p.wy === 0 && p.wx !== 0; Motion.stopForm(f); Motion.push(f, 1.2, 0.9); const dg = p.wy !== 0 && p.wx !== 0;
+        const html = Dreh73.html(f); o = a && b && c && d && e && h && v && dg && (html.match(/data-dr="r:/g) || []).length === 5 && Dreh73.near(1.03) === 2 && Dreh73.near(1.4) === -1; }
+      finally { Transport.start = ts; KSheet.sync = ks; Save.soon = ss; UI.soon = us; Forms.applyMix = am; Forms.active = fa; }
+      ok("D7", o, "Dreh-Leiste: ein Tipp stellt genau ¼, ½, 1, 2 oder 4 Umdrehungen je Takt ein · Richtung kehrt um bei gleichem Tempo · Stopp hält sofort an, Weiter dreht mit altem Tempo und alter Richtung · waagerechtes Wischen dreht nur, senkrechtes kippt nur, schräges beides"); } catch (e) { ok("D7", false, String(e)); }
+    try { const it = Alles73.items(), ids = new Set(it.map(x => x.id)), run = Cmd.run, st = UI.setTab, hs = UI.hideSheets, t0 = UI.tab; const log = [];
+      let o; try { UI.hideSheets = () => {}; UI.setTab = t => { log.push("tab:" + t); }; Alles73.act("tab:mix"); o = log.join() === "tab:mix" && it.length >= 50 && ids.size === it.length && it.every(x => x.n && x.gn) && Alles73.AREAS.length === 9 && Alles73.MAKE.length === 9; }
+      finally { UI.setTab = st; UI.hideSheets = hs; Cmd.run = run; }
+      ok("A7", o, `Alles auf einen Blick: ${it.length} Funktionen in ${new Set(it.map(x => x.g)).size} Gruppen, jede mit Namen · dazu 9 Bereiche und 9 Wege, Musik zu machen · ein Tipp führt hin`); } catch (e) { ok("A7", false, String(e)); }
+
 
     // v72: Bewegung – Lage- und Beschleunigungssensoren
     try { const B = Beweg, st = { on: B.on, lr: B.lr, fb: B.fb, zero: B.zero, got: B.got, ls: B.lastShake, ns: B.nShake }, wc = Wucht.cut, lv = Live70.on; let cuts = 0; Wucht.cut = on => { if (on) cuts++; };

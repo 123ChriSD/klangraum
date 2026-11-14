@@ -1,7 +1,22 @@
-# KLANGRAUM – Stand Version 72 (14.11.2026)
+# KLANGRAUM – Stand Version 73 (14.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 71) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 72) · jede Version mit Commit in `docs/VERSIONEN.md`.
+
+## Neu in v73: Stück mit eigener Start-Melodie · Dreh-Leiste · Alles auf einen Blick
+- Christian (14.11. 11:04): „Es soll optional möglich sein, ganz am Anfang beim Stück-Zusammenstellen eine Melodie zu spielen, die dann nur in dem neuen Stück auf alle Startformen angewendet wird, sodass diese zunächst alle das Gleiche spielen. Die Steuerung der Formen – drehen, anschieben, anhalten – soll besser und genauer funktionieren. Alle Optionen/Funktionen sollen intuitiver erreichbar und übersichtlicher sein.“
+- **Start-Melodie** (`StartMel`, im Blatt **Neues Stück** als Abschnitt vor „Stück anlegen“, wahlweise):
+  - Acht bunte Tasten (eine Oktave der gewählten Stimmung, Namen passen sich an), bis 16 Töne; Zurück, Anhören, Leeren. Der Knopf heißt dann „Stück mit dieser Melodie anlegen“.
+  - Beim Anlegen bekommen **alle Formen mit Tonhöhen** die Melodie als Grundmelodie „Start-Melodie“ (`Mel.add`) und drehen gleich schnell (1 Umdrehung je Takt) – sie spielen zunächst dasselbe. Schlagzeug hat keine Tonhöhen und bleibt stehen. Andere Stücke bleiben unberührt; leeres Feld = wie bisher.
+  - Einstiege: Startseite unten → „Stück mit Melodie“ · Meine Stücke → ＋ Neues Stück · „Alles auf einen Blick“.
+- **Dreh-Leiste** (`Dreh73`, `#dr73`, schwebt im Bereich Spielen unten links über dem Steuerfeld, in „Form“ und „Alle“):
+  - **Drehen / Stopp / Weiter**: Stopp hält **sofort** an (kein Auslaufen), Weiter dreht mit altem Tempo und alter Richtung.
+  - **¼ · ½ · 1 · 2 · 4** Umdrehungen je Takt: ein Tipp stellt genau diesen Wert ein. Pfeil = Richtung umkehren bei gleichem Tempo.
+  - Zeigt immer den Stand der gewählten Form, auch nach Anschubsen mit dem Finger. Ausgeblendet beim Kneten, Malen, Melodie festlegen und im Vollbild.
+  - **Gesten genauer:** Wischen und Loslassen wirken nur noch auf die gemeinte Achse – waagerecht dreht, senkrecht kippt; erst ab 60 % Queranteil zählt beides (`Motion.push`, `Motion.release`). Vorher kippte die Form bei leicht schrägem Wischen mit, und ein senkrechter Wisch drehte sie nebenbei.
+- **Alles auf einen Blick** (`Alles73`): ein Blatt mit Suche – 9 Bereiche, 9 Wege Musik zu machen und alle 69 Funktionen der Befehlsliste in ihren 9 Gruppen (Spielen, Klang, Drehen, Set, Loops, Form, Werkzeuge, Ansicht, Mehr). Ein Tipp führt hin bzw. führt die Funktion für die gewählte Form aus. Findet die Suche nichts, sucht ein Knopf in der Hilfe weiter. Einstiege: Startseite unten, Blatt „Mehr“ oben.
+- **Tests:** Prüfstand 150 (neu **SM** Start-Melodie, **D7** Dreh-Leiste und Achsen, **A7** Übersicht), 412×892 und 700×330 ohne Fehler außer den bekannten Schwankern I1/T3. Layout 412×892, 700×330, 820×1180 TOTAL 0 (fünf neue Zustände). E2E (`tools/t73_a.txt`): Startseite → Stück mit Melodie → sechs Töne getippt, einer zurück, angehört, Stimmung gewechselt (Melodie bleibt, Tastennamen wechseln) → angelegt: Klavier und Bass tragen „Start-Melodie“ und klingen, Trommel nicht, das alte Stück ist unverändert; Dreh-Leiste: Stopp (Form steht wirklich), 2 je Takt, Richtung; Übersicht: 87 Kacheln, Suche. Proben v70–v72 als Gegenprobe fehlerfrei.
+- **Nicht geprüft / offen:** Nichts davon auf echten Geräten; die Gesten-Änderung (60 %-Schwelle) ist nur gerechnet, nicht mit der Hand gefühlt. Die Start-Melodie klingt beim Eintippen mit einem einfachen Ton, nicht mit den späteren Instrumenten. Im Steuerfeld erscheint beim Drehen weiterhin der ältere Knopf „Anhalten“ (läuft sanft aus) – doppelt zur Dreh-Leiste. „Alles auf einen Blick“ zeigt die Befehlsliste; Effekte und Regler, die keine Befehle sind (z. B. Echo, Hall), findet nur die Hilfe-Suche.
 
 ## Neu in v72: Bewegung (Sensoren) · Live-Fläche mit mehreren Fingern · Wechsel mitten im Stück · Mitschnitt
 - Christian (14.11. 09:48–09:52), vier Aufträge: „Nutze die Lage- und Beschleunigungssensoren der Mobilgeräte optional, um den Sound durch Bewegung zu verändern.“ · „Nutze Multitouch auf der Fläche.“ · „Die Stücke sollen beim Spielen automatisch aufgezeichnet werden, und beim Wechsel soll gefragt werden, ob diese gespeichert werden sollen.“ · „Das Multitouch-Ändern und der Wechsel zwischen den Veränderungsbereichen soll auch während eines Stückes möglich sein.“

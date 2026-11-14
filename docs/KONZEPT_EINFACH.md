@@ -107,3 +107,10 @@ Wer mehr will, findet unter **Mehr** alles Bisherige (Pult, Beat-Maschine, Schni
 - **Musik hält nie an, nur weil man etwas anderes tun will:** Ein Wechsel des Bereichs ist kein Abbruch. Die Leiste Tasten · Noten · Kneten · Live zeigt die vier Arten des Veränderns als gleichwertige Wege durch dasselbe laufende Stück.
 - **Nichts geht verloren:** Laien drücken nicht „Aufnahme“, bevor etwas Gutes passiert. Der Mitschnitt läuft deshalb immer, und KLANGRAUM fragt erst im Nachhinein – am natürlichen Ende, dem Wechsel des Stücks.
 - **Offen:** Bewegung auf einzelne Klänge statt auf alles; weitere Gesten (Drehen um die Hochachse); Mitschnitt auch beim Schließen sichern.
+
+## 12. Version 73: Eine Idee zuerst, genaue Hände, ein Ort für alles
+
+- **Die eigene Idee steht am Anfang:** Wer eine Melodie im Kopf hat, will sie nicht Form für Form eintragen. Das Blatt „Neues Stück“ fragt deshalb wahlweise danach – und alle Formen beginnen damit. Aus „drei Instrumente spielen irgendwas“ wird „meine Melodie, dreimal“. Von dort aus verändert man.
+- **Genau heißt: ein Tipp, ein Wert.** Wischen ist ausdrucksstark, aber ungenau. Die Dreh-Leiste setzt daneben feste Werte (¼ bis 4 Umdrehungen je Takt) und einen Stopp, der wirklich sofort hält. Gesten bleiben, wirken aber nur noch in die gemeinte Richtung.
+- **Ein Ort für alles:** Funktionen sind nach Bereichen verteilt, damit jede Ansicht ruhig bleibt. Dafür braucht es einen Ort, an dem man alles findet, ohne zu wissen, wo es wohnt: geordnet nach Aufgaben und mit Suche.
+- **Offen:** Start-Melodie mit Rhythmus (jetzt nur Tonfolge) und mit dem späteren Instrument vorhören; der ältere „Anhalten“-Knopf im Steuerfeld gehört mit der Dreh-Leiste zusammengeführt; Effekte in der Übersicht.

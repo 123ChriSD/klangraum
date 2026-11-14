@@ -2,8 +2,8 @@
 <meta name="theme-color" content="#0A1315"><meta name="description" content="KLANGRAUM – Formen, die klingen. Loopstation, Beatbox, Instrumente.">
 <link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<style>:root{box-sizing:border-box}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><a href="./" style="position:fixed;z-index:2147483000;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);background:#3a2a10;color:#ffd58a;font:600 10px/1.2 system-ui,sans-serif;padding:2px 8px;border-radius:0 0 10px 10px;text-decoration:none;opacity:.92">Vorige Version 71 · zur aktuellen →</a>
-<title>(Vorige 71) KLANGRAUM</title>
+<style>:root{box-sizing:border-box}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><a href="./" style="position:fixed;z-index:2147483000;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);background:#3a2a10;color:#ffd58a;font:600 10px/1.2 system-ui,sans-serif;padding:2px 8px;border-radius:0 0 10px 10px;text-decoration:none;opacity:.92">Vorige Version 72 · zur aktuellen →</a>
+<title>(Vorige 72) KLANGRAUM</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* Layout: Vollbild-Tiefsee (WebGL) mit einer lebenden Klangform. Oben ruhige Kiesel (Stimmung, Raum, Menü),
@@ -2283,6 +2283,41 @@ body.klv70 #recBanner { display: none !important; }
 .kn71dot { position: fixed; left: 0; top: 0; z-index: 17; width: 68px; height: 68px; margin: -34px 0 0 -34px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .9); box-shadow: 0 0 20px #9B5CFF, 0 0 12px rgba(155, 92, 255, .55) inset; pointer-events: none; }
 body.kneadmode .knead.on:not(.paint):not(.turn) { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .kncue { animation: none; } }
+
+/* ---------- v72: Bewegung ---------- */
+#vMix .mxr.bw72, .mxr.bw72 { display: block !important; border-style: dashed; }
+.mxr.bw72 .mxn > i { background: linear-gradient(135deg, #35C0E0, #4F7BFF); color: #fff; }
+.b72b { display: flex; align-items: center; gap: 12px; min-width: 0; margin-top: 10px; }
+.b72sw { flex: 0 0 auto; position: relative; width: 60px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.b72sw::before { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 30px; border-radius: 15px; background: rgba(255, 255, 255, .12); box-shadow: 0 1px 2px rgba(0, 0, 0, .5) inset; transition: background .15s; }
+.b72sw i { position: absolute; left: 3px; top: 10px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, .5); transition: transform .15s; }
+.b72sw[aria-checked="true"]::before { background: linear-gradient(90deg, #35C0E0, #4F7BFF); } .b72sw[aria-checked="true"] i { transform: translateX(30px); }
+.b72sw:focus-visible::before { box-shadow: 0 0 0 3px #9B5CFF; }
+.b72lev { flex: 0 0 44px; position: relative; width: 44px; height: 44px; padding: 0; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .2); background: radial-gradient(circle, rgba(255, 255, 255, .1) 0 3px, transparent 4px), rgba(255, 255, 255, .04); cursor: pointer; opacity: .45; -webkit-tap-highlight-color: transparent; }
+.b72lev i { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: #8FA0C8; }
+.b72lev.q7on { opacity: 1; border-color: #35C0E0; } .b72lev.q7on i { background: #35C0E0; box-shadow: 0 0 10px #35C0E0; }
+.b72t { flex: 1 1 auto; min-width: 0; display: grid; gap: 2px; } .b72t b { font-size: 14px; font-weight: 700; color: #EEF2FF; } .b72t small { font-size: 11.5px; line-height: 1.35; color: #8FA0C8; }
+.lvbot.q7three { grid-template-columns: 1fr 1fr 1fr; gap: 8px; } .lvbot.q7three .lvh b { font-size: 16px; } .lvbot.q7three .lvh small { font-size: 10.5px; }
+.lvh.q7tg[aria-pressed="true"] { background: linear-gradient(135deg, #35C0E0, #4F7BFF); border-color: transparent; } .lvh.q7tg[aria-pressed="true"] small { color: #fff; }
+@media (prefers-reduced-motion: reduce) { .b72sw i, .b72sw::before { transition: none; } }
+/* Bereichswechsel */
+.ber72 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 16px; background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .08); }
+.ber72 button { display: flex; align-items: center; justify-content: center; gap: 6px; min-width: 0; min-height: 40px; padding: 0 4px; border: 0; border-radius: 12px; background: none; color: #A9B4D0; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.ber72 button i { display: grid; place-items: center; flex: 0 0 auto; } .ber72 button svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ber72 button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ber72 button[aria-pressed="true"] { background: linear-gradient(135deg, #4F7BFF, #9B5CFF 55%, #E05CD8); color: #fff; }
+.lvber { position: absolute; left: calc(14px + env(safe-area-inset-left, 0px)); right: calc(14px + env(safe-area-inset-right, 0px)); top: calc(68px + env(safe-area-inset-top, 0px)); }
+.lvber .ber72 { background: rgba(12, 16, 30, .62); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+#lv70 .lvpad, #lv70 .lvlay { top: calc(124px + env(safe-area-inset-top, 0px)); }
+#ksheet .ber72 { margin: 2px 0 8px; }
+@media (orientation: landscape) and (max-height: 520px) { .lvber { top: calc(8px + env(safe-area-inset-top, 0px)); left: calc(72px + env(safe-area-inset-left, 0px)); right: auto; width: min(calc(100% - 370px), 300px); } .lvber .ber72 button { min-height: 36px; } .lvber .ber72 button span { display: none; } #lv70 .lvpad, #lv70 .lvlay { top: calc(62px + env(safe-area-inset-top, 0px)); } #lv70 .lvtop .eti { visibility: hidden; } }
+/* Mitschnitt */
+.am72 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; } .am72 .edone, .am72 .eb { min-height: 52px; justify-content: center; font: inherit; font-weight: 800; }
+.am72off { display: block; width: 100%; margin-top: 12px; min-height: 44px; border: 0; background: none; color: #8FA0C8; font: inherit; font-size: 13px; text-decoration: underline; cursor: pointer; }
+.am72r .eb { flex: 0 0 auto; min-height: 40px; padding: 0 12px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .06); color: #EEF2FF; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.am72r .eb:disabled { opacity: .4; }
+.mxr.am72r .mxn > i { background: linear-gradient(135deg, #FF5A6E, #E05CD8); }
+@media (max-width: 519px) { .am72r .b72b { flex-wrap: wrap; } .am72r .b72t { flex: 1 1 calc(100% - 80px); } .am72r .eb { margin-left: 72px; } }
 </style>
 
 <canvas id="c" aria-label="Klangraum: dreidimensionale Klangformen" role="img"></canvas>
@@ -2341,7 +2376,7 @@ body.kneadmode .knead.on:not(.paint):not(.turn) { opacity: 0; }
 
 <div class="start" id="start">
   <div class="start-inner">
-    <div class="meta">Version 71 · mit allen Fingern modellieren: Klangschrift und Kneten (klingt) · Echo mit dem zweiten Finger</div>
+    <div class="meta">Version 72 · Bewegung: Gerät kippen und schütteln formt den Klang (zuschaltbar) · Live-Fläche mit mehreren Fingern · Wechsel mitten im Stück · Mitschnitt</div>
     <h1 class="klogoH"><span class="sr">KLANGRAUM</span><span id="klogoStart" aria-hidden="true"></span></h1>
     <p>Musik machen ohne Vorkenntnisse: Wähle einen Stil, und KLANGRAUM baut dir einen ganzen Song. Oder spiel, forme und mische deine Klänge selbst – nichts klingt falsch.</p><ul class="stfeat"><li>Song in 1 Minute</li><li>Einspielen ohne Aufnahmeknopf</li><li>Klänge kneten</li><li>Mischen wie im Studio</li></ul>
     <button class="enter" id="enter">Eintauchen</button>
@@ -6556,7 +6591,7 @@ const Sheets = {
   },
   menu() {
     const txt = Sheets.helpText(Music.help);
-    const s = this.open("Menü", this.head("KLANGRAUM · Version 71") + `
+    const s = this.open("Menü", this.head("KLANGRAUM · Version 72") + `
       <div class="field"><label for="rHelp">Wie viel hilft die App? <b id="helpV">${txt[0]}</b></label><input type="range" id="rHelp" min="0" max="100" step="1" value="${Music.help}"><p class="helptext" id="helpT">${txt[1]}</p></div>
       ${TempoUI.html()}
       <div class="row"><button class="btn" id="mGlide">Übergänge: Drehung ${Glide.rot ? "fließend" : "sofort"} · Tempo ${Glide.tempo ? "fließend" : "sofort"}</button></div>
@@ -18641,6 +18676,202 @@ Help.T.push({ id: "v71", ic: "🖐", t: "Mit allen Fingern modellieren", k: "mul
   <p><b>Klangschrift</b>: Jeder Finger setzt seinen eigenen Ton – drei Finger auf einmal sind ein Akkord. Einen Ton <b>anfassen und ziehen</b> verschiebt ihn: hoch und runter ändert die Tonhöhe (du hörst sie), links und rechts die Zeit. Am <b>rechten Ende</b> ziehen macht ihn länger oder kürzer. Antippen löscht ihn. Auch das geht mit mehreren Fingern gleichzeitig.</p>
   <p><b>Live-Fläche</b>: Ein zweiter Finger auf der Fläche schaltet das Echo ein, solange er liegt.</p>` });
 
+/* =====================================================================================
+   v72 (Teil 1): DIE MUSIK LÄUFT WEITER – Wechsel zwischen den Bereichen mitten im Stück
+   Live-Fläche öffnen und schließen hält die Musik nicht mehr an. Lief vorher ein Song, läuft er danach an derselben Stelle weiter.
+   ===================================================================================== */
+Live70.open = function () {
+  if (!Engine.ctx) { UI.toast("Erst „Eintauchen“ – dann ist der Ton an"); return; }
+  if (Song.rec) { UI.toast("Dein Song wird gerade aufgenommen – danach geht es auf die Live-Fläche", 2600); return; }
+  if (!this.forms().length) { UI.toastAct("Die Live-Fläche spielt mit den Loops deines Stücks. Lass dir zuerst einen Song bauen – dann formst du ihn mit einem Finger.", "Song bauen", () => SongGen.open(), 5200); return; }
+  if (Engine.ctx.state !== "running") Engine.ctx.resume();
+  const run = Transport.running, song = !!Song.playing; this.back = { run: run && (song || Forms.list.some(f => Loops.count(f) > 0 && !f.lpOff)), song, sec: song ? Math.max(0, Song.cur | 0) : -1 };
+  try { if (Einsp.on) Einsp.close(); if (Schrift.on) Schrift.close(); UI.hideSheets(); if (Erkl.on) Erkl.stop(); } catch (_) {}
+  try { if (Song.playing) Song.stop(true); SongUI.prep(); } catch (e) { console.warn(e); }          // der Takt läuft weiter, nur der Ablauf pausiert
+  Wucht.wire(); this.L = this.layers(); this.on = true; this.touched = false; this.rings = []; this.hold = {}; this.x = 1; this.y = 0.62; document.body.classList.add("klv70");
+  const e = this.el(); e.hidden = false; this.render(); this.size(); this.apply(true);
+  try { if (!Transport.running) Transport.start(); LoopCtl.release(); } catch (err) { console.warn(err); }
+  cancelAnimationFrame(this.raf); const loop = () => { if (!this.on) return; this.draw(); this.raf = requestAnimationFrame(loop); }; this.raf = requestAnimationFrame(loop);
+};
+// keep === true: Wechsel in einen anderen Bereich – die Musik läuft in jedem Fall weiter
+Live70.close = function (keep) {
+  if (!this.on) return; this.on = false; cancelAnimationFrame(this.raf); this.pid = null;
+  try { Wucht.filter(null); Wucht.echo(false); Wucht.cut(false); } catch (_) {}
+  const rec = this.recBy && Rec.on, b = this.back || {}, cont = !rec && (keep === true || !!b.run); this.recBy = false; this.back = null;
+  try { SongUI.clearG(); if (!cont) { if (Transport.running) Transport.stop(); } else if (b.song || (keep === true && Nav67.songPiece())) SongUI.play(b.sec >= 0 ? b.sec : Einsp.fullest()); } catch (e) { console.warn(e); }
+  document.body.classList.remove("klv70"); const e = $("lv70"); if (e) e.hidden = true;
+  if (rec) { try { Rec.stop(); } catch (err) { console.warn(err); } }
+  try { UI.refresh(); if (UI.tab === "song") SongUI.render(true); else if (UI.tab === "mix") MixUI.render(true); else if (UI.tab === "start") Home67.render(true); } catch (_) {}
+};
+
+/* =====================================================================================
+   v72: BEWEGUNG – Lage- und Beschleunigungssensoren des Geräts formen den Klang (zuschaltbar)
+   – links/rechts kippen: dumpf ↔ hell (Tiefpass / Hochpass über der ganzen Musik)
+   – nach vorn kippen:    Echo im Takt
+   – schütteln:           Stotter (die Musik setzt für einen Wimpernschlag aus)
+   – in der Live-Fläche rollt der Punkt wie eine Kugel: kippen = Klang und Band
+   Aus, bis man es einschaltet. Die Mitte ist die Haltung beim Einschalten.
+   ===================================================================================== */
+I67.kipp = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7.5" y="3" width="9" height="18" rx="2.2" transform="rotate(-18 12 12)"/><path d="M3 8.5c.6-2 1.9-3.6 3.6-4.6M21 15.500c-.6 2-1.900 3.600-3.600 4.600"/></svg>';
+// Wucht-Kette: Hochpass für „hell/dünn“ und stufenloses Echo
+Wucht.hpNode = function () { const N = this.n; if (!N) return null; if (!N.hp) { const b = Engine.ctx.createBiquadFilter(); b.type = "highpass"; b.frequency.value = 20; b.Q.value = 0; try { N.lp.disconnect(N.lo); N.lp.connect(b).connect(N.lo); N.hp = b; } catch (e) { console.warn(e); try { N.lp.connect(N.lo); } catch (_) {} return null; } } return N.hp; };
+// v: −1 (ganz links, dumpf) … 0 (unverändert) … +1 (ganz rechts, hell und dünn)
+Wucht.tilt = function (v) { const N = this.n; if (!N) return; const t = Engine.ctx.currentTime; this.filter(v < -0.02 ? 0.97 - 0.72 * Math.min(1, -v) : null); const hp = this.hpNode(); if (hp) { const u = clamp(v, 0, 1); hp.frequency.setTargetAtTime(20 * Math.pow(70, u), t, 0.04); hp.Q.setTargetAtTime(6 * u, t, 0.04); } };
+Wucht.echoAmt = function (a) { const N = this.n; if (!N) return; const t = Engine.ctx.currentTime; a = clamp(a, 0, 1); if (a > 0) N.dl.delayTime.setTargetAtTime(clamp(Transport.spb * 3, 0.06, 1.9), t, 0.01); N.es.gain.setTargetAtTime(0.7 * a, t, 0.05); };
+
+const Beweg = {
+  on: false, lr: 0, fb: 0, zero: null, got: 0, nShake: 0, lastShake: 0, g: [0, 0, 0], dirty: false,
+  RANGE: 35, DEAD: 4, SHAKE: 13,
+  // Bildschirm gedreht? Dann tauschen die Achsen.
+  axes(beta, gamma, ang) { const a = ang != null ? ang : ((screen.orientation && screen.orientation.angle) ?? window.orientation ?? 0), k = ((Math.round(a / 90) % 4) + 4) % 4; return k === 1 ? [beta, gamma] : k === 2 ? [-gamma, beta] : k === 3 ? [-beta, -gamma] : [gamma, -beta]; },   // [links/rechts, vor/zurück] – vor = obere Kante weg vom Körper
+  norm(d) { const a = Math.abs(d); return a <= this.DEAD ? 0 : Math.sign(d) * Math.min(1, (a - this.DEAD) / (this.RANGE - this.DEAD)); },
+  feed(beta, gamma, ang) {
+    if (beta == null || gamma == null || !isFinite(beta) || !isFinite(gamma)) return; const [l, f] = this.axes(beta, gamma, ang); this.got++; if (!this.zero) this.zero = [l, f];
+    const w = d => ((d + 540) % 360) - 180, tl = this.norm(w(l - this.zero[0])), tf = this.norm(w(f - this.zero[1])), k = this.got < 3 ? 1 : 0.25; this.lr += (tl - this.lr) * k; this.fb += (tf - this.fb) * k; this.dirty = true;
+  },
+  center() { this.zero = null; this.lr = 0; this.fb = 0; this.got = Math.min(this.got, 1); this.dirty = true; Hap(8); UI.toast("Mitte neu gesetzt – so, wie du das Gerät jetzt hältst", 2000); },
+  shake(m, now) { if (!(m >= this.SHAKE) || now - this.lastShake < 170) return false; this.lastShake = now; this.nShake++;
+    try { Wucht.cut(true); setTimeout(() => { if (!(Live70.on && Live70.hold.cut)) Wucht.cut(false); }, 110); if (Live70.on) Live70.rings.push({ t: performance.now(), s: 1.3 }); Hap(10); } catch (_) {} return true; },
+  motion(e) { let m; const a = e.acceleration; if (a && a.x != null) m = Math.hypot(a.x, a.y || 0, a.z || 0); else { const q = e.accelerationIncludingGravity; if (!q || q.x == null) return; const v = [q.x, q.y || 0, q.z || 0]; if (!this.gi) { this.g = v.slice(); this.gi = true; } for (let i = 0; i < 3; i++) this.g[i] += (v[i] - this.g[i]) * 0.1; m = Math.hypot(v[0] - this.g[0], v[1] - this.g[1], v[2] - this.g[2]); } this.shake(m, performance.now()); },
+  apply() {
+    if (!this.dirty) return; this.dirty = false;
+    try { if (Live70.on) { if (Live70.pid == null) { Live70.set(0.5 + this.lr * 0.5, 0.5 + this.fb * 0.5); const h = $("lvHint"); if (h) h.classList.add("q7gone"); } }
+      else { Wucht.tilt(this.lr); Wucht.echoAmt(Math.max(0, this.fb)); } } catch (e) { console.warn(e); }
+    this.paint();
+  },
+  say() { const l = this.lr, f = this.fb; return (l < -0.05 ? "dumpfer" : l > 0.05 ? "heller" : "Klang unverändert") + (f > 0.05 ? " · Echo" : ""); },
+  paint() { document.querySelectorAll(".b72lev").forEach(e => { e.classList.toggle("q7on", this.on); const i = e.firstElementChild; if (i) i.style.transform = `translate(${(this.on ? this.lr : 0) * 13}px,${(this.on ? -this.fb : 0) * 13}px)`; });
+    document.querySelectorAll("[data-bw='tog']").forEach(b => { if (b.getAttribute("aria-pressed") !== String(this.on)) { b.setAttribute("aria-pressed", this.on); b.setAttribute("aria-checked", this.on); } });
+    const s = $("bwSay"); if (s) s.textContent = this.on ? (Live70.on ? "steuert die Live-Fläche" : this.say()) : "aus"; },
+  async start() {
+    if (this.on) return true;
+    if (!Engine.ctx) { UI.toast("Erst „Eintauchen“ – dann ist der Ton an"); return false; }
+    if (typeof DeviceOrientationEvent === "undefined") { UI.toast("Dieses Gerät hat keine Bewegungssensoren, die der Browser nutzen darf.", 3200); return false; }
+    try { for (const C of [typeof DeviceOrientationEvent !== "undefined" ? DeviceOrientationEvent : null, typeof DeviceMotionEvent !== "undefined" ? DeviceMotionEvent : null]) if (C && typeof C.requestPermission === "function") { const r = await C.requestPermission(); if (r !== "granted") { UI.toast("Ohne deine Erlaubnis bleiben die Bewegungssensoren aus. Du kannst sie in den Einstellungen des Browsers für diese Seite erlauben.", 4600); return false; } } }
+    catch (e) { console.warn(e); UI.toast("Die Bewegungssensoren ließen sich nicht einschalten.", 3000); return false; }
+    Wucht.wire(); this.on = true; this.zero = null; this.got = 0; this.lr = 0; this.fb = 0; this.gi = false; this.nShake = 0;
+    this._o = e => this.feed(e.beta, e.gamma); this._m = e => this.motion(e); addEventListener("deviceorientation", this._o); addEventListener("devicemotion", this._m);
+    const loop = () => { if (!this.on) return; this.apply(); this.raf = requestAnimationFrame(loop); }; this.raf = requestAnimationFrame(loop);
+    clearTimeout(this.chk); this.chk = setTimeout(() => { if (this.on && !this.got) { this.stop(); UI.toast("Hier kommen keine Bewegungsdaten an. Auf dem Handy oder Tablet klappt es über die Website oder die heruntergeladene Datei; in eingebetteten Ansichten sind die Sensoren oft gesperrt.", 6000); } }, 1800);
+    Hap(10); UI.toast(Live70.on ? "Bewegung an: Kipp das Gerät – der Punkt rollt mit. Schütteln = Stotter." : "Bewegung an: links/rechts kippen = dumpf ↔ hell · nach vorn kippen = Echo · schütteln = Stotter", 4200); this.paint(); return true;
+  },
+  stop() { if (!this.on) return; this.on = false; cancelAnimationFrame(this.raf); clearTimeout(this.chk); removeEventListener("deviceorientation", this._o); removeEventListener("devicemotion", this._m); this.lr = 0; this.fb = 0;
+    try { if (!Live70.on) { Wucht.tilt(0); Wucht.echoAmt(0); } else { const hp = Wucht.n && Wucht.n.hp; if (hp) hp.frequency.setTargetAtTime(20, Engine.ctx.currentTime, 0.04); } if (!(Live70.on && Live70.hold.cut)) Wucht.cut(false); } catch (_) {} this.paint(); },
+  toggle() { if (this.on) { this.stop(); UI.toast("Bewegung aus", 1400); } else this.start(); },
+  row() { return `<div class="mxr bw72" style="--c:#35C0E0"><span class="mxn"><i>${I67.kipp}</i><b>Bewegung</b></span><div class="b72b"><button class="b72sw" data-bw="tog" role="switch" aria-checked="${this.on}" aria-pressed="${this.on}" aria-label="Bewegung des Geräts steuert den Klang"><i></i></button><button class="b72lev" data-bw="mid" aria-label="Mitte neu setzen: die jetzige Haltung gilt als unverändert"><i></i></button><span class="b72t"><b id="bwSay">${this.on ? this.say() : "aus"}</b><small>Kippen: dumpf ↔ hell · nach vorn: Echo · schütteln: Stotter</small></span></div></div>`; }
+};
+document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-bw]"); if (!b) return; if (b.dataset.bw === "tog") Beweg.toggle(); else if (b.dataset.bw === "mid") { if (Beweg.on) Beweg.center(); else Beweg.start(); } });
+// Mischen: Zeile unter der Wucht
+{ const rn = MixUI.render.bind(MixUI); MixUI.render = function (force) { const r = rn(force); try { const el = this.el(), w = el && !el.hidden && el.querySelector(".wu70"); if (w && !el.querySelector(".bw72")) { w.insertAdjacentHTML("afterend", Beweg.row()); Beweg.paint(); } } catch (e) { console.warn(e); } return r; }; }
+// Live-Fläche: Knopf „Kippen“ – der Punkt rollt mit der Neigung
+{ const rn = Live70.render.bind(Live70); Live70.render = function () { const r = rn(); try { const bt = this.el().querySelector(".lvbot"); if (bt && !bt.querySelector("[data-bw]")) { bt.classList.add("q7three"); bt.insertAdjacentHTML("beforeend", `<button class="lvh q7tg" data-bw="tog" aria-pressed="${Beweg.on}" aria-label="Kippen: die Neigung des Geräts bewegt den Punkt"><b>Kippen</b><small>Gerät neigen</small></button>`); } } catch (_) {} return r; };
+  const cl = Live70.close.bind(Live70); Live70.close = function (...a) { const r = cl(...a); try { if (Beweg.on) { Beweg.zero = null; Beweg.dirty = true; } } catch (_) {} return r; }; }
+{ const pl = Project.load.bind(Project); Project.load = function (...a) { try { if (Beweg.on) Beweg.stop(); } catch (_) {} return pl(...a); }; }
+document.addEventListener("visibilitychange", () => { try { if (document.hidden && Beweg.on) Beweg.stop(); } catch (_) {} });
+try { Erkl.T.push([".bw72", "Bewegung", "Einschalten, dann das Gerät bewegen: links oder rechts kippen macht die Musik dumpfer oder heller, nach vorn kippen gibt Echo, schütteln lässt sie stottern. Der kleine Kreis zeigt die Neigung; antippen setzt die Mitte neu."]); } catch (_) {}
+Help.T.push({ id: "v72", ic: "📱", t: "Bewegung: das Gerät kippen und schütteln", k: "bewegung sensor lage beschleunigung kippen neigen schütteln gyroskop handy tablet filter echo stotter kugel",
+  h: `<p>Unter <b>Mischen → Bewegung</b> (oder in der <b>Live-Fläche</b> mit „Kippen“) schaltest du die Sensoren deines Handys oder Tablets ein. Sie sind aus, bis du sie einschaltest. Beim ersten Mal fragt das Gerät vielleicht um Erlaubnis.</p>
+  <ul><li><b>Links oder rechts kippen:</b> Die Musik wird dumpfer oder heller.</li><li><b>Nach vorn kippen</b> (obere Kante weg von dir): Echo im Takt.</li><li><b>Schütteln:</b> Die Musik stottert – jeder Ruck ein kurzer Aussetzer.</li><li><b>In der Live-Fläche</b> rollt der Punkt wie eine Kugel: kippen bestimmt Klang und wie viele Klänge spielen. Legst du den Finger auf, führt der Finger.</li></ul>
+  <p>Die <b>Mitte</b> ist die Haltung beim Einschalten. Der kleine Kreis zeigt die Neigung; ihn antippen setzt die Mitte neu. Kommen keine Bewegungsdaten an (zum Beispiel am Rechner oder in einer eingebetteten Ansicht), schaltet sich die Bewegung von selbst wieder aus.</p>` });
+
+/* ---------- Live-Fläche mit mehreren Fingern ----------
+   1. Finger: der Punkt (Klang und Band) · 2. Finger: Echo – je weiter weg vom ersten, desto stärker · 3. Finger: Stille (loslassen = Einsatz).
+   Hebt der erste Finger ab, übernimmt der nächste den Punkt. */
+Live70.X = [];                                   // weitere Finger: { id, x, y } in Bildschirm-Punkten
+Live70.echoFor = function (dist, size) { return clamp(dist / Math.max(1, size * 0.6), 0.25, 1); };
+Live70.mainXY = function () { const p = $("lvPad"); if (!p) return [0, 0]; const r = p.getBoundingClientRect(); return [r.left + this.x * r.width, r.top + (1 - this.y) * r.height, Math.min(r.width, r.height)]; };
+Live70.mtUpdate = function () {
+  const n = this.X.length;
+  if (n >= 1) { const [mx, my, sz] = this.mainXY(), a = this.echoFor(Math.hypot(this.X[0].x - mx, this.X[0].y - my), sz); if (!this.hold.echo) this.holdSet("echo", true); this.mtEcho = true; this.mtAmt = a; Wucht.echoAmt(a); }
+  else if (this.mtEcho) { this.mtEcho = false; this.mtAmt = 0; this.holdSet("echo", false); }
+  if (n >= 2) { if (!this.mtCut) { this.mtCut = true; this.holdSet("cut", true); } } else if (this.mtCut) { this.mtCut = false; this.holdSet("cut", false); }
+};
+{ const bd = Live70.bind.bind(Live70); Live70.bind = function (el) { bd(el);
+    el.addEventListener("pointerdown", e => { if (!e.target.closest("#lvPad") || this.pid == null || this.pid === e.pointerId || this.X.length >= 2 || this.X.some(q => q.id === e.pointerId)) return; this.X.push({ id: e.pointerId, x: e.clientX, y: e.clientY }); try { $("lvPad").setPointerCapture(e.pointerId); } catch (_) {} e.preventDefault(); this.mtUpdate(); });
+    el.addEventListener("pointermove", e => { const q = this.X.find(q => q.id === e.pointerId); if (q) { q.x = e.clientX; q.y = e.clientY; } if (this.X.length && (q || this.pid === e.pointerId)) this.mtUpdate(); });
+    const up = e => { const i = this.X.findIndex(q => q.id === e.pointerId); if (i >= 0) this.X.splice(i, 1); else if (this.pid == null && this.X.length) { const q = this.X.shift(); this.pid = q.id; } else return; this.mtUpdate(); };   // der erste Finger ist weg: der nächste führt den Punkt
+    el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up); };
+  const rn = Live70.render.bind(Live70); Live70.render = function () { const r = rn(); try { this.pid2 = -1; this.X = []; this.mtEcho = false; this.mtCut = false; const h = $("lvHint"); if (h) h.innerHTML = "Leg den Finger auf die Fläche und zieh:<br><b>hoch</b> = mehr Band · <b>rechts</b> = heller<br><b>zweiter Finger</b> = Echo (weiter weg = mehr)<br><b>dritter Finger</b> = Stille"; } catch (_) {} return r; };
+  const cl = Live70.close.bind(Live70); Live70.close = function (...a) { this.X = []; this.mtEcho = false; this.mtCut = false; const r = cl(...a); this.pid2 = -1; return r; };
+  const dr = Live70.draw.bind(Live70); Live70.draw = function () { const r = dr(); try { if (this.X.length) { const cv = $("lvCv"), g = cv.getContext("2d"), d = this.dpr || 1, R = cv.getBoundingClientRect(), [mx, my] = this.mainXY(), P = (x, y) => [(x - R.left) * d, (y - R.top) * d], [ax, ay] = P(mx, my); g.save(); g.globalCompositeOperation = "lighter"; g.lineCap = "round";
+        this.X.forEach((q, i) => { const [bx, by] = P(q.x, q.y), col = i === 0 ? "53,192,224" : "255,90,110"; if (i === 0) { g.strokeStyle = `rgba(${col},${0.25 + 0.6 * (this.mtAmt || 0)})`; g.lineWidth = (2 + 6 * (this.mtAmt || 0)) * d; g.setLineDash([10 * d, 12 * d]); g.lineDashOffset = -performance.now() / 30; g.beginPath(); g.moveTo(ax, ay); g.lineTo(bx, by); g.stroke(); g.setLineDash([]); }
+          g.strokeStyle = `rgba(${col},.95)`; g.lineWidth = 3 * d; g.beginPath(); g.arc(bx, by, 30 * d, 0, 6.2832); g.stroke(); g.fillStyle = `rgba(${col},.22)`; g.beginPath(); g.arc(bx, by, 30 * d, 0, 6.2832); g.fill(); }); g.restore(); } } catch (_) {} return r; }; }
+
+/* ---------- Bereichswechsel: Tasten · Noten · Kneten · Live – eine Leiste, überall dieselbe, die Musik läuft weiter ---------- */
+const Ber72 = {
+  B: [["tasten", "keys", "Tasten"], ["noten", "noten", "Noten"], ["knet", "blob", "Kneten"], ["live", "live", "Live"]],
+  strip(cur) { return `<div class="ber72" role="group" aria-label="Bereich wechseln – die Musik läuft weiter">${this.B.map(([k, ic, n]) => `<button data-ber="${k}" aria-pressed="${k === cur}" aria-label="${n}${k === cur ? " (hier bist du)" : ""}"><i>${I67[ic] || ""}</i><span>${n}</span></button>`).join("")}</div>`; },
+  form() { const f = (Schrift.on && Schrift.f) || (Einsp.on && Einsp.f) || Forms.active; return f && Forms.list.includes(f) && !f.empty ? f : (Forms.list.find(x => !x.empty && !x.remote) || null); },
+  cur() { return Live70.on ? "live" : Schrift.on ? "noten" : Einsp.on ? "tasten" : Tools.knead && UI.tab === "klang" ? "knet" : null; },
+  go(k) {
+    if (k === this.cur()) return; const f = this.form(); Hap(8);
+    if (k === "live" && !Live70.forms().length) return Live70.open();                 // sagt selbst, was fehlt – der jetzige Bereich bleibt
+    try { if (Live70.on) Live70.close(true); if (Schrift.on) Schrift.close(); if (Einsp.on) { if (Einsp.made === Einsp.f && k !== "live") Einsp.made = null; Einsp.close(); } if (Tools.knead && k !== "knet") Tools.toggleKnead(false); } catch (e) { console.warn(e); }
+    if (k === "tasten") return Einsp.open(f);
+    if (k === "noten") return Schrift.open(f);
+    if (k === "live") return Live70.open();
+    if (k === "knet") { UI.setTab("klang"); try { if (f) Forms.setActive(f); if (Scene.view !== "nah") UI.setView("nah"); Tools.toggleKnead(true); } catch (e) { console.warn(e); } }
+  }
+};
+document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-ber]"); if (b) Ber72.go(b.dataset.ber); });
+{ const put = (root, cur) => { try { const t = root && root.querySelector(".etop"); if (t && !root.querySelector(".ber72")) t.insertAdjacentHTML("afterend", Ber72.strip(cur)); } catch (_) {} };
+  const sr = Schrift.render.bind(Schrift); Schrift.render = function () { const r = sr(); put($("kn70"), "noten"); return r; };
+  const er = Einsp.render.bind(Einsp); Einsp.render = function () { const r = er(); put($("einsp"), "tasten"); return r; };
+  const lr = Live70.render.bind(Live70); Live70.render = function () { const r = lr(); try { const t = this.el().querySelector(".lvtop"); if (t && !this.el().querySelector(".ber72")) t.insertAdjacentHTML("afterend", `<div class="lvber">${Ber72.strip("live")}</div>`); } catch (_) {} return r; };
+  const ht = KSheet.html; KSheet.html = function () { let h = ht.call(this); try { if (Tools.knead && !h.includes('class="ber72"')) { const i = h.indexOf('<div class="fbcap">'), j = i < 0 ? -1 : h.indexOf("</div>", i); if (j > 0) h = h.slice(0, j + 6) + Ber72.strip("knet") + h.slice(j + 6); } } catch (_) {} return h; }; }
+
+/* ---------- Mitschnitt: was du spielst, wird von selbst aufgenommen – beim Wechsel des Stücks fragt KLANGRAUM, ob es bleiben soll ---------- */
+const Auto72 = {
+  on: store.get("auto72") !== false, node: null, chunks: [], frames: 0, quiet: 0, MAX: 300, MIN: 8,
+  sr() { return Engine.ctx ? Engine.ctx.sampleRate : 48000; },
+  init() { if (this.node || !this.on || !Engine.ctx || !Engine.out || typeof Engine.makeRec !== "function") return;
+    try { const n = Engine.makeRec(2); Engine.out.connect(n.input || n); const z = Engine.ctx.createGain(); z.gain.value = 0; n.connect(z).connect(Engine.ctx.destination); n.port.onmessage = e => { if (e.data && e.data.t === "chunk") this.push(e.data.d); }; n.port.postMessage({ on: true, ch: 2 }); this.node = n; } catch (e) { console.warn("Mitschnitt", e); } },
+  max() { try { return Perf36.lvl() === "leicht" ? 120 : this.MAX; } catch (_) { return this.MAX; } },
+  // nur was klingt, wird behalten: Stille über gut einer Sekunde fällt weg; eigene Aufnahmen beim Anhören zählen nicht
+  push(d) {
+    if (!this.on || !d || !d[0]) return; try { if (Recs.player) return; } catch (_) {}
+    const L = d[0], R = d[1] || d[0], n = L.length; let pk = 0; for (let i = 0; i < n; i += 8) { const a = Math.abs(L[i]), b = Math.abs(R[i]); if (a > pk) pk = a; if (b > pk) pk = b; }
+    if (pk > 0.004) this.quiet = 0; else { this.quiet += n; if (this.quiet > this.sr() * 1.2) return; }
+    this.chunks.push([K.toI16(L), K.toI16(R)]); this.frames += n; const max = this.max() * this.sr();
+    while (this.chunks.length > 1 && this.frames - this.chunks[0][0].length >= max) this.frames -= this.chunks.shift()[0].length;
+  },
+  secs() { return this.frames / this.sr(); },
+  txt(s = this.secs()) { s = Math.round(s); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); },
+  reset() { this.chunks = []; this.frames = 0; this.quiet = 0; this.paint(); },
+  async save(name) {
+    const n = this.frames, sr = this.sr(), L = new Float32Array(n), R = new Float32Array(n); let o = 0; for (const c of this.chunks) { L.set(K.fromI16(c[0]), o); R.set(K.fromI16(c[1]), o); o += c[0].length; }
+    const secs = this.secs(); this.reset(); const hm = new Date().toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" });
+    return Recs.add([L, R], sr, name || `Mitschnitt ${hm} · ${this.txt(secs)}`, "mitschnitt");
+  },
+  // vor dem Wechsel des Stücks fragen (höchstens 45 s Bedenkzeit, danach geht es ohne Speichern weiter)
+  ask(piece) {
+    if (!this.on || this.secs() < this.MIN || !Projects.cur) { this.reset(); return Promise.resolve("nichts"); }
+    return new Promise(res => { let done = false, iv = 0, to = 0; const fin = v => { if (done) return; done = true; clearInterval(iv); clearTimeout(to); res(v); };
+      try { const len = this.txt(), s = Sheets.open("Mitschnitt", Sheets.head("Dein Spiel behalten?") + `<p>Was du in „${esc(piece || "deinem Stück")}“ gespielt hast, wurde mitgeschnitten: <b>${len} Minuten</b>. Soll der Mitschnitt bei den Aufnahmen dieses Stücks bleiben?</p><div class="am72"><button class="edone" data-am="save">Speichern</button><button class="eb" data-am="drop">Nicht speichern</button></div><button class="am72off" data-am="off">Nicht mehr von selbst mitschneiden</button>`, true);
+        s.addEventListener("click", async e => { const b = e.target.closest("[data-am]"); if (!b) return; const k = b.dataset.am; Hap(8);
+          if (k === "off") { this.set(false); UI.hideSheets(); return fin("aus"); }
+          if (k === "save") { try { await this.save(`${piece || "Stück"} · Mitschnitt ${len}`); UI.hideSheets(); UI.toast("Mitschnitt gespeichert – du findest ihn bei den Aufnahmen des Stücks", 3000); return fin("gespeichert"); } catch (err) { UI.toast("Der Mitschnitt ließ sich nicht speichern: " + (err && err.message || err), 3600); UI.hideSheets(); this.reset(); return fin("fehler"); } }
+          this.reset(); UI.hideSheets(); fin("verworfen"); });
+        iv = setInterval(() => { if (!document.body.contains(s)) { this.reset(); fin("verworfen"); } }, 300); to = setTimeout(() => { this.reset(); try { if (document.body.contains(s)) UI.hideSheets(); } catch (_) {} fin("zeit"); }, 45000);
+      } catch (e) { console.warn(e); this.reset(); fin("fehler"); } });
+  },
+  set(on) { this.on = !!on; store.set("auto72", this.on); if (!this.on) this.reset(); else this.init(); this.paint(); },
+  async now() { if (this.secs() < 2) { UI.toast("Noch nichts mitgeschnitten – spiel etwas, der Mitschnitt läuft von selbst mit.", 2800); return; } try { const r = await this.save(); Hap(14); Sheets.recDone(r); } catch (e) { UI.toast("Der Mitschnitt ließ sich nicht speichern: " + (e && e.message || e)); } },
+  paint() { const s = $("amSay"); if (s) s.textContent = this.on ? (this.frames ? `${this.txt()} mitgeschnitten` : "läuft mit, sobald etwas klingt") : "aus"; document.querySelectorAll("[data-am2='tog']").forEach(b => b.setAttribute("aria-checked", this.on)); const b = $("amNow"); if (b) b.disabled = !this.on || this.secs() < 2; },
+  row() { return `<div class="mxr bw72 am72r" style="--c:#FF5A6E"><span class="mxn"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="3.2" fill="currentColor" stroke="none"/></svg></i><b>Mitschnitt</b></span><div class="b72b"><button class="b72sw" data-am2="tog" role="switch" aria-checked="${this.on}" aria-label="Von selbst mitschneiden, was gespielt wird"><i></i></button><span class="b72t"><b id="amSay"></b><small>Nimmt von selbst auf, was klingt. Beim Wechsel des Stücks fragt KLANGRAUM, ob der Mitschnitt bleiben soll.</small></span><button class="eb" id="amNow" data-am2="now">Jetzt sichern</button></div></div>`; }
+};
+setInterval(() => { try { Auto72.init(); if (UI.tab === "mix") Auto72.paint(); } catch (_) {} }, 1500);
+document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-am2]"); if (!b) return; Hap(8); if (b.dataset.am2 === "tog") Auto72.set(!Auto72.on); else Auto72.now(); });
+{ const rn = MixUI.render.bind(MixUI); MixUI.render = function (force) { const r = rn(force); try { const el = this.el(), w = el && !el.hidden && el.querySelector(".bw72:not(.am72r)"); if (w && !el.querySelector(".am72r")) { w.insertAdjacentHTML("afterend", Auto72.row()); Auto72.paint(); } } catch (e) { console.warn(e); } return r; }; }
+// Wechsel des Stücks: erst fragen, dann wechseln
+{ const oi = Projects.openId.bind(Projects); Projects.openId = async function (id) { if (this.cur && this.cur.id !== id) { try { await Auto72.ask(this.cur.name); } catch (e) { console.warn(e); } } return oi(id); };
+  const cr = Projects.create.bind(Projects); Projects.create = async function (name, kind, quiet) { if (this.cur && App.started) { try { await Auto72.ask(this.cur.name); } catch (e) { console.warn(e); } } return cr(name, kind, quiet); }; }
+try { Erkl.T.push([".am72r", "Mitschnitt", "KLANGRAUM nimmt von selbst auf, was du spielst – Stille fällt weg, höchstens die letzten fünf Minuten. Wechselst du das Stück, wirst du gefragt, ob der Mitschnitt bleiben soll. „Jetzt sichern“ legt ihn sofort zu den Aufnahmen."], [".ber72", "Bereich wechseln", "Tasten, Noten, Kneten und Live: vier Arten, deine Musik zu verändern. Du kannst jederzeit wechseln – die Musik läuft dabei weiter."]); } catch (_) {}
+Help.T.push({ id: "v72b", ic: "⏺", t: "Mitschnitt und Wechsel mitten im Stück", k: "mitschnitt automatisch aufnehmen aufzeichnen speichern fragen wechsel stück bereich tasten noten kneten live musik läuft weiter mehrere finger fläche",
+  h: `<p><b>Mitschnitt:</b> KLANGRAUM nimmt von selbst auf, was du spielst. Stille fällt weg; behalten werden höchstens die letzten fünf Minuten. <b>Wechselst du das Stück</b> (ein anderes öffnen oder ein neues anlegen), fragt KLANGRAUM: „Dein Spiel behalten?“ – <b>Speichern</b> legt den Mitschnitt zu den Aufnahmen des alten Stücks, <b>Nicht speichern</b> verwirft ihn. Unter <b>Mischen → Mitschnitt</b> kannst du ihn ausschalten oder mit „Jetzt sichern“ sofort ablegen.</p>
+  <p><b>Wechsel mitten im Stück:</b> In Einspielen, Klangschrift, Kneten und Live-Fläche steht oben dieselbe Leiste: <b>Tasten · Noten · Kneten · Live</b>. Ein Tipp wechselt den Bereich, die Musik läuft weiter. Auch „Fertig“ in der Live-Fläche hält die Musik nicht mehr an, wenn sie vorher schon lief.</p>
+  <p><b>Live-Fläche mit mehreren Fingern:</b> Der erste Finger führt den Punkt. Ein <b>zweiter Finger</b> gibt Echo – je weiter weg vom ersten, desto stärker. Ein <b>dritter Finger</b> ist Stille; beim Abheben setzt alles wieder ein.</p>` });
+
 // Verlässt man das Stück, verstummt auch die Schnitt-Schleife
 { const st = UI.setTab.bind(UI); UI.setTab = t => { if (t !== "stueck") WaveEd.stopAll(); st(t); }; }
 /* ============================================================
@@ -19434,6 +19665,47 @@ const Tests = {
         try { f.still = true; const h1 = Bew.held().includes(f); Bew.sel = new Set([f.id]); Bew.all("sgo"); const ok1 = !f.still; f.still = true; Bew.all("go"); const ok2 = !f.still;
           ok("BV", h1 && ok1 && ok2 && /data-bwa="go"/.test(Bew.html()), `Angehaltene Formen wieder anschubsen: einzeln, Auswahl (${ok1 ? "ok" : "fehlt"}) und alle (${ok2 ? "ok" : "fehlt"}) · im Raum hält Antippen eine drehende Form an`); }
         finally { f.still = s0; Transport.start = ts; UI.toast = tp; } } } catch (e) { ok("BV", false, String(e)); }
+
+    // v72: Bewegung – Lage- und Beschleunigungssensoren
+    try { const B = Beweg, st = { on: B.on, lr: B.lr, fb: B.fb, zero: B.zero, got: B.got, ls: B.lastShake, ns: B.nShake }, wc = Wucht.cut, lv = Live70.on; let cuts = 0; Wucht.cut = on => { if (on) cuts++; };
+      let o;
+      try { B.zero = null; B.got = 0; B.lr = 0; B.fb = 0;
+        B.feed(40, 5, 0); const z = B.lr === 0 && B.fb === 0 && B.zero[0] === 5;                                        // die Haltung beim Einschalten ist die Mitte
+        for (let i = 0; i < 40; i++) B.feed(40, 5 - 39, 0); const left = B.lr < -0.99 && Math.abs(B.fb) < 0.01;          // 39° nach links = ganz dumpf
+        for (let i = 0; i < 40; i++) B.feed(40 - 20, 5, 0); const fwd = Math.abs(B.lr) < 0.01 && Math.abs(B.fb - (20 - 4) / 31) < 0.02;   // obere Kante 20° weg = Echo
+        for (let i = 0; i < 40; i++) B.feed(40 + 3, 5 + 3, 0); const dead = B.lr === 0 || Math.abs(B.lr) < 1e-4;          // kleines Zittern tut nichts
+        const ax = JSON.stringify([B.axes(10, 20, 0), B.axes(10, 20, 90), B.axes(10, 20, 180), B.axes(10, 20, 270)]) === "[[20,-10],[10,20],[-20,10],[-10,-20]]";
+        B.lastShake = -1e9; B.nShake = 0; const s1 = B.shake(20, 1000), s2 = B.shake(20, 1100), s3 = B.shake(5, 2000), s4 = B.shake(15, 2000);
+        o = z && left && fwd && dead && ax && s1 && !s2 && !s3 && s4 && cuts === 2 && B.nShake === 2; }
+      finally { Wucht.cut = wc; Object.assign(B, { lr: st.lr, fb: st.fb, zero: st.zero, got: st.got, lastShake: st.ls, nShake: st.ns }); }
+      let w = true; if (Engine.ctx && Wucht.n) { Wucht.tilt(0.6); const hp = Wucht.n.hp; w = !!hp && hp.type === "highpass"; Wucht.tilt(0); Wucht.echoAmt(0.5); Wucht.echoAmt(0); }
+      ok("BG", o && w && B.on === st.on && !B.on && typeof B.start === "function", `Bewegung: die Haltung beim Einschalten ist die Mitte · 39° links = ganz dumpf, 20° nach vorn = halbes Echo, Zittern unter 4° bleibt ohne Wirkung · gedrehter Bildschirm tauscht die Achsen · ein Ruck = ein Stotter, frühestens alle 0,17 s · Hochpass sitzt in der Summe · ohne Einschalten bleibt alles aus`); } catch (e) { ok("BG", false, String(e)); }
+    try { const hs = Live70.holdSet, ea = Wucht.echoAmt, mx = Live70.mainXY, st = { X: Live70.X, e: Live70.mtEcho, c: Live70.mtCut, h: Live70.hold }; const log = []; let amt = 0;
+      let o; try { Live70.hold = {}; Live70.holdSet = (k, on) => { Live70.hold[k] = on; log.push(k + (on ? "+" : "-")); }; Wucht.echoAmt = a => { amt = a; }; Live70.mainXY = () => [100, 100, 300]; Live70.mtEcho = false; Live70.mtCut = false;
+        Live70.X = [{ id: 1, x: 100, y: 190 }]; Live70.mtUpdate(); const a1 = amt; Live70.X[0].y = 400; Live70.mtUpdate(); const a2 = amt;
+        Live70.X.push({ id: 2, x: 50, y: 50 }); Live70.mtUpdate(); Live70.X.pop(); Live70.mtUpdate(); Live70.X = []; Live70.mtUpdate();
+        o = Math.abs(a1 - 0.5) < 1e-6 && a2 === 1 && log.join(" ") === "echo+ cut+ cut- echo-" && Live70.echoFor(0, 300) === 0.25; }
+      finally { Live70.holdSet = hs; Wucht.echoAmt = ea; Live70.mainXY = mx; Live70.X = st.X; Live70.mtEcho = st.e; Live70.mtCut = st.c; Live70.hold = st.h; }
+      ok("L2", o, "Live-Fläche mit mehreren Fingern: zweiter Finger schaltet das Echo, sein Abstand zum Punkt regelt die Stärke (nah 25 %, weit 100 %) · dritter Finger = Stille, beim Abheben setzt alles wieder ein · sind alle weiteren Finger weg, ist auch das Echo aus"); } catch (e) { ok("L2", false, String(e)); }
+    try { const A = Auto72, st = { on: A.on, c: A.chunks, f: A.frames, q: A.quiet }, ss = store.set, ra = Recs.add, so = Sheets.open, pc = Projects.cur; let saved = null, asked = 0; store.set = () => {};
+      let o; try { const sr = A.sr(), blk = (amp, n = sr / 2) => { const a = new Float32Array(n).fill(amp); return [a, a]; };
+        A.on = true; A.chunks = []; A.frames = 0; A.quiet = 0;
+        for (let i = 0; i < 6; i++) A.push(blk(0.3)); const t1 = Math.abs(A.secs() - 3) < 0.01;                                   // 3 s Klang
+        for (let i = 0; i < 20; i++) A.push(blk(0)); const t2 = A.secs() < 4.3 && A.secs() > 3.9;                                    // 10 s Stille: nur gut 1 s bleibt
+        for (let i = 0; i < 12; i++) A.push(blk(0.2)); const t3 = A.secs() > 9.9;
+        Sheets.open = () => { asked++; return so.apply(Sheets, ["x", "<p></p>"]); }; const p0 = A.ask.call({ ...A, on: true, secs: () => 3, reset() {}, MIN: 8 }, "T");                       // unter 8 s: keine Frage
+        Recs.add = async (ch, r, name, kind) => { saved = { n: ch[0].length, r, name, kind, pk: Math.max(...ch[0].slice(0, 200)) }; return { id: "x" }; };
+        const pr = A.save("Probe"); o = t1 && t2 && t3 && asked === 0 && p0 instanceof Promise && saved && saved.kind === "mitschnitt" && saved.name === "Probe" && saved.n > 9.9 * sr && Math.abs(saved.pk - 0.3) < 0.001 && A.frames === 0 && pr instanceof Promise;
+        const cap = (() => { A.chunks = []; A.frames = 0; A.quiet = 0; const big = blk(0.2, sr * 10); for (let i = 0; i < 40; i++) A.push(big); return A.secs() <= A.max() + 10 && A.secs() >= A.max() - 10; })(); o = o && cap; }
+      finally { store.set = ss; Recs.add = ra; Sheets.open = so; try { UI.hideSheets(); } catch (_) {} A.on = st.on; A.chunks = st.c; A.frames = st.f; A.quiet = st.q; }
+      ok("AM", o && typeof Projects.openId === "function", "Mitschnitt: was klingt, wird von selbst aufgenommen · lange Stille fällt bis auf gut eine Sekunde weg · höchstens die letzten Minuten bleiben (Speicher) · unter 8 Sekunden wird beim Wechsel nicht gefragt · Speichern legt eine Aufnahme mit unverändertem Pegel an und leert den Mitschnitt"); } catch (e) { ok("AM", false, String(e)); }
+    try { const g = { e: Einsp.open, s: Schrift.open, l: Live70.open, lf: Live70.forms, tk: Tools.toggleKnead, st: UI.setTab, sv: UI.setView }, log = [], t0 = UI.tab;
+      let o; try { Einsp.open = () => log.push("tasten"); Schrift.open = () => log.push("noten"); Live70.open = () => log.push("live"); Live70.forms = () => [1]; Tools.toggleKnead = on => { if (on) log.push("knet"); }; UI.setTab = t => log.push("tab:" + t); UI.setView = () => {};
+        for (const k of ["tasten", "noten", "live", "knet"]) Ber72.go(k); const s = Ber72.strip("noten");
+        o = log.join(",") === "tasten,noten,live,tab:klang,knet" && (s.match(/data-ber=/g) || []).length === 4 && /data-ber="noten" aria-pressed="true"/.test(s) && Ber72.cur() === null; }
+      finally { Einsp.open = g.e; Schrift.open = g.s; Live70.open = g.l; Live70.forms = g.lf; Tools.toggleKnead = g.tk; UI.setTab = g.st; UI.setView = g.sv; if (UI.tab !== t0) UI.setTab(t0); }
+      ok("BR", o, "Bereichswechsel: eine Leiste mit Tasten · Noten · Kneten · Live führt in jeden der vier Bereiche · der aktuelle ist markiert · die Live-Fläche kann schließen, ohne die Musik anzuhalten"); } catch (e) { ok("BR", false, String(e)); }
+
 
     // v71: mit allen Fingern modellieren – Klangschrift (mehrere Finger, verschieben, längen) und Kneten mit Ton
     try { const f = App.started ? Forms.list.find(x => Einsp.playable(x) && !Einsp.drum(x)) : null;
