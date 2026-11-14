@@ -6,6 +6,7 @@
 
 | Version | Commit | Inhalt |
 |---|---|---|
+| 77 | `d808729` | Dreh-Knopf statt Dreh-Leiste (einklappen, ziehen = Tempo, lange drücken = ausblenden), Gesten neben den Formen: zwei/drei Finger tippen = anhalten/weiter, zwei Finger drehen = Tempo bis rückwärts · Blatt „Gesten“ |
 | 76 | `6e2c64e` | Start-Melodie gilt zuerst für alle Formen (Schlagzeug dreht mit), eigene Melodien je Form wählbar: im Blatt „Neues Stück“ und im Stück über den Knopf ♪ |
 | 75 | `cb897f4` | Ausklang: Outro auf Knopfdruck (Stimmen gehen der Reihe nach, Schlusston), Neues Stück: Töne aufnehmen → eigene Form mit Start-Melodie oder gesungener Melodie |
 | 74 | `b9ee662` | Start genauer einstellen (Vorlagen, Zufall, Lage, wer mitspielt, Kanon), Bewegung einstellen (Empfindlichkeit, umkehren), Live-Fläche: Zerhacker/4 Finger, Klangschrift-Zoom mit zwei Fingern, Dreh-Leiste „alle“ |
