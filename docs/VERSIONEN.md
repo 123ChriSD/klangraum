@@ -6,6 +6,7 @@
 
 | Version | Commit | Inhalt |
 |---|---|---|
+| 76 | `6e2c64e` | Start-Melodie gilt zuerst für alle Formen (Schlagzeug dreht mit), eigene Melodien je Form wählbar: im Blatt „Neues Stück“ und im Stück über den Knopf ♪ |
 | 75 | `cb897f4` | Ausklang: Outro auf Knopfdruck (Stimmen gehen der Reihe nach, Schlusston), Neues Stück: Töne aufnehmen → eigene Form mit Start-Melodie oder gesungener Melodie |
 | 74 | `b9ee662` | Start genauer einstellen (Vorlagen, Zufall, Lage, wer mitspielt, Kanon), Bewegung einstellen (Empfindlichkeit, umkehren), Live-Fläche: Zerhacker/4 Finger, Klangschrift-Zoom mit zwei Fingern, Dreh-Leiste „alle“ |
 | 73 | `2b7c9ea` | Stück mit eigener Start-Melodie (alle Formen spielen zuerst dasselbe), Dreh-Leiste (genaue Werte, Sofort-Stopp, Achsen-Trennung beim Wischen), Alles auf einen Blick mit Suche |
