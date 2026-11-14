@@ -6,6 +6,7 @@
 
 | Version | Commit | Inhalt |
 |---|---|---|
+| 73 | `2b7c9ea` | Stück mit eigener Start-Melodie (alle Formen spielen zuerst dasselbe), Dreh-Leiste (genaue Werte, Sofort-Stopp, Achsen-Trennung beim Wischen), Alles auf einen Blick mit Suche |
 | 72 | `5a3a3ac` | Bewegung (Kippen/Schütteln formt den Klang, zuschaltbar), Live-Fläche mit mehreren Fingern, Bereichsleiste Tasten · Noten · Kneten · Live bei laufender Musik, automatischer Mitschnitt mit Frage beim Stückwechsel |
 | 71 | `55bc5dc` | Mit allen Fingern modellieren: Klangschrift (Akkorde, Töne verschieben/längen), Kneten mit mehreren Fingern und Ton, Kachel „Klang kneten“, Echo mit dem zweiten Finger |
 | 70 | `4264a2e` | Klangschrift (Notensystem zum Lesen und Schreiben), Live-Fläche (ein Finger formt den Song), fette Klänge + Stile Festival/Trap/Drum & Bass, Wucht |
