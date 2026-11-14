@@ -6,6 +6,7 @@
 
 | Version | Commit | Inhalt |
 |---|---|---|
+| 75 | `cb897f4` | Ausklang: Outro auf Knopfdruck (Stimmen gehen der Reihe nach, Schlusston), Neues Stück: Töne aufnehmen → eigene Form mit Start-Melodie oder gesungener Melodie |
 | 74 | `b9ee662` | Start genauer einstellen (Vorlagen, Zufall, Lage, wer mitspielt, Kanon), Bewegung einstellen (Empfindlichkeit, umkehren), Live-Fläche: Zerhacker/4 Finger, Klangschrift-Zoom mit zwei Fingern, Dreh-Leiste „alle“ |
 | 73 | `2b7c9ea` | Stück mit eigener Start-Melodie (alle Formen spielen zuerst dasselbe), Dreh-Leiste (genaue Werte, Sofort-Stopp, Achsen-Trennung beim Wischen), Alles auf einen Blick mit Suche |
 | 72 | `5a3a3ac` | Bewegung (Kippen/Schütteln formt den Klang, zuschaltbar), Live-Fläche mit mehreren Fingern, Bereichsleiste Tasten · Noten · Kneten · Live bei laufender Musik, automatischer Mitschnitt mit Frage beim Stückwechsel |
