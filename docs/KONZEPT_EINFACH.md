@@ -131,3 +131,10 @@ Wer mehr will, findet unter **Mehr** alles Bisherige (Pult, Beat-Maschine, Schni
 - **Die eigene Stimme macht ein Stück zum eigenen.** Wer beim Anlegen etwas aufnimmt, hat von der ersten Sekunde an einen Klang, den es nur einmal gibt. Die Frage „spielt sie mit den anderen oder ihr eigenes?“ ist die einzige Entscheidung.
 - **Singen statt tippen:** Viele können eine Melodie summen, aber nicht auf Tasten finden. Die erkannten Töne lassen sich als Start-Melodie für alle übernehmen.
 - **Offen:** Rhythmus der gesungenen Melodie übernehmen; Ausklang-Länge wählbar; Ausklang als Song-Abschnitt speichern.
+
+## 15. Version 76: Gemeinsam beginnen, einzeln abweichen
+
+- **Erst alle, dann jede für sich:** Die Start-Melodie ist der gemeinsame Boden. Abweichen ist eine bewusste Wahl je Form – und jederzeit umkehrbar, weil die Start-Melodie in jeder Form liegen bleibt.
+- **Auswahl statt Schalter:** „Spielt mit / spielt nicht“ war zu grob. Jetzt sagt jede Form, *was* sie spielt.
+- **Derselbe Ort im Stück:** Was man beim Anlegen entscheidet, muss man danach wiederfinden. Der Knopf ♪ zeigt immer, was die gewählte Form spielt, und führt zur selben Auswahl.
+- **Zwei Wege aus einer getippten Melodie:** nur diese Form – oder neue gemeinsame Melodie. Damit ist auch „die Start-Melodie ändern“ gelöst, ohne ein eigenes Menü.

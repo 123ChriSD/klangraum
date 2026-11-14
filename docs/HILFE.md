@@ -8,6 +8,7 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **einer Form eine eigene Melodie geben – oder alle wieder gleich spielen lassen** | **Spielen** → oben links **♪** | [→](#v76) |
 | **das Stück schön enden lassen** | **Spielen** → oben links **Ausklang** | [→](#v75) |
 | **beim Anlegen eines Stücks gleich meine Stimme oder ein Instrument aufnehmen** | **Start** (unten) → **Stück mit Melodie** → Abschnitt **Eigener Klang** | [→](#v75) |
 | **alle Formen zugleich anhalten oder gleich schnell drehen** | **Spielen** → Leiste unten links → **alle** | [→](#v74) |
@@ -76,6 +77,20 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## ♪ Start-Melodie für alle, eigene Melodien einzeln (neu in v76) {#v76}
+
+**Beim Anlegen**
+- Die **Start-Melodie** gilt zuerst für alle Formen. Schlagzeug dreht mit, hat aber keine Töne.
+- Unter **So startet das Stück** kannst du jeder Form einzeln eine eigene geben: eine Vorlage, Zufall oder „keine – spielt frei“.
+- Die Start-Melodie bleibt bei jeder Form in der Sammlung. Du kannst später zurückwechseln.
+
+**Im Stück**
+- Im Bereich **Spielen** steht oben links neben „Ausklang“ der Knopf **♪** mit dem Namen der Melodie.
+- Antippen: **Start-Melodie**, eine eigene, eine **Vorlage** oder **Frei** wählen. Oben wechselst du die Form.
+- **Eigene Melodie tippen:** Die bunten Tasten klingen mit der Form selbst.
+- **Nur für …** gibt sie dieser einen Form. **Als Start-Melodie für alle Formen** macht sie zur neuen gemeinsamen Melodie.
+- **Alle Formen spielen wieder die Start-Melodie** stellt alle zurück.
+
 ## 🌅 Ausklang und eigener Klang im neuen Stück (neu in v75) {#v75}
 
 **Ausklang – das Stück schön enden lassen**

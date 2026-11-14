@@ -1,7 +1,20 @@
-# KLANGRAUM – Stand Version 75 (14.11.2026)
+# KLANGRAUM – Stand Version 76 (14.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 74) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 75) · jede Version mit Commit in `docs/VERSIONEN.md`.
+
+## Neu in v76: Start-Melodie für alle Formen – eigene Melodien einzeln wählbar
+- Christian (14.11. 16:07): „Die Start-Melodie soll sich zunächst auf alle Formen auswirken; eigene Melodien sollen separat gewählt werden können.“
+- **Blatt „Neues Stück“:** Statt „Wer spielt mit“ (an/aus) steht unter „So startet das Stück“ jetzt je Form eine Auswahl: **Start-Melodie** (Vorgabe für alle) · eine **Vorlage** (Auf und ab, Wellen, Fanfare, Ruf und Antwort, Ruhig) · **Zufall** · **keine – spielt frei**. Vorlagen klingen beim Wählen vor.
+  - Jede Form mit Tonhöhen bekommt die Start-Melodie **immer in ihre Sammlung** – auch wenn sie eine eigene spielt. So kann man später zurückwechseln.
+  - **Schlagzeug dreht jetzt mit** (gleiches Tempo), hat aber keine Melodie.
+  - Eigene Melodien lassen sich auch ohne Start-Melodie vergeben („Stück mit diesen Melodien anlegen“). Im Kanon stehen nur die Formen, die die Start-Melodie spielen.
+- **Im Stück – Knopf „♪“** (`MelWahl76`, `#mw76`, im Bereich Spielen oben links neben „Ausklang“; zeigt den Namen der Melodie der gewählten Form):
+  - Blatt „Melodie von …“: oben die Formen zum Wechseln (mit ihrer jetzigen Melodie), darunter die Auswahl **Start-Melodie** · eigene Melodien dieser Form · **Vorlagen** · **Frei** – jede mit ihrer Tonfolge als bunte Zahlen; die Wahl klingt vor.
+  - **Eigene Melodie tippen** (acht bunte Tasten, klingt mit der Form selbst): **„Nur für …“** gibt sie dieser einen Form · **„Als Start-Melodie für alle Formen“** macht sie zur neuen gemeinsamen Melodie.
+  - **„Alle Formen spielen wieder die Start-Melodie“** stellt alle zurück; eigene Melodien bleiben in der Sammlung. Alles mit Rückgängig.
+- **Tests:** Prüfstand 158 (neu **M6**), 412×892 und 700×330 ohne Fehler. Layout 412×892, 700×330, 820×1180 TOTAL 0 (drei neue Zustände). E2E (`tools/t76_a.txt`): Blatt mit Vorlage „Auf und ab“, Bass auf „Fanfare“ gestellt → Klavier spielt die Start-Melodie, Bass die Fanfare (Start-Melodie in der Sammlung), Trommel dreht mit; im Stück: Vorlage „Ruhig“ für Klavier, eigene Melodie nur für Klavier (Bass unverändert), neue Start-Melodie für alle, Bass auf „Frei“, alle zurück. Proben v70–v75 als Gegenprobe fehlerfrei.
+- **Nicht geprüft / offen:** nicht auf echten Geräten. Die Start-Melodie ist je Form gespeichert (gleichnamiger Eintrag „Start-Melodie“), nicht einmal fürs Stück – benennt man sie in einer Form um, gilt sie dort nicht mehr als Start-Melodie. Für die aufgenommene Form („Eigener Klang“) bleibt die Wahl im eigenen Abschnitt.
 
 ## Neu in v75: Ausklang (Outro auf Knopfdruck) · Neues Stück: Töne aufnehmen und als Form mitnehmen
 - Christian (14.11. 13:45): „Ich brauche im Form-Bereich noch einen Fade-out-Button, der aus dem Stück automatisch ein gutes Outro erstellt und die Formen ausgewogen beendet.“ · (13:48): „Und ich möchte auch beim Zusammenstellen des neuen Stückes bereits Töne aufnehmen können und daraus eine Form erstellen, die entweder die Hauptmelodie spielt oder eine eigene.“
