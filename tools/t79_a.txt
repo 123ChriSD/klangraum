@@ -1,0 +1,36 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots79/"
+import json
+J=lambda s: E("JSON.stringify(%s)" % s)
+await E("Auto72.set(false); P78.K = 4; 0"); await pg.wait_for_timeout(900)
+T = "(async () => { const ok = (id, o, t) => { if (['TX','TY','BK','RN','PA','PT','PZ','PN','PK'].includes(id)) __r.push([id, !!o]); }; window.__r = []; return 0; })()"
+print("punkte:", await J("[...document.querySelectorAll('.p78p')].map(b => { const r = b.getBoundingClientRect(); return [b.dataset.p, Math.round(r.left), Math.round(r.width), Math.round(r.height)]; })"))
+M = "(() => { const c = document.getElementById('c'); let n = 0, fr = 0; for (let y = 4; y < innerHeight; y += 8) for (let x = 4; x < innerWidth; x += 8) { n++; if (document.elementFromPoint(x, y) === c) fr++; } return Math.round(fr / n * 1000) / 10; })()"
+print("frei:", await J(M)); await pg.screenshot(path=SP+"a_punkte.png")
+for p in ("aufn", "stueck", "musik", "form"):
+  await E("P78.open('%s'); 0" % p); await pg.wait_for_timeout(500); print(p, await J("(() => { const t = document.getElementById('p78T'); return [Math.round(t.getBoundingClientRect().height), t.scrollHeight > t.clientHeight + 1, t.querySelectorAll('.p78b').length, [...t.querySelectorAll('.p78b span')].filter(s => s.scrollHeight > s.clientHeight + 1).map(s => s.textContent)]; })()"), await J(M)); await pg.screenshot(path=SP+"t_%s.png" % p)
+await E("P78.close(); 0")
+# Aufnahme-Punkt: Mitschnitt starten, Punkt beendet ihn
+await E("P78.run('c:rec'); 0"); await pg.wait_for_timeout(1500); print("mitschnitt:", await J("[Rec.on, P78.recKind(), document.querySelector('.p78r').className, document.querySelector('.p78r b').textContent, !document.getElementById('p78').hidden]"))
+await pg.screenshot(path=SP+"a_rec.png")
+await E("P78.tap('aufn'); 0"); await pg.wait_for_timeout(1500); print("gestoppt:", await J("[Rec.on, P78.recKind(), P78.cur, !!Sheets.cur]")); await E("UI.hideSheets(); 0"); await pg.wait_for_timeout(400)
+# Bibliothek: Klang aus Daten merken, ins Stück holen
+await E("Bib79.add(Float32Array.from({ length: 24000 }, (_, i) => Math.sin(i * 2 * Math.PI * 330 / 48000) * 0.4 * Math.exp(-i / 9000)), 48000, 'Glas').then(() => 0)"); await E("Bib79.add(Float32Array.from({ length: 30000 }, (_, i) => Math.sin(i * 2 * Math.PI * 220 / 48000) * 0.4), 48000, 'Brummen').then(() => 0)")
+await E("P78.run('a:mk:bib'); 0"); await pg.wait_for_timeout(1200); print("bibliothek:", await J("[!!Sheets.cur, [...document.querySelectorAll('.b79c b')].map(b => b.textContent), document.querySelectorAll('.b79s .eb').length]")); await pg.screenshot(path=SP+"b_bib.png")
+n0 = await J("Forms.list.filter(f => !f.empty).length"); await pg.tap('.b79c [data-b9^=\"use\"]'); await pg.wait_for_timeout(1500)
+print("ins stueck:", n0, await J("[Forms.list.filter(f => !f.empty).length, Forms.active.name, Forms.active.kind, !!Sheets.cur]"))
+await E("P78.open('form'); 0"); await pg.wait_for_timeout(400); print("form-tafel merken:", await J("!!document.querySelector('.p78b[data-t=\"bibform\"]')")); await E("P78.close(); Bib79.open().then(() => 0)"); await pg.wait_for_timeout(900)
+print("aus diesem stueck:", await J("[...document.querySelectorAll('.b79s .eb')].map(b => [b.textContent.trim(), b.disabled])"))
+# Bibliothek ueberlebt Stueckwechsel
+await E("UI.hideSheets(); Projects.create('Zweites', 'leer').then(() => 0)"); await pg.wait_for_timeout(1500); await E("Bib79.load().then(() => 0)"); print("anderes stueck:", await J("[Projects.cur.name, Bib79.list.map(r => r.name), (await0 => 0)(0)]"))
+print("aufnahmen des stuecks ohne bibliothek:", await J("window.__x = null, 0"), await E("Recs.list().then(L => JSON.stringify(L.map(r => r.name)))"))
+# Neues Stueck: zwei Klaenge aus der Bibliothek + einer per Daten
+await E("NewPiece.open(); 0"); await pg.wait_for_timeout(1500)
+print("neues stueck:", await J("[!!document.getElementById('rn75S'), [...document.querySelectorAll('[data-rn^=\"lib:\"]')].map(b => b.textContent)]"))
+await pg.tap('[data-rn^=\"lib:\"]'); await pg.wait_for_timeout(600); await E("document.querySelectorAll('[data-rn^=\"lib:\"]')[1].click(); 0"); await pg.wait_for_timeout(600)
+await E("RecNP.got(Float32Array.from({ length: 48000 }, (_, i) => Math.sin(i * 2 * Math.PI * (i < 24000 ? 262 : 392) / 48000) * 0.4), 48000, 'Stimme'); 0"); await pg.wait_for_timeout(700)
+print("karten:", await J("[...document.querySelectorAll('.r79c')].map(c => [c.querySelector('b').textContent, c.querySelector('small').textContent.slice(0, 40), [...c.querySelectorAll('.sm74seg button')].find(b => b.getAttribute('aria-pressed') === 'true').textContent])"))
+await E("document.getElementById('rn75S').scrollIntoView({ block: 'start' }); 0"); await pg.wait_for_timeout(300); await pg.screenshot(path=SP+"n_klaenge.png")
+await E("RecNP.act('mode:0:frei'); RecNP.act('bib:2'); 0"); await pg.wait_for_timeout(700)
+await E("NewPiece.go().then(() => 0)"); await pg.wait_for_timeout(3500)
+print("angelegt:", await J("[Projects.cur.name, Forms.list.filter(f => !f.empty).map(f => [f.name, f.kind, f.mel ? f.mel.name : null])]"), await E("Bib79.load().then(L => JSON.stringify(L.map(r => r.name)))"))
+print("ERR", errs)

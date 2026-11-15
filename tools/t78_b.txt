@@ -4,7 +4,7 @@ J=lambda s: E("JSON.stringify(%s)" % s)
 cdp = await pg.context.new_cdp_session(pg)
 async def touch(kind, pts):
   await cdp.send("Input.dispatchTouchEvent", {"type":kind,"touchPoints":[{"x":p[0],"y":p[1],"id":p[2]} for p in pts]})
-await E("Auto72.set(false); 0"); await pg.wait_for_timeout(700)
+await E("Auto72.set(false); P78.K = 4; 0"); await pg.wait_for_timeout(700)
 print("woerter:", await J("(() => { const f = Forms.active, bad = []; for (const k of ['stueck','musik','form'].flatMap(p => P78.keys(p))) { const it = P78.item(k); if (!it || !it.n) continue; const n = P78.label(it, f); if (n.split(/\\s+/).length > 2 || P78.hy(n).split(/ |&shy;|-/).some(w => w.length > 8)) bad.push(k + '=' + n); } return bad; })()"))
 C = lambda sel: J("(() => { const r = document.querySelector('%s').getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2, r.top]; })()" % sel)
 # Musik: tippen = Start/Stopp
@@ -27,7 +27,7 @@ n0 = await J("Forms.active.name"); await touch("touchStart", [(f[0], f[1], 1)])
 for i in range(1, 6): await touch("touchMove", [(f[0] - i * 9, f[1], 1)])
 await touch("touchEnd", []); await pg.wait_for_timeout(700); print("gewischt:", n0, await J("[Forms.active.name, P78.cur, document.getElementById('p78Fn').textContent, document.getElementById('p78Nr').textContent]"))
 # Musik: lange druecken = Loop aufnehmen
-await touch("touchStart", [(m[0], m[1], 1)]); await pg.wait_for_timeout(1100); await touch("touchEnd", []); await pg.wait_for_timeout(600)
+await touch("touchStart", [(m[0], m[1], 1)]); await pg.wait_for_timeout(2600); await touch("touchEnd", []); await pg.wait_for_timeout(600)
 print("lange gedrueckt:", await J("[Forms.active.loop && Forms.active.loop.st, !!Loops.busyForm(), P78.cur, Transport.running]")); await E("{ const b = Loops.busyForm(); if (b) Loops.stop(b); } 0"); await pg.wait_for_timeout(500)
 # Lautstaerke-Regler auf der Tafel
 await E("P78.open('form'); 0"); await pg.wait_for_timeout(400); await E("{ const r = document.getElementById('p78Vol'); r.value = 60; r.dispatchEvent(new Event('input', { bubbles: true })); } 0"); print("regler:", await J("[Forms.active.fine.vol, document.getElementById('p78VolV').textContent]")); await E("Forms.active.fine.vol = 1; Forms.applyMix(Forms.active); P78.close(); 0")

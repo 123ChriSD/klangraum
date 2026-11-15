@@ -1,0 +1,39 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots79/"
+import json
+J=lambda s: E("JSON.stringify(%s)" % s)
+await E("Auto72.set(false); P78.K = 4; 0"); await pg.wait_for_timeout(900)
+await E("P78.run('a:mk:text'); 0"); await pg.wait_for_timeout(1200)
+print("blatt:", await J("[!!Sheets.cur, !!document.getElementById('t79T'), document.getElementById('t79I').textContent]"))
+TXT = "Der Mond ist aufgegangen,\\ndie goldnen Sternlein prangen\\nam Himmel hell und klar.\\nDer Wald steht schwarz und schweiget,\\nund aus den Wiesen steiget\\nder weisse Nebel wunderbar."
+await E("{ const t = document.getElementById('t79T'); t.value = \"%s\"; t.dispatchEvent(new Event('input', { bubbles: true })); } 0" % TXT); await pg.wait_for_timeout(300)
+print("buchstaben:", await J("document.getElementById('t79I').textContent"))
+await pg.screenshot(path=SP+"x_blatt.png")
+await pg.tap('[data-t9=\"art:wort\"]'); await pg.wait_for_timeout(400); print("wortlaengen:", await J("[document.getElementById('t79I').textContent, document.querySelector('.t79e').textContent.slice(0, 60), document.getElementById('t79T').value.length]"))
+await pg.tap('[data-t9=\"art:namen\"]'); await pg.wait_for_timeout(400); print("notennamen:", await J("document.getElementById('t79I').textContent"))
+await pg.tap('[data-t9=\"art:buch\"]'); await pg.wait_for_timeout(300); await pg.tap('[data-t9=\"unit:4\"]'); await pg.wait_for_timeout(300); print("ruhig:", await J("document.getElementById('t79I').textContent")); await pg.tap('[data-t9=\"unit:2\"]'); await pg.wait_for_timeout(300)
+await E("window.__bp = 0; { const o = StartMel.beep.bind(StartMel); StartMel.beep = function (...a) { __bp++; return o(...a); }; } Text79.act('listen'); 0"); await pg.wait_for_timeout(500); print("anhoeren:", await J("__bp"))
+n0 = await J("Projects.cur.name")
+await pg.tap('[data-t9=\"make\"]'); await pg.wait_for_timeout(4500)
+R = "[Projects.cur.name, UI.tab, Forms.list.filter(f => !f.empty).map(f => [f.name, (f.takes || []).map(t => t.bars + 'T/' + t.ev.length)]), Song.sections.map(s => [s.name, s.bars, s.on.length, s.off.length]), Song.playing, Math.round(Music.tempo()), Music.mood.name, !!Projects.cur.text79, [...document.querySelectorAll('.toast')].map(t => t.textContent.slice(0, 70))]"
+print("vertont:", n0, await J(R)); await pg.screenshot(path=SP+"x_song.png")
+print("toene:", await J("(() => { const f = Forms.byId(Projects.cur.text79.lead), t = f.takes[0]; return [f.name, t.ev.slice(0, 8).map(e => [e.s, Math.round(e.d * 10) / 10, e.m]), Math.min(...t.ev.map(e => e.m)), Math.max(...t.ev.map(e => e.m))]; })()"))
+await pg.wait_for_timeout(2500); print("klingt:", await J("[Song.playing, Transport.running, +Engine.stat.lv.toFixed ? Engine.stat.lv : 0]"))
+# Live-Fläche greift
+await E("{ const b = document.querySelector('.toast .tact'); if (b) b.click(); else Live70.open(); } 0"); await pg.wait_for_timeout(1500); print("live:", await J("[Live70.on, Live70.layers().length, Song.playing || Transport.running]")); await pg.screenshot(path=SP+"x_live.png"); await E("Live70.close(); 0"); await pg.wait_for_timeout(700)
+# Einfluss: hier neu vertonen mit anderer Lesart
+await E("UI.setTab('klang'); Text79.open(); 0"); await pg.wait_for_timeout(1000); print("wieder offen:", await J("[document.getElementById('t79T').value.length, !!document.querySelector('[data-t9=\"again\"]'), Text79.st.art]"))
+await pg.tap('[data-t9=\"art:wort\"]'); await pg.wait_for_timeout(300); nm = await J("Projects.cur.name"); await pg.tap('[data-t9=\"again\"]'); await pg.wait_for_timeout(3500)
+print("neu vertont:", nm, await J("[Projects.cur.name, Forms.byId(Projects.cur.text79.lead).takes.map(t => t.bars + 'T/' + t.ev.length), Song.sections.length, Projects.cur.text79.art, Forms.list.filter(f => !f.empty).length]"))
+# Noten zum Aendern
+await E("UI.setTab('klang'); Forms.setActive(Forms.byId(Projects.cur.text79.lead)); P78.run('a:mk:noten'); 0"); await pg.wait_for_timeout(1500); print("noten:", await J("[document.body.classList.contains('kks70'), Schrift.f && Schrift.f.name]")); await pg.screenshot(path=SP+"x_noten.png"); await E("Schrift.close(); 0"); await pg.wait_for_timeout(500)
+# nur Melodie
+await E("Text79.open(); 0"); await pg.wait_for_timeout(800); await pg.tap('[data-t9=\"band:0\"]'); await pg.wait_for_timeout(300); await pg.tap('[data-t9=\"make\"]'); await pg.wait_for_timeout(4000)
+print("nur melodie:", await J("[Projects.cur.name, Forms.list.filter(f => !f.empty).map(f => f.name), Song.sections.length, Song.playing]"))
+# Foto: Lesemodul nicht ladbar (kein Netz) -> klare Meldung; mit Lesemodul -> Text
+await E("UI.setTab('klang'); Text79.open(); 0"); await pg.wait_for_timeout(800)
+await E("(async () => { const cv = document.createElement('canvas'); cv.width = 400; cv.height = 200; const g = cv.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, 400, 200); g.fillStyle = '#000'; g.font = '40px sans-serif'; g.fillText('Hallo Musik', 20, 100); const b = await new Promise(r => cv.toBlob(r, 'image/png')); window.__img = new File([b], 'text.png', { type: 'image/png' }); })()")
+print("textdetector im testbrowser:", await J("'TextDetector' in window"))
+await E("Text79.photo(__img).then(() => 0)"); await pg.wait_for_timeout(600); print("ohne netz:", await J("[document.getElementById('t79Msg').textContent, Text79.busy]"))
+await E("window.Tesseract = { createWorker: async (l, n, o) => ({ recognize: async img => { o.logger({ status: 'recognizing text', progress: 0.5 }); return { data: { text: 'Alle  meine\\nEnt-\\nchen   schwimmen ' } }; }, terminate: async () => {} }) }; 0")
+await E("Text79.photo(__img).then(() => 0)"); await pg.wait_for_timeout(600); print("mit lesemodul (nachgestellt):", await J("[document.getElementById('t79T').value, document.getElementById('t79Msg').textContent, document.getElementById('t79I').textContent]"))
+print("ERR", errs)

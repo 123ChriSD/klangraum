@@ -1,0 +1,14 @@
+/* ===== Version 79: Aufnahme-Punkt · Klang-Bibliothek · Text wird Musik ===== */
+.p78r > i { color: #FF5A5F; } .p78r.on > i { background: #E5484D; color: #fff; border-color: transparent; animation: p78pulse 1.2s ease-out infinite; }
+@media (max-width: 359px) { .p78p { width: 58px; } .p78p > i { width: 52px; height: 52px; } }
+.r79c { display: grid; gap: 8px; padding: 10px; margin: 0 0 8px; border-radius: 16px; background: rgba(255, 255, 255, .045); border: 1px solid rgba(255, 255, 255, .09); }
+.r79h { display: flex; align-items: center; gap: 8px; } .r79h > span { flex: 1 1 auto; min-width: 0; display: grid; gap: 2px; } .r79h b { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .r79h small { font-size: 12px; color: #8FA0C8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.r79h .eb { min-height: 48px; min-width: 48px; flex: none; } .r79h .eb svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.r79b { display: grid; gap: 6px; margin-top: 6px; } .r79b > span { font-size: 12.5px; color: #8FA0C8; } .r79bl, .b79s, .t79st { display: flex; flex-wrap: wrap; gap: 8px; } .r79bl .eb, .b79s .eb, .t79st .eb { min-height: 48px; padding: 0 12px; } .r79bl .eb[aria-pressed="true"], .t79st .eb[aria-pressed="true"] { background: #EEF2FF; color: #0a0f1c; }
+.b79s .eb svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.b79c { grid-template-columns: minmax(0, 1fr); } .b79p { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .08); } .b79p svg { width: 20px; height: 20px; fill: currentColor; stroke: none; } .b79o { grid-template-columns: 48px minmax(0, 1fr); min-height: 48px; }
+.b79rec[aria-pressed="true"] { background: #E5484D !important; border-color: #E5484D !important; color: #fff !important; }
+.t79t { width: 100%; box-sizing: border-box; min-height: 110px; margin: 4px 0 10px; padding: 10px 12px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, .16); background: rgba(0, 0, 0, .25); color: inherit; font: inherit; font-size: 15px; line-height: 1.45; resize: vertical; -webkit-user-select: text; user-select: text; }
+.t79t:focus-visible { outline: 3px solid #B45CFF; outline-offset: 1px; }
+.t79e { margin: 2px 0 8px !important; font-size: 12.5px !important; } .t79i { margin: 10px 0 !important; font-weight: 700; color: #EEF2FF !important; }
+.s78 .sm74l { margin: 8px 0; } .t79st { flex: 1 1 auto; justify-content: flex-end; }

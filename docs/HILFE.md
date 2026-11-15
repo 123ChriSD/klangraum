@@ -8,7 +8,11 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
-| **mich zurechtfinden: wo ist was?** | unten die drei Punkte **Stück · Musik · Form** | [→](#v78) |
+| **etwas aufnehmen (Stück, Loop, Melodie, Stimme)** | roter Punkt **Aufnahme** unten | [→](#v79) |
+| **einen Klang merken und in anderen Stücken wieder benutzen** | **Stück → Klänge** | [→](#v79) |
+| **mehrere eigene Töne gleich am Anfang aufnehmen** | **Stück → Neu → Eigene Klänge** | [→](#v79) |
+| **aus einem Foto mit Text Musik machen** | **Stück → Text vertonen** | [→](#v79) |
+| **mich zurechtfinden: wo ist was?** | unten die Punkte **Stück · Aufnahme · Musik · Form** | [→](#v78) |
 | **ein Stück sichern, als Favorit merken, als Datei weitergeben oder laden** | **Stück** → Sichern / Favorit / Als Datei / Datei laden · **Stück → Öffnen** | [→](#v78) |
 | **auflegen: Formen ein- und ausblenden wie am Mischpult** | **Musik** (Pfeil) → **Auflegen** | [→](#v78) |
 | **den Dreh-Knopf ein- oder ausblenden, Formen mit Gesten anhalten und schneller drehen** | **Spielen** → runder Knopf unten links · **Mehr → Alles → Gesten** | [→](#v77) |
@@ -81,6 +85,36 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## ● Aufnahme-Punkt, Klang-Bibliothek, Text wird Musik (neu in v79) {#v79}
+
+**Aufnahme-Punkt** (unten, rot, zwischen Stück und Musik)
+- Antippen öffnet die Tafel „Aufnahme“: **Aufnahme** (das Stück mitschneiden), **Loop**, **Melodie**, **Mikro** (Stimme wird Form), **Gesang**, **Klang merken**, **Rückblick**, **Set-Aufnahme**, **Aufnahmen**.
+- Läuft eine Aufnahme, steht am Punkt **Stopp** – ein Tipp beendet sie.
+
+**Klang-Bibliothek** (Stück → Klänge)
+- **Klang aufnehmen** (bis zwölf Sekunden) oder **Audiodatei** laden.
+- „Aus diesem Stück“: den Klang einer eigenen Form merken. Geht auch über Form → Klang merken.
+- Je Klang: anhören, **Ins Stück** (wird eine Form), **Name**, **Löschen** (zweimal tippen).
+- Die Klänge bleiben auf dem Gerät und stehen in jedem Stück bereit.
+
+**Mehrere Start-Klänge** (Stück → Neu → Abschnitt „Eigene Klänge“)
+- **Aufnehmen**, dann **Noch einen aufnehmen** – bis zu sechs. Oder unter „Aus der Bibliothek“ Klänge antippen.
+- Jede Karte: anhören, **Merken** (in die Bibliothek), verwerfen und die Wahl, was die Form spielt: die Start-Melodie, ihre eigene (erkannte Töne) oder nichts.
+- Beim Anlegen wird aus jedem Klang eine eigene Form.
+
+**Text wird Musik** (Stück → Text vertonen)
+1. **Foto aufnehmen** oder **Bild wählen** – oder den Text ins Feld tippen. Erkannten Text kurz prüfen; du kannst ihn ändern.
+2. **Lesart** wählen:
+   - **Buchstaben:** A ist der Grundton, jeder weitere Buchstabe eine Stufe höher, nach N wieder von vorn. Selbstlaute lang, Mitlaute kurz, Großbuchstaben betont, Doppelbuchstaben länger.
+   - **Wortlängen:** jedes Wort ein Ton – Buchstabenzahl = Tonhöhe, Silben = Länge.
+   - **Notennamen:** nur C D E F G A H klingen, als die Töne, die sie heißen.
+   - Leerzeichen und Satzzeichen sind Pausen.
+3. **Gangart** (ruhig, normal, lebhaft), **Stil** und **Begleitung** (mit Band oder nur die Melodie) wählen. **Anhören** spielt den Anfang vor.
+4. **Vertonen** legt ein neues Stück an und spielt es. Die Meldung bietet die **Live-Fläche** an.
+5. Danach änderst du alles weiter: Töne über Form → Noten, Song, Mischen, Stimmung, Tempo. „Text vertonen“ zeigt den Text wieder; **Hier neu vertonen** ersetzt nur die Text-Melodie.
+
+Zum Lesen nutzt KLANGRAUM die Texterkennung des Geräts; gibt es keine, wird einmalig ein Lesemodul aus dem Netz geladen. Das Foto verlässt dein Gerät nicht. Ohne Netz: Text eintippen.
+
 ## ● Drei Punkte: Stück · Musik · Form (neu in v78) {#v78}
 
 Der ganze Bildschirm ist Bühne. Unten sitzen drei Punkte. Jeder öffnet **eine Tafel**, auf der alles zu seinem Thema steht – ohne Untermenüs.
