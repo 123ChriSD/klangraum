@@ -6,6 +6,7 @@
 
 | Version | Commit | Inhalt |
 |---|---|---|
+| 78 | `93c8075` | Bediensystem „Drei Punkte“ (Stück · Musik · Form, je eine Tafel, 94,7 % freie Bühne), Meine Stücke mit Suche/Favoriten/Datei, Auflegen mit den Formen · Katalog 94/100 |
 | 77 | `d808729` | Dreh-Knopf statt Dreh-Leiste (einklappen, ziehen = Tempo, lange drücken = ausblenden), Gesten neben den Formen: zwei/drei Finger tippen = anhalten/weiter, zwei Finger drehen = Tempo bis rückwärts · Blatt „Gesten“ |
 | 76 | `6e2c64e` | Start-Melodie gilt zuerst für alle Formen (Schlagzeug dreht mit), eigene Melodien je Form wählbar: im Blatt „Neues Stück“ und im Stück über den Knopf ♪ |
 | 75 | `cb897f4` | Ausklang: Outro auf Knopfdruck (Stimmen gehen der Reihe nach, Schlusston), Neues Stück: Töne aufnehmen → eigene Form mit Start-Melodie oder gesungener Melodie |
