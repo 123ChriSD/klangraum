@@ -1,0 +1,9 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots78/"
+J=lambda s: E("JSON.stringify(%s)" % s)
+await E("Auto72.set(false); 0")
+M = "(() => { const c = document.getElementById('c'); let n = 0, fr = 0; const rows = {}; for (let y = 4; y < innerHeight; y += 8) for (let x = 4; x < innerWidth; x += 8) { n++; const e = document.elementFromPoint(x, y); if (e === c) fr++; else { let t = e; while (t && t.parentElement && t.parentElement !== document.body) t = t.parentElement; const k = (t && (t.id || t.className)) || '?'; rows[k] = (rows[k] || 0) + 1; } } const top = Object.entries(rows).sort((a, b) => b[1] - a[1]).slice(0, 12).map(([k, v]) => [String(k).slice(0, 22), Math.round(v / n * 1000) / 10]); const vis = [...document.querySelectorAll('button')].filter(b => { const r = b.getBoundingClientRect(); return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth && getComputedStyle(b).visibility !== 'hidden' && document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2) && b.contains(document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2)); }); return { frei: Math.round(fr / n * 1000) / 10, knoepfe: vis.length, klein: vis.filter(b => { const r = b.getBoundingClientRect(); return r.width < 44 || r.height < 44; }).length, belegt: top }; })()"
+for v in ("nah", "alle"):
+  await E("UI.hideSheets(); UI.setTab('klang'); UI.setView('%s'); 0" % v); await pg.wait_for_timeout(1300)
+  print(v, await J(M)); await pg.screenshot(path=SP+"ist_%s.png" % v)
+print("befehle:", await J("[Cmd.GROUPS.length, Cmd.GROUPS.map(g => [g[0] || g.t || g.name, (g[1] || g.items || g.L || []).length])]"))
+print("reiter:", await J("[...document.querySelectorAll('.tabs button, #tabs button, nav button')].filter(b => b.getBoundingClientRect().width > 0).map(b => b.textContent.trim().slice(0, 14))"))

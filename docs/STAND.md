@@ -3,6 +3,11 @@
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
 **Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 76) · jede Version mit Commit in `docs/VERSIONEN.md`.
 
+## Nächster Schritt (15.11.2026): neues Bediensystem – erst Konzept, dann Umsetzung
+- Christian will die Oberfläche grundlegend neu ordnen (maximale Spielfläche, eine Ebene, Trennung Stück/Spiel, Führung ohne Erklärung).
+- Entwurf mit Ist-Messung (v77: 48 % freie Bühne, 43 Knöpfe), Prüfung aus fünf Blickwinkeln, System „Drei Punkte“ und Bewertungskatalog (100 Punkte): `docs/KONZEPT_BEDIENSYSTEM.md`.
+- **Noch nichts umgesetzt** – wartet auf Christians Bestätigung von Katalog und System. Messprobe: `tools/t78_mess.txt`.
+
 ## Neu in v77: Dreh-Knopf zum Ein- und Ausblenden · Gesten mit zwei und drei Fingern
 - Christian (14.11. 18:01, mit Bildschirmfoto vom Telefon: die Dreh-Leiste bricht in zwei Zeilen um und liegt über den Formen): „Der Geschwindigkeitsregler stört, der muss auszublenden gehen. Verbessere die Steuerung weiter. Multitouch soll Gesten verstehen.“
 - **Dreh-Knopf statt Dreh-Leiste** (`Dreh77`, weiter das Element `#dr73`):
