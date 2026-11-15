@@ -7,15 +7,15 @@ async def touch(kind, pts):
 await E("Auto72.set(false); store.set('g77hint', true); Gest77.K = 5; 0")
 await E("UI.setView('alle'); 0"); await pg.wait_for_timeout(1200)
 # freie Stellen neben den Formen suchen
-free = json.loads(await J("(() => { const out = []; const top = 200, bot = document.getElementById('ksheet').getBoundingClientRect().top - 70; for (let y = top; y < bot; y += 14) for (let x = 30; x < innerWidth - 30; x += 14) { if (document.elementFromPoint(x, y) !== document.getElementById('c')) continue; let bad = false; for (const [ax, ay] of [[0, 0], [-36, 0], [36, 0], [0, -36], [0, 36], [-26, -26], [26, 26], [-26, 26], [26, -26]]) if (Scene.hit(x + ax, y + ay, {}) || Scene.platterAt(x + ax, y + ay)) bad = true; if (bad) continue; out.push([x, y]); } return out; })()"))
+free = json.loads(await J("(() => { const out = []; const top = 120, bot = innerHeight - 190; for (let y = top; y < bot; y += 14) for (let x = 30; x < innerWidth - 30; x += 14) { if (document.elementFromPoint(x, y) !== document.getElementById('c')) continue; let bad = false; for (const [ax, ay] of [[0, 0], [-36, 0], [36, 0], [0, -36], [0, 36], [-26, -26], [26, 26], [-26, 26], [26, -26]]) if (Scene.hit(x + ax, y + ay, {}) || Scene.platterAt(x + ax, y + ay)) bad = true; if (bad) continue; out.push([x, y]); } return out; })()"))
 print("freie Punkte:", len(free))
-def pick(n, mind=70):
+def pick(n, mind=70, maxd=320):
   res=[]
   for p in free:
-    if all(math.hypot(p[0]-q[0], p[1]-q[1])>=mind for q in res) and all(math.hypot(p[0]-q[0], p[1]-q[1])<=320 for q in res): res.append(p)
+    if all(math.hypot(p[0]-q[0], p[1]-q[1])>=mind for q in res) and all(math.hypot(p[0]-q[0], p[1]-q[1])<=maxd for q in res): res.append(p)
     if len(res)==n: return res
   return res
-P2 = pick(2); P3 = pick(3, 42); assert len(P3) == 3, P3; print("P2", P2, "P3", P3)
+P2 = pick(2, 110, 150); P3 = pick(3, 42); assert len(P3) == 3, P3; print("P2", P2, "P3", P3)
 async def tap(pts):
   await touch("touchStart", [(p[0], p[1], i+1) for i, p in enumerate(pts)]); await pg.wait_for_timeout(60); await touch("touchEnd", []); await pg.wait_for_timeout(1600)
 st = "[Forms.list.filter(f => !f.empty).map(f => [f.name, f.still ? 'still' : (Dreh73.rpb(f) > 0 ? +Dreh73.rpb(f).toFixed(2) * Dreh73.dir(f) : 0)]), document.getElementById('g77') ? document.getElementById('g77').textContent : null]"
@@ -58,7 +58,7 @@ await E("Dreh73.act('r:1'); window.__pl = 0; { const o = Forms.play.bind(Forms);
 d = min(70, c[2] * 0.6)
 await tap([(c[0] - d, c[1]), (c[0] + d, c[1])]); print("zwei Finger auf der Form getippt:", await J("[__pl, Forms.active.still, +Dreh73.rpb(Forms.active).toFixed(2)]"))
 # Form-Ansicht: zwei Finger neben der Form tippen
-fr = json.loads(await J("(() => { const out = []; const bot = document.getElementById('ksheet').getBoundingClientRect().top - 70; for (let y = 200; y < bot; y += 12) for (let x = 24; x < innerWidth - 24; x += 12) { if (document.elementFromPoint(x, y) !== document.getElementById('c')) continue; let bad = false; for (const [ax, ay] of [[0, 0], [-30, 0], [30, 0], [0, -30], [0, 30]]) if (Scene.hit(x + ax, y + ay, {})) bad = true; if (!bad) out.push([x, y]); } return out; })()"))
+fr = json.loads(await J("(() => { const out = []; const bot = innerHeight - 190; for (let y = 200; y < bot; y += 12) for (let x = 24; x < innerWidth - 24; x += 12) { if (document.elementFromPoint(x, y) !== document.getElementById('c')) continue; let bad = false; for (const [ax, ay] of [[0, 0], [-30, 0], [30, 0], [0, -30], [0, 30]]) if (Scene.hit(x + ax, y + ay, {})) bad = true; if (!bad) out.push([x, y]); } return out; })()"))
 free = fr; N2 = pick(2, 60); print("frei in Form-Ansicht:", len(fr), N2)
 await tap(N2); print("Form-Ansicht, zwei Finger daneben getippt:", await J("[Forms.active.still, +Dreh73.rpb(Forms.active).toFixed(2), document.getElementById('g77').textContent]"))
 await pg.screenshot(path=SP+"b4_nah.png")

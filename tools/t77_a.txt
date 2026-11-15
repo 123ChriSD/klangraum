@@ -5,6 +5,7 @@ cdp = await pg.context.new_cdp_session(pg)
 async def touch(kind, pts):
   await cdp.send("Input.dispatchTouchEvent", {"type":kind,"touchPoints":[{"x":p[0],"y":p[1],"id":p[2]} for p in pts]})
 W=int(os.environ.get("VW","412")); H=int(os.environ.get("VH","892"))
+await E("P78.on = false; P78.paint(true); Layout.last = ''; Layout.sync(); KSheet.sync(true); 0")
 await E("Auto72.set(false); store.set('g77hint', true); 0")
 await E("UI.setView('alle'); 0"); await pg.wait_for_timeout(1200)
 print("knopf:", await J("(() => { const e = document.getElementById('dr73'), r = e.getBoundingClientRect(); return [e.hidden, e.className, Math.round(r.left), Math.round(r.top), Math.round(r.width), Math.round(r.height), e.textContent, Dreh77.mode]; })()"))

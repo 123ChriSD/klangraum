@@ -1,0 +1,14 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots78/"
+J=lambda s: E("JSON.stringify(%s)" % s)
+await E("Auto72.set(false); 0"); await pg.wait_for_timeout(900)
+FREE = "(() => { const c = document.getElementById('c'); let n = 0, fr = 0; for (let y = 4; y < innerHeight; y += 8) for (let x = 4; x < innerWidth; x += 8) { n++; if (document.elementFromPoint(x, y) === c) fr++; } const vis = [...document.querySelectorAll('button, input, a')].filter(b => { const r = b.getBoundingClientRect(); if (!(r.width > 0 && r.height > 0)) return false; const e = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return e && (b === e || b.contains(e)); }); return { frei: Math.round(fr / n * 1000) / 10, knoepfe: vis.length, klein: vis.filter(b => { const r = b.getBoundingClientRect(); return r.width < 47.5 || r.height < 47.5; }).map(b => (b.id || b.className || b.dataset.t || '').slice(0, 14) + ':' + Math.round(b.getBoundingClientRect().width) + 'x' + Math.round(b.getBoundingClientRect().height)), wer: vis.map(b => b.id || b.dataset.p || b.dataset.t || b.className.slice(0, 12)).slice(0, 14) }; })()"
+print("start:", await J("[UI.tab, P78.on, document.body.className, document.getElementById('p78').hidden]"))
+for v in ("nah", "alle"):
+  await E("UI.hideSheets(); UI.setTab('klang'); UI.setView('%s'); 0" % v); await pg.wait_for_timeout(1300)
+  print(v, await J(FREE)); await pg.screenshot(path=SP+"n_%s.png" % v)
+for p in ("stueck", "musik", "form"):
+  await E("P78.open('%s'); 0" % p); await pg.wait_for_timeout(500)
+  print(p, await J("(() => { const t = document.getElementById('p78T'), r = t.getBoundingClientRect(); return [Math.round(r.top), Math.round(r.height), t.scrollHeight > t.clientHeight + 1, t.querySelectorAll('.p78b').length, [...t.querySelectorAll('.p78b')].filter(b => b.getBoundingClientRect().height < 47.5 || b.getBoundingClientRect().width < 47.5).length, [...t.querySelectorAll('.p78b span')].filter(s => s.scrollHeight > s.clientHeight + 1).map(s => s.textContent)]; })()"), (await J(FREE))[:14])
+  await pg.screenshot(path=SP+"t_%s.png" % p)
+await E("P78.close(); 0")
+print("ERR", errs)

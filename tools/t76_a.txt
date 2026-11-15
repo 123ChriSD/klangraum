@@ -2,6 +2,7 @@ SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/s
 import os, json
 T=os.environ.get("TAG","a")
 J=lambda s: E("JSON.stringify(%s)" % s)
+await E("P78.on = false; P78.paint(true); Layout.last = ''; Layout.sync(); KSheet.sync(true); 0")
 await E("Auto72.set(false); 0")
 await E("StartMel.open(); 0"); await pg.wait_for_timeout(600)
 await pg.tap('#sm73S [data-sm="pre:auf"]'); await pg.wait_for_timeout(300)

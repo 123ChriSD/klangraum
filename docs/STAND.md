@@ -1,12 +1,26 @@
-# KLANGRAUM – Stand Version 77 (14.11.2026)
+# KLANGRAUM – Stand Version 78 (15.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 76) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 77) · jede Version mit Commit in `docs/VERSIONEN.md`.
 
-## Nächster Schritt (15.11.2026): neues Bediensystem – erst Konzept, dann Umsetzung
-- Christian will die Oberfläche grundlegend neu ordnen (maximale Spielfläche, eine Ebene, Trennung Stück/Spiel, Führung ohne Erklärung).
-- Entwurf mit Ist-Messung (v77: 48 % freie Bühne, 43 Knöpfe), Prüfung aus fünf Blickwinkeln, System „Drei Punkte“ und Bewertungskatalog (100 Punkte): `docs/KONZEPT_BEDIENSYSTEM.md`.
-- **Noch nichts umgesetzt** – wartet auf Christians Bestätigung von Katalog und System. Messprobe: `tools/t78_mess.txt`.
+## Neu in v78: Bediensystem „Drei Punkte“ · Meine Stücke mit Favoriten · Auflegen mit den Formen
+- Christian (15.11.): Konzept und Katalog bestätigt mit „Baue alles in einer Version“; dazu: bessere Übersicht der Stücke, Stücke speichern und favorisieren, exportieren und importieren, live auflegen mit den Formen. Konzept, Katalog und Bewertung: `docs/KONZEPT_BEDIENSYSTEM.md`.
+- **Drei Punkte** (`P78`): Der ganze Bildschirm ist Bühne. Unten drei Punkte – **Stück** (Allgemeines), **Musik** (das ganze Stück), **Form** (die gewählte Form). Jeder öffnet **eine Tafel** mit 6 Spalten und höchstens 6 Reihen; Menüs in Menüs gibt es nicht.
+  - Kopfleiste, Formenleiste, Ansicht-Schalter, Bedienblatt, Reiter, Dreh-Knopf, Ausklang- und Melodie-Knopf, Pfeile, Set-Marken sind ausgeblendet (nur per Stil, die Elemente bleiben). Das alte Bedienblatt erscheint nur noch als Arbeitsfläche von Kneten, Malen und Melodie (mit „✓ Fertig“).
+  - **Musik-Punkt:** tippen = Start/Stopp · Pfeil antippen oder nach oben wischen = Tafel · lange drücken (ab 0,48 s, ausgelöst beim Loslassen) = Loop aufnehmen.
+  - **Form-Punkt:** zeigt Farbe, Namen und „2/3“ · tippen = Tafel · seitlich wischen = nächste/vorige Form.
+  - **In einem Zug:** Punkt drücken, nach oben auf einen Knopf ziehen, loslassen.
+  - **Führung:** genau ein nächster Schritt leuchtet (Punkt und Knopf): erste Form → Drehen → Loop → zweite Form → Song bauen → Aufnahme → Favorit → als Datei. Was noch keinen Sinn hat, ist nicht da (die Plätze bleiben frei, damit nichts wandert).
+  - **Ruhe beim Spielen:** Solange Finger spielen, werden die Punkte blass.
+  - Andere Bereiche (Song, Mischen, Pult, Beat, Schnitt, Aufnahmen, Start) füllen den Bildschirm; oben rechts „✕ Bühne“. Nach dem Start geht es direkt auf die Bühne.
+  - Tasten: 1 = Stück, 2 = Musik, 3 = Form, Esc schließt. Zurück zur alten Oberfläche: Stück → Klassisch (und Alles → „Drei Punkte“).
+- **Meine Stücke** (`Stuecke78`, ersetzt das Blatt „Projekte“): Suche, „Alle / Favoriten“, Reihenfolge „Zuletzt / A–Z“, Favoriten stehen oben. Je Stück: öffnen, **Stern**, Sichern (beim geöffneten), Kopie, **Als Datei**, Name ändern, Löschen (zweimal tippen). Oben: Neues Stück, **Datei laden**, Alle sichern. Auf der Stück-Tafel direkt: Sichern, Favorit, Kopie, Als Datei, Datei laden.
+- **Auflegen** (`Auf78`, Musik → Auflegen): Die Formen sind die Plattenteller. Form tippen = kommt dazu / geht raus (mit ihrer Blende) · auf der Form hoch/runter ziehen = Lautstärke (170 px von aus bis voll) · Form halten = nur diese, solange gehalten · neben den Formen seitlich ziehen = Filter über alles, loslassen = offen. Finger auf Formen spielen dabei keine Töne; die Gesten aus v77 gelten daneben weiter.
+- **Gemessen** (Telefon 393 × 780, `tools/t78_katalog.txt`): freie Bühne **94,7 %** (v77: 48 %), **3** ständige Bedienelemente (v77: 43), mit offener Tafel 52,6 % frei, 92 Einträge auf den Tafeln, jeder genau einmal. Querformat 94,6 %, Tablet 98,4 %.
+- **Bewertung nach Katalog: 94 von 100** (A 19/20, B 23/25, C 15/15, D 14/15, E 14/15, F 9/10) – Einzelheiten und Abzüge im Konzept, Abschnitt 7.
+- **Tests:** Prüfstand 168 (neu **PT**, **PZ**, **PN**, **SU**, **AU**, **PK**), 412×892 ohne Fehler, 700×330 nur das schwankende T3. Layout 360×640, 393×780, 412×892, 700×330, 820×1180 TOTAL 0 (13 neue Zustände). E2E mit echten Berührungen: `tools/t78_a.txt` (Fläche, Tafeln), `t78_b.txt` (Punkte, Zug, Wischen, Bereiche, Spielarten), `t78_c.txt` (Stücke: Stern, Kopie, Name, Suche, Datei raus und wieder rein, Löschen; Auflegen; Klassisch). Gegenproben v73–v77 laufen klassisch bzw. in der neuen Oberfläche (Gesten).
+- **Nicht gebaut aus dem Konzept:** Punkte tauschen für Linkshänder · Punkte im Querformat an den Seitenrand · angedockte Tafel auf Tablet/Rechner · Zieh-Richtungen für Stumm/Einzeln am Form-Punkt (dafür „in einem Zug“ über die Tafel).
+- **Offen / nicht geprüft:** nichts auf echten Geräten. Die Form-Tafel reicht in der Form-Ansicht bis zur Mitte der Form (obere Hälfte bleibt spielbar). Lautstärke braucht zwei Handgriffe (Tafel, Regler) – außer beim Auflegen. Die Bereiche Song/Mischen/Pult usw. und die alten Blätter sind innen unverändert; dort gibt es weiter kleinere Ziele. „Ganz färben“/„Farbe löschen“ liegen beim Malen, „Kneten → Ton“ unter „Einstellen“ (je drei Tipps). Leeres Stück (ohne Formen) nicht eigens durchgespielt. In der langsamen Testumgebung mussten Tipp-Zeiten gestreckt werden (`P78.K`).
 
 ## Neu in v77: Dreh-Knopf zum Ein- und Ausblenden · Gesten mit zwei und drei Fingern
 - Christian (14.11. 18:01, mit Bildschirmfoto vom Telefon: die Dreh-Leiste bricht in zwei Zeilen um und liegt über den Formen): „Der Geschwindigkeitsregler stört, der muss auszublenden gehen. Verbessere die Steuerung weiter. Multitouch soll Gesten verstehen.“

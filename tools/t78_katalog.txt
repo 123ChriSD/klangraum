@@ -1,0 +1,27 @@
+import json, os
+J=lambda s: E("JSON.stringify(%s)" % s)
+cdp = await pg.context.new_cdp_session(pg)
+async def touch(kind, pts):
+  await cdp.send("Input.dispatchTouchEvent", {"type":kind,"touchPoints":[{"x":p[0],"y":p[1],"id":p[2]} for p in pts]})
+print("E2 nach dem Start:", await J("[UI.tab, !document.getElementById('p78').hidden, Forms.list.filter(f => !f.empty).length]"))
+await E("Auto72.set(false); P78.K = 4; window.__pl = 0; { const o = Forms.play.bind(Forms); Forms.play = function (...a) { __pl++; return o(...a); }; } 0"); await pg.wait_for_timeout(900)
+c = json.loads(await J("(() => { const f = Forms.active, c = Scene.formScreen(f); return [c.x, c.y]; })()"))
+await touch("touchStart", [(c[0], c[1], 1)]); await pg.wait_for_timeout(200); await touch("touchEnd", []); await pg.wait_for_timeout(900)
+print("E2 erster Tipp auf die Form -> Toene:", await J("__pl"), "· Meldungen sichtbar:", await J("[...document.querySelectorAll('.toast, .hint')].filter(e => e.getBoundingClientRect().height > 0 && getComputedStyle(e).opacity !== '0').map(e => e.textContent.slice(0, 60))"))
+M = "(() => { const c = document.getElementById('c'); let n = 0, fr = 0; for (let y = 4; y < innerHeight; y += 8) for (let x = 4; x < innerWidth; x += 8) { n++; if (document.elementFromPoint(x, y) === c) fr++; } const vis = [...document.querySelectorAll('button, input, a, [role=button]')].filter(b => { const r = b.getBoundingClientRect(); if (!(r.width > 0 && r.height > 0) || r.bottom < 0 || r.top > innerHeight) return false; const e = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return e && (b === e || b.contains(e)); }); const R = vis.map(b => b.getBoundingClientRect()); let gap = 1e9; for (let i = 0; i < R.length; i++) for (let j = i + 1; j < R.length; j++) { const dx = Math.max(0, Math.max(R[i].left, R[j].left) - Math.min(R[i].right, R[j].right)), dy = Math.max(0, Math.max(R[i].top, R[j].top) - Math.min(R[i].bottom, R[j].bottom)); gap = Math.min(gap, Math.max(dx, dy)); } const f = Forms.active, fc = f ? Scene.formScreen(f) : null; return { frei: Math.round(fr / n * 1000) / 10, n: vis.length, klein: vis.filter(b => { const r = b.getBoundingClientRect(); return r.width < 47.5 || r.height < 47.5; }).length, abstand: gap > 1e8 ? null : Math.round(gap), oben: vis.filter(b => b.getBoundingClientRect().top < innerHeight * 0.6).length, formFrei: fc ? document.elementFromPoint(fc.x, fc.y) === c : null, namen: [...new Set(vis.map(b => (b.textContent || '').trim()))].length === vis.length }; })()"
+for v in ("nah", "alle"):
+  await E("UI.hideSheets(); P78.close(); UI.setTab('klang'); UI.setView('%s'); 0" % v); await pg.wait_for_timeout(1300); print("A1/C3/D:", v, await J(M))
+r0 = await J("[Transport.running, Engine.ctx.state]")
+for p in ("stueck", "musik", "form"):
+  await E("UI.setView('nah'); P78.open('%s'); 0" % p); await pg.wait_for_timeout(600); print("A2/D1 Tafel", p, await J(M), await J("Transport.running"))
+await E("P78.close(); P78.run('c:mixer'); 0"); await pg.wait_for_timeout(900); a = await J("[!!Sheets.cur, Transport.running]"); await E("UI.hideSheets(); P78.run('a:tab:song'); 0"); await pg.wait_for_timeout(700); b = await J("[UI.tab, Transport.running]"); await E("UI.setTab('klang'); P78.run('pieces'); 0"); await pg.wait_for_timeout(900)
+print("B4 Musik laeuft weiter:", r0, a, b, await J("[!!Sheets.cur, Transport.running]")); await E("UI.hideSheets(); 0")
+print("B3 Ebenen:", await J("['stueck','musik','form'].map(p => { const d = document.createElement('div'); d.innerHTML = P78.html(p); return [d.querySelectorAll('.p78b').length, d.querySelectorAll('.p78b .p78b, details, select, [aria-haspopup]').length]; })"))
+print("C1/B1:", await J("(() => { const flat = ['stueck','musik','form'].flatMap(p => P78.keys(p)); return [flat.length, new Set(flat).size, Cmd.GROUPS.flatMap(g => g[3]).filter((x, i, a) => a.indexOf(x) === i).filter(id => !flat.includes('c:' + id)), Object.keys(P78.OHNE)]; })()"))
+# E1/E3: Zustaende durchspielen
+print("E1 jetzt:", await J("[P78.state(), P78.next(), [...document.querySelectorAll('.p78p.nx')].map(b => b.dataset.p)]"))
+await E("P78.open('form'); 0"); await pg.wait_for_timeout(400); print("E1 Tafel:", await J("[[...document.querySelectorAll('.p78b.nx')].map(b => b.dataset.t), document.querySelectorAll('#p78T .p78e').length, [...document.querySelectorAll('#p78T .p78b')].map(b => b.dataset.t).filter(t => /lhold|ledit|ldel/.test(t))]")); await E("P78.close(); 0")
+# Ruhe beim Spielen
+await touch("touchStart", [(c[0], c[1], 1)]); await pg.wait_for_timeout(700); q = await J("[document.body.classList.contains('p78calm'), getComputedStyle(document.getElementById('p78P')).opacity]"); await touch("touchEnd", []); await pg.wait_for_timeout(2600); print("Ruhe:", q, await J("document.body.classList.contains('p78calm')"))
+print("F3 Tasten:", await J("(() => { const k = key => document.body.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true })); k('1'); const a = P78.cur; k('3'); const b = P78.cur; k('Escape'); const c = P78.cur; k('2'); const d = P78.cur; k('Escape'); const bs = [...document.querySelectorAll('.p78p')].every(x => x.tagName === 'BUTTON' && x.getAttribute('aria-label')); return [a, b, c, d, bs]; })()"))
+print("ERR", errs)

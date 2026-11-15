@@ -8,6 +8,9 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **mich zurechtfinden: wo ist was?** | unten die drei Punkte **Stück · Musik · Form** | [→](#v78) |
+| **ein Stück sichern, als Favorit merken, als Datei weitergeben oder laden** | **Stück** → Sichern / Favorit / Als Datei / Datei laden · **Stück → Öffnen** | [→](#v78) |
+| **auflegen: Formen ein- und ausblenden wie am Mischpult** | **Musik** (Pfeil) → **Auflegen** | [→](#v78) |
 | **den Dreh-Knopf ein- oder ausblenden, Formen mit Gesten anhalten und schneller drehen** | **Spielen** → runder Knopf unten links · **Mehr → Alles → Gesten** | [→](#v77) |
 | **einer Form eine eigene Melodie geben – oder alle wieder gleich spielen lassen** | **Spielen** → oben links **♪** | [→](#v76) |
 | **das Stück schön enden lassen** | **Spielen** → oben links **Ausklang** | [→](#v75) |
@@ -78,9 +81,38 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## ● Drei Punkte: Stück · Musik · Form (neu in v78) {#v78}
+
+Der ganze Bildschirm ist Bühne. Unten sitzen drei Punkte. Jeder öffnet **eine Tafel**, auf der alles zu seinem Thema steht – ohne Untermenüs.
+
+| Punkt | Tippen | Sonst |
+|---|---|---|
+| **Stück** (links) | Tafel: Neu, Öffnen, Sichern, Favorit, Kopie, Als Datei, Datei laden, Aufnahmen, Foto, Zurück, Hilfe, Einstellen, Klassisch | – |
+| **Musik** (Mitte) | **Start / Stopp** | Pfeil antippen oder nach oben wischen: Tafel (Aufnahme, Ausklang, Auflegen, Live-Fläche, Song, Mischen, Tempo, Stimmung, Ansicht). **Lange drücken: Loop aufnehmen** |
+| **Form** (rechts) | Tafel zur gewählten Form: Spielart, Klang, Melodie, Lautstärke, Einzeln, Drehen, Loop, Neue Form, Kopie, Löschen | **Seitlich wischen: nächste Form** |
+
+- **In einem Zug:** Punkt drücken, nach oben auf einen Knopf ziehen, loslassen.
+- **Was leuchtet,** ist der nächste sinnvolle Schritt.
+- **Daneben tippen** schließt die Tafel. Die Musik läuft immer weiter.
+- In Song, Mischen und den anderen Bereichen bringt **✕ Bühne** (oben rechts) zurück.
+- Am Rechner: Tasten **1**, **2**, **3** öffnen die Tafeln, **Esc** schließt.
+- Zur alten Oberfläche: **Stück → Klassisch**. Zurück: Mehr → Alles → „Drei Punkte“.
+
+**Meine Stücke** (Stück → Öffnen)
+- Oben: **Neues Stück**, **Datei laden**, **Alle sichern**. Darunter Suche, „Alle / Favoriten“ und die Reihenfolge („Zuletzt“ oder „A–Z“).
+- Der **Stern** merkt ein Stück als Favorit; Favoriten stehen immer oben.
+- Unter jedem Stück: **Kopie**, **Als Datei** (mit allen Aufnahmen, zum Weitergeben), **Name**, **Löschen** (zweimal tippen). Beim geöffneten Stück zusätzlich **Sichern**.
+
+**Auflegen** (Musik → Auflegen)
+- **Form antippen:** Sie kommt dazu oder geht raus – mit ihrer Blende.
+- **Auf der Form hoch oder runter ziehen:** lauter oder leiser.
+- **Form halten:** nur diese hören, solange du hältst.
+- **Neben den Formen seitlich ziehen:** Filter über alles (links dumpf, rechts hell). Loslassen: wieder offen.
+- Nochmal Musik → Auflegen: Finger spielen wieder Töne.
+
 ## ✌ Gesten und der Dreh-Knopf (neu in v77) {#v77}
 
-**Dreh-Knopf (unten links im Bereich Spielen)**
+**Dreh-Knopf (unten links, nur in der klassischen Oberfläche – mit den drei Punkten steht das Drehen auf der Form-Tafel)**
 - Der kleine runde Knopf zeigt, wie schnell sich die gewählte Form dreht.
 - **Antippen:** Die Leiste klappt auf – Stopp/Weiter, ¼ bis 4 Umdrehungen je Takt, Richtung, „alle“. Der Pfeil rechts klappt sie wieder ein; nach ein paar Sekunden tut sie das von selbst.
 - **Hoch oder runter ziehen:** ändert das Tempo direkt. Unter „Stopp“ dreht die Form rückwärts.

@@ -1,6 +1,6 @@
-# KLANGRAUM – Konzept neues Bediensystem („Drei Punkte“) · Entwurf zur Bestätigung
+# KLANGRAUM – Konzept neues Bediensystem („Drei Punkte“) · umgesetzt in Version 78
 
-> Stand 15.11.2026 · Grundlage: Version 77 · **noch nichts umgesetzt.** Umsetzung erst, wenn Christian Konzept und Bewertungskatalog bestätigt hat.
+> Stand 15.11.2026 · Grundlage: Version 77 · von Christian bestätigt („Baue alles in einer Version“) · **umgesetzt in Version 78**, Bewertung in Abschnitt 7.
 
 ## 1. Auftrag (Christian, 15.11.)
 
@@ -151,8 +151,37 @@ Bestanden: **mindestens 85 Punkte** und in A und B kein Kriterium mit 0. „Auto
 | F2 | Zurück jederzeit: Schalter „Klassisch“ und `vorige/` | Auto | 2 |
 | F3 | Mit Maus und Tastatur gleichwertig bedienbar | Auto | 3 |
 
-## 6. Offene Entscheidungen für Christian
+## 6. Entscheidungen (15.11.2026)
 
-1. Katalog so bestätigen – oder Gewichte/Kriterien ändern?
-2. Bediensystem „Drei Punkte“ so umsetzen?
-3. Umsetzung in zwei Schritten (v78 Hülle, v79 Führung) oder alles in einer Version?
+Christian: alles in einer Version bauen. Zusätzlich: bessere Übersicht der Stücke, Stücke speichern und favorisieren, exportieren und importieren, live auflegen mit den Formen.
+
+## 7. Prüfung von Version 78 gegen den Katalog
+
+Gemessen im Testbrowser bei 393 × 780 (`tools/t78_katalog.txt`), Layout in fünf Größen, Prüfstand 168.
+
+| Nr. | Ergebnis | Punkte |
+|---|---|---|
+| A1 | 94,7 % frei (Form- und Alle-Ansicht) | 10 / 10 |
+| A2 | 52,6 % frei mit offener Musik-/Form-Tafel, 65,5 % mit Stück-Tafel. In der Form-Ansicht reicht die Form-Tafel bis zur Mitte der Form – nur die obere Hälfte bleibt spielbar | 4 / 5 |
+| A3 | Beim Spielen liegt nichts über der gewählten Form; Querformat 94,6 % | 5 / 5 |
+| B1 | 92 Einträge auf den Tafeln, alle höchstens 2 Tipps. Drei brauchen 3 Tipps: „Ganz färben“ und „Farbe löschen“ (liegen beim Malen), „Kneten → Ton“ (unter „Einstellen“) | 9 / 10 |
+| B2 | Start/Stopp (Tipp), Loop (lange drücken), nächste Form (wischen), Stumm, Einzeln, Tempo, Zurück (je ein Zug über die Tafel; Tempo auch per Dreh-Geste). **Lautstärke braucht zwei Handgriffe** – außer beim Auflegen. Probe am Gerät steht aus | 7 / 8 |
+| B3 | Keine Tafel hat eine zweite Ebene | 4 / 4 |
+| B4 | Tafeln, Blätter und Bereichswechsel halten die Musik nicht an | 3 / 3 |
+| C1 | Stück / Musik / Form; 92 Schlüssel, keiner doppelt (Prüfung PT) | 6 / 6 |
+| C2 | Nichts doppelt sichtbar | 4 / 4 |
+| C3 | 3 ständige Bedienelemente (vorher 43) | 5 / 5 |
+| D1 | Punkte 64 × 72 px, Tafel-Felder mindestens 48 px, Abstand 8 px. (Die Bereiche Song, Mischen usw. sind innen unverändert.) | 5 / 5 |
+| D2 | Alles Ständige in den unteren 40 %. **Tauschen für Linkshänder ist nicht gebaut.** Probe am Gerät steht aus | 4 / 5 |
+| D3 | Keine Überlappung in 360 × 640, 393 × 780, 412 × 892, 700 × 330, 820 × 1180 | 5 / 5 |
+| E1 | Genau ein nächster Schritt je Zustand (Prüfung PN, am laufenden Programm bestätigt) | 5 / 5 |
+| E2 | Erster Ton nach 2 Tipps („Eintauchen“, Form), keine Meldung nötig, Namen höchstens zwei Wörter (Prüfung PZ). Probe am Gerät steht aus | 5 / 5 |
+| E3 | Unpassendes ist ausgeblendet (Loop-Werkzeuge, Zurück, Ausklang, Mischen). Das leere Stück wurde nicht eigens durchgespielt | 4 / 5 |
+| F1 | Prüfstand ohne Rückschritt; jede bisherige Funktion steht auf einer Tafel oder ist begründet anderswo | 5 / 5 |
+| F2 | Schalter „Klassisch“ hin und zurück geprüft; `vorige/` = Version 77 | 2 / 2 |
+| F3 | Tasten 1/2/3/Esc, Maus bedient Punkte und Tafeln. **Angedockte Tafel für Tablet/Rechner ist nicht gebaut** | 2 / 3 |
+| | **Summe** | **94 / 100** |
+
+Bestanden (Grenze 85, kein Kriterium in A und B mit 0). Drei Kriterien (B2, D2, E2) brauchen noch Christians Probe am Telefon.
+
+**Abweichungen vom Konzept:** Die Formen-Punkte oben entfallen (der Form-Punkt zeigt Name und „2/3“, wischen wechselt) – so bleibt alles in der Daumenzone. Der Form-Punkt hat kein Hoch/Runter-Ziehen für das Tempo, weil das Hochziehen die Tafel öffnet („in einem Zug“). Stumm/Einzeln haben keine eigenen Zieh-Richtungen. Im Querformat bleiben die Punkte unten.

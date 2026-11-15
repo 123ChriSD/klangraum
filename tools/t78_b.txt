@@ -1,0 +1,46 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots78/"
+import json
+J=lambda s: E("JSON.stringify(%s)" % s)
+cdp = await pg.context.new_cdp_session(pg)
+async def touch(kind, pts):
+  await cdp.send("Input.dispatchTouchEvent", {"type":kind,"touchPoints":[{"x":p[0],"y":p[1],"id":p[2]} for p in pts]})
+await E("Auto72.set(false); 0"); await pg.wait_for_timeout(700)
+print("woerter:", await J("(() => { const f = Forms.active, bad = []; for (const k of ['stueck','musik','form'].flatMap(p => P78.keys(p))) { const it = P78.item(k); if (!it || !it.n) continue; const n = P78.label(it, f); if (n.split(/\\s+/).length > 2 || P78.hy(n).split(/ |&shy;|-/).some(w => w.length > 8)) bad.push(k + '=' + n); } return bad; })()"))
+C = lambda sel: J("(() => { const r = document.querySelector('%s').getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2, r.top]; })()" % sel)
+# Musik: tippen = Start/Stopp
+m = json.loads(await C('.p78p[data-p=\"musik\"] > i')); r0 = await J("Transport.running")
+await touch("touchStart", [(m[0], m[1], 1)]); await touch("touchEnd", []); await pg.wait_for_timeout(900); r1 = await J("Transport.running")
+await touch("touchStart", [(m[0], m[1], 1)]); await touch("touchEnd", []); await pg.wait_for_timeout(900); print("musik tippen:", r0, r1, await J("[Transport.running, P78.cur]"))
+# Pfeil antippen = Tafel
+u = json.loads(await C('.p78p[data-p=\"musik\"] > u')); await touch("touchStart", [(u[0], u[1], 1)]); await touch("touchEnd", []); await pg.wait_for_timeout(700); print("pfeil:", await J("P78.cur"))
+await touch("touchStart", [(190, 200, 1)]); await touch("touchEnd", []); await pg.wait_for_timeout(700); print("daneben getippt:", await J("P78.cur"))
+# Form: druecken, hochziehen auf 'Einzeln', loslassen
+f = json.loads(await C('.p78p[data-p=\"form\"] > i'))
+await touch("touchStart", [(f[0], f[1], 1)])
+for i in range(1, 5): await touch("touchMove", [(f[0], f[1] - i * 8, 1)])
+await pg.wait_for_timeout(600); t = json.loads(await C('.p78b[data-t=\"c:solo\"]'))
+await touch("touchMove", [(t[0], t[1], 1)]); await pg.wait_for_timeout(500); print("gezogen:", await J("[P78.cur, document.querySelector('.p78b.hov') && document.querySelector('.p78b.hov').dataset.t, Forms.active.solo]"))
+await pg.screenshot(path=SP+"b_zug.png")
+await touch("touchEnd", []); await pg.wait_for_timeout(700); print("losgelassen:", await J("[P78.cur, Forms.active.solo]")); await E("P78.run('c:solo'); P78.close(); 0"); await pg.wait_for_timeout(300)
+# Form: seitlich wischen = naechste Form
+n0 = await J("Forms.active.name"); await touch("touchStart", [(f[0], f[1], 1)])
+for i in range(1, 6): await touch("touchMove", [(f[0] - i * 9, f[1], 1)])
+await touch("touchEnd", []); await pg.wait_for_timeout(700); print("gewischt:", n0, await J("[Forms.active.name, P78.cur, document.getElementById('p78Fn').textContent, document.getElementById('p78Nr').textContent]"))
+# Musik: lange druecken = Loop aufnehmen
+await touch("touchStart", [(m[0], m[1], 1)]); await pg.wait_for_timeout(1100); await touch("touchEnd", []); await pg.wait_for_timeout(600)
+print("lange gedrueckt:", await J("[Forms.active.loop && Forms.active.loop.st, !!Loops.busyForm(), P78.cur, Transport.running]")); await E("{ const b = Loops.busyForm(); if (b) Loops.stop(b); } 0"); await pg.wait_for_timeout(500)
+# Lautstaerke-Regler auf der Tafel
+await E("P78.open('form'); 0"); await pg.wait_for_timeout(400); await E("{ const r = document.getElementById('p78Vol'); r.value = 60; r.dispatchEvent(new Event('input', { bubbles: true })); } 0"); print("regler:", await J("[Forms.active.fine.vol, document.getElementById('p78VolV').textContent]")); await E("Forms.active.fine.vol = 1; Forms.applyMix(Forms.active); P78.close(); 0")
+# Bereiche: Song, Mischen, zurueck
+for k in ("a:tab:song", "a:tab:mix", "c:tLoop", "c:tBeat", "c:tStueck", "a:tab:start"):
+  await E("P78.run('%s'); 0" % k); await pg.wait_for_timeout(900)
+  print(k, await J("[UI.tab, !document.getElementById('p78X').hidden, !document.getElementById('p78').hidden, (() => { const v = [...document.querySelectorAll('.view')].find(x => !x.hidden && x.getBoundingClientRect().height > 0); if (!v) return null; const r = v.getBoundingClientRect(); return [v.id, Math.round(r.top), Math.round(r.bottom)]; })()]")); await pg.screenshot(path=SP+"v_%s.png" % k.split(":")[-1])
+await pg.tap('#p78X'); await pg.wait_for_timeout(700); print("buehne:", await J("[UI.tab, document.getElementById('p78X').hidden]"))
+# Spielarten: Kneten (Blatt als Arbeitsflaeche), Tasten, Noten
+await E("P78.run('c:knead'); 0"); await pg.wait_for_timeout(900); print("kneten:", await J("[FBar.mode(), document.getElementById('p78').hidden, document.body.classList.contains('p78mode'), getComputedStyle(document.getElementById('ksheet')).display, !!document.querySelector('#ksheet .fbdone')]")); await pg.screenshot(path=SP+"m_kneten.png")
+await pg.tap('#ksheet .fbdone'); await pg.wait_for_timeout(900); print("fertig:", await J("[FBar.mode(), document.getElementById('p78').hidden, getComputedStyle(document.getElementById('ksheet')).display]"))
+await E("P78.run('c:brush'); 0"); await pg.wait_for_timeout(900); await pg.screenshot(path=SP+"m_malen.png"); await pg.tap('#ksheet .fbdone'); await pg.wait_for_timeout(600)
+for k, cl in (("a:mk:tasten", "Einsp.close()"), ("a:mk:noten", "Schrift.close()")):
+  await E("P78.run('%s'); 0" % k); await pg.wait_for_timeout(1100); print(k, await J("[document.body.className, document.getElementById('p78').hidden]")); await pg.screenshot(path=SP+"m_%s.png" % k.split(":")[-1]); await E("try { %s } catch (e) {} 0" % cl); await pg.wait_for_timeout(700)
+print("zurueck:", await J("[UI.tab, document.getElementById('p78').hidden, document.body.className]"))
+print("ERR", errs)
