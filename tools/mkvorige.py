@@ -7,7 +7,7 @@ und einem kleinen Hinweis oben rechts mit Link zur aktuellen Version. Speicher (
 import sys, re, subprocess, os
 ref = sys.argv[1] if len(sys.argv) > 1 else "HEAD"
 s = subprocess.run(["git", "show", f"{ref}:index.html"], capture_output=True, check=True).stdout.decode("utf-8")
-ver = (re.search(r'Version (\d+)', s) or [0, "?"])[1]
+ver = (re.search(r'<div class="meta">Version (\d+)', s) or re.search(r'Version (\d+)', s) or [0, "?"])[1]
 s = s.replace('<head>', '<head><base href="../">', 1)
 s = re.sub(r'<link rel="manifest"[^>]*>', '', s, count=1)
 s = re.sub(r'<script>\s*if \("serviceWorker" in navigator[\s\S]*?</script>\s*', '', s, count=1)
