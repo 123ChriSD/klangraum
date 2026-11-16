@@ -1,0 +1,7 @@
+/* ===== Version 80: Autotune für Tonspuren ===== */
+.tn80 { margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(255, 255, 255, .14); display: grid; gap: 6px; }
+.tn80 .sm74l { margin: 0; } .tn80 .sm74seg button { min-height: 44px; } .tn80 .sm74seg button:disabled { opacity: .45; }
+.tn80s { margin: 0 !important; font-size: 12.5px !important; color: #A9B4D0 !important; }
+.rn75, .r79c { min-width: 0; } .r79c .sm74l { flex-wrap: wrap; row-gap: 4px; } .r79c .sm74seg { display: flex; flex: 1 1 100%; min-width: 0; max-width: 100%; } .r79c .sm74seg button { flex: 1 1 0; min-width: 0; padding: 2px 4px; font-size: 12.5px; white-space: normal; line-height: 1.15; }
+.r79h .eb span { white-space: nowrap; } .rn75all { white-space: normal; line-height: 1.2; min-height: 48px; max-width: 100%; }
+.s78 .sm74l { flex-wrap: wrap; row-gap: 4px; } .s78 .sm74seg { display: flex; min-width: 0; max-width: 100%; } .s78 .sm74seg button { flex: 1 1 auto; min-width: 0; white-space: normal; line-height: 1.15; padding: 2px 8px; } .s78 #t79S, .s78 #b79S, .s78 #s78S { min-width: 0; } .tn80 .sm74l { flex-wrap: wrap; row-gap: 4px; } .tn80 .sm74seg { display: flex; min-width: 0; max-width: 100%; } .tn80 .sm74seg button { flex: 1 1 auto; min-width: 0; white-space: normal; line-height: 1.15; padding: 2px 8px; }

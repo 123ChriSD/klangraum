@@ -1,7 +1,23 @@
-# KLANGRAUM – Stand Version 79 (15.11.2026)
+# KLANGRAUM – Stand Version 80 (16.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 78) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 79) · jede Version mit Commit in `docs/VERSIONEN.md`.
+
+## Neu in v80: Autotune für Tonspuren
+- Christian (16.11. 22:44): eine Autotune-Funktion und Tonspuren, die im Stück ablaufen, ohne dass eine Form rotiert – eine einfache Tonspur, die mit Autotune verbessert werden kann.
+- **Tonspuren gab es schon** (seit v50 als „Gesangsspuren“, `Sing`): Aufnahme läuft wie auf einem Band ab Takt 1 mit, ist keine Form, dreht sich nicht; Einsingen mit Einzählen, Audiodatei, stumm, Lautstärke, Takt früher/später, Versatz. Sie waren schwer zu finden. Jetzt: **Aufnahme-Punkt → „Tonspur“**, das Blatt heißt „Tonspuren“.
+- **Autotune je Spur** (`Tune80`, `Spur80`): unter jeder Spur „Autotune **aus / sanft / stark**“ und „zieht auf **Tonart des Stücks / alle Töne**“.
+  - *sanft*: schiefe Töne gleiten weich auf den nächsten erlaubten Ton, das Schwingen der Stimme bleibt (85 % Korrektur).
+  - *stark*: rastet sofort ein – der bekannte „Roboter“-Klang.
+  - Die Länge der Aufnahme bleibt gleich. Die Aufnahme selbst bleibt immer erhalten; „aus“ holt sie zurück.
+  - Ändert sich die Stimmung des Stücks, sagt die Spur es; einmal „sanft“/„stark“ antippen stimmt neu.
+  - Läuft das Stück gerade, beginnt es nach dem Stimmen von vorn, damit die neue Fassung gleich zu hören ist.
+- **Wie es rechnet:** Tonhöhe alle 10 ms (YIN auf 12 kHz verkleinert), Ausreißer geglättet, Zielton = nächster Ton der Tonleiter (mit Hysterese, damit er nicht flattert), Tonhöhe verschoben durch tonhöhensynchrones Überlagern kurzer Fenster. Wo nichts zu korrigieren ist, bleibt der Klang unberührt; ohne klaren Ton (Geräusch, Stille) passiert nichts. 30 s Aufnahme brauchen im Test etwa 0,4 s.
+- **Behoben (betraf v79):** Auf Telefonen bis 393 px Breite machte die Wahlzeile einer Klang-Karte das Blatt „Neues Stück“ breiter als den Bildschirm (es ließ sich seitlich schieben, der Schließen-Knopf ragte hinaus); bei 360 px ebenso „Text wird Musik“. Die Wahlzeilen brechen jetzt um.
+- **Gemessen:** künstliche Stimme 230 Hz → 220,0 Hz (A), 255 → 261,6 (C), 150 → 146,8 (D), 430 → 440,6; Länge gleich, Lautstärke gleich; „sanft“ lässt ein Vibrato von ±2 % zu ±1,5 % stehen, „stark“ glättet es ganz; Gleitton 200→300 Hz liegt danach zu 98 % innerhalb 25 Cent eines Tonleitertons; Rauschen und Stille unverändert; ein schon richtiger Ton kommt unverändert heraus.
+- **Tests:** Prüfstand 176 (neu **TN**, **TP**, **TS**), 412×892 und 700×330 – nur das schwankende T3. Layout in fünf Größen TOTAL 0. E2E `tools/t80_a.txt`: schiefe Spur anlegen, stark/sanft/alle Töne, läuft im Stück mit ohne neue Form, sichern und wieder öffnen, Tonart-Wechsel, aus.
+- **Arbeitsumgebung neu aufgesetzt:** Der Arbeitsordner war nach einem Neustart leer. Der App-Rumpf von v79 wurde aus `index.html` zurückgewonnen, three.js r149 von GitHub geholt. Der **Layout-Prüfer (`tools/audit.js`) ist neu geschrieben** und strenger: Er prüft jetzt auch, ob Knöpfe in Blättern und Tafeln über den Rand ragen oder sich überlappen – so fielen die beiden Breiten-Fehler oben auf. Frühere „TOTAL 0“ stammen vom alten Prüfer. Alles zum Wiederaufsetzen liegt jetzt in `tools/` (siehe GEDAECHTNIS).
+- **Nicht geprüft / offen:** **Autotune ist nur mit künstlichen Stimmen gemessen, nicht mit echtem Gesang** – bei rauer, leiser oder halliger Stimme, bei Zischlauten und Sprüngen ist mit hörbaren Fehlern zu rechnen. Mehrstimmiges (Akkorde, Chor) kann es nicht. Kein Autotune in Echtzeit beim Singen, nur nachträglich. Autotune gibt es nur für Tonspuren, nicht für Klang-Formen oder die Bibliothek. Nichts auf echten Geräten.
 
 ## Neu in v79: Aufnahme-Punkt · Klang-Bibliothek · mehrere Start-Klänge · Text wird Musik
 - Christian (15.11. 19:35): mehrere Starttöne am Anfang aufnehmen · Sounds speichern und in neuen Stücken aus der Bibliothek aufrufen · ein zentraler Aufnahmebutton neben den unteren Punkten · eigene Funktion, die Fotos von Text in Musik umwandelt (Buchstaben als Notenwerte, auch nach Wortlängen, Nutzer nimmt Einfluss, Live-Fläche greift).

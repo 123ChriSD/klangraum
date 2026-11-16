@@ -8,6 +8,8 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **eine Tonspur aufnehmen, die einfach mitläuft (keine Form)** | roter Punkt **Aufnahme → Tonspur** | [→](#v80) |
+| **schiefe Töne einer Aufnahme geraderücken (Autotune)** | **Aufnahme → Tonspur** → unter der Spur „Autotune“ | [→](#v80) |
 | **etwas aufnehmen (Stück, Loop, Melodie, Stimme)** | roter Punkt **Aufnahme** unten | [→](#v79) |
 | **einen Klang merken und in anderen Stücken wieder benutzen** | **Stück → Klänge** | [→](#v79) |
 | **mehrere eigene Töne gleich am Anfang aufnehmen** | **Stück → Neu → Eigene Klänge** | [→](#v79) |
@@ -85,10 +87,28 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## 🎙 Tonspuren und Autotune (neu in v80) {#v80}
+
+**Tonspur** (roter Punkt Aufnahme → Tonspur)
+- Eine Tonspur ist eine Aufnahme, die wie auf einem Band **ab Takt 1 mitläuft**, sobald das Stück startet. Sie ist keine Form und dreht sich nicht.
+- **● Einsingen:** Das Stück startet von vorn, zählt einen Takt ein, dann nimmst du auf. Der Knopf oben beendet.
+- **Audiodatei als Spur:** holt eine fertige Aufnahme.
+- Je Spur: anhören, stumm, Lautstärke, einen Takt früher/später, Versatz in kleinen Schritten, löschen. Beliebig viele Spuren übereinander.
+
+**Autotune** (unter jeder Spur)
+- **aus:** die Aufnahme, wie sie ist.
+- **sanft:** schiefe Töne gleiten weich auf den nächsten passenden Ton; das Schwingen der Stimme bleibt.
+- **stark:** rastet sofort ein – der bekannte „Roboter“-Klang.
+- **zieht auf:** „Tonart des Stücks“ erlaubt nur die Töne der gewählten Stimmung, „alle Töne“ jeden Halbton.
+- Die Länge bleibt gleich. Die Aufnahme geht nie verloren – „aus“ holt sie zurück.
+- Wechselst du die Stimmung des Stücks, sagt die Spur es; „sanft“ oder „stark“ antippen stimmt neu.
+
+Autotune braucht **einen einzelnen klaren Ton** (eine Stimme, ein Melodie-Instrument). Geräusche, Akkorde und Sprache ohne Tonhöhe bleiben, wie sie sind.
+
 ## ● Aufnahme-Punkt, Klang-Bibliothek, Text wird Musik (neu in v79) {#v79}
 
 **Aufnahme-Punkt** (unten, rot, zwischen Stück und Musik)
-- Antippen öffnet die Tafel „Aufnahme“: **Aufnahme** (das Stück mitschneiden), **Loop**, **Melodie**, **Mikro** (Stimme wird Form), **Gesang**, **Klang merken**, **Rückblick**, **Set-Aufnahme**, **Aufnahmen**.
+- Antippen öffnet die Tafel „Aufnahme“: **Aufnahme** (das Stück mitschneiden), **Loop**, **Melodie**, **Mikro** (Stimme wird Form), **Tonspur**, **Klang merken**, **Rückblick**, **Set-Aufnahme**, **Aufnahmen**.
 - Läuft eine Aufnahme, steht am Punkt **Stopp** – ein Tipp beendet sie.
 
 **Klang-Bibliothek** (Stück → Klänge)

@@ -7,7 +7,7 @@ TAG = sys.argv[3] if len(sys.argv)>3 else "a"
 SHOTS = "--shots" in sys.argv
 async def main():
   async with async_playwright() as p:
-    b = await p.chromium.launch(executable_path="/opt/pw-browsers/chromium-1194/chrome-linux/chrome", args=["--use-gl=angle","--use-angle=swiftshader","--enable-unsafe-swiftshader","--autoplay-policy=no-user-gesture-required"])
+    b = await p.chromium.launch(executable_path="/opt/pw-browsers/chromium", args=["--use-gl=angle","--use-angle=swiftshader","--enable-unsafe-swiftshader","--autoplay-policy=no-user-gesture-required"])
     ctx = await b.new_context(viewport={"width":W,"height":H}, has_touch=True, device_scale_factor=1)
     page = await ctx.new_page(); errs=[]
     page.on("pageerror", lambda e: errs.append(str(e)))
@@ -87,6 +87,9 @@ async def main():
       ("v76_neu", "UI.hideSheets(); NewPiece.open(); NewPiece.st.mel = [0, 2, 4]; NewPiece.st.mo = { oct: 0, r: 1, kanon: false, go: true, off: {}, own: { 1: 'wellen' } }; NewPiece.render(); document.getElementById('sm74Opt').scrollIntoView({ block: 'center' })"),
       ("v76_knopf", "UI.hideSheets(); UI.setTab('klang'); UI.setView('nah'); Forms.setActive(Forms.list.find(f => f.kind !== 'drum')); Outro75.paint(); MelWahl76.paint()"),
       ("v76_wahl", "MelWahl76.open(Forms.list.find(f => f.kind !== 'drum')); MelWahl76.d = [0, 2, 4, 7]; MelWahl76.render()"),
+      ("v80_tonspur", "UI.hideSheets(); Sing.tracks = [{ id: 'g1', rec: 'x', name: 'Gesang 1', at: 0, off: 0, vol: 1, mute: false, len: 4, raw: 'y', tune: { art: 'sanft', leiter: 'stueck', sig: 'weg' } }, { id: 'g2', rec: 'z', name: 'Gesang 2', at: 16, off: 20, vol: 1, mute: false, len: 9 }]; Sing.sheet()"),
+      ("v80_tonspur_unten", "document.querySelector('#singS .sgr:last-child').scrollIntoView({ block: 'end' })"),
+      ("v80_zu", "UI.hideSheets(); Sing.tracks = []"),
       ("v79_t_aufn", "UI.hideSheets(); P78.on = true; UI.setTab('klang'); UI.setView('nah'); P78.open('aufn')"),
       ("v79_text", "P78.close(); Text79.open(); Text79.st.text = 'Der Mond ist aufgegangen, die goldnen Sternlein prangen am Himmel hell und klar.'; Text79.sync()"),
       ("v79_text_unten", "document.querySelector('#t79S .wtip').scrollIntoView({ block: 'end' })"),

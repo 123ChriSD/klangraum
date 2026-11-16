@@ -1,0 +1,32 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots80/"
+J=lambda s: E("JSON.stringify(%s)" % s)
+await E("Auto72.set(false); P78.K = 4; 0"); await pg.wait_for_timeout(900)
+print("tonart:", await J("[Music.mood.name, Music.mood.root, Spur80.pcs('stueck')]"))
+n0 = await J("Forms.list.filter(f => !f.empty).length")
+# schiefe Stimme: liegt 40 Cent neben einem Ton der Tonleiter
+await E("(async () => { const sr = Engine.ctx.sampleRate, pcs = Spur80.pcs('stueck'), m = 57 + [0,1,2,3,4,5,6,7,8,9,10,11].find(k => pcs.includes((57 + k) % 12)) + 0.4, f = 440 * Math.pow(2, (m - 69) / 12); window.__f = f; window.__m = m; const n = sr * 4, x = new Float32Array(n); let ph = 0; for (let i = 0; i < n; i++) { ph += 2 * Math.PI * f * (1 + 0.01 * Math.sin(2 * Math.PI * 5 * i / sr)) / sr; let s = 0; for (let h = 1; h <= 6; h++) s += Math.sin(h * ph) / h; x[i] = 0.3 * s * Math.min(1, i / 2000) * Math.min(1, (n - i) / 2000); } await Sing.add(x, sr, 0); })()")
+await pg.wait_for_timeout(600)
+await E("UI.hideSheets(); P78.open('aufn'); 0"); await pg.wait_for_timeout(500); print("tafel:", await J("[...document.querySelectorAll('#p78T .p78b')].map(b => b.textContent.trim())")); await E("P78.run('c:gesang'); 0"); await pg.wait_for_timeout(1200)
+print("blatt:", await J("[Sheets.cur, document.querySelector('.sheet h2').textContent, document.querySelectorAll('#singS .sgr').length, document.querySelectorAll('.tn80').length, document.querySelector('.tn80s').textContent, Forms.list.filter(f => !f.empty).length]"), n0)
+await pg.screenshot(path=SP+"a_blatt.png")
+PIT = "(async id => { const r = await DB.get('recs', id), x = K.fromI16(r.ch[0]); Tune80._d = null; const f = Tune80.median(Tune80.track(x, r.sr)); Tune80._d = null; const v = [...f].filter(q => q > 0).sort((a, b) => a - b), md = v[v.length >> 1]; return JSON.stringify([+(69 + 12 * Math.log2(md / 440)).toFixed(2), +(69 + 12 * Math.log2(v[Math.floor(v.length * 0.1)] / 440)).toFixed(2), +(69 + 12 * Math.log2(v[Math.floor(v.length * 0.9)] / 440)).toFixed(2), x.length]); })"
+print("aufnahme (Ton als MIDI, 10%..90%):", await J("__m"), await E(PIT + "(Sing.tracks[0].rec)"))
+await pg.tap('[data-tn=\"art:0:stark\"]'); await pg.wait_for_timeout(2500)
+print("stark:", await J("[Sing.tracks[0].tune, !!Sing.tracks[0].raw, Sing.tracks[0].rec !== Sing.tracks[0].raw, document.querySelector('.tn80s').textContent, document.querySelector('[data-tn=\"art:0:stark\"]').getAttribute('aria-pressed'), Sing.bufs.has(Sing.tracks[0].rec)]"), await E(PIT + "(Sing.tracks[0].rec)"))
+await pg.screenshot(path=SP+"a_stark.png")
+await pg.tap('[data-tn=\"art:0:sanft\"]'); await pg.wait_for_timeout(2500); print("sanft:", await J("Sing.tracks[0].tune"), await E(PIT + "(Sing.tracks[0].rec)"))
+await pg.tap('[data-tn=\"lt:0:alle\"]'); await pg.wait_for_timeout(2500); print("alle Toene:", await J("[Sing.tracks[0].tune.leiter, Sing.tracks[0].tune.sig]"), await E(PIT + "(Sing.tracks[0].rec)"))
+print("aufnahmen im stueck:", await E("Recs.list().then(L => JSON.stringify(L.map(r => r.name.slice(0, 34))))"))
+# laeuft im Stueck mit, ohne Form
+await E("UI.hideSheets(); if (Transport.running) Transport.stop(); 0"); await pg.wait_for_timeout(400); await E("Transport.start(); 0"); await pg.wait_for_timeout(1500)
+print("laeuft mit:", await J("[Transport.running, Sing.srcs.length, Sing.srcs[0] && Sing.srcs[0].s.buffer === Sing.bufs.get(Sing.tracks[0].rec), Forms.list.filter(f => !f.empty).length]"))
+# speichern, Stueck neu oeffnen
+await E("(async () => { Transport.stop(); await Save.now(); const id = Projects.cur.id; await Projects.create('Anderes', 'leer'); await Projects.openId(id); })()"); await pg.wait_for_timeout(2500)
+print("wieder geoeffnet:", await J("[Projects.cur.name, Sing.tracks.map(t => [t.name, t.tune && t.tune.art, t.tune && t.tune.leiter, !!t.raw, t.rec !== t.raw])]"))
+# Tonart wechseln -> Hinweis; aus -> Original
+await E("Sing.sheet(); 0"); await pg.wait_for_timeout(900); await pg.tap('[data-tn=\"lt:0:stueck\"]'); await pg.wait_for_timeout(2500); s0 = await J("Spur80.stale(Sing.tracks[0])")
+await E("{ const m = K.MOODS.find(x => Tune80.pcs(x.root, [0,1,2,3,4,5,6,7].map(k => K.music(x).so(k))).join() !== Spur80.sig('stueck')); Music.set(m); Sing.sync(); } 0"); await pg.wait_for_timeout(900)
+print("tonart gewechselt:", s0, await J("[Music.mood.name, Spur80.stale(Sing.tracks[0]), document.querySelector('.tn80s').textContent]"))
+raw = await J("Sing.tracks[0].raw"); await pg.tap('[data-tn=\"art:0:aus\"]'); await pg.wait_for_timeout(1500)
+print("aus:", await J("[Sing.tracks[0].tune, Sing.tracks[0].raw, Sing.tracks[0].rec]"), raw, await E(PIT + "(Sing.tracks[0].rec)"), await E("Recs.list().then(L => JSON.stringify(L.map(r => r.name.slice(0, 30))))"))
+print("ERR", errs)

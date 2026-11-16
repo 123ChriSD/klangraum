@@ -2,8 +2,8 @@
 <meta name="theme-color" content="#0A1315"><meta name="description" content="KLANGRAUM – Formen, die klingen. Loopstation, Beatbox, Instrumente.">
 <link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<style>:root{box-sizing:border-box}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><a href="./" style="position:fixed;z-index:2147483000;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);background:#3a2a10;color:#ffd58a;font:600 10px/1.2 system-ui,sans-serif;padding:2px 8px;border-radius:0 0 10px 10px;text-decoration:none;opacity:.92">Vorige Version 78 · zur aktuellen →</a>
-<title>(Vorige 77) KLANGRAUM</title>
+<style>:root{box-sizing:border-box}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><a href="./" style="position:fixed;z-index:2147483000;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);background:#3a2a10;color:#ffd58a;font:600 10px/1.2 system-ui,sans-serif;padding:2px 8px;border-radius:0 0 10px 10px;text-decoration:none;opacity:.92">Vorige Version 79 · zur aktuellen →</a>
+<title>(Vorige 79) KLANGRAUM</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* Layout: Vollbild-Tiefsee (WebGL) mit einer lebenden Klangform. Oben ruhige Kiesel (Stimmung, Raum, Menü),
@@ -2513,6 +2513,20 @@ body.p78calm .p78pts { opacity: .26; } body.p78open .p78pts { opacity: 0; pointe
 .s78a .del { color: #F08A8E; } .s78a .del[data-sure="1"] { background: #E5484D; color: #fff; border-color: #E5484D; }
 .s78no { color: #8FA0C8; text-align: center; padding: 18px 8px; } .s78f:focus-visible, .s78a button:focus-visible, .s78fl button:focus-visible, .s78o:focus-visible { outline: 3px solid #B45CFF; outline-offset: 1px; }
 @media (max-height: 480px) { body.p78 .labels .lbtn { min-height: 26px; height: 26px; font-size: 11px; padding: 0 9px; } }
+/* ===== Version 79: Aufnahme-Punkt · Klang-Bibliothek · Text wird Musik ===== */
+.p78r > i { color: #FF5A5F; } .p78r.on > i { background: #E5484D; color: #fff; border-color: transparent; animation: p78pulse 1.2s ease-out infinite; }
+@media (max-width: 359px) { .p78p { width: 58px; } .p78p > i { width: 52px; height: 52px; } }
+.r79c { display: grid; gap: 8px; padding: 10px; margin: 0 0 8px; border-radius: 16px; background: rgba(255, 255, 255, .045); border: 1px solid rgba(255, 255, 255, .09); }
+.r79h { display: flex; align-items: center; gap: 8px; } .r79h > span { flex: 1 1 auto; min-width: 0; display: grid; gap: 2px; } .r79h b { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .r79h small { font-size: 12px; color: #8FA0C8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.r79h .eb { min-height: 48px; min-width: 48px; flex: none; } .r79h .eb svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.r79b { display: grid; gap: 6px; margin-top: 6px; } .r79b > span { font-size: 12.5px; color: #8FA0C8; } .r79bl, .b79s, .t79st { display: flex; flex-wrap: wrap; gap: 8px; } .r79bl .eb, .b79s .eb, .t79st .eb { min-height: 48px; padding: 0 12px; } .r79bl .eb[aria-pressed="true"], .t79st .eb[aria-pressed="true"] { background: #EEF2FF; color: #0a0f1c; }
+.b79s .eb svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.b79c { grid-template-columns: minmax(0, 1fr); } .b79p { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .08); } .b79p svg { width: 20px; height: 20px; fill: currentColor; stroke: none; } .b79o { grid-template-columns: 48px minmax(0, 1fr); min-height: 48px; }
+.b79rec[aria-pressed="true"] { background: #E5484D !important; border-color: #E5484D !important; color: #fff !important; }
+.t79t { width: 100%; box-sizing: border-box; min-height: 110px; margin: 4px 0 10px; padding: 10px 12px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, .16); background: rgba(0, 0, 0, .25); color: inherit; font: inherit; font-size: 15px; line-height: 1.45; resize: vertical; -webkit-user-select: text; user-select: text; }
+.t79t:focus-visible { outline: 3px solid #B45CFF; outline-offset: 1px; }
+.t79e { margin: 2px 0 8px !important; font-size: 12.5px !important; } .t79i { margin: 10px 0 !important; font-weight: 700; color: #EEF2FF !important; }
+.s78 .sm74l { margin: 8px 0; } .t79st { flex: 1 1 auto; justify-content: flex-end; }
 </style>
 
 <canvas id="c" aria-label="Klangraum: dreidimensionale Klangformen" role="img"></canvas>
@@ -2571,7 +2585,7 @@ body.p78calm .p78pts { opacity: .26; } body.p78open .p78pts { opacity: 0; pointe
 
 <div class="start" id="start">
   <div class="start-inner">
-    <div class="meta">Version 78 · Drei Punkte: Stück · Musik · Form – die ganze Fläche zum Spielen, Meine Stücke mit Favoriten, Auflegen mit den Formen</div>
+    <div class="meta">Version 79 · Aufnahme-Punkt, Klang-Bibliothek, mehrere Start-Klänge und Text wird Musik (Foto lesen, Buchstaben und Wörter werden Töne)</div>
     <h1 class="klogoH"><span class="sr">KLANGRAUM</span><span id="klogoStart" aria-hidden="true"></span></h1>
     <p>Musik machen ohne Vorkenntnisse: Wähle einen Stil, und KLANGRAUM baut dir einen ganzen Song. Oder spiel, forme und mische deine Klänge selbst – nichts klingt falsch.</p><ul class="stfeat"><li>Song in 1 Minute</li><li>Einspielen ohne Aufnahmeknopf</li><li>Klänge kneten</li><li>Mischen wie im Studio</li></ul>
     <button class="enter" id="enter">Eintauchen</button>
@@ -6786,7 +6800,7 @@ const Sheets = {
   },
   menu() {
     const txt = Sheets.helpText(Music.help);
-    const s = this.open("Menü", this.head("KLANGRAUM · Version 78") + `
+    const s = this.open("Menü", this.head("KLANGRAUM · Version 79") + `
       <div class="field"><label for="rHelp">Wie viel hilft die App? <b id="helpV">${txt[0]}</b></label><input type="range" id="rHelp" min="0" max="100" step="1" value="${Music.help}"><p class="helptext" id="helpT">${txt[1]}</p></div>
       ${TempoUI.html()}
       <div class="row"><button class="btn" id="mGlide">Übergänge: Drehung ${Glide.rot ? "fließend" : "sofort"} · Tempo ${Glide.tempo ? "fließend" : "sofort"}</button></div>
@@ -20007,7 +20021,7 @@ const P78 = {
   bpm(d) { try { Music.setTempo(clamp(Math.round(Music.tempo()) + d, 50, 180)); Save.soon(); } catch (_) {} },
   loopRec() { const f = this.f(); if (!f) return; Hap(18); try { if (UI.tab !== "klang") UI.setTab("klang"); Cmd.run("loop", f); } catch (e) { console.warn(e); } setTimeout(() => { let R = null; try { R = LoopSt.R; } catch (_) {} Hud77.show(I67.loop || IC78.play, "Loop", R ? "nimmt auf – nochmal lange drücken: fertig" : "fertig", null, 1700); this.paint(true); }, 220); },
   recOn() { try { return !!(Rec.on || LoopSt.R); } catch (_) { return !!Rec.on; } },
-  open(p, slide) { const t = $("p78T"); if (!t) return; this.cur = p; t.dataset.p = p; t.innerHTML = this.html(p); t.hidden = false; t.classList.toggle("slide", !!slide); document.body.classList.add("p78open"); this.paint(true); },
+  open(p, slide) { const t = $("p78T"); if (!t) return; this.armed = false; this.cur = p; t.dataset.p = p; t.innerHTML = this.html(p); t.hidden = false; t.classList.toggle("slide", !!slide); document.body.classList.add("p78open"); this.paint(true); },
   close() { const t = $("p78T"); if (t) t.hidden = true; this.cur = null; document.body.classList.remove("p78open"); this.paint(true); },
   refresh() { const t = $("p78T"); if (!this.cur || !t || t.hidden) return; if (document.activeElement && document.activeElement.id === "p78Vol") { const f = this.f(), v = $("p78VolV"); if (f && v) v.textContent = Math.round(f.fine.vol * 100) + " %"; return; } const h = this.html(this.cur); if (h !== this.lastH) { this.lastH = h; t.innerHTML = h; } },
   run(k) {
@@ -20019,7 +20033,7 @@ const P78 = {
     } catch (e) { console.warn(e); }
   },
   bind(root) {
-    const P = root.querySelector("#p78P"), T = root.querySelector("#p78T");
+    const P = root.querySelector("#p78P"), T = root.querySelector("#p78T"); T.addEventListener("pointerdown", () => { this.armed = true; }); T.addEventListener("keydown", () => { this.armed = true; });   /* erst ein eigener Fingerdruck auf der Tafel schaltet ihre Knöpfe scharf */
     P.addEventListener("pointerdown", e => {
       const b = e.target.closest(".p78p"); if (!b || this.g) return; e.preventDefault(); try { b.setPointerCapture(e.pointerId); } catch (_) {}
       const r = b.getBoundingClientRect(), g = this.g = { p: b.dataset.p, b, id: e.pointerId, x0: e.clientX, y0: e.clientY, top: e.clientY - r.top < 24, open: false, hov: null };
@@ -20047,7 +20061,7 @@ const P78 = {
     };
     P.addEventListener("pointerup", end); P.addEventListener("pointercancel", end);
     P.addEventListener("click", e => { if (e.detail > 0 || performance.now() - (this.tEnd || 0) < 700) return; const b = e.target.closest(".p78p"); if (b) this.tap(b.dataset.p, e.shiftKey); });
-    T.addEventListener("click", e => { const b = e.target.closest(".p78b"); if (b) this.run(b.dataset.t); });
+    T.addEventListener("click", e => { if (!this.armed) return; const b = e.target.closest(".p78b"); if (b) this.run(b.dataset.t); });
     T.addEventListener("input", e => { if (e.target.id !== "p78Vol") return; const f = this.f(); if (!f) return; let v = e.target.value / 100; if (v > 0.97 && v < 1.03) v = 1; f.fine.vol = v; Forms.applyMix(f); try { UI.volPill(); } catch (_) {} $("p78VolV").textContent = Math.round(v * 100) + " %"; Save.soon(); });
     root.querySelector("#p78X").addEventListener("click", () => { Hap(8); UI.setTab("klang"); this.paint(true); });
     root.querySelector("#p78Imp").addEventListener("change", e => { const f = e.target.files[0]; e.target.value = ""; if (f) Projects.importFile(f); });
@@ -20092,6 +20106,258 @@ Help.T.push({ id: "v78", ic: "●", t: "Drei Punkte: Stück · Musik · Form", k
   <p>Zurück zur alten Oberfläche: Stück → Klassisch.</p>` });
 /* Das alte Bedienblatt gibt es mit den drei Punkten nur noch als Arbeitsfläche einer Spielart (Kneten, Malen, Melodie) */
 { const vis = KSheet.visible; KSheet.visible = function () { let m = false; try { m = !!FBar.mode(); } catch (_) {} return vis.call(this) && (!P78.on || m); }; }
+
+/* ================= Version 79: Aufnahme-Punkt · Klang-Bibliothek · mehrere Start-Klänge · Text wird Musik ================= */
+IC78.rec = sv78('<circle cx="12" cy="12" r="6.500" fill="currentColor" stroke="none"/>');
+IC78.book = sv78('<path d="M5 5.500c2.500-1 5-1 7 .500 2-1.500 4.500-1.500 7-.500v13c-2.500-1-5-1-7 .500-2-1.500-4.500-1.500-7-.500z"/><path d="M12 6v13"/>');
+IC78.text = sv78('<path d="M5 6h14M5 10h9M5 14h14M5 18h7"/><path d="M17 16v4M17 16l3-1v4"/>');
+IC78.cam = sv78('<path d="M4 8h3l2-2h6l2 2h3v11H4z"/><circle cx="12" cy="13" r="3.500"/>');
+I67.buch = IC78.book; I67.text = IC78.text;
+
+/* ---------- 1) Mikrofon: eine Aufnahme, für Bibliothek und Dialoge ---------- */
+const Mik79 = {
+  on: false, node: null, stream: null, chunks: [], t0: 0, tick: 0, cb: null, MAX: 12,
+  async start(cb, onLv, onTime) {
+    if (this.on) return false; if (!Engine.ctx) { UI.toast("Erst „Eintauchen“ – dann ist der Ton an"); return false; }
+    let stream; try { if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) throw new Error("none"); stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } }); } catch (e) { return false; }
+    try { const c = Engine.ctx; if (c.state !== "running") c.resume(); const src = c.createMediaStreamSource(stream), node = Engine.makeRec(1), z = c.createGain(); z.gain.value = 0; src.connect(node.input || node); node.connect(z).connect(c.destination);
+      this.chunks = []; this.on = true; this.stream = stream; this.node = node; this.cb = cb; this.t0 = performance.now();
+      node.port.onmessage = e => { if (e.data.t === "chunk") this.chunks.push(e.data.d[0]); else if (e.data.t === "lvl") { if (onLv) onLv(e.data.v); } else if (e.data.t === "end") this.finish(); };
+      node.port.postMessage({ on: true, ch: 1 });
+      clearInterval(this.tick); this.tick = setInterval(() => { const s = (performance.now() - this.t0) / 1000; if (onTime) onTime(s); if (s >= this.MAX) this.stop(); }, 100); return true;
+    } catch (e) { console.warn(e); try { stream.getTracks().forEach(t => t.stop()); } catch (_) {} this.on = false; return false; }
+  },
+  stop() { if (!this.on) return; this.on = false; clearInterval(this.tick); try { this.node.port.postMessage({ on: false }); } catch (_) {} try { this.stream.getTracks().forEach(t => t.stop()); } catch (_) {} clearTimeout(this.ft); this.ft = setTimeout(() => this.finish(), 600); },
+  finish() { clearTimeout(this.ft); if (!this.node) return; const n = this.chunks.reduce((s, c) => s + c.length, 0), x = new Float32Array(n); let o = 0; for (const c of this.chunks) { x.set(c, o); o += c.length; } try { this.node.disconnect(); } catch (_) {} this.node = null; this.chunks = []; const cb = this.cb; this.cb = null; if (cb) cb(x, Engine.ctx.sampleRate); },
+  loud(x, sr) { let pk = 0; for (let i = 0; i < x.length; i += 4) { const a = Math.abs(x[i]); if (a > pk) pk = a; } return x.length >= sr * 0.15 && pk >= 0.01; }
+};
+
+/* ---------- 2) Klang-Bibliothek: Klänge merken und in jedem Stück wieder holen ---------- */
+const Bib79 = {
+  PID: "__bib", list: [], src: null, ren: null,
+  async load() { try { this.list = (await DB.all("recs")).filter(r => r.pid === this.PID).sort((a, b) => b.created - a.created); } catch (_) { this.list = []; } return this.list; },
+  free(name) { let n = String(name || "Klang").trim().slice(0, 22) || "Klang", k = 2; const have = new Set(this.list.map(r => r.name)); if (!have.has(n)) return n; while (have.has(`${n} ${k}`)) k++; return `${n} ${k}`; },
+  async add(x, sr, name) { if (!x || !Mik79.loud(x, sr)) return null; const r = { id: uid("b"), pid: this.PID, name: this.free(name), kind: "klang", sr, created: Date.now(), dur: x.length / sr, ch: [K.toI16(x)], cut: null, peaks: Recs.peaks(x, 60) }; await DB.put("recs", r); this.list.unshift(r); return r; },
+  async remove(id) { await DB.del("recs", id); this.list = this.list.filter(r => r.id !== id); },
+  async rename(id, name) { const r = this.list.find(x => x.id === id), v = String(name || "").trim().slice(0, 22); if (!r || !v) return; r.name = v; await DB.put("recs", r); },
+  audio(r) { return K.fromI16(r.ch[0]); },
+  play(r) { if (!Engine.ctx || !r) return; try { if (this.src) this.src.stop(); } catch (_) {} try { const c = Engine.ctx, x = this.audio(r), b = c.createBuffer(1, x.length, r.sr); b.getChannelData(0).set(x); const s = c.createBufferSource(); s.buffer = b; s.connect(Engine.sum || Engine.out); s.start(); this.src = s; } catch (e) { console.warn(e); } },
+  /* Klang aus der Bibliothek als Form ins geöffnete Stück */
+  toForm(r) { const f = AudioIn.process(this.audio(r), r.sr, r.name); if (f) { try { if (Forms.list.filter(g => !g.empty).length > 1) UI.setView("alle"); } catch (_) {} Hud77.show(IC78.book, f.name, "ist jetzt eine Form im Stück", null, 1600); } return f; },
+  samples() { return Forms.list.filter(f => f && !f.empty && f.kind === "sample" && f.sample && f.sample.d); },
+  async fromForm(f) { if (!f || !f.sample || !f.sample.d) return null; const r = await this.add(f.sample.d, f.sample.sr, f.name); if (r) Hud77.show(IC78.book, r.name, "in der Bibliothek gemerkt", null, 1600); return r; },
+  row(r) { return `<div class="s78c b79c" data-id="${r.id}"><button class="s78o b79o" data-b9="play:${r.id}" aria-label="${esc(r.name)} anhören"><span class="b79p">${IC78.play}</span><span class="s78n">${this.ren === r.id ? "" : `<b>${esc(r.name)}</b>`}<small>${fmt(r.dur, 1)} s · ${Stuecke78.when(r.created)}</small></span></button>
+      ${this.ren === r.id ? `<input class="txt s78in" id="b79Ren" value="${esc(r.name)}" maxlength="22" aria-label="Neuer Name">` : ""}
+      <div class="s78a"><button data-b9="use:${r.id}">${IC78.plus}<span>Ins Stück</span></button><button data-b9="ren:${r.id}">${IC78.pen}<span>Name</span></button><button data-b9="del:${r.id}" class="del">${IC78.bin}<span>Löschen</span></button></div></div>`; },
+  body() { const S = this.samples(), have = new Set(this.list.map(r => r.name)); let why = ""; try { why = AudioIn.why(); } catch (_) {}
+    return `<div class="s78top"><button class="btn primary b79rec" data-b9="rec" aria-pressed="${Mik79.on}"><i class="lvdot"></i><span>${Mik79.on ? "Stopp" : "Klang aufnehmen"}</span></button><span class="btn filebtn">${IC78.inn}<span>Audiodatei</span><input type="file" id="b79File" accept="audio/*,.mp3,.m4a,.wav,.ogg,.oga,.opus,.aac,.flac,.webm" aria-label="Audiodatei in die Bibliothek laden"></span></div>
+      <div class="meter rn75m"><i id="b79Lv"></i></div><p class="rn75msg" id="b79Msg" aria-live="polite">${why ? esc(why) + " „Audiodatei“ geht trotzdem." : "Bis zu zwölf Sekunden: Stimme, Instrument, Geräusch. Der Klang bleibt hier – für jedes Stück."}</p>
+      ${S.length ? `<h3 class="ph3">Aus diesem Stück</h3><div class="b79s">${S.map(f => `<button class="eb" data-b9="keep:${f.id}"${have.has(f.name) ? " disabled" : ""}>${IC78.book}<span>${esc(f.name)} ${have.has(f.name) ? "ist gemerkt" : "merken"}</span></button>`).join("")}</div>` : ""}
+      <h3 class="ph3">Meine Klänge <small>${this.list.length}</small></h3><div class="s78l" id="b79L">${this.list.map(r => this.row(r)).join("") || `<p class="s78no">Noch kein Klang. Nimm einen auf – oder merke dir den Klang einer eigenen Form.</p>`}</div>`; },
+  async open() { await this.load(); this.ren = null; const s = Sheets.open("Klänge", Sheets.head("Klang-Bibliothek") + `<div id="b79S">${this.body()}</div>`); s.classList.add("s78");
+    s.addEventListener("click", e => { const b = e.target.closest("[data-b9]"); if (b) this.act(b.dataset.b9, b); });
+    s.addEventListener("change", async e => { if (e.target.id === "b79File") { const f = e.target.files[0]; e.target.value = ""; if (f) await this.file(f); } if (e.target.id === "b79Ren") { const id = this.ren; this.ren = null; await this.rename(id, e.target.value); this.sync(); } });
+    return s; },
+  sync() { const b = $("b79S"); if (b) { b.innerHTML = this.body(); const r = $("b79Ren"); if (r) { r.focus(); r.select(); } } },
+  msg(t) { const m = $("b79Msg"); if (m) m.textContent = t; },
+  async got(x, sr, name) { const r = await this.add(x, sr, name); if (!r) { this.sync(); return this.msg("Zu leise oder zu kurz – bitte näher ans Mikrofon und etwas länger."); } Hap(12); this.sync(); this.msg(`„${r.name}“ ist gemerkt.`); },
+  async file(f) { if (!Engine.ctx || !f) return; try { const ab = await AudioIn.decodeFile(f), n = Math.min(ab.length, ab.sampleRate * Mik79.MAX), x = new Float32Array(n); for (let c = 0; c < ab.numberOfChannels; c++) { const d = ab.getChannelData(c); for (let i = 0; i < n; i++) x[i] += d[i] / ab.numberOfChannels; } await this.got(x, ab.sampleRate, f.name.replace(/\.[^.]+$/, "")); } catch (e) { this.msg("Diese Datei kann der Browser nicht lesen. WAV, MP3 oder M4A gehen meistens."); } },
+  async act(k, b) {
+    const i = k.indexOf(":"), a = i < 0 ? k : k.slice(0, i), id = i < 0 ? "" : k.slice(i + 1), r = this.list.find(x => x.id === id); Hap(8);
+    try {
+      if (a === "rec") { if (Mik79.on) return Mik79.stop(); const ok = await Mik79.start((x, sr) => this.got(x, sr, "Klang"), v => { const l = $("b79Lv"); if (l) l.style.width = Math.min(100, v * 140) + "%"; }, s => this.msg(`● Nimmt auf … ${fmt(s, 1)} s – „Stopp“ beendet`));
+        if (!ok) { let w = ""; try { w = AudioIn.why(); } catch (_) {} return this.msg((w || "Das Mikrofon wurde nicht freigegeben.") + " Wähle stattdessen eine Audiodatei."); } return this.sync(); }
+      if (a === "play") return this.play(r);
+      if (a === "use" && r) { UI.hideSheets(); return this.toForm(r); }
+      if (a === "ren") { this.ren = this.ren === id ? null : id; return this.sync(); }
+      if (a === "keep") { await this.fromForm(Forms.byId(id)); return this.sync(); }
+      if (a === "del") { if (b.dataset.sure !== "1") { b.dataset.sure = "1"; b.querySelector("span").textContent = "Wirklich?"; return setTimeout(() => { if (b.isConnected) { b.dataset.sure = ""; b.querySelector("span").textContent = "Löschen"; } }, 2600); } await this.remove(id); return this.sync(); }
+    } catch (e) { console.warn(e); UI.toast("Das hat nicht geklappt", 1800); }
+  }
+};
+
+/* ---------- 3) Neues Stück: mehrere eigene Klänge, auch aus der Bibliothek ---------- */
+RecNP.MAXK = 6;
+RecNP.L = function () { const S = this.S(); if (!S) return []; if (!Array.isArray(S.recs)) S.recs = []; return S.recs; };
+{ const got = RecNP.got.bind(RecNP); RecNP.got = function (x, sr, name) { const S = this.S(), L = this.L(); got(x, sr, name); if (S && S.rec && S.rec.x && !L.includes(S.rec)) { if (L.length >= this.MAXK) L.shift(); let n = 1; while (L.some(r => r.name === `${S.rec.name} ${n}`)) n++; if (/^(Stimme|Aufnahme)$/.test(S.rec.name) || L.some(r => r.name === S.rec.name)) S.rec.name = `${S.rec.name} ${n}`; L.push(S.rec); this.rerender(); } };
+  RecNP.card = function (R, i) { const d = R.d || [];
+    return `<div class="r79c"><div class="r79h"><button class="eb" data-rn="play:${i}" aria-label="${esc(R.name)} anhören">${I67.play}</button><span><b>${esc(R.name)}</b><small>${fmt(R.x.length / R.sr, 1)} s${d.length >= 2 ? ` · Töne: ${d.map(k => StartMel.lab(k)).join(" ")}` : ""}${R.bib ? " · aus der Bibliothek" : ""}</small></span>${R.bib ? "" : `<button class="eb" data-rn="bib:${i}" aria-label="${esc(R.name)} in der Bibliothek merken"${R.kept ? " disabled" : ""}>${IC78.book}<span>${R.kept ? "gemerkt" : "Merken"}</span></button>`}<button class="eb" data-rn="drop:${i}" aria-label="${esc(R.name)} verwerfen">${I67.trash}</button></div>
+      <div class="sm74l"><span>spielt</span><span class="eseg sm74seg"><button data-rn="mode:${i}:start" aria-pressed="${R.mode === "start"}">die Start-Melodie</button><button data-rn="mode:${i}:eigen" aria-pressed="${R.mode === "eigen"}"${d.length < 2 ? " disabled" : ""}>ihre eigene</button><button data-rn="mode:${i}:frei" aria-pressed="${R.mode === "frei"}">nichts vor</button></span></div>
+      ${d.length >= 2 ? `<button class="eb rn75all" data-rn="all:${i}">Diese Töne als Start-Melodie für alle nehmen</button>` : ""}</div>`; };
+  RecNP.sec = function (S) { const L = this.L(), full = L.length >= this.MAXK; let why = ""; try { why = AudioIn.why(); } catch (_) {} const B = Bib79.list;
+    return `<div class="rn75" id="rn75S"><h3 class="ph3">Eigene Klänge <small>wahlweise · bis ${this.MAXK}</small></h3><p class="kch">Nimm Töne auf – Stimme, Instrument, Geräusch – einen nach dem anderen. Aus <b>jedem</b> wird eine eigene Form im neuen Stück.</p>
+      ${L.map((R, i) => this.card(R, i)).join("")}
+      <div class="rn75bar"><button class="eb rn75go${this.rec ? " q7rec" : ""}" data-rn="mic" aria-pressed="${!!this.rec}"${full && !this.rec ? " disabled" : ""}><i class="lvdot"></i><span>${this.rec ? "Stopp" : L.length ? "Noch einen aufnehmen" : "Aufnehmen"}</span></button><span class="btn filebtn rn75f">Audiodatei<input type="file" id="rn75File" accept="audio/*,.mp3,.m4a,.wav,.ogg,.oga,.opus,.aac,.flac,.webm" aria-label="Audiodatei wählen"${full ? " disabled" : ""}></span></div>
+      <div class="meter rn75m"><i id="rn75Lv"></i></div>
+      <p class="rn75msg" id="rn75Msg" aria-live="polite">${full ? `${this.MAXK} Klänge sind das Höchste für den Anfang – weitere kommen später über „Aufnahme“.` : why ? esc(why) + " „Audiodatei“ geht trotzdem." : L.length ? "Jede Aufnahme bis zwölf Sekunden." : "Bis zu zwölf Sekunden. Singst oder spielst du mehrere Töne nacheinander, erkennt KLANGRAUM die Melodie."}</p>
+      ${B.length ? `<div class="r79b"><span>Aus der Bibliothek</span><div class="r79bl">${B.slice(0, 12).map(r => `<button class="eb" data-rn="lib:${r.id}" aria-pressed="${L.some(x => x.bib === r.id)}">${esc(r.name)}</button>`).join("")}</div></div>` : ""}</div>`; };
+  const act = RecNP.act.bind(RecNP); RecNP.act = function (k) {
+    const S = this.S(); if (!S) return; const L = this.L(), p = k.split(":"), i = +p[1], R = L[i];
+    if (p[0] === "play" && R) { Hap(8); S.rec = R; return this.play(); }
+    if (p[0] === "drop" && p.length > 1) { Hap(8); L.splice(i, 1); S.rec = L[L.length - 1] || null; return this.rerender(); }
+    if (p[0] === "mode" && p.length === 3 && R) { Hap(8); R.mode = p[2]; return this.rerender(); }
+    if (p[0] === "all" && p.length > 1 && R && R.d.length >= 2) { Hap(8); S.mel = R.d.slice(0, StartMel.MAXN); R.mode = "start"; this.rerender(); try { StartMel.act("play"); } catch (_) {} return UI.toast("Diese Töne sind jetzt die Start-Melodie für alle Formen", 2600); }
+    if (p[0] === "bib" && R) { Hap(8); return Bib79.add(R.x, R.sr, R.name).then(r => { if (r) { R.kept = true; this.rerender(); } }); }
+    if (p[0] === "lib") { Hap(8); const id = k.slice(4), j = L.findIndex(x => x.bib === id); if (j >= 0) { L.splice(j, 1); S.rec = L[L.length - 1] || null; return this.rerender(); } if (L.length >= this.MAXK) return; const r = Bib79.list.find(x => x.id === id); if (!r) return; const x = Bib79.audio(r); let notes = [], d = []; try { notes = this.track(x, r.sr); d = this.degs(notes, StartMel.mood()); } catch (_) {} const o = { x, sr: r.sr, name: r.name, notes, d, mode: S.mel && S.mel.length ? "start" : "frei", bib: id }; L.push(o); S.rec = o; return this.rerender(); }
+    if (k === "drop") { L.length = 0; S.rec = null; return this.rerender(); }
+    return act(k); };
+  /* beim Anlegen: aus jedem Klang wird eine Form (die ältere Hülle sieht keinen einzelnen mehr) */
+  const go = NewPiece.go.bind(NewPiece); NewPiece.go = async function () { let L = [], d = [], O = { r: 1, kanon: false, go: true }; try { if (RecNP.rec) RecNP.stop(); const S = this.st; if (S) { L = (Array.isArray(S.recs) ? S.recs : S.rec && S.rec.x ? [S.rec] : []).slice(0, RecNP.MAXK); S.rec = null; d = Array.isArray(S.mel) ? S.mel.slice() : []; if (S.mo) O = { r: S.mo.r, kanon: !!S.mo.kanon, go: S.mo.go !== false }; } } catch (_) {}
+    const r = await go(); let n = 0; for (const R of L) { try { if (RecNP.after(R, d, O)) n++; } catch (e) { console.warn(e); } } if (n > 1) UI.toast(`${n} eigene Klänge sind als Formen im Stück`, 3200); return r; };
+  const op = NewPiece.open.bind(NewPiece); NewPiece.open = function (...a) { const r = op(...a); Bib79.load().then(L => { if (L.length && $("rn75S")) RecNP.rerender(); }).catch(() => {}); return r; }; }
+
+/* ---------- 4) Text wird Musik ---------- */
+const Text79 = {
+  st: null, busy: false, MAXT: 8,
+  ARTEN: [["buch", "Buchstaben", "Jeder Buchstabe ist ein Ton: A ist der Grundton, B die nächste Stufe … nach N geht es wieder bei A los. Selbstlaute klingen lang, Mitlaute kurz, Großbuchstaben betont."], ["wort", "Wortlängen", "Jedes Wort ist ein Ton: Die Zahl der Buchstaben bestimmt die Tonhöhe (ein Buchstabe = Grundton), die Silben bestimmen die Länge."], ["namen", "Notennamen", "Nur C D E F G A H (und B, S) klingen – als die Töne, die sie heißen. Alle anderen Buchstaben halten den Ton."]],
+  ZEIT: [["ruhig", "ruhig", 4], ["normal", "normal", 2], ["flink", "lebhaft", 1]],
+  VOK: "aeiouäöüy",
+  /* Text → Folge von Tönen und Pausen: { k: Stufe oder null, n: Länge in Sechzehnteln, v: Stärke, br: Zeilenende } */
+  notes(text, o = {}) {
+    const art = o.art || "buch", u = o.unit || 2, out = [], T = String(text || "").replace(/\r/g, "").slice(0, 4000);
+    const push = (k, n, v) => { const l = out[out.length - 1]; if (k == null && l && l.k == null) { l.n = Math.max(l.n, n); return; } out.push({ k, n, v: v || 0 }); };
+    const rest = ch => { if (ch === "\n") { const l = out[out.length - 1]; if (l) l.br = true; return push(null, 2 * u); } if (/[.!?…]/.test(ch)) return push(null, 4 * u); if (/[,;:–—()\-]/.test(ch)) return push(null, 2 * u); if (/\s/.test(ch)) return push(null, u); };
+    const idx = c => { const b = { "ä": "a", "ö": "o", "ü": "u", "ß": "s" }[c] || c, i = b.charCodeAt(0) - 97; return i >= 0 && i < 26 ? i : -1; };
+    if (art === "wort") {
+      for (const m of T.matchAll(/([A-Za-zÄÖÜäöüß]+)|(\d+)|([^A-Za-zÄÖÜäöüß\d])/g)) {
+        if (m[1]) { const w = m[1], L = w.length, syl = Math.max(1, (w.toLowerCase().match(/[aeiouäöüy]+/g) || []).length); push((L - 1) % 14, clamp(syl, 1, 4) * 2 * u, w[0] !== w[0].toLowerCase() ? 0.95 : 0.76); }
+        else if (m[2]) push((+m[2]) % 14, 2 * u, 0.8); else if (!/\s/.test(m[3]) || m[3] === "\n") rest(m[3]);   /* Wortabstand: kein Loch, die Töne folgen aufeinander */
+      }
+    } else {
+      let prev = "";
+      for (const ch of T) {
+        const lc = ch.toLowerCase(), i = idx(lc);
+        if (i < 0) { if (/\d/.test(ch)) push(+ch, 2 * u, 0.8); else rest(ch); prev = ""; continue; }
+        const up = ch !== lc, l = out[out.length - 1];
+        if (art === "namen") { const k = { c: 0, d: 1, e: 2, f: 3, g: 4, a: 5, h: 6, b: 6, s: 2 }[lc === "ß" ? "s" : lc]; if (k == null) { if (l && l.k != null) l.n += u; else push(null, u); } else push(k, 2 * u, up ? 0.95 : 0.78); prev = lc; continue; }
+        if (lc === prev && l && l.k != null) { l.n += u; continue; }   /* Doppelbuchstabe: der Ton wird länger */
+        const vok = this.VOK.includes(lc); push((i % 14) + ("äöü".includes(lc) ? 1 : 0), (vok ? 2 : 1) * u, up ? 0.95 : vok ? 0.8 : 0.7); prev = lc;
+      }
+    }
+    while (out.length && out[out.length - 1].k == null) out.pop(); while (out.length && out[0].k == null) out.shift();
+    return out;
+  },
+  /* Töne auf Spuren verteilen: höchstens 16 Takte je Spur, Umbruch am liebsten am Zeilen- oder Satzende */
+  takes(N, max = 256) {
+    const out = []; let cur = [], len = 0, cut = -1, cutLen = 0;
+    const flush = (upto) => { const part = upto == null ? cur : cur.slice(0, upto), restN = upto == null ? [] : cur.slice(upto); while (part.length && part[part.length - 1].k == null) part.pop(); if (part.length) out.push(part); cur = restN; while (cur.length && cur[0].k == null) cur.shift(); len = cur.reduce((s, e) => s + e.n, 0); cut = -1; cutLen = 0; };
+    for (const e of N) { if (len + e.n > max) { if (cut > 0 && cutLen >= max * 0.5) flush(cut); else flush(); } cur.push(e); len += e.n; if (e.k == null && e.n >= 4 || e.br) { cut = cur.length; cutLen = len; } }
+    flush(); return out;
+  },
+  /* eine Spur → Ereignisse einer Loop-Spur */
+  events(part, tonic, mu) { const ev = []; let s = 0; for (const e of part) { if (e.k != null) { const m = tonic + mu.so(e.k); ev.push({ s, d: Math.max(0.5, e.n * 0.92), m, v: clamp(e.v || 0.75, 0.05, 1), u: clamp((m - 28) / 60, 0, 1) }); } s += e.n; } return { ev, bars: clamp(Math.ceil(s / 16), 1, 16) }; },
+  info(text, o) { const N = this.notes(text, o), T = this.takes(N), tones = N.filter(e => e.k != null).length, bars = T.reduce((s, p) => s + this.events(p, 60, { so: k => k }).bars, 0); return { N, T, tones, bars, cut: T.length > this.MAXT }; },
+  style() { return SongGen.byId(this.st.style) || SongGen.STYLES[0]; },
+  /* Vertonen: neues Stück mit Band im gewählten Stil – die Melodie kommt aus dem Text */
+  async make(neu) {
+    const S = this.st; if (!S || this.busy) return; const I = this.info(S.text, S); if (!I.tones) return this.msg("Im Text stehen noch keine Buchstaben, die klingen können.");
+    this.busy = true; Hap(14);
+    try {
+      const St = this.style(), parts = I.T.slice(0, this.MAXT); let lead = null;
+      const old = !neu && Projects.cur && Projects.cur.text79 ? Forms.byId(Projects.cur.text79.lead) : null;
+      if (old) { lead = old; Undo.push(); }
+      else {
+        if (Transport.running) Transport.stop();
+        const nm = ("Text: " + S.text.trim().split(/\s+/).slice(0, 3).join(" ")).slice(0, 28);
+        await Projects.create(nm, "leer");
+        if (S.band) { const one = St.parts.some(p => p.r === "mel") ? { ...St, parts: St.parts.filter(p => p.r !== "hook") } : St;   /* nur eine Melodie-Stimme: die aus dem Text */
+          const made = SongGen.fill(one, (Math.floor(Math.random() * 4e9) + 1) >>> 0); if (!made) return; lead = made.mel || made.hook || Object.values(made).find(f => f.kind !== "drum"); }
+        else { SongGen.meta = null; const m = K.MOODS.find(x => x.id === St.mood); if (m) Music.set(m); Music.setTempo(St.bpm); lead = Forms.make({ seedId: "klavier", name: "Text" }); if (lead) { Forms.rebuild(lead, true); lead.still = false; lead.takes = []; } Song.sections = []; }
+        if (!lead) return;
+        try { if (SongGen.meta && SongGen.meta.roles) delete SongGen.meta.roles[lead.id]; if (SongGen.meta) SongGen.meta.fresh = false; } catch (_) {}
+        lead.name = "Text";
+      }
+      const mood = Music.mood, mu = Music.mu, tonic = 60 + mod(mood.root - 60, 12), others = Forms.list.filter(f => f && !f.empty && f !== lead).map(f => f.id);
+      lead.takes = []; const tk = parts.map((p, i) => { const E = this.events(p, tonic, mu), t = Loops.newTake(lead, E.bars, E.ev, `Text ${i + 1}`); t.base = 0; return t; });
+      Song.sections = tk.map((t, i) => ({ id: uid("s"), name: `Teil ${i + 1}`, bars: t.bars, on: [lead.id, ...(i === 0 && tk.length > 2 ? others.slice(1) : others)], off: tk.filter(x => x !== t).map(x => x.id), mel: {}, lv: {}, tr: null, bpm: null, beat: null }));
+      Song.intro = 0; Song.outro = 0;
+      Projects.cur.text79 = { text: S.text, art: S.art, unit: S.unit, style: S.style, band: S.band, lead: lead.id };
+      Forms.setActive(lead); UI.hideSheets(); UI.setTab("song"); UI.refresh(); Save.soon(); try { await Save.now(); } catch (_) {}
+      setTimeout(() => { try { if (UI.tab === "song" && !Song.playing) SongUI.play(0); } catch (e) { console.warn(e); } }, 450);
+      UI.toastAct(`Dein Text klingt: ${I.tones} Töne in ${tk.length} ${tk.length === 1 ? "Teil" : "Teilen"}${I.cut ? " (der Rest war zu lang)" : ""}`, "Live-Fläche", () => { try { Live70.open(); } catch (e) { console.warn(e); } }, 9000);
+      return lead;
+    } catch (e) { console.warn(e); this.msg("Das Vertonen hat nicht geklappt."); } finally { this.busy = false; }
+  },
+  /* kurz anhören, ohne etwas anzulegen */
+  listen() { const S = this.st, I = this.info(S.text, S), c = Engine.ctx; if (!c || !I.tones) return; const St = this.style(), mood = K.MOODS.find(x => x.id === St.mood) || Music.mood, mu = K.music(mood), tonic = 60 + mod(mood.root - 60, 12), spb = 60 / St.bpm / 4; let t = c.currentTime + 0.08, n = 0;
+    for (const e of I.N) { if (e.k != null) { StartMel.beep(tonic + mu.so(e.k), t, Math.min(0.6, e.n * spb * 0.9)); n++; } t += e.n * spb; if (n >= 40 || t - c.currentTime > 14) break; } },
+  /* Foto → Text: zuerst die Texterkennung des Geräts, sonst ein Lesemodul aus dem Netz */
+  LIB: "https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js",
+  async shrink(file) { const bmp = await createImageBitmap(file), k = Math.min(1, 1800 / Math.max(bmp.width, bmp.height)), cv = document.createElement("canvas"); cv.width = Math.round(bmp.width * k); cv.height = Math.round(bmp.height * k); cv.getContext("2d").drawImage(bmp, 0, 0, cv.width, cv.height); return cv; },
+  lines(blocks) { return blocks.filter(b => b && b.rawValue).sort((a, b) => (a.boundingBox.y - b.boundingBox.y) || (a.boundingBox.x - b.boundingBox.x)).map(b => b.rawValue).join("\n"); },
+  loadLib() { if (window.Tesseract) return Promise.resolve(); if (this.libP) return this.libP; return (this.libP = new Promise((ok, no) => { const s = document.createElement("script"); s.src = this.LIB; s.onload = () => (window.Tesseract ? ok() : no(new Error("leer"))); s.onerror = () => { this.libP = null; no(new Error("netz")); }; document.head.appendChild(s); setTimeout(() => { if (!window.Tesseract) { this.libP = null; no(new Error("zeit")); } }, 25000); })); },
+  async read(file) {
+    const cv = await this.shrink(file);
+    if ("TextDetector" in window) { try { const t = this.lines(await new window.TextDetector().detect(cv)); if (t.trim().length > 1) return { text: t, how: "Gerät" }; } catch (_) {} }
+    this.msg("Lesemodul wird geladen (einmalig, einige Megabyte) …"); await this.loadLib();
+    const w = await window.Tesseract.createWorker("deu", 1, { logger: m => { try { if (m && m.status) this.msg(`${m.status === "recognizing text" ? "Text wird gelesen" : "Lesemodul wird vorbereitet"} … ${Math.round((m.progress || 0) * 100)} %`); } catch (_) {} } });
+    try { const r = await w.recognize(cv); return { text: (r && r.data && r.data.text) || "", how: "Lesemodul" }; } finally { try { await w.terminate(); } catch (_) {} }
+  },
+  clean(t) { return String(t || "").replace(/[ \t]+/g, " ").replace(/ ?\n ?/g, "\n").replace(/\n{3,}/g, "\n\n").replace(/-\n(?=[a-zäöü])/g, "").trim(); },
+  async photo(file) {
+    if (!file || this.busy) return; this.busy = true; this.msg("Das Foto wird gelesen …"); const b = $("t79S"); if (b) b.classList.add("q7busy");
+    try { const r = await Promise.race([this.read(file), new Promise((_, no) => setTimeout(() => no(new Error("zeit")), 90000))]), t = this.clean(r.text);
+      if (t.length < 2) this.msg("Auf dem Foto war kein Text zu erkennen. Näher heran, gerade halten, gutes Licht – oder den Text eintippen.");
+      else { this.st.text = t; this.sync(); this.msg(`Erkannt (${r.how}): ${t.length} Zeichen. Bitte kurz prüfen – du kannst den Text ändern.`); } }
+    catch (e) { console.warn(e); this.msg(String(e && e.message) === "netz" || String(e && e.message) === "zeit" ? "Das Lesemodul ließ sich nicht laden (kein Netz oder hier gesperrt). Tippe den Text ein oder füge ihn ein." : "Das Foto ließ sich nicht lesen. Tippe den Text ein oder füge ihn ein."); }
+    finally { this.busy = false; const x = $("t79S"); if (x) x.classList.remove("q7busy"); }
+  },
+  msg(t) { const m = $("t79Msg"); if (m) m.textContent = t; },
+  sum() { const S = this.st, I = this.info(S.text, S), bpm = this.style().bpm, sec = Math.round(Math.min(I.bars, this.MAXT * 16) * 4 * 60 / bpm); return I.tones ? `${I.tones} Töne · ${Math.min(I.T.length, this.MAXT)} ${I.T.length === 1 ? "Teil" : "Teile"} · etwa ${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, "0")}${I.cut ? " · sehr langer Text: es klingt der Anfang" : ""}` : "Noch kein Text."; },
+  body() { const S = this.st, A = this.ARTEN.find(a => a[0] === S.art) || this.ARTEN[0], here = !!(Projects.cur && Projects.cur.text79 && Forms.byId(Projects.cur.text79.lead));
+    return `<div class="s78top"><span class="btn primary filebtn">${IC78.cam}<span>Foto aufnehmen</span><input type="file" id="t79Cam" accept="image/*" capture="environment" aria-label="Text fotografieren"></span><span class="btn filebtn">${IC78.inn}<span>Bild wählen</span><input type="file" id="t79Img" accept="image/*" aria-label="Bild mit Text wählen"></span></div>
+      <p class="rn75msg" id="t79Msg" aria-live="polite">Fotografiere gedruckten Text – oder tippe ihn ein. Das Foto bleibt auf deinem Gerät.</p>
+      <textarea class="t79t" id="t79T" rows="5" maxlength="4000" placeholder="Hier steht der Text. Du kannst ihn ändern." aria-label="Text, der vertont wird">${esc(S.text)}</textarea>
+      <div class="sm74l"><span>Lesart</span><span class="eseg sm74seg">${this.ARTEN.map(a => `<button data-t9="art:${a[0]}" aria-pressed="${S.art === a[0]}">${a[1]}</button>`).join("")}</span></div><p class="kch t79e">${A[2]} Leerzeichen und Satzzeichen sind Pausen.</p>
+      <div class="sm74l"><span>Gangart</span><span class="eseg sm74seg">${this.ZEIT.map(z => `<button data-t9="unit:${z[2]}" aria-pressed="${S.unit === z[2]}">${z[1]}</button>`).join("")}</span></div>
+      <div class="sm74l"><span>Stil</span><span class="t79st">${SongGen.STYLES.map(x => `<button class="eb" data-t9="style:${x.id}" aria-pressed="${S.style === x.id}">${esc(x.n)}</button>`).join("")}</span></div>
+      <div class="sm74l"><span>Begleitung</span><span class="eseg sm74seg"><button data-t9="band:1" aria-pressed="${!!S.band}">mit Band</button><button data-t9="band:0" aria-pressed="${!S.band}">nur die Melodie</button></span></div>
+      <p class="t79i" id="t79I">${this.sum()}</p>
+      <div class="s78top"><button class="btn" data-t9="listen">${IC78.play}<span>Anhören</span></button>${here ? `<button class="btn" data-t9="again">${IC78.text}<span>Hier neu vertonen</span></button>` : ""}<button class="btn primary" data-t9="make">${IC78.text}<span>${here ? "Als neues Stück" : "Vertonen"}</span></button></div>
+      <p class="wtip">Es entsteht ein neues Stück. Danach änderst du alles weiter: Töne in den <b>Noten</b>, Instrumente, Tempo, Stimmung – und spielst es auf der <b>Live-Fläche</b>.</p>`; },
+  open() { const P = Projects.cur && Projects.cur.text79; if (!this.st) this.st = { text: "", art: "buch", unit: 2, style: SongGen.STYLES[0].id, band: true }; if (P) Object.assign(this.st, { text: P.text, art: P.art, unit: P.unit, style: P.style, band: P.band !== false });
+    const s = Sheets.open("Text", Sheets.head("Text wird Musik") + `<div id="t79S">${this.body()}</div>`); s.classList.add("s78");
+    s.addEventListener("click", e => { const b = e.target.closest("[data-t9]"); if (b) this.act(b.dataset.t9); });
+    s.addEventListener("input", e => { if (e.target.id === "t79T") { this.st.text = e.target.value; const i = $("t79I"); if (i) i.textContent = this.sum(); } });
+    s.addEventListener("change", e => { if (e.target.id === "t79Cam" || e.target.id === "t79Img") { const f = e.target.files[0]; e.target.value = ""; if (f) this.photo(f); } });
+    return s; },
+  sync() { const b = $("t79S"); if (b) b.innerHTML = this.body(); },
+  act(k) { const S = this.st, i = k.indexOf(":"), a = i < 0 ? k : k.slice(0, i), v = i < 0 ? "" : k.slice(i + 1); Hap(8);
+    if (a === "art") { S.art = v; return this.sync(); } if (a === "unit") { S.unit = +v; return this.sync(); } if (a === "style") { S.style = v; return this.sync(); } if (a === "band") { S.band = v === "1"; return this.sync(); }
+    if (a === "listen") return this.listen(); if (a === "make") return this.make(true); if (a === "again") return this.make(false); }
+};
+
+/* ---------- 5) Vierter Punkt: Aufnahme ---------- */
+P78.NAME.aufn = "Aufnahme";
+P78.X.bibrec = { ic: IC78.book, n: () => "Klang merken", run: () => Bib79.open().then(() => setTimeout(() => Bib79.act("rec"), 250)) };
+P78.X.bibform = { ic: IC78.book, n: () => "Klang merken", vis: f => !!(f && f.kind === "sample" && f.sample), run: () => Bib79.fromForm(P78.f()), keep: true };
+P78.SH["Text wird Musik"] = "Text vertonen"; P78.SH["Klang-Bibliothek"] = "Klänge"; P78.HY.Klänge = "Klänge";
+try { Alles73.MAKE.push(["text", "text", "Text wird Musik", "Foto von Text lesen – Buchstaben und Wörter werden Töne"], ["bib", "buch", "Klang-Bibliothek", "Eigene Klänge merken und in jedes Stück holen"]); const ac = Alles73.act.bind(Alles73); Alles73.act = function (k) { if (k === "mk:text") { UI.hideSheets(); return setTimeout(() => Text79.open(), 80); } if (k === "mk:bib") { UI.hideSheets(); return setTimeout(() => Bib79.open(), 80); } return ac(k); }; } catch (_) {}
+P78.T = {
+  stueck: [["neu", "pieces", "sichern", "fav", "kopie", "export"], ["import", "a:mk:bib", "c:tBild", "a:mk:text", "c:jam", "a:tab:start"], ["c:undo", "c:help", "a:mk:erkl", "a:mk:gesten", "c:cfg", "einst"], ["c:zonen", "c:scan", "c:ring", "c:phys", "c:formen", "klassisch"], ["alles"]],
+  aufn: [["c:rec", "c:loop", "c:mel", "c:micform", "c:gesang", "bibrec"], ["c:retro", "c:setrec", "c:tStueck"]],
+  musik: [["startstop", "a:mk:outro", "auflegen", "a:mk:live", "c:pads", "a:mk:gen"], ["a:tab:song", "c:scenes", "a:tab:mix", "c:mixer", "c:tLoop", "c:tBeat"], ["bpm-", "bpm", "bpm+", "mood", "c:tSchnitt", "alltoggle"], ["c:soloall", "c:lpause", "c:lreset", "c:resetAll", "c:setadd", "c:setstart"], ["c:vnah", "c:valle", "c:vraum", "c:zreset", "c:full", "c:setstop"], ["c:setlist"]],
+  form: [["c:playmode", "c:keys", "a:mk:tasten", "a:mk:noten", "c:knead", "c:brush"], ["c:inst", "c:snd", "a:mk:melw", "bibform", "c:onoff", "c:solo"], ["vol", "c:vol", "c:fine", "c:shape0"], ["c:spin", "c:slower", "rpb", "c:faster", "c:flip", "c:swing"], ["c:lhold", "c:ledit", "c:station", "c:ldel1", "c:ldelall"], ["c:new", "c:copy", "c:sheet", "c:del"]]
+};
+P78.PTS = ["stueck", "aufn", "musik", "form"];
+P78.step = function (s) {
+  if (!s.forms) return ["form", "c:new"]; if (!s.loops && !s.moving) return ["form", "c:spin"]; if (!s.loops) return ["aufn", "c:loop"]; if (s.forms < 2) return ["form", "c:new"];
+  if (!s.song) return ["musik", "a:mk:gen"]; if (!s.rec) return ["aufn", "c:rec"]; if (!s.fav) return ["stueck", "fav"]; return ["stueck", "export"];
+};
+/* läuft gerade eine Aufnahme? Dann beendet der Punkt sie */
+P78.recKind = function () { try { if (Rec.on) return "rec"; } catch (_) {} try { if (LoopSt.R) return "loop"; } catch (_) {} try { if (Mik79.on) return "mik"; } catch (_) {} return null; };
+P78.recOn = function () { return !!this.recKind(); };
+{ const el = P78.el.bind(P78); P78.el = function () { const e = el(); if (!e.querySelector('[data-p="aufn"]')) { const b = document.createElement("button"); b.className = "p78p p78r"; b.dataset.p = "aufn"; b.setAttribute("aria-label", "Aufnahme: Stück mitschneiden, Loop, Melodie, Mikrofon, Klang merken. Läuft eine Aufnahme, beendet ein Tipp sie"); b.innerHTML = `<i>${IC78.rec}</i><b>Aufnahme</b>`; const m = e.querySelector('[data-p="musik"]'); m.parentNode.insertBefore(b, m); } return e; };
+  const tap = P78.tap.bind(P78); P78.tap = function (p, top) { if (p === "aufn") { const k = this.recKind(); if (k) { Hap(14); try { if (k === "rec") Rec.stop(); else if (k === "loop") Cmd.run("loop", this.f()); else Mik79.stop(); } catch (e) { console.warn(e); } Hud77.show(IC78.stop, "Aufnahme", "beendet", null, 1200); return setTimeout(() => this.paint(true), 80); } } return tap(p, top); };
+  const ti = P78.title.bind(P78); P78.title = function (p) { if (p === "aufn") { const f = this.f(); return `<b>Aufnahme</b><small>${f ? "Loop und Melodie gelten für " + esc(f.name) : ""}</small>`; } return ti(p); };
+  const pt = P78.paint.bind(P78); P78.paint = function (force) { const r = pt(force); try { const b = document.querySelector('.p78p[data-p="aufn"]'), on = this.recOn(); if (b && b.classList.contains("on") !== on) { b.classList.toggle("on", on); b.querySelector("b").textContent = on ? "Stopp" : "Aufnahme"; } const m = document.querySelector(".p78m"); if (m) m.classList.remove("rec"); } catch (_) {} return r; };
+  const kd = e => { if (!P78.on || !e.target || !e.target.closest || e.target.closest("input, textarea, select") || e.ctrlKey || e.metaKey || e.altKey || Sheets.cur) return; if (e.key === "4") P78.tap("aufn"); }; document.addEventListener("keydown", kd); }
+Help.T.push({ id: "v79", ic: "●", t: "Aufnahme-Punkt, Klang-Bibliothek und Text wird Musik", k: "aufnahme aufnehmen punkt roter knopf mitschneiden bibliothek klang klänge speichern merken sound mehrere starttöne start klänge text foto buchstaben alphabet wort wortlänge noten vertonen lesen erkennen ocr",
+  h: `<p><b>Aufnahme-Punkt</b> (unten, rot): ein Ort für alles, was aufnimmt – Stück mitschneiden, Loop, Melodie, Mikrofon → Form, Gesang, Klang merken, Rückblick. Läuft eine Aufnahme, zeigt der Punkt „Stopp“ – ein Tipp beendet sie.</p>
+  <p><b>Klang-Bibliothek</b> (Stück → Klänge): Nimm Klänge auf oder merke dir den Klang einer eigenen Form. Sie bleiben auf dem Gerät und lassen sich in jedes Stück holen – mit „Ins Stück“ oder beim Zusammenstellen eines neuen Stücks.</p>
+  <p><b>Mehrere Start-Klänge</b> (Neues Stück → Eigene Klänge): Nimm bis zu sechs Töne nacheinander auf oder wähle welche aus der Bibliothek. Aus jedem wird eine eigene Form; für jede legst du fest, ob sie die Start-Melodie, ihre eigene oder nichts vorspielt.</p>
+  <p><b>Text wird Musik</b> (Stück → Text → Musik): Fotografiere gedruckten Text oder tippe ihn ein. Drei Lesarten:<br><b>Buchstaben</b> – A ist der Grundton, jeder weitere Buchstabe eine Stufe höher, nach N wieder von vorn; Selbstlaute lang, Mitlaute kurz, Großbuchstaben betont, Doppelbuchstaben länger.<br><b>Wortlängen</b> – jedes Wort ein Ton: Buchstabenzahl = Tonhöhe, Silben = Länge.<br><b>Notennamen</b> – nur C D E F G A H klingen, als die Töne, die sie heißen.<br>Leerzeichen und Satzzeichen sind Pausen. Du wählst Gangart, Stil und ob eine Band begleitet. „Vertonen“ legt ein neues Stück an; danach änderst du alles in den Noten, im Song und auf der Live-Fläche.</p>
+  <p>Zum Lesen nutzt KLANGRAUM die Texterkennung des Geräts; gibt es keine, wird einmalig ein Lesemodul aus dem Netz geladen. Das Foto verlässt dein Gerät nicht.</p>` });
 
 // Verlässt man das Stück, verstummt auch die Schnitt-Schleife
 { const st = UI.setTab.bind(UI); UI.setTab = t => { if (t !== "stueck") WaveEd.stopAll(); st(t); }; }
@@ -20886,26 +21152,44 @@ const Tests = {
         try { f.still = true; const h1 = Bew.held().includes(f); Bew.sel = new Set([f.id]); Bew.all("sgo"); const ok1 = !f.still; f.still = true; Bew.all("go"); const ok2 = !f.still;
           ok("BV", h1 && ok1 && ok2 && /data-bwa="go"/.test(Bew.html()), `Angehaltene Formen wieder anschubsen: einzeln, Auswahl (${ok1 ? "ok" : "fehlt"}) und alle (${ok2 ? "ok" : "fehlt"}) · im Raum hält Antippen eine drehende Form an`); }
         finally { f.still = s0; Transport.start = ts; UI.toast = tp; } } } catch (e) { ok("BV", false, String(e)); }
+    // v79: Aufnahme-Punkt, Klang-Bibliothek, mehrere Start-Klänge, Text wird Musik
+    try { const T = Text79, q = (t, o) => T.notes(t, o).map(e => (e.k == null ? "-" : e.k) + ":" + e.n).join(" "), v = (t, o) => T.notes(t, o).map(e => e.v);
+      const a = q("Abba", { art: "buch", unit: 2 }) === "0:4 1:4 0:4" && v("Abba")[0] === 0.95 && v("Abba")[2] === 0.8 && q("on", { unit: 1 }) === "0:2 13:1" && q("ä", { unit: 2 }) === "1:4" && q("a, b. c", { unit: 2 }) === "0:4 -:4 1:2 -:8 2:2" && q("  a  ") === "0:4" && q("") === "";
+      const b = q("Ich singe.", { art: "wort", unit: 2 }) === "2:4 4:8" && v("Ich singe", { art: "wort" })[0] === 0.95 && q("a\nSonnenblumen", { art: "wort", unit: 1 }) === "0:2 -:2 11:8";
+      const c = q("Bach", { art: "namen", unit: 2 }) === "6:4 5:4 0:4 6:4" && q("Dorf", { art: "namen", unit: 2 }) === "1:8 3:4";
+      ok("TX", a && b && c, "Text wird Musik: Buchstaben sind Tonstufen (A = Grundton, nach N wieder von vorn), Selbstlaute lang, Mitlaute kurz, Großbuchstaben betont, Doppelbuchstaben länger, Satzzeichen sind Pausen · Wortlängen: Buchstabenzahl = Tonhöhe, Silben = Länge · Notennamen: nur C D E F G A H klingen"); } catch (e) { ok("TX", false, String(e)); }
+    try { const T = Text79, N = T.notes("la le lu ".repeat(60), { unit: 2 }), P = T.takes(N), len = p => p.reduce((s, e) => s + e.n, 0), E = T.events(P[0], 60, { so: k => k * 2 }), I = T.info("Hallo Welt", { art: "buch", unit: 2 });
+      const zeile = T.takes(T.notes(("abcdefgh ".repeat(10) + "\n").repeat(3), { unit: 2 }));
+      ok("TY", P.length >= 2 && P.every(p => len(p) <= 256 && p[0].k != null && p[p.length - 1].k != null) && P.flat().filter(e => e.k != null).length === N.filter(e => e.k != null).length && E.bars >= 1 && E.bars <= 16 && E.ev[0].s === 0 && E.ev[0].m === 60 + 11 * 2 && E.ev.every(e => e.s < E.bars * 16 && e.d > 0) && I.tones === 8 && I.T.length === 1 && zeile.length === 3 && T.clean("Mu-\nsik  ist\n\n\n\nschön ") === "Musik ist\n\nschön", "Text wird Musik: lange Texte werden auf Teile von höchstens 16 Takten verteilt – getrennt wird am Zeilen- oder Satzende, kein Ton geht verloren; jeder Teil wird eine Loop-Spur"); } catch (e) { ok("TY", false, String(e)); }
+    try { const L0 = Bib79.list; let o; try { Bib79.list = [{ id: "b1", pid: "__bib", name: "Klang", dur: 1.2, created: 1, sr: 48000, ch: [new Int16Array(4)] }, { id: "b2", pid: "__bib", name: "Klang 2", dur: 2, created: 2, sr: 48000, ch: [new Int16Array(4)] }];
+        const h = Bib79.body(); o = Bib79.free("Klang") === "Klang 3" && Bib79.free("Flöte") === "Flöte" && Bib79.free("") === "Klang 3" && (h.match(/class="s78c b79c"/g) || []).length === 2 && h.includes('data-b9="use:b1"') && h.includes('data-b9="rec"') && Bib79.PID !== (Projects.cur && Projects.cur.id) && Mik79.loud(new Float32Array(48000).fill(0.2), 48000) && !Mik79.loud(new Float32Array(48000), 48000) && !Mik79.loud(new Float32Array(100).fill(0.5), 48000); } finally { Bib79.list = L0; }
+      ok("BK", o, "Klang-Bibliothek: Klänge liegen außerhalb der Stücke und bleiben für jedes Stück verfügbar · Namen doppeln sich nicht · jeder Klang lässt sich anhören, ins Stück holen, umbenennen und löschen · zu leise oder zu kurze Aufnahmen werden nicht gemerkt"); } catch (e) { ok("BK", false, String(e)); }
+    try { const st0 = NewPiece.st, B0 = Bib79.list; let o; try { const mk = (n, d) => ({ x: new Float32Array(24000), sr: 48000, name: n, notes: [], d, mode: "start" }); NewPiece.st = { recs: [mk("Stimme 1", [0, 2, 4]), mk("Flöte", [])], mel: [0, 1] }; Bib79.list = [{ id: "bx", name: "Glas" }];
+        const h = RecNP.sec(NewPiece.st); o = RecNP.L().length === 2 && (h.match(/class="r79c"/g) || []).length === 2 && h.includes("Noch einen aufnehmen") && h.includes('data-rn="mode:1:frei"') && h.includes('data-rn="all:0"') && !h.includes('data-rn="all:1"') && h.includes('data-rn="lib:bx"') && h.includes('data-rn="bib:0"') && RecNP.MAXK === 6; } finally { NewPiece.st = st0; Bib79.list = B0; }
+      ok("RN", o, "Neues Stück: mehrere eigene Klänge nacheinander aufnehmen (bis sechs) oder aus der Bibliothek wählen – jeder wird eine eigene Form und bekommt seine eigene Wahl: Start-Melodie, eigene Töne oder nichts"); } catch (e) { ok("RN", false, String(e)); }
+    try { const e = P78.el(), S = (o = {}) => P78.step({ forms: 3, loops: true, moving: true, song: true, rec: true, fav: true, ...o });
+      ok("PA", P78.PTS.length === 4 && e.querySelectorAll(".p78p").length === 4 && !!e.querySelector('.p78p[data-p="aufn"]') && P78.keys("aufn").includes("c:rec") && P78.keys("aufn").includes("c:loop") && P78.recKind() === null && S({ loops: false }).join() === "aufn,c:loop" && S({ rec: false }).join() === "aufn,c:rec" && P78.html("aufn").includes('data-t="bibrec"') && Alles73.MAKE.some(m => m[0] === "text") && Help.T.some(t => t.id === "v79"), "Aufnahme-Punkt: ein vierter Punkt bündelt alles, was aufnimmt (Stück, Loop, Melodie, Mikrofon, Klang merken) – läuft eine Aufnahme, beendet ein Tipp sie"); } catch (e) { ok("PA", false, String(e)); }
+
     // v78: Drei Punkte, Meine Stücke, Auflegen
-    try { const all = ["stueck", "musik", "form"].map(p => P78.keys(p)), flat = all.flat(), dup = flat.filter((k, i) => flat.indexOf(k) !== i), miss = [];
+    try { const all = (P78.PTS || ["stueck", "musik", "form"]).map(p => P78.keys(p)), flat = all.flat(), dup = flat.filter((k, i) => flat.indexOf(k) !== i), miss = [];
       for (const g of Cmd.GROUPS) for (const id of g[3]) if (!flat.includes("c:" + id) && !P78.OHNE[id]) miss.push(id);
       const MK = { smel: "neu", knet: "c:knead", pieces: "pieces", help: "c:help", drei: "klassisch", auflegen: "auflegen" }, AR = { klang: null, loop: "c:tLoop", beat: "c:tBeat", schnitt: "c:tSchnitt", bild: "c:tBild", stueck: "c:tStueck" };
       for (const m of Alles73.MAKE) { const k = m[0] in MK ? MK[m[0]] : "a:mk:" + m[0]; if (!flat.includes(k)) miss.push("mk:" + m[0]); }
       for (const a of Alles73.AREAS) { const k = a[0] in AR ? AR[a[0]] : "a:tab:" + a[0]; if (k && !flat.includes(k)) miss.push("tab:" + a[0]); }
       const bad = flat.filter(k => !P78.item(k)), wide = Object.values(P78.T).flat().filter(r => r.reduce((s, k) => s + (k === "vol" ? 3 : 1), 0) > 6), rows = Object.values(P78.T).every(t => t.length <= 6);
-      ok("PT", !dup.length && !miss.length && !bad.length && !wide.length && rows, "Drei Tafeln (Stück · Musik · Form): jede Funktion steht an genau einem Ort, keine fehlt – jede höchstens zwei Tipps vom Spiel entfernt; je Tafel höchstens 6 × 6 Felder, eine Ebene" + (miss.length || dup.length || bad.length ? " · fehlt: " + miss.join(",") + " doppelt: " + dup.join(",") + " unbekannt: " + bad.join(",") : "")); } catch (e) { ok("PT", false, String(e)); }
-    try { const f = Forms.active && !Forms.active.empty ? Forms.active : null, long = []; for (const k of ["stueck", "musik", "form"].flatMap(p => P78.keys(p))) { const it = P78.item(k); if (!it || !it.n) continue; const n = P78.label(it, f); if (!n || n.split(/\s+/).length > 2 || n.length > 15 || P78.hy(n).split(/ |&shy;|-/).some(w => w.length > 8)) long.push(k + "=" + n); }
+      ok("PT", !dup.length && !miss.length && !bad.length && !wide.length && rows, "Tafeln (Stück · Aufnahme · Musik · Form): jede Funktion steht an genau einem Ort, keine fehlt – jede höchstens zwei Tipps vom Spiel entfernt; je Tafel höchstens 6 × 6 Felder, eine Ebene" + (miss.length || dup.length || bad.length ? " · fehlt: " + miss.join(",") + " doppelt: " + dup.join(",") + " unbekannt: " + bad.join(",") : "")); } catch (e) { ok("PT", false, String(e)); }
+    try { const f = Forms.active && !Forms.active.empty ? Forms.active : null, long = []; for (const k of (P78.PTS || ["stueck", "musik", "form"]).flatMap(p => P78.keys(p))) { const it = P78.item(k); if (!it || !it.n) continue; const n = P78.label(it, f); if (!n || n.split(/\s+/).length > 2 || n.length > 15 || P78.hy(n).split(/ |&shy;|-/).some(w => w.length > 8)) long.push(k + "=" + n); }
       ok("PZ", !long.length, "Tafeln: jeder Knopf trägt Symbol und höchstens zwei Wörter, kein Wortteil länger als 8 Buchstaben" + (long.length ? " · zu lang: " + long.join(", ") : "")); } catch (e) { ok("PZ", false, String(e)); }
     try { const S = (o = {}) => P78.step({ forms: 3, loops: true, moving: true, song: true, rec: true, fav: true, ...o }), R = [S({ forms: 0 }), S({ loops: false, moving: false }), S({ loops: false }), S({ forms: 1 }), S({ song: false }), S({ rec: false }), S({ fav: false }), S()];
-      const o = R.map(r => r.join()).join(";") === "form,c:new;form,c:spin;form,c:loop;form,c:new;musik,a:mk:gen;musik,c:rec;stueck,fav;stueck,export" && R.every(r => P78.keys(r[0]).includes(r[1]) && P78.item(r[1]));
+      const o = R.map(r => r.join()).join(";") === "form,c:new;form,c:spin;aufn,c:loop;form,c:new;musik,a:mk:gen;aufn,c:rec;stueck,fav;stueck,export" && R.every(r => P78.keys(r[0]).includes(r[1]) && P78.item(r[1]));
       ok("PN", o, "Führung: in jedem Zustand leuchtet genau ein nächster Schritt – erste Form, drehen, Loop, zweite Form, Song, Aufnahme, Favorit, Datei"); } catch (e) { ok("PN", false, String(e)); }
     try { const L = [{ id: "a", name: "Zebra", updated: 5 }, { id: "b", name: "apfel", updated: 9, fav: true }, { id: "c", name: "Mond", updated: 7 }, { id: "d", name: "Berg", updated: 1, fav: true }], ids = (o) => Stuecke78.order(L.slice(), o).map(p => p.id).join("");
       ok("SU", ids({}) === "bdca" && ids({ sort: "name" }) === "bdca".replace("ca", "ca") && ids({ sort: "name" }).startsWith("bd") && ids({ sort: "name" }).endsWith("ca") && ids({ only: "fav" }) === "bd" && ids({ q: "mo" }) === "c" && ids({ q: "E" }) === "bda" && ids({ q: "xx" }) === "" && typeof Projects.exportOne === "function" && typeof Projects.importFile === "function" && Stuecke78.card({ id: "z", name: "T", updated: 1, fav: true }).includes('aria-pressed="true"'), "Meine Stücke: Favoriten stehen oben, danach zuletzt benutzt oder A–Z · Suche und „nur Favoriten“ filtern · jedes Stück lässt sich sichern, kopieren, als Datei ablegen und laden"); } catch (e) { ok("SU", false, String(e)); }
     try { const a = Auf78.volAt(1, 0) === 1 && Auf78.volAt(1, 85) === 0.5 && Auf78.volAt(0.5, -85) === 1 && Auf78.volAt(1, 999) === 0 && Auf78.volAt(1, -999) === 1.5 && Auf78.volAt(0.99, 0) === 1;
       const b = Auf78.on === false && Auf78.down({ clientX: -50, clientY: -50, pointerId: 991, target: {} }) === false && Auf78.move({ pointerId: 991 }) === false && Auf78.up({ pointerId: 991 }) === false;
       ok("AU", a && b, "Auflegen: auf der Form ziehen regelt die Lautstärke (170 px = von aus bis voll, rastet bei 100 %) · ist Auflegen aus, spielen Finger auf Formen wie immer Töne"); } catch (e) { ok("AU", false, String(e)); }
-    try { const e = P78.el(), n = e.querySelectorAll(".p78p").length, h = ["stueck", "musik", "form"].map(p => P78.html(p)), on0 = P78.on; let v0; P78.on = false; try { v0 = P78.visible(); } finally { P78.on = on0; }
-      ok("PK", n === 3 && P78.isLong(100, 600) && !P78.isLong(100, 400) && h.every(x => x.includes('class="p78g"') && !/<(select|details|menu)\b/.test(x)) && v0 === false && Alles73.MAKE.some(m => m[0] === "drei") && Help.T.some(t => t.id === "v78"), "Drei Punkte: genau drei ständige Bedienelemente · jede Tafel hat eine Ebene (keine Menüs in Menüs) · die klassische Oberfläche bleibt per Schalter erreichbar"); } catch (e) { ok("PK", false, String(e)); }
+    try { const e = P78.el(), n = e.querySelectorAll(".p78p").length, h = (P78.PTS || ["stueck", "musik", "form"]).map(p => P78.html(p)), on0 = P78.on; let v0; P78.on = false; try { v0 = P78.visible(); } finally { P78.on = on0; }
+      ok("PK", n === P78.PTS.length && P78.isLong(100, 600) && !P78.isLong(100, 400) && h.every(x => x.includes('class="p78g"') && !/<(select|details|menu)\b/.test(x)) && v0 === false && Alles73.MAKE.some(m => m[0] === "drei") && Help.T.some(t => t.id === "v78"), "Punkte unten: nur sie sind ständig da (Stück · Aufnahme · Musik · Form) · jede Tafel hat eine Ebene (keine Menüs in Menüs) · die klassische Oberfläche bleibt per Schalter erreichbar"); } catch (e) { ok("PK", false, String(e)); }
 
     // v77: Dreh-Knopf zum Ein- und Ausblenden, Gesten
     try { const V = Dreh77.V, a = V.length === 11 && V[5] === 0 && V[0] === -4 && V[10] === 4 && Dreh77.idxOf({ mv: false, r: 0, i: -1, dir: 1 }) === 5 && Dreh77.idxOf({ mv: true, r: 0.5, i: 1, dir: 1 }) === 7 && Dreh77.idxOf({ mv: true, r: 2, i: 3, dir: -1 }) === 1 && Dreh77.idxOf({ mv: true, r: 0.7, i: -1, dir: 1 }) === 7 && Dreh77.idxOf({ mv: true, r: 0, i: -1, dir: 1 }) === 5;

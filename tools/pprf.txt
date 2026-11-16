@@ -1,0 +1,3 @@
+import os
+res = await E("(() => { const R = Tests.run(); const all = Object.entries(R); return [all.length, all.filter(([k,v]) => !v.pass).map(([k, v]) => [k, v.detail.slice(0,220)])]; })()")
+print(os.environ.get("VW"), os.environ.get("VH"), res[0], "FAIL:", res[1])
