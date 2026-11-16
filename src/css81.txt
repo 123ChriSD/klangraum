@@ -1,0 +1,4 @@
+/* ===== Version 81: Namensschilder an den Formen wieder bedienbar ===== */
+body.p78 .labels .lbtn { pointer-events: auto !important; min-height: 44px; }
+body.p78 .labels .lbtn .lplay { min-width: 36px; min-height: 36px; }
+@media (max-height: 480px) { body.p78 .labels .lbtn { min-height: 36px; height: 36px; font-size: 12px; padding: 0 10px; } }

@@ -1,7 +1,15 @@
-# KLANGRAUM – Stand Version 80 (16.11.2026)
+# KLANGRAUM – Stand Version 81 (16.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 79) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 80) · jede Version mit Commit in `docs/VERSIONEN.md`.
+
+## Neu in v81: Start/Stopp und Lautstärke an den Formen gehen wieder
+- Christian (16.11. 23:25): „Das Starten und Stoppen der Formen und der Lautstärkeregler an den Formen arbeiten nicht mehr.“
+- **Ursache (mein Fehler aus v78):** Mit den Punkten unten hatte ich die Namensschilder an den Formen (Alle-Ansicht) unberührbar gemacht, um die Zahl der Bedienelemente zu senken. Am Schild hängen aber ▶ (Form starten/stoppen), der Lautstärke-Zug und das Rundmenü.
+- **Behoben:** Die Schilder sind wieder bedienbar – ▶ am Schild startet/stoppt die Form (läuft das Stück, auf der nächsten Eins), am Schild ziehen regelt die Lautstärke, antippen öffnet das Rundmenü. Die Schilder sind dafür etwas höher (44 px).
+- **Zweiter Fehler dabei gefunden:** Das Schild der untersten Form lag unter den Punkten und war nicht erreichbar. Die Formen werden jetzt oberhalb der Punkte eingepasst (`Scene.insets`).
+- **Tests:** E2E `tools/t81_a.txt` mit echten Berührungen: ▶ getippt → Form läuft, nochmal → steht; am Schild gezogen → Lautstärke 1 → 0,54; alle drei Schilder erreichbar. Prüfstand 177 (neu **SL**), nur das schwankende T3. Layout in fünf Größen TOTAL 0. Freie Bühne in „Alle“ mit bedienbaren Schildern: 89,5 %.
+- **Folge für den Katalog (v78):** A1 „≥ 85 % frei“ bleibt erfüllt; C3 „höchstens 7 ständige Bedienelemente“ gilt in der Alle-Ansicht jetzt als 4 Punkte + je Form ein Schild.
 
 ## Neu in v80: Autotune für Tonspuren
 - Christian (16.11. 22:44): eine Autotune-Funktion und Tonspuren, die im Stück ablaufen, ohne dass eine Form rotiert – eine einfache Tonspur, die mit Autotune verbessert werden kann.

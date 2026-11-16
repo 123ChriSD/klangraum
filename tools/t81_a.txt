@@ -1,0 +1,27 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots80/"
+import json
+J=lambda s: E("JSON.stringify(%s)" % s)
+cdp = await pg.context.new_cdp_session(pg)
+async def touch(kind, pts):
+  await cdp.send("Input.dispatchTouchEvent", {"type":kind,"touchPoints":[{"x":p[0],"y":p[1],"id":p[2]} for p in pts]})
+await E("Auto72.set(false); P78.K = 4; 0"); await pg.wait_for_timeout(700)
+await E("UI.setView('alle'); 0"); await pg.wait_for_timeout(1500)
+L = json.loads(await J("[...document.querySelectorAll('.labels .lbtn')].filter(b => b.getBoundingClientRect().width > 0).map(b => { const r = b.getBoundingClientRect(), p = b.querySelector('.lplay'), q = p ? p.getBoundingClientRect() : null; return [Forms.byId(b.dataset.id).name, Math.round(r.left), Math.round(r.top), Math.round(r.width), Math.round(r.height), q ? [q.left + q.width / 2, q.top + q.height / 2, Math.round(q.width), Math.round(q.height)] : null, getComputedStyle(b).pointerEvents, document.elementFromPoint(r.left + r.width - 12, r.top + r.height / 2) === b || b.contains(document.elementFromPoint(r.left + r.width - 12, r.top + r.height / 2))]; })")); print("schilder:", L)
+await pg.screenshot(path=SP+"s_alle.png")
+st = "Forms.list.filter(f => !f.empty).map(f => [f.name, SoloStart.playing(f) ? 'läuft' : 'steht still', f.still ? 'still' : Motion.moves(f) ? 'dreht' : 'steht', +f.fine.vol.toFixed(2), Forms.audible(f)])"
+print("vorher:", await J(st))
+a = L[0]; p = a[5]
+await touch("touchStart", [(p[0], p[1], 1)]); await touch("touchEnd", []); await pg.wait_for_timeout(4500); print("▶ am Schild getippt:", await J(st))
+await touch("touchStart", [(p[0], p[1], 1)]); await touch("touchEnd", []); await pg.wait_for_timeout(4500); print("nochmal:", await J(st))
+# am Schild ziehen = Lautstaerke
+x = a[1] + a[3] - 16; y = a[2] + a[4] / 2
+await touch("touchStart", [(x, y, 1)])
+for i in range(1, 9): await touch("touchMove", [(x - i * 8, y, 1)])
+await pg.wait_for_timeout(600); v1 = await J("[+Forms.list[0].fine.vol.toFixed(2), !!document.getElementById('volPill') && !document.getElementById('volPill').hidden]"); await touch("touchEnd", []); await pg.wait_for_timeout(500)
+await touch("touchStart", [(x - 64, y, 1)])
+for i in range(1, 9): await touch("touchMove", [(x - 64, y - i * 8, 1)])
+await pg.wait_for_timeout(600); v2 = await J("+Forms.list[0].fine.vol.toFixed(2)"); await touch("touchEnd", []); await pg.wait_for_timeout(500)
+print("gezogen seitlich / hoch:", v1, v2)
+M = "(() => { const c = document.getElementById('c'); let n = 0, fr = 0; for (let y = 4; y < innerHeight; y += 8) for (let x = 4; x < innerWidth; x += 8) { n++; if (document.elementFromPoint(x, y) === c) fr++; } return Math.round(fr / n * 1000) / 10; })()"
+print("frei in Alle:", await J(M))
+print("ERR", errs)

@@ -148,6 +148,7 @@ Der ganze Bildschirm ist Bühne. Unten sitzen drei Punkte. Jeder öffnet **eine 
 - **In einem Zug:** Punkt drücken, nach oben auf einen Knopf ziehen, loslassen.
 - **Was leuchtet,** ist der nächste sinnvolle Schritt.
 - **Daneben tippen** schließt die Tafel. Die Musik läuft immer weiter.
+- **An den Formen selbst** (Ansicht „Alle“): ▶ am Namensschild startet und stoppt die Form, am Schild ziehen regelt ihre Lautstärke, antippen öffnet das Rundmenü.
 - In Song, Mischen und den anderen Bereichen bringt **✕ Bühne** (oben rechts) zurück.
 - Am Rechner: Tasten **1**, **2**, **3** öffnen die Tafeln, **Esc** schließt.
 - Zur alten Oberfläche: **Stück → Klassisch**. Zurück: Mehr → Alles → „Drei Punkte“.
