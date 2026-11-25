@@ -18,8 +18,8 @@ window.__audit = (label) => {
     if (w > 4 && h > 4) out.push(`${a.c}:${a.n} ⟷ ${b.c}:${b.n} (${Math.round(w)}×${Math.round(h)})`);
   }
   /* zusätzlich: Knöpfe in Blättern und Tafeln, die über den Rand ragen oder sich innerhalb überlappen */
-  for (const s of ['.sheet', '#p78T', '#p78P']) for (const c of document.querySelectorAll(s)) { if (!vis(c)) continue; const L = [...c.querySelectorAll('button, input, textarea')].filter(vis).filter(top);
-    for (const l of L) { const r = l.getBoundingClientRect(); if (r.left < -1 || r.right > innerWidth + 1) out.push(`${s}: ${(l.textContent || l.getAttribute('aria-label') || '').trim().slice(0, 18)} ragt über den Rand (${Math.round(r.left)}…${Math.round(r.right)})`); }
+  for (const s of ['.sheet', '#p78T', '#p78P', '#feld82']) for (const c of document.querySelectorAll(s)) { if (!vis(c)) continue; const L = [...c.querySelectorAll('button, input, textarea')].filter(vis).filter(top);
+    for (const l of L) { const r = l.getBoundingClientRect(); /* waagerecht wischbare Reihen (Instrumenten-Chips) dürfen über den Rand laufen */ if (l.closest('.f82chips')) continue; if (r.left < -1 || r.right > innerWidth + 1) out.push(`${s}: ${(l.textContent || l.getAttribute('aria-label') || '').trim().slice(0, 18)} ragt über den Rand (${Math.round(r.left)}…${Math.round(r.right)})`); }
     for (let i = 0; i < L.length; i++) for (let j = i + 1; j < L.length; j++) { if (L[i].contains(L[j]) || L[j].contains(L[i]) || L[i].closest('header') || L[j].closest('header')) continue;   /* der feste Kopf eines Blatts liegt beim Rollen über dem Inhalt – das ist gewollt */ const r1 = L[i].getBoundingClientRect(), r2 = L[j].getBoundingClientRect(), w = Math.min(r1.right, r2.right) - Math.max(r1.left, r2.left), h = Math.min(r1.bottom, r2.bottom) - Math.max(r1.top, r2.top); if (w > 4 && h > 4) out.push(`${s}: ${(L[i].textContent || '').trim().slice(0, 14)} ⟷ ${(L[j].textContent || '').trim().slice(0, 14)} (${Math.round(w)}×${Math.round(h)})`); } }
   return out;
 };

@@ -1,7 +1,19 @@
-# KLANGRAUM – Stand Version 81 (16.11.2026)
+# KLANGRAUM – Stand Version 82 (25.11.2026)
 
 Artifact: https://claude.ai/artifact/AcerFy2AcGdzZhqXA8sjUf (mit Instrumenten-Samples unter s/). Capabilities: downloads, db, user, assets, room (Themen `n`/`nr` für Contributors). Jede neue Version wird zusätzlich als HTML-Datei zum Download bereitgestellt.
-**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 80) · jede Version mit Commit in `docs/VERSIONEN.md`.
+**Vorige Version immer greifbar:** https://123chrisd.github.io/klangraum/vorige/ (dort jetzt Version 81) · jede Version mit Commit in `docs/VERSIONEN.md`.
+
+## Neu in v82: Klangfeld – jedes Instrument mit den Fingern spielen, ohne Noten
+- Christian (25.11. 22:22): „Entwickle einen Bereich, in dem man intuitiv alle Instrumente spielen kann, ohne Noten zu können … interaktive Gestensteuerung mit Multitouch-Fingerbedienung in futuristischer Optik … Mit Gesten Töne treffen und Melodien spielen.“
+- **Wo:** Punkt **Form** → erste Kachel **Klangfeld** (auch über „Alles“ → Neu). Öffnet sich über den ganzen Bildschirm mit der gewählten Form; die Punkte sind solange ausgeblendet.
+- **Die Fläche:** leuchtendes Raster, 8 Spalten × 3 Zeilen (Querformat am Handy: 2 Zeilen). Spalten = die Töne der Tonart des Stücks (1–7 und wieder 1, jede Stufe eine Farbe, der Grundton als Raute), Zeilen = tief / mitte / hoch. **Es gibt keinen falschen Ton** – alles liegt in der Tonart.
+- **Gesten:** *Tippen* = Ton · *Halten* = Ton klingt weiter · *Wischen* über die Felder = Melodie (jedes neue Feld ein neuer Ton) · *Wackeln* im Feld = der Ton schwingt (bis ±50 Cent) · *mehrere Finger* = mehrere Töne gleichzeitig · *weiter oben im Feld* = leiser, *unten* = kräftiger.
+- **Alle Instrumente:** oben die spielbaren Formen des Stücks als Chips; **＋ Instrument** zeigt alle 98 spielbaren Klänge in 20 Gruppen (Tasten, Saiten, Streicher, Bläser, Bass, Schlagzeug, Synthesizer, Techno …). Ausprobieren hinterlässt nichts: ein Instrument, mit dem nichts gemerkt wurde, verschwindet beim Wechseln oder Schließen wieder.
+- **Schlagzeug:** die Zeilen sind die Trommeln (unten die große), 4 Spalten; tippen = Schlag, wischen = Wirbel.
+- **Leiste unten:** *Akkord* (ein Finger = Dreiklang) · *◀ tiefer / höher ▶* (Oktave) · *Merken* (was du spielst, bleibt als Loop der Form, im Takt geradegerückt) mit *Runde weg* und *Alles weg* · ▶/■ oben startet die Begleitung.
+- **Tests:** E2E `tools/t82_a.txt` (echte Berührungen per CDP, 393×780): Tippen unten links = Grundton; Wischen über 5 Spalten = 60, 62, 64, 65, 67; Wackeln → Tonhöhe gleitet; drei Finger = drei Töne; Akkord = 48, 52, 55; oben/unten im Feld = 0,55 / 0,93 Anschlag; Merken legt 3 Töne im Raster ab, „Runde weg“ nimmt sie zurück; Flöte, Harfe, 909-Kit nacheinander ausprobiert → danach wieder nur die drei ursprünglichen Formen (`tools/t82_b.txt`); Schlagzeug: Wischen = 4 Schläge. Prüfstand 179 (neu **KF**, **KG**), nur das schwankende T3. Layout in fünf Größen TOTAL 0 (Prüfer kennt jetzt auch `#feld82`).
+- **Dabei behoben:** Die untere Leiste lief bei schmalen Handys über den Rand → bricht jetzt um. Im Querformat (700×330) blieb für die Fläche nur 134 px Höhe → Kopf und Instrumente teilen sich dort eine Zeile, die Fläche hat 186 px.
+- **Offen:** nicht auf echten Geräten geprüft (Mehrfinger-Gefühl, Latenz, Handballen-Auflage). Wackeln verstimmt nur den zuletzt gegriffenen Ton eines Fingers; bei Akkord schwingt nur der Grundton.
 
 ## Neu in v81: Start/Stopp und Lautstärke an den Formen gehen wieder
 - Christian (16.11. 23:25): „Das Starten und Stoppen der Formen und der Lautstärkeregler an den Formen arbeiten nicht mehr.“

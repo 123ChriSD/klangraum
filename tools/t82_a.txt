@@ -1,0 +1,57 @@
+SP="/tmp/claude-0/-home-claude/7a374241-3f9e-5855-bfca-0c6038d4b5bf/scratchpad/shots82/"
+import json
+J=lambda s: E("JSON.stringify(%s)" % s)
+cdp = await pg.context.new_cdp_session(pg)
+async def touch(kind, pts):
+  await cdp.send("Input.dispatchTouchEvent", {"type":kind,"touchPoints":[{"x":p[0],"y":p[1],"id":p[2]} for p in pts]})
+await E("Auto72.set(false); P78.K = 4; 0"); await pg.wait_for_timeout(900)
+await E("window.__n = []; { const o = Forms.play.bind(Forms); Forms.play = function (f, u, v, opt) { if (Feld82.on && Feld82.hold !== null && opt && (opt.midi != null || opt.zone)) __n.push(opt.zone || opt.midi); return o(f, u, v, opt); }; window.__gl = 0; const g = Engine.glide.bind(Engine); Engine.glide = function (...a) { __gl++; return g(...a); }; } 0")
+n0 = await J("Forms.list.filter(f => !f.empty).map(f => f.name)")
+await E("P78.open('form'); 0"); await pg.wait_for_timeout(400); print("tafel:", await J("[...document.querySelectorAll('#p78T .p78b')].slice(0, 6).map(b => b.textContent.trim())"))
+await E("P78.armed = true; document.querySelector('.p78b[data-t=\"a:mk:feld\"]').click(); 0"); await pg.wait_for_timeout(1500)
+G = json.loads(await J("(() => { const r = document.getElementById('f82C').getBoundingClientRect(), g = Feld82.geo(); return [r.left, r.top, r.width, r.height, g.cols, g.rows, g.cw, g.rh]; })()"))
+print("feld:", await J("[Feld82.on, Feld82.f && Feld82.f.name, !document.getElementById('p78').hidden, Transport.running]"), [round(v) for v in G])
+def P(c, r, fx=0.5, fy=0.5): return (G[0] + (c + fx) * G[6], G[1] + (r + fy) * G[7])
+await pg.wait_for_timeout(600); await pg.screenshot(path=SP+"a_feld.png")
+# tippen
+await E("__n.length = 0; 0"); x, y = P(0, 2); await touch("touchStart", [(x, y, 1)]); await pg.wait_for_timeout(250); h = await J("Feld82.hold.size"); await touch("touchEnd", []); await pg.wait_for_timeout(500)
+print("tippen unten links:", await J("__n"), "gehalten:", h, "danach:", await J("Feld82.hold.size"), "Grundton erwartet:", await J("KeysUI.midi(Feld82.f, 0)"))
+# wischen ueber 5 Spalten = Melodie
+await E("__n.length = 0; 0"); x, y = P(0, 1); await touch("touchStart", [(x, y, 1)])
+for c in range(1, 5):
+  x2, y2 = P(c, 1); await touch("touchMove", [(x2 - G[6] * 0.5 + 4, y2, 1)]); await pg.wait_for_timeout(60); await touch("touchMove", [(x2, y2, 1)]); await pg.wait_for_timeout(60)
+await pg.wait_for_timeout(250); await pg.screenshot(path=SP+"a_wisch.png"); await touch("touchEnd", []); await pg.wait_for_timeout(400)
+print("gewischt (mittlere Zeile, 5 Spalten):", await J("__n"), await J("[0,1,2,3,4].map(c => KeysUI.midi(Feld82.f, 7 + c))"))
+# wackeln = biegen
+await E("__gl = 0; __n.length = 0; 0"); x, y = P(3, 1); await touch("touchStart", [(x, y, 1)])
+for d in (6, 12, 6, -6, -12, 0): await touch("touchMove", [(x + d, y, 1)]); await pg.wait_for_timeout(50)
+await pg.wait_for_timeout(200); print("wackeln:", await J("[__n, __gl]")); await touch("touchEnd", []); await pg.wait_for_timeout(300)
+# drei Finger = drei Toene
+await E("__n.length = 0; 0"); a = P(0, 2); b = P(2, 2); c3 = P(4, 2); await touch("touchStart", [(a[0], a[1], 1), (b[0], b[1], 2), (c3[0], c3[1], 3)]); await pg.wait_for_timeout(300); print("drei Finger:", await J("[__n, Feld82.hold.size]")); await pg.screenshot(path=SP+"a_drei.png"); await touch("touchEnd", []); await pg.wait_for_timeout(300)
+# Akkord
+await pg.tap('[data-f8=\"chord\"]'); await pg.wait_for_timeout(300); await E("__n.length = 0; 0"); x, y = P(0, 2); await touch("touchStart", [(x, y, 1)]); await pg.wait_for_timeout(250); await touch("touchEnd", []); await pg.wait_for_timeout(300); print("akkord, ein Finger:", await J("__n")); await pg.tap('[data-f8=\"chord\"]')
+# Lautstaerke nach Hoehe in der Zelle
+await E("window.__v = []; { const o = Forms.play; Forms.play = function (f, u, v, opt) { if (Feld82.on) __v.push(+v.toFixed(2)); return o.call(this, f, u, v, opt); }; } 0")
+for fy in (0.1, 0.9):
+  x, y = P(1, 2, 0.5, fy); await touch("touchStart", [(x, y, 1)]); await pg.wait_for_timeout(120); await touch("touchEnd", []); await pg.wait_for_timeout(200)
+print("oben / unten in der Zelle:", await J("__v"))
+# Merken: Toene bleiben als Loop
+await pg.tap('[data-f8=\"mem\"]'); await pg.wait_for_timeout(400)
+for c in (0, 2, 4):
+  x, y = P(c, 1); await touch("touchStart", [(x, y, 1)]); await pg.wait_for_timeout(200); await touch("touchEnd", []); await pg.wait_for_timeout(500)
+await pg.wait_for_timeout(1500); print("gemerkt:", await J("[Feld82.mem, Feld82.t && Feld82.t.ev.map(e => [e.s, e.m, e.d]), document.getElementById('f82Cnt').textContent]"))
+await pg.tap('[data-f8=\"undo\"]'); await pg.wait_for_timeout(300); print("runde weg:", await J("Feld82.t && Feld82.t.ev.length"))
+# alle Instrumente
+await pg.tap('.f82chip.new'); await pg.wait_for_timeout(500); print("liste:", await J("[document.querySelectorAll('.f82s').length, [...document.querySelectorAll('.f82pl h3')].map(h => h.textContent)]")); await pg.screenshot(path=SP+"a_liste.png")
+await pg.tap('.f82s[data-fs=\"floete\"]'); await pg.wait_for_timeout(1200); f1 = await J("[Feld82.f.name, Forms.list.filter(f => !f.empty).length]")
+await E("__n.length = 0; 0"); x, y = P(2, 1); await touch("touchStart", [(x, y, 1)]); await pg.wait_for_timeout(200); await touch("touchEnd", []); await pg.wait_for_timeout(300)
+await pg.tap('.f82chip.new'); await pg.wait_for_timeout(400); await pg.tap('.f82s[data-fs=\"kit_909\"]'); await pg.wait_for_timeout(1200)
+print("floete, dann 909:", f1, await J("[Feld82.f.name, Forms.list.filter(f => !f.empty).map(f => f.name), __n]"))
+G = json.loads(await J("(() => { const r = document.getElementById('f82C').getBoundingClientRect(), g = Feld82.geo(); return [r.left, r.top, r.width, r.height, g.cols, g.rows, g.cw, g.rh]; })()"))
+await E("__n.length = 0; 0"); x, y = P(0, G[5] - 1); await touch("touchStart", [(x, y, 1)])
+for c in range(1, 4): x2, y2 = P(c, G[5] - 1); await touch("touchMove", [(x2, y2, 1)]); await pg.wait_for_timeout(50)
+await touch("touchEnd", []); x, y = P(1, 0); await touch("touchStart", [(x, y, 1)]); await touch("touchEnd", []); await pg.wait_for_timeout(300)
+print("schlagzeug (unten gewischt, oben getippt):", [G[4], G[5]], await J("__n")); await pg.screenshot(path=SP+"a_drum.png")
+await pg.tap('.f82done'); await pg.wait_for_timeout(900)
+print("fertig:", await J("[Feld82.on, !document.getElementById('p78').hidden, Forms.list.filter(f => !f.empty).map(f => f.name)]"), n0)
+print("ERR", errs)

@@ -2,8 +2,8 @@
 <meta name="theme-color" content="#0A1315"><meta name="description" content="KLANGRAUM – Formen, die klingen. Loopstation, Beatbox, Instrumente.">
 <link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<style>:root{box-sizing:border-box}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><a href="./" style="position:fixed;z-index:2147483000;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);background:#3a2a10;color:#ffd58a;font:600 10px/1.2 system-ui,sans-serif;padding:2px 8px;border-radius:0 0 10px 10px;text-decoration:none;opacity:.92">Vorige Version 80 · zur aktuellen →</a>
-<title>(Vorige 80) KLANGRAUM</title>
+<style>:root{box-sizing:border-box}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><a href="./" style="position:fixed;z-index:2147483000;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);background:#3a2a10;color:#ffd58a;font:600 10px/1.2 system-ui,sans-serif;padding:2px 8px;border-radius:0 0 10px 10px;text-decoration:none;opacity:.92">Vorige Version 81 · zur aktuellen →</a>
+<title>(Vorige 81) KLANGRAUM</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* Layout: Vollbild-Tiefsee (WebGL) mit einer lebenden Klangform. Oben ruhige Kiesel (Stimmung, Raum, Menü),
@@ -2534,6 +2534,10 @@ body.p78calm .p78pts { opacity: .26; } body.p78open .p78pts { opacity: 0; pointe
 .rn75, .r79c { min-width: 0; } .r79c .sm74l { flex-wrap: wrap; row-gap: 4px; } .r79c .sm74seg { display: flex; flex: 1 1 100%; min-width: 0; max-width: 100%; } .r79c .sm74seg button { flex: 1 1 0; min-width: 0; padding: 2px 4px; font-size: 12.5px; white-space: normal; line-height: 1.15; }
 .r79h .eb span { white-space: nowrap; } .rn75all { white-space: normal; line-height: 1.2; min-height: 48px; max-width: 100%; }
 .s78 .sm74l { flex-wrap: wrap; row-gap: 4px; } .s78 .sm74seg { display: flex; min-width: 0; max-width: 100%; } .s78 .sm74seg button { flex: 1 1 auto; min-width: 0; white-space: normal; line-height: 1.15; padding: 2px 8px; } .s78 #t79S, .s78 #b79S, .s78 #s78S { min-width: 0; } .tn80 .sm74l { flex-wrap: wrap; row-gap: 4px; } .tn80 .sm74seg { display: flex; min-width: 0; max-width: 100%; } .tn80 .sm74seg button { flex: 1 1 auto; min-width: 0; white-space: normal; line-height: 1.15; padding: 2px 8px; }
+/* ===== Version 81: Namensschilder an den Formen wieder bedienbar ===== */
+body.p78 .labels .lbtn { pointer-events: auto !important; min-height: 44px; }
+body.p78 .labels .lbtn .lplay { min-width: 36px; min-height: 36px; }
+@media (max-height: 480px) { body.p78 .labels .lbtn { min-height: 36px; height: 36px; font-size: 12px; padding: 0 10px; } }
 </style>
 
 <canvas id="c" aria-label="Klangraum: dreidimensionale Klangformen" role="img"></canvas>
@@ -2592,7 +2596,7 @@ body.p78calm .p78pts { opacity: .26; } body.p78open .p78pts { opacity: 0; pointe
 
 <div class="start" id="start">
   <div class="start-inner">
-    <div class="meta">Version 80 · Autotune für Tonspuren: schiefe Töne werden auf die Tonart des Stücks gezogen (sanft oder stark)</div>
+    <div class="meta">Version 81 · Start/Stopp und Lautstärke an den Namensschildern der Formen gehen wieder</div>
     <h1 class="klogoH"><span class="sr">KLANGRAUM</span><span id="klogoStart" aria-hidden="true"></span></h1>
     <p>Musik machen ohne Vorkenntnisse: Wähle einen Stil, und KLANGRAUM baut dir einen ganzen Song. Oder spiel, forme und mische deine Klänge selbst – nichts klingt falsch.</p><ul class="stfeat"><li>Song in 1 Minute</li><li>Einspielen ohne Aufnahmeknopf</li><li>Klänge kneten</li><li>Mischen wie im Studio</li></ul>
     <button class="enter" id="enter">Eintauchen</button>
@@ -6807,7 +6811,7 @@ const Sheets = {
   },
   menu() {
     const txt = Sheets.helpText(Music.help);
-    const s = this.open("Menü", this.head("KLANGRAUM · Version 80") + `
+    const s = this.open("Menü", this.head("KLANGRAUM · Version 81") + `
       <div class="field"><label for="rHelp">Wie viel hilft die App? <b id="helpV">${txt[0]}</b></label><input type="range" id="rHelp" min="0" max="100" step="1" value="${Music.help}"><p class="helptext" id="helpT">${txt[1]}</p></div>
       ${TempoUI.html()}
       <div class="row"><button class="btn" id="mGlide">Übergänge: Drehung ${Glide.rot ? "fließend" : "sofort"} · Tempo ${Glide.tempo ? "fließend" : "sofort"}</button></div>
@@ -20476,6 +20480,14 @@ Help.T.push({ id: "v80", ic: "🎙", t: "Tonspuren und Autotune", k: "tonspur to
   <p><b>Autotune</b> (unter jeder Spur): <b>sanft</b> zieht schiefe Töne weich auf den nächsten passenden Ton, Schwingungen der Stimme bleiben; <b>stark</b> rastet sofort ein – der bekannte „Roboter“-Klang. <b>Tonart des Stücks</b> erlaubt nur die Töne der gewählten Stimmung, <b>alle Töne</b> jeden Halbton. Die Länge der Aufnahme bleibt gleich. <b>aus</b> holt jederzeit die unveränderte Aufnahme zurück.</p>
   <p>Autotune braucht einen einzelnen klaren Ton (eine Stimme, ein Melodie-Instrument). Geräusche, Akkorde und Sprache ohne Tonhöhe bleiben, wie sie sind. Ändert sich die Stimmung des Stücks, sagt die Spur es – einmal „sanft“ oder „stark“ antippen stimmt neu.</p>` });
 
+/* ================= Version 81: Namensschilder an den Formen wieder bedienbar (Start/Stopp, Lautstärke) ================= */
+/* v78 hatte die Schilder in der Alle-Ansicht unberührbar gemacht – damit fielen Start/Stopp (▶ am Schild) und der Lautstärke-Zug weg. Sie gelten wieder; siehe css81. */
+const Schild81 = { ok() { const r = [...document.styleSheets].flatMap(s => { try { return [...s.cssRules]; } catch (_) { return []; } }).filter(x => x.selectorText && x.selectorText.includes("body.p78 .labels .lbtn") && x.style && x.style.pointerEvents); return r.length > 0 && r[r.length - 1].style.pointerEvents === "auto"; } };
+/* Die Punkte unten brauchen ihren Platz: Formen und ihre Schilder werden oberhalb davon eingepasst (sonst lag das unterste Schild unter den Punkten). */
+{ const ins = Scene.insets; Scene.insets = function () { const r = ins.call(this); try { if (P78.on && UI.tab === "klang") { const p = $("p78P"); let need = 118; if (p && !$("p78").hidden) need = Math.max(need, this.h - p.getBoundingClientRect().top + 10); let m = false; try { m = !!FBar.mode(); } catch (_) {} if (!m) r.bot = clamp(Math.max(r.bot || 0, need), 0, this.h * 0.55); } } catch (_) {} return r; };
+  const st = P78.set.bind(P78); P78.set = function (on) { const r = st(on); try { Layout.last = ""; Layout.sync(); if (Scene.view === "alle") Scene.fitGoal(); Scene.shiftView(); } catch (_) {} return r; };
+  let was = null; setInterval(() => { try { const now = P78.on && App.started && UI.tab === "klang" && !$("p78").hidden; if (now !== was) { was = now; if (Scene.ok) { if (Scene.view === "alle") Scene.fitGoal(); Scene.shiftView(); } } } catch (_) {} }, 700); }
+
 // Verlässt man das Stück, verstummt auch die Schnitt-Schleife
 { const st = UI.setTab.bind(UI); UI.setTab = t => { if (t !== "stueck") WaveEd.stopAll(); st(t); }; }
 /* ============================================================
@@ -21269,6 +21281,9 @@ const Tests = {
         try { f.still = true; const h1 = Bew.held().includes(f); Bew.sel = new Set([f.id]); Bew.all("sgo"); const ok1 = !f.still; f.still = true; Bew.all("go"); const ok2 = !f.still;
           ok("BV", h1 && ok1 && ok2 && /data-bwa="go"/.test(Bew.html()), `Angehaltene Formen wieder anschubsen: einzeln, Auswahl (${ok1 ? "ok" : "fehlt"}) und alle (${ok2 ? "ok" : "fehlt"}) · im Raum hält Antippen eine drehende Form an`); }
         finally { f.still = s0; Transport.start = ts; UI.toast = tp; } } } catch (e) { ok("BV", false, String(e)); }
+    // v81: Namensschilder an den Formen
+    try { ok("SL", Schild81.ok() && typeof QuickPP.toggle === "function" && typeof Feel.volDrag === "function", "Namensschilder an den Formen (Alle-Ansicht) sind auch mit den Punkten unten bedienbar: ▶ am Schild startet und stoppt die Form, am Schild ziehen regelt die Lautstärke"); } catch (e) { ok("SL", false, String(e)); }
+
     // v80: Autotune für Tonspuren
     try { const T = Tune80, sr = 48000, n = sr * 0.6, x = new Float32Array(n); let ph = 0; for (let i = 0; i < n; i++) { ph += 2 * Math.PI * 230 / sr; let s = 0; for (let h = 1; h <= 6; h++) s += Math.sin(h * ph) / h; x[i] = 0.3 * s * Math.min(1, i / 1500) * Math.min(1, (n - i) / 1500); }
       const med = f => { const b = [...f].filter(v => v > 0).sort((p, q) => p - q); return b[b.length >> 1] || 0; }, C = T.pcs(0, [0, 2, 4, 5, 7, 9, 11]);

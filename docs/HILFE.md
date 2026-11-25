@@ -8,6 +8,7 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 
 | Ich will … | So geht's | Mehr |
 |---|---|---|
+| **einfach drauflos spielen – jedes Instrument, ohne Noten** | Punkt **Form → Klangfeld** | [→](#v82) |
 | **eine Tonspur aufnehmen, die einfach mitläuft (keine Form)** | roter Punkt **Aufnahme → Tonspur** | [→](#v80) |
 | **schiefe Töne einer Aufnahme geraderücken (Autotune)** | **Aufnahme → Tonspur** → unter der Spur „Autotune“ | [→](#v80) |
 | **etwas aufnehmen (Stück, Loop, Melodie, Stimme)** | roter Punkt **Aufnahme** unten | [→](#v79) |
@@ -87,6 +88,23 @@ Stand **Version 69** (13.11.2026). Dieselbe Hilfe steht in der App: Menü ☰ �
 # 1 · Loslegen
 
 <a id="schnellstart"></a>
+## ✦ Klangfeld – spielen ohne Noten (neu in v82) {#v82}
+**Öffnen:** Punkt **Form** → **Klangfeld**. Das Feld füllt den ganzen Bildschirm; **Fertig** bringt dich zurück.
+
+**So spielst du**
+- **Tippen** – ein Ton. **Halten** – der Ton klingt weiter.
+- **Wischen** über die Felder – eine Melodie; jedes Feld, das dein Finger erreicht, ist der nächste Ton.
+- **Wackeln** im Feld – der Ton schwingt (wie Vibrato auf einer Saite).
+- **Mehrere Finger** – mehrere Töne zugleich. **Weiter unten im Feld** klingt kräftiger, weiter oben leiser.
+
+**Warum nichts schief klingt:** Die Spalten sind die Töne der Tonart deines Stücks (1 bis 7, dann wieder 1 – der Grundton trägt eine Raute). Die Zeilen sind tief, mitte, hoch. Jeder Ton passt.
+
+**Instrument wählen:** Oben stehen die Formen deines Stücks. **＋ Instrument** zeigt alle Klänge – Klavier, Gitarre, Geige, Flöte, Bass, Schlagzeug, Synthesizer und mehr. Probier ruhig alles durch: Was du nur ausprobierst, verschwindet wieder; es bleibt erst, wenn du etwas merkst.
+
+**Schlagzeug:** Jede Zeile ist eine Trommel (unten die große). Tippen = Schlag, wischen = Wirbel.
+
+**Unten:** **Akkord** – ein Finger spielt drei Töne · **◀ tiefer / höher ▶** – das ganze Feld wandert · **Merken** – was du spielst, bleibt als Loop und wiederholt sich im Takt; **Runde weg** nimmt die letzte Runde zurück, **Alles weg** leert den Loop. Oben startet **▶** die Begleitung.
+
 ## 🎙 Tonspuren und Autotune (neu in v80) {#v80}
 
 **Tonspur** (roter Punkt Aufnahme → Tonspur)

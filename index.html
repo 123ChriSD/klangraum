@@ -2550,6 +2550,34 @@ body.p78calm .p78pts { opacity: .26; } body.p78open .p78pts { opacity: 0; pointe
 body.p78 .labels .lbtn { pointer-events: auto !important; min-height: 44px; }
 body.p78 .labels .lbtn .lplay { min-width: 36px; min-height: 36px; }
 @media (max-height: 480px) { body.p78 .labels .lbtn { min-height: 36px; height: 36px; font-size: 12px; padding: 0 10px; } }
+/* ===== Version 82: Klangfeld ===== */
+#feld82 { position: fixed; inset: 0; z-index: 62; display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; background: radial-gradient(120% 80% at 50% 0%, #101a3d 0%, #050816 55%, #02030a 100%); color: #EAF0FF; padding: calc(6px + env(safe-area-inset-top, 0px)) max(8px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); gap: 6px; -webkit-user-select: none; user-select: none; touch-action: none; }
+#feld82[hidden] { display: none; }
+.f82top { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.f82ti { flex: 1 1 auto; min-width: 0; display: grid; } .f82ti b { font-size: 16px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; background: linear-gradient(90deg, #6EE7FF, #B45CFF); -webkit-background-clip: text; background-clip: text; color: transparent; } .f82ti small { font-size: 11.5px; color: #8FA0C8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.f82b { flex: none; width: 48px; height: 48px; border-radius: 16px; border: 1px solid rgba(110, 231, 255, .28); background: rgba(110, 231, 255, .06); color: #EAF0FF; display: grid; place-items: center; padding: 0; cursor: pointer; } .f82b svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.f82done { flex: none; min-height: 48px; padding: 0 16px; border-radius: 16px; border: 0; background: linear-gradient(135deg, #6EE7FF, #B45CFF); color: #05101c; font: inherit; font-weight: 800; font-size: 14px; cursor: pointer; }
+.f82chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; touch-action: pan-x; padding: 2px 0; } .f82chips::-webkit-scrollbar { display: none; }
+.f82chip { flex: none; min-height: 48px; padding: 0 14px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, .14); background: rgba(255, 255, 255, .05); color: #C9D2EC; font: inherit; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; cursor: pointer; }
+.f82chip i { font-style: normal; display: grid; place-items: center; width: 18px; height: 18px; color: var(--c, #6EE7FF); } .f82chip i svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.9; }
+.f82chip[aria-pressed="true"] { border-color: var(--c, #6EE7FF); color: #fff; box-shadow: 0 0 0 1px var(--c, #6EE7FF) inset, 0 0 18px -6px var(--c, #6EE7FF); } .f82chip.new { border-style: dashed; border-color: rgba(110, 231, 255, .5); color: #6EE7FF; }
+.f82wrap { position: relative; min-height: 0; border-radius: 18px; overflow: hidden; border: 1px solid rgba(110, 231, 255, .22); box-shadow: 0 0 40px -18px #6EE7FF inset; }
+#f82C { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+.f82empty { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 14px; text-align: center; padding: 20px; } .f82empty[hidden] { display: none; } .f82empty p { margin: 0; color: #A9B4D0; font-size: 15px; }
+.f82big { min-height: 56px; padding: 0 22px; border-radius: 28px; border: 0; background: linear-gradient(135deg, #6EE7FF, #B45CFF); color: #05101c; font: inherit; font-weight: 800; font-size: 15px; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; } .f82big svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.f82bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; min-height: 48px; }
+.f82k { flex: none; min-height: 48px; min-width: 48px; padding: 0 13px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, .14); background: rgba(255, 255, 255, .05); color: #C9D2EC; font: inherit; font-size: 12.5px; display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; cursor: pointer; } .f82k b { font-weight: 700; }
+.f82k[aria-pressed="true"] { background: linear-gradient(135deg, rgba(110, 231, 255, .3), rgba(180, 92, 255, .4)); border-color: #6EE7FF; color: #fff; } .f82k:disabled { opacity: .4; }
+.f82k.mem i { width: 12px; height: 12px; border-radius: 50%; background: #5b6480; } .f82k.mem[aria-pressed="true"] { background: rgba(229, 72, 77, .28); border-color: #FF5A5F; } .f82k.mem[aria-pressed="true"] i { background: #FF5A5F; box-shadow: 0 0 10px #FF5A5F; }
+.f82cnt { flex: none; font-size: 12px; color: #8FA0C8; padding: 0 6px; white-space: nowrap; }
+.f82pan { position: absolute; z-index: 2; left: 8px; right: 8px; top: calc(118px + env(safe-area-inset-top, 0px)); bottom: calc(8px + env(safe-area-inset-bottom, 0px)); border-radius: 18px; background: rgba(6, 10, 26, .97); border: 1px solid rgba(110, 231, 255, .35); display: grid; grid-template-rows: auto minmax(0, 1fr); overflow: hidden; touch-action: pan-y; } .f82pan[hidden] { display: none; }
+.f82ph { display: flex; align-items: center; justify-content: space-between; padding: 6px 6px 6px 14px; border-bottom: 1px solid rgba(255, 255, 255, .1); } .f82ph b { font-size: 15px; }
+.f82pl { overflow-y: auto; overscroll-behavior: contain; padding: 4px 12px 16px; touch-action: pan-y; } .f82pl h3 { margin: 14px 0 8px; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #6EE7FF; }
+.f82pg { display: flex; flex-wrap: wrap; gap: 8px; } .f82s { min-height: 48px; padding: 0 14px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, .12); background: rgba(255, 255, 255, .05); color: #E3E9FA; font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; } .f82s[data-have="1"] { border-color: rgba(110, 231, 255, .5); }
+.f82b:focus-visible, .f82k:focus-visible, .f82chip:focus-visible, .f82s:focus-visible, .f82done:focus-visible, .f82big:focus-visible { outline: 3px solid #6EE7FF; outline-offset: 2px; }
+@media (max-height: 480px) { #feld82 { gap: 4px; } .f82ti small { display: none; } .f82pan { top: calc(60px + env(safe-area-inset-top, 0px)); } }
+/* Querformat am Handy: Kopf und Instrumente in eine Zeile – die Spielfläche bekommt die Höhe */
+@media (max-height: 480px) and (min-width: 560px) { #feld82 { grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; column-gap: 10px; } .f82top { grid-column: 1; grid-row: 1; } .f82chips { grid-column: 2; grid-row: 1; align-self: center; } .f82wrap { grid-column: 1 / -1; grid-row: 2; } .f82bar { grid-column: 1 / -1; grid-row: 3; } .f82ti { display: none; } }
 </style>
 
 <canvas id="c" aria-label="Klangraum: dreidimensionale Klangformen" role="img"></canvas>
@@ -2608,7 +2636,7 @@ body.p78 .labels .lbtn .lplay { min-width: 36px; min-height: 36px; }
 
 <div class="start" id="start">
   <div class="start-inner">
-    <div class="meta">Version 81 · Start/Stopp und Lautstärke an den Namensschildern der Formen gehen wieder</div>
+    <div class="meta">Version 82 · Klangfeld: jedes Instrument mit den Fingern spielen – tippen, halten, wischen, ohne Noten</div>
     <h1 class="klogoH"><span class="sr">KLANGRAUM</span><span id="klogoStart" aria-hidden="true"></span></h1>
     <p>Musik machen ohne Vorkenntnisse: Wähle einen Stil, und KLANGRAUM baut dir einen ganzen Song. Oder spiel, forme und mische deine Klänge selbst – nichts klingt falsch.</p><ul class="stfeat"><li>Song in 1 Minute</li><li>Einspielen ohne Aufnahmeknopf</li><li>Klänge kneten</li><li>Mischen wie im Studio</li></ul>
     <button class="enter" id="enter">Eintauchen</button>
@@ -6823,7 +6851,7 @@ const Sheets = {
   },
   menu() {
     const txt = Sheets.helpText(Music.help);
-    const s = this.open("Menü", this.head("KLANGRAUM · Version 81") + `
+    const s = this.open("Menü", this.head("KLANGRAUM · Version 82") + `
       <div class="field"><label for="rHelp">Wie viel hilft die App? <b id="helpV">${txt[0]}</b></label><input type="range" id="rHelp" min="0" max="100" step="1" value="${Music.help}"><p class="helptext" id="helpT">${txt[1]}</p></div>
       ${TempoUI.html()}
       <div class="row"><button class="btn" id="mGlide">Übergänge: Drehung ${Glide.rot ? "fließend" : "sofort"} · Tempo ${Glide.tempo ? "fließend" : "sofort"}</button></div>
@@ -20500,6 +20528,176 @@ const Schild81 = { ok() { const r = [...document.styleSheets].flatMap(s => { try
   const st = P78.set.bind(P78); P78.set = function (on) { const r = st(on); try { Layout.last = ""; Layout.sync(); if (Scene.view === "alle") Scene.fitGoal(); Scene.shiftView(); } catch (_) {} return r; };
   let was = null; setInterval(() => { try { const now = P78.on && App.started && UI.tab === "klang" && !$("p78").hidden; if (now !== was) { was = now; if (Scene.ok) { if (Scene.view === "alle") Scene.fitGoal(); Scene.shiftView(); } } } catch (_) {} }, 700); }
 
+/* ================= Version 82: Klangfeld – alle Instrumente mit Gesten spielen, ohne Noten ================= */
+I67.feld = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M9 19V5M14 19V5M19 19V5"/><circle cx="9" cy="14" r="2.200" fill="currentColor" stroke="none"/><circle cx="14" cy="8.500" r="2.200" fill="currentColor" stroke="none"/><path d="M9 14l5-5.500"/></svg>`;
+const Feld82 = {
+  on: false, f: null, t: null, L: 2, q: 2, mem: store.get("f82mem") === true, chord: false, made: null, undone: false, round: -1, panel: false,
+  hold: new Map(), fx: [], COLS: 8, lastBt: -1, flash: 0,
+  DR: { kick: ["Bassdrum", "#FF8A6B", 0.15], snare: ["Snare", "#FFD76B", 0.47], hat: ["Hi-Hat", "#5FE0C4", 0.72], top: ["Becken", "#B08CFF", 0.92] },
+  drum(f) { return Einsp.drum(f); },
+  forms() { return Einsp.forms(); },
+  /* Aufbau des Feldes: Spalten = Stufen der Tonleiter, Zeilen = Oktaven (unten tief). Schlagzeug: Zeilen = Trommeln. */
+  rows(f) { return this.drum(f) ? Einsp.zones(f).length : (this.geoH || 600) < 330 ? 2 : 3; },
+  cellOf(G, x, y) { const c = clamp(Math.floor((x - G.x) / G.cw), 0, G.cols - 1), r = clamp(Math.floor((y - G.y) / G.rh), 0, G.rows - 1); return { c, r, fx: clamp((x - G.x) / G.cw - c, 0, 1), fy: clamp((y - G.y) / G.rh - r, 0, 1) }; },
+  /* Stufe der Tonleiter: jede Zeile eine Oktave höher, die achte Spalte ist schon der erste Ton der nächsten Zeile */
+  kOf(c, r, rows) { return c + (rows - 1 - r) * 7; },
+  /* unten in der Zelle kräftig, oben zart */
+  velAt(fy) { return Math.round(clamp(0.5 + 0.48 * fy, 0.4, 1) * 100) / 100; },
+  /* Wackeln: seitlicher Weg seit dem Aufsetzen biegt den Ton, höchstens einen Viertelton */
+  bend(dx, cw) { return Math.round(clamp(dx / Math.max(1, cw) * 100, -50, 50)); },
+  chordKs(k) { return [k, k + 2, k + 4]; },
+  zoneOf(f, r) { const Z = Einsp.zones(f).slice().reverse(); return Z[clamp(r, 0, Z.length - 1)]; },
+  el() {
+    let e = $("feld82"); if (e) return e; e = document.createElement("div"); e.id = "feld82"; e.hidden = true; e.setAttribute("role", "dialog"); e.setAttribute("aria-label", "Klangfeld");
+    e.innerHTML = `<div class="f82top"><button class="f82b" data-f8="close" aria-label="Klangfeld schließen">${I67.x}</button><div class="f82ti"><b>Klangfeld</b><small id="f82Sub"></small></div><button class="f82b" data-f8="pp" id="f82PP" aria-label="Begleitung starten oder anhalten"></button><button class="f82done" data-f8="close">Fertig</button></div>
+      <div class="f82chips" id="f82Chips" aria-label="Instrument wählen"></div>
+      <div class="f82wrap"><canvas id="f82C" aria-label="Spielfläche: tippen, halten und wischen spielt Töne"></canvas><div class="f82empty" id="f82E" hidden><p>Womit möchtest du spielen?</p><button class="f82big" data-f8="inst">${I67.feld}<span>Instrument wählen</span></button></div></div>
+      <div class="f82bar" id="f82Bar"></div>
+      <div class="f82pan" id="f82Pan" hidden></div>`;
+    document.body.appendChild(e); this.bind(e); return e;
+  },
+  open(f) {
+    if (!Engine.ctx) { UI.toast("Erst „Eintauchen“ – dann ist der Ton an"); return; }
+    try { if (Engine.ctx.state !== "running") Engine.ctx.resume(); UI.hideSheets(); P78.close(); if (Erkl.on) Erkl.stop(); if (Auf78.on) Auf78.set(false); if (Tools.knead) Tools.toggleKnead(false); if (Tools.brush) Tools.toggleBrush(false); } catch (_) {}
+    const e = this.el(); this.on = true; this.made = null; this.undone = false; this.panel = false; this.hold.clear(); this.fx = []; document.body.classList.add("kfeld82"); e.hidden = false;
+    this.setForm(Einsp.playable(f) ? f : Einsp.playable(Forms.active) ? Forms.active : this.forms()[0] || null);
+    try { Einsp.start(); } catch (_) {}
+    cancelAnimationFrame(this.raf); const loop = () => { if (!this.on) return; try { this.draw(); } catch (x) { console.warn(x); } this.raf = requestAnimationFrame(loop); }; this.raf = requestAnimationFrame(loop);
+    try { P78.paint(true); } catch (_) {}
+  },
+  tidy() { const f = this.f, t = this.t; if (f && t && !t.ev.length && f.takes) { const i = f.takes.indexOf(t); if (i >= 0 && this.fresh === t) f.takes.splice(i, 1); } },
+  setForm(f) {
+    this.stopAll(); if (f !== this.f) { this.tidy(); this.dropUnused(f); }
+    this.f = f || null; this.t = f && (f.takes || []).length ? f.takes[0] : null; this.L = this.t ? this.t.bars : (Song.sections.length ? 4 : 2); this.round = -1;
+    if (f) { try { Forms.setActive(f); Fade.set(f, true, true); if (f.lpOff) f.lpOff = false; Forms.applyMix(f); SongUI.adopt(f); } catch (e) { console.warn(e); } }
+    this.render();
+  },
+  /* ein eben geholtes Instrument, auf dem nichts gemerkt wurde, verschwindet beim Wechsel wieder – so kann man alle durchprobieren */
+  dropUnused(next) { const m = this.made; if (!m || m === next) return; this.made = null; try { if (Forms.list.includes(m) && !Loops.count(m)) Forms.del(m); } catch (_) {} },
+  add(seedId, name) {
+    this.panel = false; this.stopAll(); this.tidy(); this.dropUnused(null);
+    if (Forms.list.length >= Forms.MAX) { UI.toast("Im Stück ist kein Platz mehr für ein weiteres Instrument", 2400); return this.render(); }
+    if (!this.undone) { Undo.push(); this.undone = true; } const f = Forms.make({ seedId, name }); if (!f) return this.render(); Forms.rebuild(f, true); f.still = false; this.made = f; this.f = null; this.setForm(f); Hap(12); try { UI.refresh(); } catch (_) {}
+  },
+  close() {
+    if (!this.on) return; this.on = false; cancelAnimationFrame(this.raf); this.stopAll(); document.body.classList.remove("kfeld82"); const e = $("feld82"); if (e) e.hidden = true;
+    const f = this.f, n = f && this.t ? this.t.ev.length : 0; this.tidy();
+    if (f && this.made === f && !Loops.count(f)) { try { Forms.del(f); } catch (_) {} }
+    else if (n && this.mem) { Save.soon(); UI.toast(`${f.name}: dein Loop läuft (${n} ${n === 1 ? "Ton" : "Töne"})`, 2600); }
+    this.f = null; this.t = null; this.made = null; try { UI.refresh(); P78.paint(true); if (UI.tab === "song") SongUI.render(true); } catch (_) {}
+  },
+  stopAll() { for (const [, v] of this.hold) this.rel(v); this.hold.clear(); },
+  take() { const f = this.f; if (this.t && f.takes && f.takes.includes(this.t)) return this.t; if (!this.undone) { Undo.push(); this.undone = true; } this.t = Loops.newTake(f, this.L, [], this.drum(f) ? "Rhythmus" : "Melodie"); this.t.base = 0; this.fresh = this.t; return this.t; },
+  /* gemerkt wird wie beim Einspielen: gerade gerückt auf halbe Schläge, ab der nächsten Runde spielt es der Loop */
+  note(ev) {
+    if (!this.mem) return null; const P = Einsp.local.call(this), q = this.q, len = P.len; let s = q ? mod(Math.round(P.x / q) * q, len) : Math.round(P.x * 100) / 100; if (s >= len) s = 0;
+    ev.s = s; ev.r = P.abs + (q && Math.round(P.x / q) * q >= len ? 1 : 0); const t = this.take(), R = { ev, t0: Engine.now(), t };
+    R.tm = setTimeout(() => this.commit(R), (Math.max(0, (s - P.x) * Transport.spb) + 0.55) * 1000); return R;
+  },
+  commit(R) { if (R.done) return; R.done = true; const t = R.t, e = R.ev; if (!this.on || !t || !this.f || !(this.f.takes || []).includes(t)) return;
+    const i = t.ev.findIndex(x => (e.z ? x.z === e.z : x.m === e.m) && Math.abs(x.s - e.s) < 0.5), o = { s: e.s, d: e.d, v: e.v, u: e.u, r: e.r }; if (e.z) o.z = e.z; else o.m = e.m;
+    if (i >= 0) t.ev[i] = o; else t.ev.push(o); R.o = o; this.round = Math.max(this.round, e.r); this.count(); Save.soon(); },
+  /* einen Ton (oder Dreiklang, oder Trommelschlag) für die Zelle anschlagen */
+  strike(G, cell) {
+    const f = this.f, vel = this.velAt(cell.fy), out = { hs: [], recs: [], c: cell.c, r: cell.r, col: "#fff", ms: [] };
+    if (this.drum(f)) { const z = this.zoneOf(f, cell.r), D = this.DR[z]; out.col = D[1]; out.z = z; out.hs.push(Forms.play(f, D[2], vel, { zone: z, help: 50 })); const R = this.note({ z, u: D[2], d: 1, v: vel }); if (R) out.recs.push(R); return out; }
+    const k = this.kOf(cell.c, cell.r, G.rows); out.k = k; out.col = KeysUI.COL[mod(k, 7)];
+    for (const kk of (this.chord ? this.chordKs(k) : [k])) { const m = KeysUI.midi(f, kk), u = clamp((m - 28) / 60, 0, 1); out.ms.push(m); out.hs.push(Forms.play(f, u, kk === k ? vel : vel * 0.8, { midi: m })); const R = this.note({ m, u, d: 1, v: kk === k ? vel : Math.round(vel * 80) / 100, k: kk }); if (R) out.recs.push(R); }
+    return out;
+  },
+  rel(v) { for (const h of v.hs) { try { Forms.release(h); } catch (_) {} } const d = clamp(Math.round((Engine.now() - v.t0) / Transport.spb * 2) / 2, this.q || 0.5, this.L * 16 - 0.5); for (const R of v.recs) { if (!R.ev.z) { R.ev.d = d; if (R.o) R.o.d = d; } } },
+  geo() { const c = $("f82C"), r = c.getBoundingClientRect(), rows = this.rows(this.f), cols = this.drum(this.f) ? 4 : this.COLS; this.geoH = r.height; return { x: 0, y: 0, w: r.width, h: r.height, cols, rows, cw: r.width / cols, rh: r.height / rows, left: r.left, top: r.top }; },
+  down(e) {
+    if (!this.f || this.panel) return; const c = $("f82C"); try { c.setPointerCapture(e.pointerId); } catch (_) {} e.preventDefault();
+    const G = this.geo(), x = e.clientX - G.left, y = e.clientY - G.top, cell = this.cellOf(G, x, y), v = this.strike(G, cell);
+    v.t0 = Engine.now(); v.x = x; v.y = y; v.x0 = x; v.tr = [[x, y, performance.now()]]; v.cents = 0; this.hold.set(e.pointerId, v); this.ring(x, y, v.col); Hap(4);
+  },
+  move(e) {
+    const v = this.hold.get(e.pointerId); if (!v || !this.f) return; const G = this.geo(), x = e.clientX - G.left, y = e.clientY - G.top, cell = this.cellOf(G, x, y);
+    v.x = x; v.y = y; v.tr.push([x, y, performance.now()]); if (v.tr.length > 24) v.tr.shift();
+    if (cell.c !== v.c || cell.r !== v.r) {   /* in die nächste Zelle gewischt: der nächste Ton – so entstehen Melodien in einem Zug */
+      this.rel(v); const n = this.strike(G, cell); n.t0 = Engine.now(); n.x = x; n.y = y; n.x0 = G.cw * (cell.c + 0.5); n.tr = v.tr; n.cents = 0; this.hold.set(e.pointerId, n); this.ring(x, y, n.col); Hap(3); return;
+    }
+    if (!v.z) { const ct = this.bend(x - v.x0, G.cw); if (Math.abs(ct - v.cents) >= 3) { v.cents = ct; const r = Math.pow(2, ct / 1200); v.hs.forEach((h, i) => { if (h && h.vids) for (const id of h.vids) { try { Engine.glide(id, 440 * Math.pow(2, (v.ms[i] - 69) / 12) * r); } catch (_) {} } }); } }
+  },
+  up(e) { const v = this.hold.get(e.pointerId); if (!v) return; this.hold.delete(e.pointerId); this.rel(v); },
+  ring(x, y, col) { this.fx.push({ x, y, col, t: performance.now() }); if (this.fx.length > 40) this.fx.shift(); },
+  bind(e) {
+    const c = e.querySelector("#f82C");
+    c.addEventListener("pointerdown", ev => this.down(ev)); c.addEventListener("pointermove", ev => this.move(ev));
+    for (const k of ["pointerup", "pointercancel", "lostpointercapture"]) c.addEventListener(k, ev => this.up(ev));
+    c.addEventListener("contextmenu", ev => ev.preventDefault());
+    e.addEventListener("click", ev => { const b = ev.target.closest("[data-f8], [data-ff], [data-fs]"); if (!b || b.disabled) return; if (b.dataset.ff) { Hap(8); return this.setForm(Forms.byId(b.dataset.ff)); } if (b.dataset.fs) { return this.add(b.dataset.fs, b.dataset.nm); } this.act(b.dataset.f8); });
+    document.addEventListener("keydown", ev => { if (this.on && ev.key === "Escape") { if (this.panel) { this.panel = false; this.render(); } else this.close(); } });
+  },
+  act(k) {
+    Hap(8);
+    if (k === "close") return this.close();
+    if (k === "pp") { if (Transport.running) { if (Song.playing) SongUI.stop(); else Transport.stop(); } else Einsp.start(); return setTimeout(() => this.render(), 80); }
+    if (k === "inst") { this.panel = !this.panel; return this.render(); }
+    if (k === "chord") { this.chord = !this.chord; return this.render(); }
+    if (k === "mem") { this.mem = !this.mem; store.set("f82mem", this.mem); if (this.mem) { try { Einsp.start(); } catch (_) {} } return this.render(); }
+    if (k === "oct-" || k === "oct+") { this.stopAll(); KeysUI.oct = clamp(KeysUI.oct + (k === "oct+" ? 1 : -1), -2, 2); store.set("kOct", KeysUI.oct); return this.render(); }
+    if (k === "undo") { const t = this.t; if (!t || !t.ev.length) return; let r = -Infinity; for (const e of t.ev) if (e.r != null && e.r > r) r = e.r; if (r === -Infinity) return UI.toast("Das sind Töne von früher – „Alles weg“ leert den Loop", 2400); t.ev = t.ev.filter(e => e.r !== r); Save.soon(); return this.count(); }
+    if (k === "clear") { const t = this.t; if (!t || !t.ev.length) return; Undo.push(); this.undone = true; t.ev = []; Save.soon(); return this.count(); }
+  },
+  count() { const n = this.t ? this.t.ev.length : 0, c = $("f82Cnt"); if (c) c.textContent = this.mem ? (n ? `${n} ${n === 1 ? "Ton" : "Töne"} gemerkt` : "spiel – es bleibt") : ""; const e = $("feld82"); if (e) e.querySelectorAll('[data-f8="undo"], [data-f8="clear"]').forEach(b => { b.disabled = !n; }); },
+  /* alle Instrumente, nach Art geordnet */
+  groups() { const G = new Map(), put = (g, s) => { if (!G.has(g)) G.set(g, []); G.get(g).push(s); };
+    for (const s of K.SEEDS) { if (!s || !s.id || ["wolke", "kugel", "kristall"].includes(s.id)) continue; const fam = s.fam === "stimme" ? "Stimmen" : s.fam; put(s.kind === "drum" && !s.fam ? "Schlagzeug" : fam || (s.kind === "drum" ? "Schlagzeug" : "Instrumente"), s); }
+    return [...G.entries()].sort((a, b) => (a[0] === "Instrumente" ? -1 : b[0] === "Instrumente" ? 1 : 0)); },
+  render() {
+    const e = this.el(), f = this.f, dr = this.drum(f);
+    $("f82Sub").textContent = f ? (dr ? "Tippen = Schlag · Wischen = Wirbel" : "Tippen · Halten · Wischen · Wackeln") : "";
+    $("f82PP").innerHTML = Transport.running ? I67.stop : I67.play;
+    $("f82Chips").innerHTML = this.forms().map(g => `<button class="f82chip" data-ff="${g.id}" aria-pressed="${g === f}" style="--c:${SongGen.col(g)}"><i>${SongGen.icOf(g)}</i><span>${esc(g.name)}</span></button>`).join("") + `<button class="f82chip new" data-f8="inst" aria-pressed="${this.panel}">＋ Instrument</button>`;
+    $("f82E").hidden = !!f; $("f82C").style.visibility = f ? "" : "hidden";
+    $("f82Bar").innerHTML = f ? `${dr ? "" : `<button class="f82k" data-f8="chord" aria-pressed="${this.chord}" aria-label="Akkord: ein Finger spielt drei Töne"><b>Akkord</b></button><button class="f82k" data-f8="oct-" aria-label="Eine Oktave tiefer"${KeysUI.oct <= -2 ? " disabled" : ""}><b>◀ tiefer</b></button><button class="f82k" data-f8="oct+" aria-label="Eine Oktave höher"${KeysUI.oct >= 2 ? " disabled" : ""}><b>höher ▶</b></button>`}
+      <button class="f82k mem" data-f8="mem" aria-pressed="${this.mem}" aria-label="Merken: was du spielst, bleibt als Loop"><i></i><b>Merken</b></button>${this.mem ? `<button class="f82k" data-f8="undo" aria-label="Die Töne der letzten Runde entfernen"><b>Runde weg</b></button><button class="f82k" data-f8="clear" aria-label="Loop leeren"><b>Alles weg</b></button>` : ""}<span class="f82cnt" id="f82Cnt"></span>` : "";
+    const P = $("f82Pan"); P.hidden = !this.panel;
+    if (this.panel) { const have = new Set(Forms.list.map(g => g.inst || g.seedId)); P.innerHTML = `<div class="f82ph"><b>Alle Instrumente</b><button class="f82b" data-f8="inst" aria-label="Liste schließen">${I67.x}</button></div><div class="f82pl">${this.groups().map(([g, L]) => `<h3>${esc(g)}</h3><div class="f82pg">${L.map(s => `<button class="f82s" data-fs="${s.id}" data-nm="${esc(s.name)}"${have.has(s.id) ? ' data-have="1"' : ""}>${esc(s.name)}</button>`).join("")}</div>`).join("")}</div>`; }
+    this.count(); this.size();
+  },
+  size() { const c = $("f82C"); if (!c) return; const r = c.getBoundingClientRect(), d = Math.min(2, window.devicePixelRatio || 1), w = Math.round(r.width * d), h = Math.round(r.height * d); if (w > 0 && h > 0 && (c.width !== w || c.height !== h)) { c.width = w; c.height = h; } this.dpr = d; },
+  draw() {
+    const c = $("f82C"), f = this.f; if (!c || !f) return; this.size(); const g = c.getContext("2d"), d = this.dpr || 1, G = this.geo(), now = performance.now(), dr = this.drum(f);
+    g.setTransform(d, 0, 0, d, 0, 0); g.clearRect(0, 0, G.w, G.h);
+    /* Takt: ein Lichtband läuft durch den Takt, auf jeden Schlag atmet das Feld */
+    let beat = 0, bar = 0; if (Transport.running) { const pf = (Engine.now() - Transport.t0) / Transport.spb; bar = mod(pf, 16) / 16; beat = 1 - mod(pf, 4) / 4; }
+    const bg = g.createLinearGradient(0, 0, 0, G.h); bg.addColorStop(0, "#070B1C"); bg.addColorStop(1, "#02040C"); g.fillStyle = bg; g.fillRect(0, 0, G.w, G.h);
+    const held = new Set(); for (const [, v] of this.hold) held.add(v.c + ":" + v.r);
+    for (let r = 0; r < G.rows; r++) for (let cI = 0; cI < G.cols; cI++) {
+      const x = cI * G.cw, y = r * G.rh, k = dr ? 0 : this.kOf(cI, r, G.rows), j = mod(k, 7), col = dr ? this.DR[this.zoneOf(f, r)][1] : KeysUI.COL[j], on = held.has(cI + ":" + r), home = !dr && j === 0, safe = !dr && (j === 2 || j === 4);
+      const a = on ? 0.55 : (home ? 0.17 : safe ? 0.11 : 0.07) + beat * 0.03 * (home ? 1.6 : 1);
+      const gr = g.createLinearGradient(0, y, 0, y + G.rh); gr.addColorStop(0, this.rgba(col, a * 0.35)); gr.addColorStop(1, this.rgba(col, a)); g.fillStyle = gr; g.fillRect(x + 1.5, y + 1.5, G.cw - 3, G.rh - 3);
+      g.strokeStyle = this.rgba(col, on ? 0.95 : home ? 0.55 : 0.26); g.lineWidth = on ? 2 : 1; g.strokeRect(x + 2, y + 2, G.cw - 4, G.rh - 4);
+      const cx = x + G.cw / 2, cy = y + G.rh / 2, rr = on ? 9 : home ? 6 : 3.5; g.beginPath(); if (home) { g.moveTo(cx, cy - rr); g.lineTo(cx + rr, cy); g.lineTo(cx, cy + rr); g.lineTo(cx - rr, cy); g.closePath(); } else g.arc(cx, cy, rr, 0, 6.2832); g.fillStyle = this.rgba(col, on ? 1 : home ? 0.9 : 0.55); g.fill();
+      if (!dr && r === G.rows - 1) { g.fillStyle = this.rgba(col, 0.75); g.font = "700 11px system-ui, sans-serif"; g.textAlign = "center"; g.fillText(String(j + 1), cx, y + G.rh - 9); }
+      if (dr && cI === 0) { g.fillStyle = this.rgba(col, 0.9); g.font = "700 12px system-ui, sans-serif"; g.textAlign = "left"; g.fillText(this.DR[this.zoneOf(f, r)][0], x + 10, y + 20); }
+    }
+    if (!dr) { g.fillStyle = "rgba(200,210,240,.5)"; g.font = "600 10px system-ui, sans-serif"; g.textAlign = "left"; const nm = G.rows === 3 ? ["hoch", "mitte", "tief"] : ["hoch", "tief"]; for (let r = 0; r < G.rows; r++) g.fillText(nm[r], 8, r * G.rh + 16); }
+    if (Transport.running) { const bx = bar * G.w; const lg = g.createLinearGradient(bx - 40, 0, bx, 0); lg.addColorStop(0, "rgba(180,92,255,0)"); lg.addColorStop(1, "rgba(180,92,255,.5)"); g.fillStyle = lg; g.fillRect(bx - 40, 0, 40, 3); g.fillRect(bx - 40, G.h - 3, 40, 3); }
+    g.globalCompositeOperation = "lighter";
+    for (const [, v] of this.hold) { const T = v.tr; for (let i = 1; i < T.length; i++) { const age = (now - T[i][2]) / 420; if (age > 1) continue; g.strokeStyle = this.rgba(v.col, (1 - age) * 0.8); g.lineWidth = 7 * (1 - age) + 1; g.lineCap = "round"; g.beginPath(); g.moveTo(T[i - 1][0], T[i - 1][1]); g.lineTo(T[i][0], T[i][1]); g.stroke(); }
+      const pr = 22 + 4 * Math.sin(now / 90); const rg = g.createRadialGradient(v.x, v.y, 2, v.x, v.y, pr * 1.8); rg.addColorStop(0, this.rgba(v.col, 0.9)); rg.addColorStop(1, this.rgba(v.col, 0)); g.fillStyle = rg; g.beginPath(); g.arc(v.x, v.y, pr * 1.8, 0, 6.2832); g.fill(); }
+    this.fx = this.fx.filter(q => now - q.t < 620); for (const q of this.fx) { const a = (now - q.t) / 620; g.strokeStyle = this.rgba(q.col, (1 - a) * 0.85); g.lineWidth = 3 * (1 - a) + 0.5; g.beginPath(); g.arc(q.x, q.y, 14 + a * 70, 0, 6.2832); g.stroke(); }
+    g.globalCompositeOperation = "source-over";
+  },
+  rgba(hex, a) { const n = parseInt(hex.slice(1), 16); return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${Math.max(0, Math.min(1, a)).toFixed(3)})`; }
+};
+addEventListener("resize", () => { if (Feld82.on) Feld82.size(); });
+/* Punkte unten ruhen, solange das Klangfeld offen ist */
+{ const vis = P78.visible.bind(P78); P78.visible = function () { return !Feld82.on && vis(); }; }
+P78.HY.Klangfeld = "Klang-feld";
+try { Alles73.MAKE.push(["feld", "feld", "Klangfeld", "Jedes Instrument mit Fingern spielen – tippen, halten, wischen"]); const ac = Alles73.act.bind(Alles73); Alles73.act = function (k) { if (k === "mk:feld") { UI.hideSheets(); return setTimeout(() => Feld82.open(P78.f()), 80); } return ac(k); }; } catch (_) {}
+P78.T.form[0] = ["a:mk:feld", "c:keys", "a:mk:tasten", "a:mk:noten", "c:knead", "c:brush"]; P78.T.form[5] = ["c:new", "c:copy", "c:sheet", "c:del", "c:playmode"];
+Help.T.push({ id: "v82", ic: "✦", t: "Klangfeld: alle Instrumente mit Gesten spielen", k: "klangfeld feld spielen instrument instrumente gesten finger multitouch wischen tippen halten melodie ohne noten akkord dreiklang oktave merken loop schlagzeug trommel futuristisch",
+  h: `<p><b>Klangfeld</b> (Form → Klangfeld): eine leuchtende Fläche, auf der du jedes Instrument mit den Fingern spielst – ohne Noten. <b>Kein Ton klingt falsch:</b> Das Feld kennt nur die Töne, die zur Stimmung des Stücks passen.</p>
+  <p><b>Aufbau:</b> Jede Spalte ist ein Ton (Farbe und Ziffer wie bei den bunten Tasten), nach rechts wird es höher. Jede Zeile ist eine Oktave: unten tief, oben hoch. Die Raute ◆ zeigt den Grundton – dort klingt es „zu Hause“.</p>
+  <p><b>Gesten:</b> <b>Tippen</b> = kurzer Ton · <b>Halten</b> = der Ton bleibt · <b>Wischen</b> über die Spalten = eine Melodie in einem Zug · <b>Wackeln</b> auf der Stelle = der Ton schwingt · weiter <b>unten</b> in der Zelle = kräftiger · <b>mehrere Finger</b> = mehrere Töne.</p>
+  <p><b>Akkord:</b> ein Finger spielt drei Töne. <b>tiefer / höher:</b> verschiebt das ganze Feld. <b>Merken:</b> Was du spielst, bleibt als Loop und wiederholt sich (gerade gerückt, damit es im Takt klingt); „Runde weg“ nimmt die letzte Runde zurück.</p>
+  <p><b>＋ Instrument</b> zeigt alle Instrumente. Ein Instrument, auf dem du nichts gemerkt hast, verschwindet beim Wechsel wieder – so probierst du alle durch, ohne das Stück zu füllen. Beim <b>Schlagzeug</b> sind die Zeilen die Trommeln; wischen ergibt einen Wirbel.</p>` });
+
 // Verlässt man das Stück, verstummt auch die Schnitt-Schleife
 { const st = UI.setTab.bind(UI); UI.setTab = t => { if (t !== "stueck") WaveEd.stopAll(); st(t); }; }
 /* ============================================================
@@ -21293,6 +21491,15 @@ const Tests = {
         try { f.still = true; const h1 = Bew.held().includes(f); Bew.sel = new Set([f.id]); Bew.all("sgo"); const ok1 = !f.still; f.still = true; Bew.all("go"); const ok2 = !f.still;
           ok("BV", h1 && ok1 && ok2 && /data-bwa="go"/.test(Bew.html()), `Angehaltene Formen wieder anschubsen: einzeln, Auswahl (${ok1 ? "ok" : "fehlt"}) und alle (${ok2 ? "ok" : "fehlt"}) · im Raum hält Antippen eine drehende Form an`); }
         finally { f.still = s0; Transport.start = ts; UI.toast = tp; } } } catch (e) { ok("BV", false, String(e)); }
+    // v82: Klangfeld
+    try { const F = Feld82, G = { x: 0, y: 0, w: 400, h: 600, cols: 8, rows: 3, cw: 50, rh: 200 }, c = (x, y) => { const q = F.cellOf(G, x, y); return [q.c, q.r, Math.round(q.fy * 100)].join(); };
+      const a = c(10, 590) === "0,2,95" && c(399, 5) === "7,0,3" && c(-20, 900) === "0,2,100" && c(125, 300) === "2,1,50";
+      const b = F.kOf(0, 2, 3) === 0 && F.kOf(7, 2, 3) === 7 && F.kOf(0, 1, 3) === 7 && F.kOf(7, 0, 3) === 21 && F.kOf(3, 0, 2) === 10;
+      const d = F.velAt(1) === 0.98 && F.velAt(0) === 0.5 && F.bend(0, 50) === 0 && F.bend(25, 50) === 50 && F.bend(-500, 50) === -50 && F.bend(10, 50) === 20 && F.chordKs(3).join() === "3,5,7";
+      ok("KF", a && b && d, "Klangfeld: jede Spalte ist eine Stufe der Tonleiter, jede Zeile eine Oktave (unten tief) – es gibt nur passende Töne · weiter unten in der Zelle klingt es kräftiger · Wackeln biegt den Ton höchstens einen Viertelton · „Akkord“ legt Terz und Quinte der Tonleiter dazu"); } catch (e) { ok("KF", false, String(e)); }
+    try { const g = Feld82.groups(), all = g.flatMap(x => x[1]), ids = new Set(all.map(s => s.id));
+      ok("KG", g.length >= 8 && all.length >= 90 && ids.has("klavier") && ids.has("trommel") && ids.has("kit_909") && ids.has("stimme_aah") && ids.size === all.length && g.some(x => x[0] === "Schlagzeug") && g.every(x => x[0] && x[1].length) && Alles73.MAKE.some(m => m[0] === "feld") && P78.keys("form").includes("a:mk:feld") && Help.T.some(t => t.id === "v82") && Feld82.rgba("#FF8000", 0.5) === "rgba(255,128,0,0.500)", "Klangfeld: alle Instrumente der App stehen zur Wahl, nach Art geordnet (keines doppelt) · erreichbar über Form → Klangfeld"); } catch (e) { ok("KG", false, String(e)); }
+
     // v81: Namensschilder an den Formen
     try { ok("SL", Schild81.ok() && typeof QuickPP.toggle === "function" && typeof Feel.volDrag === "function", "Namensschilder an den Formen (Alle-Ansicht) sind auch mit den Punkten unten bedienbar: ▶ am Schild startet und stoppt die Form, am Schild ziehen regelt die Lautstärke"); } catch (e) { ok("SL", false, String(e)); }
 
