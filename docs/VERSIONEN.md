@@ -6,6 +6,7 @@
 
 | Version | Commit | Inhalt |
 |---|---|---|
+| 82 | `afa872c` | Klangfeld: Vollbild-Spielfläche in der Tonart des Stücks – tippen, halten, wischen, wackeln, mehrere Finger; alle 98 spielbaren Instrumente; Akkord, Oktave, Merken als Loop |
 | 81 | `ed49292` | Behoben: ▶ (Start/Stopp) und Lautstärke-Zug an den Namensschildern der Formen; unterstes Schild lag unter den Punkten |
 | 80 | `2b07181` | Autotune für Tonspuren (aus/sanft/stark, Tonart des Stücks oder alle Töne), „Tonspur“ am Aufnahme-Punkt · überbreite Blätter auf schmalen Telefonen behoben · Layout-Prüfer neu und strenger |
 | 79 | `4b0d176` | Aufnahme-Punkt (vierter Punkt), Klang-Bibliothek, mehrere Start-Klänge im neuen Stück, Text wird Musik (Foto lesen; Buchstaben, Wortlängen, Notennamen) · Geister-Tipp an den Tafeln behoben |
